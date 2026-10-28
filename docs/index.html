@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="四个领域，一份日报。用一句话浏览每日新闻，展开了解详情与原始来源。">
+  <title>Daily Agent News · 每日新闻榜</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script src="./assets/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">跳到新闻榜</a>
+  <header class="masthead">
+    <a class="wordmark" href="./" aria-label="Daily Agent News 首页"><span class="mark" aria-hidden="true">N<span>·</span></span><span><small>THE DAILY BRIEFING</small><strong>Daily Agent News</strong></span></a>
+    <label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜索新闻、关键词、来源…" aria-label="搜索新闻"><kbd>/</kbd></label>
+    <div class="tools"><button id="theme" aria-label="切换深色模式" title="切换深色模式">◐</button><a href="https://github.com/XBsleepy/daily-agent-news" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+  </header>
+  <div class="shell">
+    <aside class="rail" aria-label="日报导航">
+      <p class="eyebrow">YOUR DAILY SIGNAL</p>
+      <a class="rail-current" href="#main">每日新闻榜 <span>↗</span></a>
+      <div class="rail-section"><label class="eyebrow" for="edition">往期日报</label><select id="edition" aria-label="选择日报日期"><option value="">暂无归档</option></select></div>
+      <div class="rail-section"><p class="eyebrow">四个领域 · 一份日报</p><div id="fields-nav"></div></div>
+      <p class="rail-note">留意重要的事。<br>把时间留给思考。</p>
+    </aside>
+    <main id="main">
+      <section class="hero">
+        <div class="edition-line"><span class="eyebrow">DAILY NEWS / 每日精选</span><span id="edition-date">—</span></div>
+        <h1>今日值得关注<span>的事。</span></h1>
+        <p class="intro">四个领域的每日信号，一份值得读的新闻榜。</p>
+        <div class="hero-bottom"><p>一句话掌握动态，点击新闻深入了解。<br><span id="updated">等待日报数据</span></p><div class="stats"><div><b id="news-count">00</b><small>条精选新闻</small></div><div><b id="field-count">04</b><small>个关注领域</small></div></div></div>
+      </section>
+      <section id="demo-notice" class="notice" hidden><strong>当前为交互演示</strong><span>以下是格式示例，不是真实新闻；接入任务后将显示正式日报。</span></section>
+      <section class="brief"><span class="eyebrow">编者按 / THE BRIEF</span><p id="brief-text">每日整理，持续关注。</p></section>
+      <section aria-label="每日新闻榜单">
+        <div class="feed-top"><h2>每日新闻榜 <span id="result-count"></span></h2><span class="sort-note">按整合任务评分排序 ↓</span></div>
+        <div id="filters" class="filters" aria-label="领域筛选"></div>
+        <p class="list-label"><span>序号 / 一句话新闻</span><span>领域</span></p>
+        <div id="feed" aria-live="polite"><p class="empty">正在载入日报…</p></div>
+        <div class="feed-foot"><span id="feed-caption">每日归档 · 原始来源可追溯</span><button id="reset" hidden>清除筛选 ↗</button></div>
+      </section>
+    </main>
+  </div>
+  <footer><span class="footer-brand">Daily Agent News<span> / 少一点噪声，多一点洞见。</span></span><span><a href="?demo=1">查看交互演示 ↗</a> · <a href="?live=1">正式日报</a> · Asia/Shanghai</span></footer>
+  <dialog id="detail" aria-labelledby="detail-title"><div class="detail-top"><span class="eyebrow">THE FULL STORY / 新闻详情</span><button id="close-detail" aria-label="关闭详情">✕</button></div><div id="detail-content"></div></dialog>
+</body>
+</html>

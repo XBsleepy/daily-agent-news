@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "demo": true,
+  "date": "2026-01-01",
+  "generated_at": null,
+  "fields": [
+    {
+      "id": "field-1",
+      "name": "模型与研究"
+    },
+    {
+      "id": "field-2",
+      "name": "Agent 与工具"
+    },
+    {
+      "id": "field-3",
+      "name": "产品与应用"
+    },
+    {
+      "id": "field-4",
+      "name": "产业与生态"
+    }
+  ],
+  "brief": "今日关注：长上下文模型的引用能力、Agent 执行过程的可观测性，以及 AI 应用如何进入日常工作流。以下品牌、事件与内容均为虚构 mock，仅用于检查页面布局和交互。",
+  "items": [
+    {
+      "id": "demo-1",
+      "title": "Aurora 长上下文版本进入公开测试",
+      "summary": "开源模型 Aurora 发布长上下文版本，重点改善跨文档问答与引用定位。",
+      "detail": "示例模型 Aurora 在本次测试版本中扩展了文档处理窗口，并增加引用位置返回能力。\n\n测试覆盖多份文档的对比阅读、关键信息提取和来源追踪。目前只提供有限场景的结果，复杂任务中的准确率仍需独立验证。",
+      "why_it_matters": "长上下文能力让知识库检索和研究助手有了更多实现选择，但仍需权衡响应时间、成本与引用可靠性。",
+      "published": "2026-01-01",
+      "score": 95,
+      "fields": [
+        "field-1"
+      ],
+      "sources": [
+        {
+          "name": "Mock 原文（占位链接）",
+          "url": "https://example.com/mock/1"
+        }
+      ]
+    },
+    {
+      "id": "demo-2",
+      "title": "Atlas 推出 Agent 执行回放面板",
+      "summary": "开发工具 Atlas 加入任务回放，让多步骤 Agent 的执行过程更容易排查。",
+      "detail": "示例工具 Atlas 将工具调用、输入输出和失败重试整理为时间线，开发者可以定位到某一步查看执行上下文。\n\n首批功能包括运行记录、失败步骤筛选和日志导出；敏感信息处理仍需由使用方自行配置。",
+      "why_it_matters": "可观测性是 Agent 从演示走向稳定运行的重要环节，回放能力能帮助开发者定位错误与重复调用。",
+      "published": "2026-01-01",
+      "score": 90,
+      "fields": [
+        "field-2"
+      ],
+      "sources": [
+        {
+          "name": "Mock 原文（占位链接）",
+          "url": "https://example.com/mock/2"
+        }
+      ]
+    },
+    {
+      "id": "demo-3",
+      "title": "Lumen 研究工作区开放体验",
+      "summary": "笔记应用 Lumen 上线研究工作区，将资料收集、问答与草稿整理放到同一页面。",
+      "detail": "示例应用 Lumen 支持导入公开网页和本地文档，在侧栏围绕资料提问，并将回答保存为带来源的笔记。\n\n当前演示流程主要面向个人研究与轻量资料整理，协作权限和批量导入尚未覆盖。",
+      "why_it_matters": "用户无需反复切换工具就能完成初步研究，但资料同步与来源完整性仍然值得检查。",
+      "published": "2026-01-01",
+      "score": 85,
+      "fields": [
+        "field-3"
+      ],
+      "sources": [
+        {
+          "name": "Mock 原文（占位链接）",
+          "url": "https://example.com/mock/3"
+        }
+      ]
+    },
+    {
+      "id": "demo-4",
+      "title": "Agent 工具接口兼容性草案征求反馈",
+      "summary": "社区发布 Agent 接口兼容性草案，尝试统一工具发现与调用结果格式。",
+      "detail": "示例社区工作组发布一份接口草案，描述工具能力声明、调用状态和错误返回的基本格式。\n\n草案处于讨论阶段，尚不代表行业标准；现有框架的兼容性需要分别验证。",
+      "why_it_matters": "统一接口可能降低工具迁移成本，实际价值取决于生态采纳情况和向后兼容承诺。",
+      "published": "2026-01-01",
+      "score": 80,
+      "fields": [
+        "field-4"
+      ],
+      "sources": [
+        {
+          "name": "Mock 原文（占位链接）",
+          "url": "https://example.com/mock/4"
+        }
+      ]
+    },
+    {
+      "id": "demo-5",
+      "title": "Forge 提供代码修改预览",
+      "summary": "代码助手 Forge 增加变更预览，执行文件修改前可先检查影响范围。",
+      "detail": "示例代码助手将计划修改的文件和差异集中展示，并允许逐项接受变更。\n\n功能目前覆盖单仓库工作流，跨服务任务仍需要额外配置。",
+      "why_it_matters": "清晰的变更预览有助于开发者检查修改范围，减少对自动执行过程的猜测。",
+      "published": "2026-01-01",
+      "score": 75,
+      "fields": [
+        "field-2"
+      ],
+      "sources": [
+        {
+          "name": "Mock 原文（占位链接）",
+          "url": "https://example.com/mock/5"
+        }
+      ]
+    },
+    {
+      "id": "demo-6",
+      "title": "从最终得分到过程分析：Agent 评测的新尝试",
+      "summary": "研究团队提出分阶段评测方案，分别观察 Agent 的规划、调用与结果验证能力。",
+      "detail": "示例研究将复杂任务拆成规划、工具使用和验证三个阶段，分别记录成功率和失败原因。\n\n这组 mock 数据没有真实实验结果，不应引用为研究结论。",
+      "why_it_matters": "过程指标有助于解释任务失败发生在哪里，也能让不同策略的比较更加具体。",
+      "published": "2026-01-01",
+      "score": 70,
+      "fields": [
+        "field-1"
+      ],
+      "sources": [
+        {
+          "name": "Mock 原文（占位链接）",
+          "url": "https://example.com/mock/6"
+        }
+      ]
+    },
+    {
+      "id": "demo-7",
+      "title": "Echo 试用会议行动项追踪",
+      "summary": "会议产品 Echo 试用行动项追踪，把会议纪要与后续任务关联起来。",
+      "detail": "示例产品支持从会议记录中提取待办、指定负责人并回链至原始讨论片段。\n\n演示设定中，任务在人工确认后才会进入团队工作列表。",
+      "why_it_matters": "从记录走向后续执行，可以让会议摘要更贴近日常协作需求。",
+      "published": "2026-01-01",
+      "score": 65,
+      "fields": [
+        "field-3"
+      ],
+      "sources": [
+        {
+          "name": "Mock 原文（占位链接）",
+          "url": "https://example.com/mock/7"
+        }
+      ]
+    },
+    {
+      "id": "demo-8",
+      "title": "社区发布 Agent 部署实践清单",
+      "summary": "开发者社区公开一套 Agent 部署清单，覆盖权限、日志与失败恢复。",
+      "detail": "示例清单整理了任务权限、调用预算、运行记录和失败恢复的常见做法，并邀请社区补充案例。\n\n清单用于讨论，不是经过认证的部署标准。",
+      "why_it_matters": "部署经验的积累有助于团队发现原型阶段容易忽略的运维问题。",
+      "published": "2026-01-01",
+      "score": 60,
+      "fields": [
+        "field-4"
+      ],
+      "sources": [
+        {
+          "name": "Mock 原文（占位链接）",
+          "url": "https://example.com/mock/8"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+# Local secrets (commit only sanitized examples)
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local logs and temporary files
+*.log
+tmp/
+.cache/
+
+# Task exports may contain unpublished drafts
+sources/inbox/
+__pycache__/
+*.py[cod]

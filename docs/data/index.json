@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "demo": false,
+  "date": null,
+  "generated_at": null,
+  "fields": [
+    {
+      "id": "field-1",
+      "name": "领域一"
+    },
+    {
+      "id": "field-2",
+      "name": "领域二"
+    },
+    {
+      "id": "field-3",
+      "name": "领域三"
+    },
+    {
+      "id": "field-4",
+      "name": "领域四"
+    }
+  ],
+  "brief": "四个领域，一份日报。待任务结果接入后，这里将展示每日导读与精选新闻。",
+  "items": []
+}
