@@ -127,7 +127,9 @@ function showHash() {
   (n.topics || []).forEach((topic) => tags.append(topicButton(topic)));
   $('detail-content').append(tags);
   detailSection('一句话速览', n.summary, 'lead');
-  detailSection('发生了什么', n.detail);
+  detailSection('背景介绍', n.intro);
+  detailSection(n.intro ? '方法与机制' : '发生了什么', n.detail);
+  detailSection('主要发现与边界', n.findings);
   detailSection('为什么值得关注', n.why_it_matters, 'insight');
   const section = el('section', undefined, 'detail-section');
   section.append(el('h3', '原始来源'));
@@ -193,11 +195,10 @@ async function init() {
     $('news-count').textContent = String(data.items.length).padStart(2, '0');
     $('field-count').textContent = String(data.fields.length).padStart(2, '0');
     $('updated').textContent = data.generated_at ? '整合于 ' + new Date(data.generated_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false }) + '（北京时间）' : '等待四个领域的任务结果';
-    const brief = data.brief || '暂无当日导读。';
-    const noteAt = brief.indexOf('研究条目');
-    $('brief-text').textContent = noteAt > 0 ? brief.slice(0, noteAt).replace(/^首期 · \d{4}-\d{2}-\d{2}｜/, '') : brief;
-    $('edition-notes').hidden = noteAt < 0;
-    $('brief-notes').textContent = noteAt >= 0 ? brief.slice(noteAt) : '';
+    const brief = typeof data.brief === 'string' ? data.brief.trim() : '';
+    $('brief-text').textContent = brief;
+    $('brief-text').hidden = !brief;
+    $('brief-placeholder').hidden = !!brief;
     $('demo-notice').hidden = !data.demo;
     $('feed-caption').textContent = data.demo ? '演示数据 · 仅用于预览交互和版式' : '每日归档 · 原始来源可追溯';
     render(); showHash();

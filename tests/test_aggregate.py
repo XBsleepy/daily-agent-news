@@ -109,6 +109,19 @@ class AggregateTests(unittest.TestCase):
             self.export(i, [])
         self.assertEqual(self.run_merge()['items'], [])
 
+    def test_blank_brief_stays_blank(self):
+        self.assertEqual(self.run_merge()['brief'], '')
+        data = module.aggregate(self.inputs, self.outputs, self.fields, self.day, '  ')
+        self.assertEqual(data['brief'], '')
+
+    def test_detail_sections_survive_aggregation(self):
+        item = self.item(1)
+        item.update(intro='Background\n\nMotivation', findings='Results and limits')
+        self.export(1, [item])
+        merged = self.run_merge()['items'][0]
+        self.assertEqual(merged['intro'], item['intro'])
+        self.assertEqual(merged['findings'], item['findings'])
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -100,7 +100,9 @@ def aggregate(input_dir, output_dir, fields_path, day, brief=''):
                 'id': hashlib.sha256(primary.encode()).hexdigest()[:16],
                 'title': text(item.get('title'), 'title', 300),
                 'summary': summary,
+                'intro': text(item['intro'], 'intro', 10000) if item.get('intro') is not None else '',
                 'detail': text(item.get('detail'), 'detail'),
+                'findings': text(item['findings'], 'findings', 10000) if item.get('findings') is not None else '',
                 'why_it_matters': text(item.get('why_it_matters'), 'why_it_matters'),
                 'published': valid_date(item.get('published')),
                 'score': score, 'fields': [f['id']], 'sources': sources,
@@ -125,7 +127,7 @@ def aggregate(input_dir, output_dir, fields_path, day, brief=''):
         'schema_version': 1, 'demo': False, 'date': day,
         'generated_at': datetime.now(TZ).isoformat(timespec='seconds'),
         'fields': fields, 'topic_groups': topic_groups, 'topics': topics,
-        'brief': brief.strip() or f'四个领域共整理 {len(merged)} 条新闻。按编辑评分排序，点击查看详情与原始来源。',
+        'brief': brief.strip(),
         'items': list(merged.values()),
     }
     # All inputs are validated before any output is changed. Each JSON is replaced atomically.
