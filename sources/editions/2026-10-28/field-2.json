@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-28",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "Δτ-Bench × Steward：工具变化时，Agent 能否持续维护有效技能？",
+      "summary": "Δτ-Bench 构建了覆盖 42 个领域、1,588 个多轮任务和 6 个工具生态版本的动态环境，涉及 API 移除、替换和能力变化。",
+      "detail": "受测最强系统的成功率仅为 42.3%，旧 Skill 的收益无法稳定迁移到新环境；Steward 则尝试主动发现工具并维护程序性知识。",
+      "why_it_matters": "这是四份调研中重复出现的关键工作，最有价值的后续方向是建立带版本、前置条件、权限和失效机制的 Skill 生命周期管理。",
+      "published": "2026-10-25",
+      "score": 99,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.34238"
+        }
+      ]
+    },
+    {
+      "title": "SABench × AgentProofBench：任务成功与验证正确仍不足以保证安全交付",
+      "summary": "SABench 通过 201 个邮件、日历和工单任务，评估 Agent 完成目标之外是否造成未经授权的副作用；AgentProofBench 则通过 97 个任务研究 Verifier 能否正确复用并真正帮助任务交付。",
+      "detail": "后者实验中，验证正确的配置在相关测试里有 32/33 次成功交付，而存在验证错误的配置仅有 1/11 次达到相同结果。",
+      "why_it_matters": "值得将目标成功率、额外副作用、验证器误判率和历史验证规则失效率统一纳入 Agent Benchmark。",
+      "published": "2026-10-25",
+      "score": 97,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.34167"
+        },
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.34634"
+        }
+      ]
+    },
+    {
+      "title": "BehaviorMemBench：从真实用户行为中学习长期个人记忆",
+      "summary": "BehaviorMemBench 基于 1,194 名真实用户、17,462 个行为批次和超过三年的电商行为构建长期记忆评测，突破了主要依赖对话声明偏好的传统模式。",
+      "detail": "它重点区分记录历史行为与推断真实需求，例如从连续浏览、收藏和购买活动中识别兴趣变化。",
+      "why_it_matters": "值得研究行为记忆的时效性、偏好漂移、推断不确定性，以及如何避免把偶发行为固化成长期用户画像。",
+      "published": "2026-10-26",
+      "score": 97,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.34790"
+        }
+      ]
+    },
+    {
+      "title": "Apple 为 Keynote、Pages、Numbers 宣布 MCP 支持",
+      "summary": "Apple 宣布为 Keynote、Pages、Numbers 增加 AI 助手与 MCP 支持，相关更新计划于 11 月提供。",
+      "detail": "第三方 Agent 将能直接读取、修改和操作办公文档，减少对 GUI 模拟的依赖。",
+      "why_it_matters": "对 Work Agent 而言，新的评测重点将是文档状态、编辑权限与跨应用操作正确性。",
+      "published": "2026-10-27",
+      "score": 97,
+      "sources": [
+        {
+          "name": "Apple Newsroom：Creator Studio 更新",
+          "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI × Oracle：企业 Agent 跨系统工作空间",
+      "summary": "OpenAI 与 Oracle 宣布扩展合作，将企业应用与 Agent 工作流接入 ChatGPT。",
+      "detail": "合作方案将 ChatGPT 与 Oracle 企业应用、身份权限和审批工作流连接，部分产品仍在开发中。",
+      "why_it_matters": "对训练与评测而言，需要模拟跨系统状态一致性、审批流程及不可撤销的业务副作用。",
+      "published": "2026-10-27",
+      "score": 95,
+      "sources": [
+        {
+          "name": "OpenAI：Oracle apps in ChatGPT",
+          "url": "https://openai.com/index/oracle-apps-in-chatgpt/"
+        }
+      ]
+    },
+    {
+      "title": "Genie 4：交互式世界模型用于动态环境训练",
+      "summary": "Google DeepMind 公布 Genie 4，探索可实时修改的交互式虚拟环境。",
+      "detail": "该世界模型结合环境生成、规划与交互反馈，目前以面向可信测试者的研究预览形式推出。",
+      "why_it_matters": "值得探索它能否生成环境变化、长期目标与行动后果，但这些潜力仍需实际 Agent 训练实验验证。",
+      "published": "2026-10-27",
+      "score": 94,
+      "sources": [
+        {
+          "name": "Google DeepMind：Genie 4",
+          "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/"
+        }
+      ]
+    },
+    {
+      "title": "Memory–Skill Epistemic Parity",
+      "summary": "Memory–Skill Epistemic Parity 研究长期记忆与程序性技能相互冲突时的 Agent 行为。",
+      "detail": "通过 52 个记忆与技能冲突场景，发现约 89% 的冲突没有被明确披露。",
+      "why_it_matters": "长期 Agent 应当判断知识来源、有效时间和权限，而不是无条件相信既有 Memory 或 Skill。",
+      "published": "2026-10-23",
+      "score": 93,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.33128"
+        }
+      ]
+    },
+    {
+      "title": "Write What Matters：记忆写入取决于信息密度",
+      "summary": "Write What Matters 发现，选择性记忆写入的收益取决于关键证据在任务中的密度。",
+      "detail": "稀疏关键证据场景下，选择性写入优于全部写入；信息密集场景则可能相反。",
+      "why_it_matters": "长期记忆系统应根据任务信息分布动态切换压缩策略。",
+      "published": "2026-10-25",
+      "score": 89,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.34180"
+        }
+      ]
+    }
+  ]
+}

@@ -12,11 +12,11 @@ Python 3.11+，应用和整合脚本均无需第三方依赖。
 python3 -m http.server 8080 --directory docs
 ```
 
-首次接入前，首页自动展示明确标注的虚构 mock 日报；`?live=1` 可检查正式数据的空状态。正式日报生成后，首页自动切换为真实数据。页面底部的「查看交互演示」打开 `?demo=1`，其中全部内容均为格式示例，不是真实新闻。演示数据独立存储，不进入正式榜单和归档。
+已接入 2026-10-28 首期正式日报，共 24 条去重信息，覆盖模型训练与数据、Personal Agent、Code/Work/Life Agent、RSI/AI4AI/自进化。首页展示正式数据，日期选择器可访问归档。页面底部的「查看交互演示」打开 `?demo=1`，其中全部内容均为格式示例，不是真实新闻；演示数据不进入正式榜单和归档。
 
 ## 四个任务 → 每日整合 → 新闻榜单
 
-1. 在 `sources/fields.json` 填写四个领域名称。当前「领域一」到「领域四」为占位名称。
+1. `sources/fields.json` 已配置四个真实领域名称；继续沿用 `field-1` 到 `field-4` 的稳定 ID。
 2. 四项任务分别按 [数据接入约定](sources/README.md) 输出当天 JSON。
 3. 每日整合任务将四份输出保存到 `sources/inbox/YYYY-MM-DD/<field-id>.json`，然后运行：
 
@@ -32,7 +32,14 @@ python3 scripts/aggregate.py --date YYYY-MM-DD --brief-file /path/to/brief.txt
 
 ### 接入状态
 
-当前代码**不能直接读取 ChatGPT 的定时任务和聊天记录**，也没有创建、修改或替代现有任务。还需要取得四项任务的名称及输出样例，再将结果导出为约定文件。仅写提示词不能让没有 GitHub 写入能力的 ChatGPT 任务自动更新仓库；自动发布需要具有文件导出、执行脚本及仓库写入权限的运行环境。
+首期已根据当天四领域合并任务的可读取结果整理入库，保留原有选题与评分，并补全来源和核对日期；部分原始记录截断及单项结果不可读取的限制见[首期来源说明](sources/editions/2026-10-28/README.md)。公开领域导出和导读保存在 `sources/editions/2026-10-28/`，可复现生成：
+
+```bash
+python3 scripts/aggregate.py --date 2026-10-28 --input-dir sources/editions \
+  --brief-file sources/editions/2026-10-28/brief.txt
+```
+
+仓库代码本身**不能直接读取 ChatGPT 的定时任务和聊天记录**，本次也没有修改现有五个任务。后续每日自动入库仍需具有结果读取、文件导出、执行脚本及仓库写入权限的运行环境；仅写提示词不能自动完成这些操作。
 
 `sources/examples/` 提供四份完整格式样例。可在不修改正式数据的情况下验证整合：
 
@@ -58,7 +65,7 @@ python3 tests/browser_smoke.py --browser /usr/bin/chromium
 
 ## GitHub Pages
 
-`.github/workflows/pages.yml` 在推送 `main` 时运行整合单元测试并部署 `docs/`。启用方法：仓库 **Settings → Pages → Source → GitHub Actions**。配置已写入，尚未推送或部署。
+`.github/workflows/pages.yml` 在推送 `main` 时运行整合单元测试并部署 `docs/`。仓库已启用 GitHub Actions 发布，站点地址为 https://xbsleepy.github.io/daily-agent-news/ 。新部署状态见仓库 Actions 页面。
 
 每日整合完成后，由有权限的任务提交并推送 `docs/data/`，触发发布。若任务运行于 GitHub Actions，默认 `GITHUB_TOKEN` 的推送通常不会触发另一个工作流；此时应在同一个工作流调用部署步骤，或显式触发 `workflow_dispatch`。当前没有为未知的数据来源另建定时抓取任务。
 
@@ -70,9 +77,11 @@ docs/data/            正式索引、日期归档及独立演示数据
 sources/fields.json   四个领域配置
 sources/examples/     任务输出格式示例
 sources/inbox/        本地任务导出（已忽略，不提交）
+sources/editions/     已发布期次的公开领域导出、导读及来源说明
 scripts/aggregate.py  每日整合入口
 tests/                整合测试与可选浏览器测试
-news/                 手写 Markdown 日报模板（不自动导入站点）
+news/                 可直接阅读的 Markdown 日报与格式说明（不自动导入站点）
 ```
 
 不要提交令牌、密钥或本地环境配置。日期采用北京时间（Asia/Shanghai）。
+

@@ -1,8 +1,21 @@
 {
   "fields": [
-    {"id": "field-1", "name": "领域一"},
-    {"id": "field-2", "name": "领域二"},
-    {"id": "field-3", "name": "领域三"},
-    {"id": "field-4", "name": "领域四"}
+    {
+      "id": "field-1",
+      "name": "模型训练与数据"
+    },
+    {
+      "id": "field-2",
+      "name": "Personal Agent"
+    },
+    {
+      "id": "field-3",
+      "name": "Code / Work / Life Agent"
+    },
+    {
+      "id": "field-4",
+      "name": "RSI / AI4AI / 自进化"
+    }
   ]
 }
+

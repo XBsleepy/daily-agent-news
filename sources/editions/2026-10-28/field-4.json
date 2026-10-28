@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-28",
+  "field": "field-4",
+  "items": [
+    {
+      "title": "Skill∞：让负责优化 Agent Skill 的 Meta-Skill 也能够自我改进",
+      "summary": "Skill∞ 把优化机制分为 Task Skill 和 Meta-Skill 两层，并允许 Meta-Skill 自身参与迭代优化，尝试突破固定人工优化器的限制。",
+      "detail": "其核心价值是将 RSI 从任务能力改进推进到改进过程本身的改进，但还需要证明这种递归优化能够持续带来收益。",
+      "why_it_matters": "最值得研究的是在相同搜索预算下，比较不同代 Meta-Skill 的优化效率、跨任务泛化以及是否出现性能退化。",
+      "published": "2026-10-26",
+      "score": 99,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.35434"
+        }
+      ]
+    },
+    {
+      "title": "Δτ-Bench × Steward：工具变化时，Agent 能否持续维护有效技能？",
+      "summary": "Δτ-Bench 构建了覆盖 42 个领域、1,588 个多轮任务和 6 个工具生态版本的动态环境，涉及 API 移除、替换和能力变化。",
+      "detail": "受测最强系统的成功率仅为 42.3%，旧 Skill 的收益无法稳定迁移到新环境；Steward 则尝试主动发现工具并维护程序性知识。",
+      "why_it_matters": "这是四份调研中重复出现的关键工作，最有价值的后续方向是建立带版本、前置条件、权限和失效机制的 Skill 生命周期管理。",
+      "published": "2026-10-25",
+      "score": 99,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.34238"
+        }
+      ]
+    },
+    {
+      "title": "Continual Learning Exam：评测 Agent 是否真的从长期经验中学习",
+      "summary": "CLE 包含 120 个专家任务、600 个递进难度层级、19 个有状态应用和约 24,000 个真实文件，要求 Agent 利用前面任务的经验完成后续更难任务。",
+      "detail": "17 种模型与 Harness 配置中，最强系统仅完成 47.7% 的任务层级，完整通过五层的任务比例只有 23.3%。",
+      "why_it_matters": "研究机会是区分事实记忆、Skill 积累、规划策略改善与参数更新各自的贡献，而不是仅报告演化前后的成功率差异。",
+      "published": "2026-10-25",
+      "score": 98,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.33956"
+        }
+      ]
+    },
+    {
+      "title": "Google Sleep × TTME：长期学习不一定必须更新模型参数",
+      "summary": "Google Sleep Framework 探索通过周期性巩固把经验转化为更持久的能力，TTME 则通过更新外部记忆替代测试时权重训练。",
+      "detail": "在五个数学发现任务中，TTME 均超过所比较的 TTT 方法，报告 FLOPs 降低 82.8%—84.6%，但适用范围仍有限。",
+      "why_it_matters": "值得建立统一实验，比较外部记忆、可复用 Skill、参数更新以及混合系统的长期收益、过期知识风险和计算成本。",
+      "published": "2026-10-27",
+      "score": 98,
+      "sources": [
+        {
+          "name": "Google Research：Sleep Framework",
+          "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/"
+        },
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.32046"
+        }
+      ]
+    },
+    {
+      "title": "RSIV-Harness：通过回归测试和回滚实现更可靠的 Harness 自进化",
+      "summary": "RSIV-Harness 根据失败轨迹提出 Harness 修改，并通过 Anchor Check、Memory Check 和 Best-Validated Restoration 防止新版本破坏已有能力。",
+      "detail": "其 ODAC-Vis Benchmark 包含 640 个开放域数据库与交互式可视化任务，作者报告一轮演化后程序可执行性提高 28.02 个百分点。",
+      "why_it_matters": "值得研究如何用少量动态选择的历史测试，可靠识别能力退化，并检验改进能否跨模型迁移。",
+      "published": "2026-10-26",
+      "score": 98,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.35316"
+        }
+      ]
+    },
+    {
+      "title": "SABench × AgentProofBench：任务成功与验证正确仍不足以保证安全交付",
+      "summary": "SABench 通过 201 个邮件、日历和工单任务，评估 Agent 完成目标之外是否造成未经授权的副作用；AgentProofBench 则通过 97 个任务研究 Verifier 能否正确复用并真正帮助任务交付。",
+      "detail": "后者实验中，验证正确的配置在相关测试里有 32/33 次成功交付，而存在验证错误的配置仅有 1/11 次达到相同结果。",
+      "why_it_matters": "值得将目标成功率、额外副作用、验证器误判率和历史验证规则失效率统一纳入 Agent Benchmark。",
+      "published": "2026-10-25",
+      "score": 97,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.34167"
+        },
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.34634"
+        }
+      ]
+    },
+    {
+      "title": "Ai2 Novelty Judge：科研创新性评价仍需稳定性验证",
+      "summary": "Ai2 发布科研创新性评测，显示自动 Judge 的结论会随评价设置变化。",
+      "detail": "Ai2 对多种 Judge 的模型、提示词、评价形式及检索设置进行对照，发现同一对研究想法可能得到明显不同的判断。",
+      "why_it_matters": "值得在 Agent 科研评测中公开评价配置，检验结论对合理设置变化是否稳健。",
+      "published": "2026-10-27",
+      "score": 96,
+      "sources": [
+        {
+          "name": "Ai2：Novelty Benchmark",
+          "url": "https://allenai.org/blog/novelty-bench"
+        }
+      ]
+    },
+    {
+      "title": "ReGE：将历史轨迹合成为下一次执行指导",
+      "summary": "ReGE 将历史轨迹合成为新的执行指导，让同一基础模型重新尝试任务。",
+      "detail": "不更新模型参数，也不依赖更强教师模型，在四个 Agent Benchmark 上报告 GPT 平均提升 9.9 个百分点、Claude 提升 8.8 个百分点。",
+      "why_it_matters": "核心开放问题是多条相互矛盾的经验如何被正确合并、验证及淘汰。",
+      "published": "2026-10-24",
+      "score": 95,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.33861"
+        }
+      ]
+    },
+    {
+      "title": "RSI Arena：AI Agent 自主执行模型训练实验",
+      "summary": "RSI Arena 让十个前沿模型充当训练 Agent，在预算约束下自主训练模型。",
+      "detail": "Agent 在限定研究时间、GPU 资源和 API 预算下，自行选择训练数据、编写训练程序并挑选 Checkpoint。",
+      "why_it_matters": "研究价值在于把 RSI 评价推进到真实、受预算约束的模型训练流程。",
+      "published": "2026-10-24",
+      "score": 94,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.33624"
+        }
+      ]
+    },
+    {
+      "title": "Anthropic 药物研发案例 × NVIDIA C-BRAIN",
+      "summary": "Anthropic 与 NVIDIA 分别公布 AI 辅助药物研发和 C-BRAIN 神经退行性疾病研究的进展。",
+      "detail": "Anthropic 报告 Claude 参与新药研发合作，NVIDIA 则介绍与 C-BRAIN 合作支持开放 AI 模型及疾病数据分析。",
+      "why_it_matters": "值得构建包含实验成本、观察结果与后续决策的科研轨迹，检验这些应用经验对科研 Agent 训练的价值。",
+      "published": "2026-10-27",
+      "score": 93,
+      "sources": [
+        {
+          "name": "Anthropic：Early progress on accelerating drug development",
+          "url": "https://www.anthropic.com/research/early-progress-drug-development"
+        },
+        {
+          "name": "NVIDIA：C-BRAIN 与痴呆症研究",
+          "url": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/"
+        }
+      ]
+    }
+  ]
+}

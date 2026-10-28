@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-28",
+  "field": "field-1",
+  "items": [
+    {
+      "title": "Mercor TaskNet × Surge DAYJOB: Tax：专业 Agent 数据生产走向真实任务与隐含义务",
+      "summary": "Mercor 发布 TaskNet，利用 AI 访谈发现和分类真实职业任务；Surge 发布 DAYJOB: Tax，重点考察 Agent 能否识别专业工作中用户没有明确提出、但必须履行的责任。",
+      "detail": "两者共同表明，仅靠研究人员凭空编写任务，难以覆盖真实职业复杂性。",
+      "why_it_matters": "值得探索从真实任务访谈、专家 Rubric、可执行工作空间到结果验证的完整数据生产链，并比较这类任务对真实工作表现的预测能力。",
+      "published": "2026-10-27",
+      "score": 99,
+      "sources": [
+        {
+          "name": "Mercor：Introducing TaskNet",
+          "url": "https://www.mercor.com/blog/introducing-tasknet-a-new-taxonomy-of-work/"
+        },
+        {
+          "name": "Surge AI：DAYJOB: Tax",
+          "url": "https://surgehq.ai/blog/dayjob-tax"
+        }
+      ]
+    },
+    {
+      "title": "Liquid AI LFM3：小模型训练开始深度面向 Agent 工作负载",
+      "summary": "Liquid AI 发布 LFM3 六模型家族，覆盖文本、视觉、音频及多模态场景；其中 LFM3-1.7B 具有 256K 上下文，官方披露约 22T 基础训练 Token 和约 3.5T 后期训练 Token。",
+      "detail": "其训练重点包含 Tool Calling、Agentic Trajectories 与长上下文能力，说明针对 Agent 的中期训练正在成为小模型能力建设的重要组成部分。",
+      "why_it_matters": "值得关注真实轨迹与合成轨迹的配比，以及这些训练投入能否带来更好的单位推理成本和工具执行可靠性。",
+      "published": "2026-10-27",
+      "score": 98,
+      "sources": [
+        {
+          "name": "Liquid AI：LFM3-1.7B 模型卡",
+          "url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
+        }
+      ]
+    },
+    {
+      "title": "Google Sleep × TTME：长期学习不一定必须更新模型参数",
+      "summary": "Google Sleep Framework 探索通过周期性巩固把经验转化为更持久的能力，TTME 则通过更新外部记忆替代测试时权重训练。",
+      "detail": "在五个数学发现任务中，TTME 均超过所比较的 TTT 方法，报告 FLOPs 降低 82.8%—84.6%，但适用范围仍有限。",
+      "why_it_matters": "值得建立统一实验，比较外部记忆、可复用 Skill、参数更新以及混合系统的长期收益、过期知识风险和计算成本。",
+      "published": "2026-10-27",
+      "score": 98,
+      "sources": [
+        {
+          "name": "Google Research：Sleep Framework",
+          "url": "https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/"
+        },
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.32046"
+        }
+      ]
+    },
+    {
+      "title": "Trajectory2Gym：成功轨迹不一定是合格的训练数据",
+      "summary": "Trajectory2Gym 强调 Decision Grounding：每个监督动作都必须能由 Agent 当时实际观察到的信息支持，而不能依赖事后才知道的答案。",
+      "detail": "方法结合可执行交互合成、多步工具依赖覆盖和轨迹规范化，在五种 Qwen3 模型规模上的三个 Benchmark 中报告平均提升 16.9—29.8 个百分点。",
+      "why_it_matters": "它提示 Agent 数据生产应从筛选最终成功轨迹，转向筛选因果依据可靠、决策过程可验证的轨迹。",
+      "published": "2026-10-24",
+      "score": 98,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.33568"
+        }
+      ]
+    },
+    {
+      "title": "EnvLunch：从可执行环境反向生成交互任务",
+      "summary": "EnvLunch 从可执行环境与合法动作序列出发，反向构造 Agent 交互任务。",
+      "detail": "方法先采样合法动作并得到目标状态，再将结果转化为交互学习任务，并用反事实环境检查策略是否掌握机制。",
+      "why_it_matters": "值得比较这种环境优先的任务生成方法与直接由 LLM 编写指令，在相同预算下带来的跨环境泛化收益。",
+      "published": "2026-10-24",
+      "score": 97,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.33817"
+        }
+      ]
+    },
+    {
+      "title": "Ai2 Novelty Judge：科研创新性评价仍需稳定性验证",
+      "summary": "Ai2 发布科研创新性评测，显示自动 Judge 的结论会随评价设置变化。",
+      "detail": "Ai2 对多种 Judge 的模型、提示词、评价形式及检索设置进行对照，发现同一对研究想法可能得到明显不同的判断。",
+      "why_it_matters": "值得在 Agent 科研评测中公开评价配置，检验结论对合理设置变化是否稳健。",
+      "published": "2026-10-27",
+      "score": 96,
+      "sources": [
+        {
+          "name": "Ai2：Novelty Benchmark",
+          "url": "https://allenai.org/blog/novelty-bench"
+        }
+      ]
+    },
+    {
+      "title": "Genie 4：交互式世界模型用于动态环境训练",
+      "summary": "Google DeepMind 公布 Genie 4，探索可实时修改的交互式虚拟环境。",
+      "detail": "该世界模型结合环境生成、规划与交互反馈，目前以面向可信测试者的研究预览形式推出。",
+      "why_it_matters": "值得探索它能否生成环境变化、长期目标与行动后果，但这些潜力仍需实际 Agent 训练实验验证。",
+      "published": "2026-10-27",
+      "score": 94,
+      "sources": [
+        {
+          "name": "Google DeepMind：Genie 4",
+          "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/"
+        }
+      ]
+    },
+    {
+      "title": "RSI Arena：AI Agent 自主执行模型训练实验",
+      "summary": "RSI Arena 让十个前沿模型充当训练 Agent，在预算约束下自主训练模型。",
+      "detail": "Agent 在限定研究时间、GPU 资源和 API 预算下，自行选择训练数据、编写训练程序并挑选 Checkpoint。",
+      "why_it_matters": "研究价值在于把 RSI 评价推进到真实、受预算约束的模型训练流程。",
+      "published": "2026-10-24",
+      "score": 94,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.33624"
+        }
+      ]
+    },
+    {
+      "title": "Anthropic 药物研发案例 × NVIDIA C-BRAIN",
+      "summary": "Anthropic 与 NVIDIA 分别公布 AI 辅助药物研发和 C-BRAIN 神经退行性疾病研究的进展。",
+      "detail": "Anthropic 报告 Claude 参与新药研发合作，NVIDIA 则介绍与 C-BRAIN 合作支持开放 AI 模型及疾病数据分析。",
+      "why_it_matters": "值得构建包含实验成本、观察结果与后续决策的科研轨迹，检验这些应用经验对科研 Agent 训练的价值。",
+      "published": "2026-10-27",
+      "score": 93,
+      "sources": [
+        {
+          "name": "Anthropic：Early progress on accelerating drug development",
+          "url": "https://www.anthropic.com/research/early-progress-drug-development"
+        },
+        {
+          "name": "NVIDIA：C-BRAIN 与痴呆症研究",
+          "url": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/"
+        }
+      ]
+    },
+    {
+      "title": "ORBIT：多模型 Judge 的互补性",
+      "summary": "ORBIT 研究机器翻译自动评价，强调示例质量与不同模型家族的互补性。",
+      "detail": "机器翻译评测显示，高质量示例与不同模型家族的组合，比单纯增加 Prompt 或重复调用同一 Judge 更有价值；作者报告约为人工专家标注 1/20 的成本。",
+      "why_it_matters": "值得研究这种互补性是否能迁移到 Agent 轨迹和复杂专业任务。",
+      "published": "2026-10-24",
+      "score": 90,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.33741"
+        }
+      ]
+    },
+    {
+      "title": "SRA：对学生模型的关键预测分歧进行局部修正",
+      "summary": "SRA 通过识别学生模型的关键预测分歧，再局部修正候选 Logit 来增强推理。",
+      "detail": "使用 Discrepancy Gate 与候选 Logit 残差适配，不必完整更新模型主干；数学推理 Pass@16 最高提升 4.37 个百分点。",
+      "why_it_matters": "可以进一步探索仅蒸馏 Agent 的关键工具选择与高风险操作决策。",
+      "published": "2026-10-25",
+      "score": 89,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.34199"
+        }
+      ]
+    },
+    {
+      "title": "FITS：联邦表格合成数据",
+      "summary": "FITS 提出联邦表格合成方法，在不集中多机构原始数据的情况下生成混合类型结构化数据。",
+      "detail": "通过联邦方式估计分布并生成结构化数据，避免直接集中多机构原始数据。",
+      "why_it_matters": "潜在应用是构建专业 Agent RL 环境，但仍需独立验证隐私泄露与分布偏差风险。",
+      "published": "2026-10-24",
+      "score": 87,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.33403"
+        }
+      ]
+    }
+  ]
+}
