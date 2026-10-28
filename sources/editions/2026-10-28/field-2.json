@@ -14,6 +14,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34238"
         }
+      ],
+      "topics": [
+        "tool-use",
+        "skills",
+        "benchmark"
       ]
     },
     {
@@ -32,6 +37,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34634"
         }
+      ],
+      "topics": [
+        "safety",
+        "evaluation",
+        "benchmark"
       ]
     },
     {
@@ -46,6 +56,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34790"
         }
+      ],
+      "topics": [
+        "memory",
+        "personal",
+        "benchmark"
       ]
     },
     {
@@ -60,6 +75,11 @@
           "name": "Apple Newsroom：Creator Studio 更新",
           "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/"
         }
+      ],
+      "topics": [
+        "work",
+        "tool-use",
+        "product"
       ]
     },
     {
@@ -74,6 +94,11 @@
           "name": "OpenAI：Oracle apps in ChatGPT",
           "url": "https://openai.com/index/oracle-apps-in-chatgpt/"
         }
+      ],
+      "topics": [
+        "work",
+        "tool-use",
+        "product"
       ]
     },
     {
@@ -88,6 +113,11 @@
           "name": "Google DeepMind：Genie 4",
           "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/"
         }
+      ],
+      "topics": [
+        "environments",
+        "training",
+        "product"
       ]
     },
     {
@@ -102,6 +132,12 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33128"
         }
+      ],
+      "topics": [
+        "memory",
+        "skills",
+        "safety",
+        "benchmark"
       ]
     },
     {
@@ -116,6 +152,10 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34180"
         }
+      ],
+      "topics": [
+        "memory",
+        "framework"
       ]
     }
   ]

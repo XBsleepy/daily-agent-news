@@ -25,6 +25,14 @@ def main():
     with tempfile.TemporaryDirectory() as temp:
         root = Path(temp)
         shutil.copytree(ROOT / 'docs', root / 'docs')
+        # Isolate empty/archive fixtures from the repository's published editions.
+        shutil.rmtree(root / 'docs/data/days', ignore_errors=True)
+        (root / 'docs/data/index.json').write_text(json.dumps({
+            'schema_version': 1, 'demo': False, 'date': None, 'generated_at': None,
+            'fields': json.loads((ROOT / 'sources/fields.json').read_text())['fields'],
+            'brief': '', 'items': [],
+        }))
+        (root / 'docs/data/days.json').write_text(json.dumps({'days': []}))
         server = ThreadingHTTPServer(('127.0.0.1', 0), partial(SimpleHTTPRequestHandler, directory=str(root / 'docs')))
         Thread(target=server.serve_forever, daemon=True).start()
         try:
@@ -54,6 +62,15 @@ def main():
                 assert '#news=' not in page.url
                 page.locator('#filters button[data-field="field-4"]').click()
                 expect(page.locator('.news-row')).to_have_count(2)
+                page.locator('#reset').click()
+                page.locator('#topics-nav button[data-topic="memory"]').click()
+                expect(page.locator('.news-row')).to_have_count(1)
+                assert 'topic=memory' in page.url
+                page.reload()
+                expect(page.locator('.news-row')).to_have_count(1)
+                page.locator('#reset').click()
+                page.locator('#search').fill('长期记忆')
+                expect(page.locator('.news-row')).to_have_count(1)
                 page.locator('#reset').click()
                 page.locator('#search').fill('Forge')
                 expect(page.locator('.news-row')).to_have_count(1)
@@ -97,7 +114,7 @@ def main():
                 assert page.evaluate('window.injected') is None
                 assert not errors, errors
                 browser.close()
-                print('PASS: empty state, demo, details, permalink, filters, search, theme persistence, mobile, archive, invalid date, safe text rendering')
+                print('PASS: empty state, demo, details, permalink, fields, topics, shareable filters, search, theme persistence, mobile, archive, invalid date, safe text rendering')
         finally:
             server.shutdown()
             server.server_close()
@@ -105,3 +122,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

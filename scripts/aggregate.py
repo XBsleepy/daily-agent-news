@@ -42,7 +42,26 @@ def valid_date(value):
 
 def aggregate(input_dir, output_dir, fields_path, day, brief=''):
     valid_date(day)
-    fields = read(fields_path)['fields']
+    config = read(fields_path)
+    fields = config['fields']
+    topic_groups = config.get('topic_groups', [])
+    topics = config.get('topics', [])
+    if not isinstance(topic_groups, list) or not isinstance(topics, list):
+        raise ValueError('topics and topic_groups must be lists')
+    groups = set()
+    for group in topic_groups:
+        gid = text(group['id'], 'topic group id', 80)
+        if gid in groups:
+            raise ValueError('topic group ids must be unique')
+        groups.add(gid)
+        text(group['name'], 'topic group name', 80)
+    topic_ids = set()
+    for topic in topics:
+        tid = text(topic['id'], 'topic id', 80)
+        if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', tid) or tid in topic_ids or topic.get('group') not in groups:
+            raise ValueError('topic ids must be unique slugs with a known group')
+        topic_ids.add(tid)
+        text(topic['name'], 'topic name', 80)
     if len(fields) != 4:
         raise ValueError('exactly four fields are required')
     ids = set()
@@ -74,6 +93,9 @@ def aggregate(input_dir, output_dir, fields_path, day, brief=''):
                 raise ValueError('at least one original source is required')
             sources = [{'name': text(s.get('name'), 'source name', 200), 'url': canonical_url(s.get('url'))} for s in sources]
             primary = sources[0]['url']
+            item_topics = item.get('topics', [])
+            if not isinstance(item_topics, list) or any(not isinstance(t, str) or t not in topic_ids for t in item_topics):
+                raise ValueError('item topics must be a list of known topic ids')
             candidates.append({
                 'id': hashlib.sha256(primary.encode()).hexdigest()[:16],
                 'title': text(item.get('title'), 'title', 300),
@@ -82,6 +104,7 @@ def aggregate(input_dir, output_dir, fields_path, day, brief=''):
                 'why_it_matters': text(item.get('why_it_matters'), 'why_it_matters'),
                 'published': valid_date(item.get('published')),
                 'score': score, 'fields': [f['id']], 'sources': sources,
+                'topics': sorted(set(item_topics)),
             })
     # Highest editorial score wins; matching primary URLs merge provenance.
     merged = {}
@@ -92,6 +115,7 @@ def aggregate(input_dir, output_dir, fields_path, day, brief=''):
         else:
             existing = merged[key]
             existing['fields'] = sorted(set(existing['fields'] + item['fields']))
+            existing['topics'] = sorted(set(existing['topics'] + item['topics']))
             known = {s['url'] for s in existing['sources']}
             for source in item['sources']:
                 if source['url'] not in known:
@@ -100,7 +124,8 @@ def aggregate(input_dir, output_dir, fields_path, day, brief=''):
     data = {
         'schema_version': 1, 'demo': False, 'date': day,
         'generated_at': datetime.now(TZ).isoformat(timespec='seconds'),
-        'fields': fields, 'brief': brief.strip() or f'四个领域共整理 {len(merged)} 条新闻。按编辑评分排序，点击查看详情与原始来源。',
+        'fields': fields, 'topic_groups': topic_groups, 'topics': topics,
+        'brief': brief.strip() or f'四个领域共整理 {len(merged)} 条新闻。按编辑评分排序，点击查看详情与原始来源。',
         'items': list(merged.values()),
     }
     # All inputs are validated before any output is changed. Each JSON is replaced atomically.
@@ -137,3 +162,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

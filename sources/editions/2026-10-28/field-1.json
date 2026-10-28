@@ -18,6 +18,11 @@
           "name": "Surge AI：DAYJOB: Tax",
           "url": "https://surgehq.ai/blog/dayjob-tax"
         }
+      ],
+      "topics": [
+        "data-synthesis",
+        "work",
+        "benchmark"
       ]
     },
     {
@@ -32,6 +37,11 @@
           "name": "Liquid AI：LFM3-1.7B 模型卡",
           "url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
         }
+      ],
+      "topics": [
+        "training",
+        "tool-use",
+        "product"
       ]
     },
     {
@@ -50,6 +60,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.32046"
         }
+      ],
+      "topics": [
+        "continual-learning",
+        "memory",
+        "framework"
       ]
     },
     {
@@ -64,6 +79,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33568"
         }
+      ],
+      "topics": [
+        "data-synthesis",
+        "tool-use",
+        "framework"
       ]
     },
     {
@@ -78,6 +98,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33817"
         }
+      ],
+      "topics": [
+        "environments",
+        "data-synthesis",
+        "framework"
       ]
     },
     {
@@ -92,6 +117,11 @@
           "name": "Ai2：Novelty Benchmark",
           "url": "https://allenai.org/blog/novelty-bench"
         }
+      ],
+      "topics": [
+        "evaluation",
+        "science",
+        "benchmark"
       ]
     },
     {
@@ -106,6 +136,11 @@
           "name": "Google DeepMind：Genie 4",
           "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/"
         }
+      ],
+      "topics": [
+        "environments",
+        "training",
+        "product"
       ]
     },
     {
@@ -120,6 +155,12 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33624"
         }
+      ],
+      "topics": [
+        "self-evolution",
+        "training",
+        "science",
+        "benchmark"
       ]
     },
     {
@@ -138,6 +179,11 @@
           "name": "NVIDIA：C-BRAIN 与痴呆症研究",
           "url": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/"
         }
+      ],
+      "topics": [
+        "science",
+        "training",
+        "product"
       ]
     },
     {
@@ -152,6 +198,10 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33741"
         }
+      ],
+      "topics": [
+        "evaluation",
+        "benchmark"
       ]
     },
     {
@@ -166,6 +216,10 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34199"
         }
+      ],
+      "topics": [
+        "training",
+        "framework"
       ]
     },
     {
@@ -180,6 +234,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33403"
         }
+      ],
+      "topics": [
+        "data-synthesis",
+        "training",
+        "framework"
       ]
     }
   ]

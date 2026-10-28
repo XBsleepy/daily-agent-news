@@ -62,6 +62,29 @@ class AggregateTests(unittest.TestCase):
             self.run_merge()
         self.assertEqual(before, (self.outputs / 'index.json').read_bytes())
 
+    def test_cross_field_duplicates_merge_topics(self):
+        first = self.item(1)
+        first['topics'] = ['memory', 'framework']
+        self.export(1, [first])
+        second = self.item(1)
+        second['score'] = 50
+        second['topics'] = ['skills', 'framework']
+        self.export(2, [second])
+        merged = self.run_merge()['items'][0]
+        self.assertEqual(merged['topics'], ['framework', 'memory', 'skills'])
+        self.assertEqual(merged['fields'], ['field-1', 'field-2'])
+        self.assertEqual(merged['score'], 99)
+
+    def test_unknown_topics_preserve_last_edition(self):
+        self.run_merge()
+        before = (self.outputs / 'index.json').read_bytes()
+        item = self.item(1)
+        item['topics'] = ['unregistered-topic']
+        self.export(1, [item])
+        with self.assertRaisesRegex(ValueError, 'known topic ids'):
+            self.run_merge()
+        self.assertEqual(before, (self.outputs / 'index.json').read_bytes())
+
     def test_invalid_input_does_not_write(self):
         for patch in [{'score': True}, {'score': 101}, {'sources': [{'name': 'X', 'url': 'javascript:alert(1)'}]}, {'published': 'bad'}, {'summary': 'a\nb'}]:
             with self.subTest(patch=patch):
@@ -89,3 +112,4 @@ class AggregateTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "demo": false,
   "date": "2026-10-28",
-  "generated_at": "2026-10-28T20:55:34+08:00",
+  "generated_at": "2026-10-28T21:21:05+08:00",
   "fields": [
     {
       "id": "field-1",
@@ -19,6 +19,112 @@
     {
       "id": "field-4",
       "name": "RSI / AI4AI / 自进化"
+    }
+  ],
+  "topic_groups": [
+    {
+      "id": "research",
+      "name": "研究主题"
+    },
+    {
+      "id": "scenario",
+      "name": "应用场景"
+    },
+    {
+      "id": "format",
+      "name": "信息类型"
+    }
+  ],
+  "topics": [
+    {
+      "id": "memory",
+      "name": "长期记忆",
+      "group": "research"
+    },
+    {
+      "id": "skills",
+      "name": "技能学习",
+      "group": "research"
+    },
+    {
+      "id": "self-evolution",
+      "name": "自我进化",
+      "group": "research"
+    },
+    {
+      "id": "continual-learning",
+      "name": "持续学习",
+      "group": "research"
+    },
+    {
+      "id": "tool-use",
+      "name": "工具使用",
+      "group": "research"
+    },
+    {
+      "id": "training",
+      "name": "训练与蒸馏",
+      "group": "research"
+    },
+    {
+      "id": "data-synthesis",
+      "name": "数据合成",
+      "group": "research"
+    },
+    {
+      "id": "environments",
+      "name": "环境构建",
+      "group": "research"
+    },
+    {
+      "id": "evaluation",
+      "name": "评测与验证",
+      "group": "research"
+    },
+    {
+      "id": "safety",
+      "name": "安全与权限",
+      "group": "research"
+    },
+    {
+      "id": "deployment",
+      "name": "运行与部署",
+      "group": "research"
+    },
+    {
+      "id": "personal",
+      "name": "个人助手",
+      "group": "scenario"
+    },
+    {
+      "id": "work",
+      "name": "办公协作",
+      "group": "scenario"
+    },
+    {
+      "id": "coding",
+      "name": "软件工程",
+      "group": "scenario"
+    },
+    {
+      "id": "science",
+      "name": "科研发现",
+      "group": "scenario"
+    },
+    {
+      "id": "benchmark",
+      "name": "评测基准",
+      "group": "format"
+    },
+    {
+      "id": "framework",
+      "name": "方法与框架",
+      "group": "format"
+    },
+    {
+      "id": "product",
+      "name": "产品与产业",
+      "group": "format"
     }
   ],
   "brief": "首期 · 2026-10-28｜基于今天四项领域调研的合并任务结果，去重整理 24 条信息。重点关注真实任务与可执行环境、长期 Skill / Memory 演化，以及自我改进后的可靠验证。研究条目多为 10 月 23—26 日首投、27 日进入公开列表，并非全部在过去 24 小时首次发布；评分表示编辑优先级。部分原始记录被截断，训练与数据任务的单独结果本次无法读取，相关内容沿用今日合并记录；本次仅补全已有选题的来源并核对日期。",
@@ -39,6 +145,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.35434"
         }
+      ],
+      "topics": [
+        "framework",
+        "self-evolution",
+        "skills"
       ]
     },
     {
@@ -59,6 +170,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34238"
         }
+      ],
+      "topics": [
+        "benchmark",
+        "skills",
+        "tool-use"
       ]
     },
     {
@@ -82,6 +198,11 @@
           "name": "Surge AI：DAYJOB: Tax",
           "url": "https://surgehq.ai/blog/dayjob-tax"
         }
+      ],
+      "topics": [
+        "benchmark",
+        "data-synthesis",
+        "work"
       ]
     },
     {
@@ -101,6 +222,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.35316"
         }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "self-evolution"
       ]
     },
     {
@@ -120,6 +246,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33956"
         }
+      ],
+      "topics": [
+        "benchmark",
+        "continual-learning",
+        "memory"
       ]
     },
     {
@@ -139,6 +270,11 @@
           "name": "Liquid AI：LFM3-1.7B 模型卡",
           "url": "https://huggingface.co/LiquidAI/LFM3-1.7B"
         }
+      ],
+      "topics": [
+        "product",
+        "tool-use",
+        "training"
       ]
     },
     {
@@ -162,6 +298,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.32046"
         }
+      ],
+      "topics": [
+        "continual-learning",
+        "framework",
+        "memory"
       ]
     },
     {
@@ -181,6 +322,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33568"
         }
+      ],
+      "topics": [
+        "data-synthesis",
+        "framework",
+        "tool-use"
       ]
     },
     {
@@ -205,6 +351,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34634"
         }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "safety"
       ]
     },
     {
@@ -223,6 +374,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34790"
         }
+      ],
+      "topics": [
+        "benchmark",
+        "memory",
+        "personal"
       ]
     },
     {
@@ -242,6 +398,11 @@
           "name": "Apple Newsroom：Creator Studio 更新",
           "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/"
         }
+      ],
+      "topics": [
+        "product",
+        "tool-use",
+        "work"
       ]
     },
     {
@@ -261,6 +422,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33817"
         }
+      ],
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "framework"
       ]
     },
     {
@@ -280,6 +446,11 @@
           "name": "Ai2：Novelty Benchmark",
           "url": "https://allenai.org/blog/novelty-bench"
         }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "science"
       ]
     },
     {
@@ -298,6 +469,12 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34620"
         }
+      ],
+      "topics": [
+        "coding",
+        "deployment",
+        "framework",
+        "memory"
       ]
     },
     {
@@ -317,6 +494,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33861"
         }
+      ],
+      "topics": [
+        "framework",
+        "memory",
+        "self-evolution"
       ]
     },
     {
@@ -336,6 +518,11 @@
           "name": "OpenAI：Oracle apps in ChatGPT",
           "url": "https://openai.com/index/oracle-apps-in-chatgpt/"
         }
+      ],
+      "topics": [
+        "product",
+        "tool-use",
+        "work"
       ]
     },
     {
@@ -355,6 +542,11 @@
           "name": "Google DeepMind：Genie 4",
           "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/"
         }
+      ],
+      "topics": [
+        "environments",
+        "product",
+        "training"
       ]
     },
     {
@@ -374,6 +566,12 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33624"
         }
+      ],
+      "topics": [
+        "benchmark",
+        "science",
+        "self-evolution",
+        "training"
       ]
     },
     {
@@ -393,6 +591,12 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33128"
         }
+      ],
+      "topics": [
+        "benchmark",
+        "memory",
+        "safety",
+        "skills"
       ]
     },
     {
@@ -416,6 +620,11 @@
           "name": "NVIDIA：C-BRAIN 与痴呆症研究",
           "url": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/"
         }
+      ],
+      "topics": [
+        "product",
+        "science",
+        "training"
       ]
     },
     {
@@ -434,6 +643,10 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33741"
         }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation"
       ]
     },
     {
@@ -452,6 +665,10 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34180"
         }
+      ],
+      "topics": [
+        "framework",
+        "memory"
       ]
     },
     {
@@ -470,6 +687,10 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.34199"
         }
+      ],
+      "topics": [
+        "framework",
+        "training"
       ]
     },
     {
@@ -488,6 +709,11 @@
           "name": "arXiv 原始论文",
           "url": "https://arxiv.org/abs/2610.33403"
         }
+      ],
+      "topics": [
+        "data-synthesis",
+        "framework",
+        "training"
       ]
     }
   ]
