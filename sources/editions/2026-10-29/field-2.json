@@ -1,0 +1,193 @@
+{
+  "date": "2026-10-29",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "Gemini 4 Carbon：长程 Agent 能力与执行安全同步提升",
+      "summary": "Google 10 月 28 日发布 Gemini 4 Carbon，强调长程软件工程、网络安全、失败恢复与自主执行。",
+      "detail": "官方报告 SEC-bench Pro 为 88.2%、CWE-bench 为 71.0%，并披露部分内部行为安全指标改善。",
+      "findings": "模型初期主要面向特定安全防御合作伙伴，厂商评测成绩尚不能直接外推到真实场景。",
+      "why_it_matters": "应同时考察长程任务成功、越权操作、失败恢复和独立环境中的可靠性。",
+      "published": "2026-10-28",
+      "score": 100,
+      "topics": [
+        "coding",
+        "evaluation",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Google DeepMind 官方资讯入口（非该公告直链）",
+          "url": "https://blog.google/technology/google-deepmind/"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Copilot Harness：Agent 执行底座平台化",
+      "summary": "Microsoft 10 月 28 日将 Copilot Harness 引入 Foundry Agent Service 公开预览。",
+      "detail": "其托管执行框架整合模型路由、Skills、工具、Subagents、沙箱及版本管理。",
+      "findings": "这降低了各模型分别搭建执行层的成本，但产品本身并不是自动自进化系统。",
+      "why_it_matters": "可在稳定的权限和恢复机制上探索可审计的 Harness Evolution Layer。",
+      "published": "2026-10-28",
+      "score": 97,
+      "topics": [
+        "tool-use",
+        "deployment",
+        "work",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Microsoft Foundry Agents 文档入口（非该公告直链）",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+        }
+      ]
+    },
+    {
+      "title": "Memory Tax：复杂长期记忆可能不如直接检索原始历史",
+      "summary": "Memory Tax 提醒长期记忆系统需扣除记忆加工时丢失证据与增加检索困难的代价。",
+      "detail": "研究发现部分复杂记忆管理方法在某些条件下不如对原始历史直接进行 RAG。",
+      "findings": "这是特定评测条件下的比较，不能推断所有结构化记忆都无价值。",
+      "why_it_matters": "评测应同时记录原始证据保留、过时记忆影响和单位成本带来的净收益。",
+      "published": "2026-10-25",
+      "score": 95,
+      "topics": [
+        "memory",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.34073"
+        }
+      ]
+    },
+    {
+      "title": "ProactMem：从长期事件流学习何时主动介入",
+      "summary": "ProactMem 将事件、时间轨迹和行为规律组织为三层记忆，并借助历史重放验证规律。",
+      "detail": "ProactiveStream 含 17 条真实事件流、4,539 个事件和 729 个干预机会，作者报告 F1 为 52.6%。",
+      "findings": "当前主要评价介入机会识别，不能等同于已安全完成有工具副作用的个人事务。",
+      "why_it_matters": "下一步应联合评测主动行动收益、用户授权、误提醒和长期变化。",
+      "published": "2026-10-27",
+      "score": 92,
+      "topics": [
+        "memory",
+        "personal",
+        "benchmark",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.36967"
+        }
+      ]
+    },
+    {
+      "title": "When Retrieval Is Not Enough：新事实已检索仍会输给旧记忆",
+      "summary": "该研究显示正确记忆已经进入上下文，生成阶段仍可能被过时事实误导。",
+      "detail": "一个实验中证据预算从 64 Token 增至 512 Token，准确率反而从 45% 降至 32%。",
+      "findings": "更长上下文或更高 Recall 并不能自动解决事实版本冲突。",
+      "why_it_matters": "应显式维护事实更新时间、覆盖关系与当前有效状态。",
+      "published": "2026-10-26",
+      "score": 91,
+      "topics": [
+        "memory",
+        "evaluation",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.36308"
+        }
+      ]
+    },
+    {
+      "title": "PRESENT：用户在场能提高收益，也可能改变 Agent 忠实性",
+      "summary": "PRESENT 通过多种谈判游戏研究用户实时参与对代理行为的影响。",
+      "detail": "作者报告用户参与使代理方平均收益提高 13.7%，同时 14.3% 的相关轨迹出现不符合用户预期的行为。",
+      "findings": "更高交易收益不能替代对真实性、忠实性与授权边界的判断。",
+      "why_it_matters": "Personal Agent 应分开测试代办效果和对用户意图的忠实执行。",
+      "published": "2026-10-27",
+      "score": 90,
+      "topics": [
+        "personal",
+        "safety",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.36435"
+        }
+      ]
+    },
+    {
+      "title": "Amazon Alexa+ 日本 Early Access：家庭个体记忆与主动服务",
+      "summary": "Amazon 日本 10 月 29 日宣布 Alexa+ 开始 Early Access，强化偏好记忆、身份区分与主动帮助。",
+      "detail": "家庭环境结合 Voice ID、Visual ID 和环境感知，带来按成员隔离个人记忆的现实需求。",
+      "findings": "官方未注明精确发布时间，部分本地服务集成也将逐步推出，不应视为当天全面可用。",
+      "why_it_matters": "应优先评测家庭多用户记忆归属、错误身份关联和主动行为授权。",
+      "published": "2026-10-29",
+      "score": 89,
+      "topics": [
+        "memory",
+        "personal",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Amazon 日本官方新闻入口（非该公告直链）",
+          "url": "https://www.aboutamazon.jp/"
+        }
+      ]
+    },
+    {
+      "title": "Chrome Personal Intelligence：在网页任务中按需调用个人资料",
+      "summary": "Google 10 月 28 日宣布增强 Chrome Autofill，在授权场景中可从 Gmail 调取订单或航班信息填写网页表单。",
+      "detail": "这使个人记忆从被动问答转向根据正在执行的任务触发检索。",
+      "findings": "这种能力高度依赖数据时效、来源正确性和用户授权范围。",
+      "why_it_matters": "可围绕 Task-Triggered Retrieval 构造跨应用状态与隐私权限测试。",
+      "published": "2026-10-28",
+      "score": 88,
+      "topics": [
+        "memory",
+        "personal",
+        "tool-use",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Google Chrome 官方资讯入口（非该公告直链）",
+          "url": "https://blog.google/products/chrome/"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI × ServiceNow：企业 Agent 连接真实工作流",
+      "summary": "OpenAI 10 月 28 日宣布扩大与 ServiceNow 的合作，探索将 ChatGPT 接入企业业务状态和工作流。",
+      "detail": "相关 MCP 集成与工作流操作能力处于不同的可用阶段。",
+      "findings": "不能将预览或路线图功能都视为已经全面上线。",
+      "why_it_matters": "核心研究问题是跨系统状态一致性、权限继承及工具副作用管理。",
+      "published": "2026-10-28",
+      "score": 78,
+      "topics": [
+        "tool-use",
+        "work",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方新闻入口（非该公告直链）",
+          "url": "https://openai.com/news/"
+        }
+      ]
+    }
+  ]
+}

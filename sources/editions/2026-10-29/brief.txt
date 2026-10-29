@@ -1,0 +1,1 @@
+今日四份调研合并去重，核心主线依次为：① Policy、Harness 与诊断 Rubric 的联合进化；② 从真实失败轨迹构造可验证训练任务；③ 长期记忆的时效性、身份归属与主动服务；④ 专业工作交付的独立验证与权限边界。优先阅读 CoHARL、RuHarness、Memory Tax、ProactMem、RSI Arena、WorkFactory 与 LiveSearch。论文实验数据均为作者报告，产业信息按原始调研转述，本期未额外联网核验。

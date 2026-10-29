@@ -1,0 +1,296 @@
+{
+  "date": "2026-10-29",
+  "field": "field-4",
+  "items": [
+    {
+      "title": "Gemini 4 Carbon：长程 Agent 能力与执行安全同步提升",
+      "summary": "Google 10 月 28 日发布 Gemini 4 Carbon，强调长程软件工程、网络安全、失败恢复与自主执行。",
+      "detail": "官方报告 SEC-bench Pro 为 88.2%、CWE-bench 为 71.0%，并披露部分内部行为安全指标改善。",
+      "findings": "模型初期主要面向特定安全防御合作伙伴，厂商评测成绩尚不能直接外推到真实场景。",
+      "why_it_matters": "应同时考察长程任务成功、越权操作、失败恢复和独立环境中的可靠性。",
+      "published": "2026-10-28",
+      "score": 100,
+      "topics": [
+        "coding",
+        "evaluation",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Google DeepMind 官方资讯入口（非该公告直链）",
+          "url": "https://blog.google/technology/google-deepmind/"
+        }
+      ]
+    },
+    {
+      "title": "CoHARL：Policy 与 Harness 联合进化",
+      "summary": "CoHARL 通过强化学习更新 Policy，并根据执行轨迹自动修改可执行 Harness。",
+      "detail": "作者报告 SWE-bench Verified 从固定 Harness 基线的 44.2% 提升至 59.8%。",
+      "findings": "提升来自论文中的特定联合优化设置，尚需隔离模型训练收益与 Harness 适配效应。",
+      "why_it_matters": "优先研究等计算预算的联合训练、交叉适配测试和未见任务泛化。",
+      "published": "2026-10-27",
+      "score": 99,
+      "topics": [
+        "self-evolution",
+        "training",
+        "coding",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.36469"
+        }
+      ]
+    },
+    {
+      "title": "RuHarness：让失败诊断 Rubric 随 Agent 能力进化",
+      "summary": "RuHarness 指出，固定失败诊断标准可能跟不上已进化 Agent 的能力短板。",
+      "detail": "作者报告动态 Rubric 的 held-out 得分为 53.7，固定 Rubric 为 44.4，移除 Rubric 为 45.8。",
+      "findings": "动态评价更能适应新缺陷，但也可能导致评测标准漂移。",
+      "why_it_matters": "应保留独立最终验证器与历史失败模式的回归测试。",
+      "published": "2026-10-27",
+      "score": 98,
+      "topics": [
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.36826"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Copilot Harness：Agent 执行底座平台化",
+      "summary": "Microsoft 10 月 28 日将 Copilot Harness 引入 Foundry Agent Service 公开预览。",
+      "detail": "其托管执行框架整合模型路由、Skills、工具、Subagents、沙箱及版本管理。",
+      "findings": "这降低了各模型分别搭建执行层的成本，但产品本身并不是自动自进化系统。",
+      "why_it_matters": "可在稳定的权限和恢复机制上探索可审计的 Harness Evolution Layer。",
+      "published": "2026-10-28",
+      "score": 97,
+      "topics": [
+        "tool-use",
+        "deployment",
+        "work",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Microsoft Foundry Agents 文档入口（非该公告直链）",
+          "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
+        }
+      ]
+    },
+    {
+      "title": "MPO：长程 Agent RL 的 Turn 级信用分配",
+      "summary": "Multiscale Policy Optimization 将 Agent 关键决策的建模粒度从 Token 扩展到完整 Assistant Turn。",
+      "detail": "方法结合多尺度优势估计与 Turn-level Importance Sampling，作者报告在搜索及工具任务上优于多种基线。",
+      "findings": "当前结果不能直接说明某次实验或某个里程碑对最终成功的因果贡献。",
+      "why_it_matters": "值得推进 Experiment-Level 与 Milestone-Level Credit Assignment。",
+      "published": "2026-10-26",
+      "score": 96,
+      "topics": [
+        "training",
+        "tool-use",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.35013"
+        }
+      ]
+    },
+    {
+      "title": "The Trinity：从任务改进走向可复用能力进化",
+      "summary": "The Trinity 由 Creator、Explorer、Evolver 构建可验证环境、分析失败并形成能力模块。",
+      "detail": "作者报告在 28 个训练 Benchmark 和 18 个未见 Benchmark 上分别取得约 34 分和 26 分的平均提升。",
+      "findings": "仍需确认跨任务增益不是目标任务适配、训练数据泄漏或额外预算带来的效果。",
+      "why_it_matters": "可以把失败轨迹提炼为可迁移的 Capability，再用独立测试检验复用。",
+      "published": "2026-10-26",
+      "score": 94,
+      "topics": [
+        "self-evolution",
+        "skills",
+        "environments",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.36077"
+        }
+      ]
+    },
+    {
+      "title": "Your Policy Is Secretly a Harness：固定模型的 Harness 排名可能失真",
+      "summary": "该研究区分 Harness 潜在能力与当前 Policy 对其操作形式的不适应。",
+      "detail": "作者报告，仅调整观察字段顺序就能将模型成功率从 85.0% 降至 19.2%，而适应训练可以改善表现。",
+      "findings": "固定模型下的一次 Harness 排名，不能等同于充分适应后的架构优劣。",
+      "why_it_matters": "比较 Harness 时应同时测试零样本表现、适应成本与训练后能力。",
+      "published": "2026-10-27",
+      "score": 93,
+      "topics": [
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.37255"
+        }
+      ]
+    },
+    {
+      "title": "ProactMem：从长期事件流学习何时主动介入",
+      "summary": "ProactMem 将事件、时间轨迹和行为规律组织为三层记忆，并借助历史重放验证规律。",
+      "detail": "ProactiveStream 含 17 条真实事件流、4,539 个事件和 729 个干预机会，作者报告 F1 为 52.6%。",
+      "findings": "当前主要评价介入机会识别，不能等同于已安全完成有工具副作用的个人事务。",
+      "why_it_matters": "下一步应联合评测主动行动收益、用户授权、误提醒和长期变化。",
+      "published": "2026-10-27",
+      "score": 92,
+      "topics": [
+        "memory",
+        "personal",
+        "benchmark",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.36967"
+        }
+      ]
+    },
+    {
+      "title": "RSI Arena：自动模型训练需要独立能力审计",
+      "summary": "RSI Arena 让十个前沿模型在相同 GPU、API 与时间预算下自主训练一个基础模型。",
+      "detail": "所有 Agent 都产出可用模型，其中八个在第二阶段改善人类偏好评分。",
+      "findings": "人类偏好收益与 Benchmark 提升并不稳定对应，因此不能用单项指标宣称全面变强。",
+      "why_it_matters": "应审计训练后的多能力变化、成本、退化与未见任务泛化。",
+      "published": "2026-10-24",
+      "score": 87,
+      "topics": [
+        "self-evolution",
+        "training",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.33624"
+        }
+      ]
+    },
+    {
+      "title": "WorkFactory：从专业意图生成可执行训练任务",
+      "summary": "WorkFactory 探索将专业工作意图转化为十万级可执行 Agent 训练任务。",
+      "detail": "其研究目标是连接专业任务发现、环境构建和可验证结果。",
+      "findings": "任务数量并不能直接代表真实职场中的隐含义务和意外约束已被覆盖。",
+      "why_it_matters": "应检验合成任务训练收益是否迁移到未见职业、工具和工作流。",
+      "published": "2026-10-27",
+      "score": 86,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "work",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.37161"
+        }
+      ]
+    },
+    {
+      "title": "LiveSearch：以可执行验证器持续更新 Benchmark 答案",
+      "summary": "LiveSearch 将专业金融搜索问题写成可执行验证逻辑，而不是把标准答案永久固定。",
+      "detail": "作者报告连续三天运行中约 70% 的问题至少发生一次答案变化。",
+      "findings": "动态标准答案提高了现实性，也要求保存数据时间点和评测环境快照。",
+      "why_it_matters": "适合研究可重放的动态专业任务、时效验证与跨日期可比较评测。",
+      "published": "2026-10-27",
+      "score": 85,
+      "topics": [
+        "evaluation",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.37166"
+        }
+      ]
+    },
+    {
+      "title": "Continue or Restart?：早期失败预测难以支持频繁重启",
+      "summary": "论文分析 147,002 条 Coding Agent 轨迹，评估早期执行信号能否预判最终成败。",
+      "detail": "观察前 20K Tokens 时，任务内预测 AUC 仍约 0.50，多数测试中继续执行优于预测失败就重启。",
+      "findings": "预测某条轨迹未来失败，与验证当前已发生失败，是两种不同能力。",
+      "why_it_matters": "训练数据挖掘更应依赖状态不变量与里程碑测试，而非纯主观失败预测。",
+      "published": "2026-10-26",
+      "score": 84,
+      "topics": [
+        "coding",
+        "evaluation",
+        "training",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.35971"
+        }
+      ]
+    },
+    {
+      "title": "Anthropic AI for Science：科研 Agent 延伸到实验室基础设施",
+      "summary": "Anthropic 10 月 28 日宣布扩展 AI for Science，覆盖更多科研机构和项目。",
+      "detail": "公告还介绍实验室设备工具标准及多 Agent 科研合作方向。",
+      "findings": "其中部分合作成果并非当天首次公开，设备操作仍须面对延迟、噪声与安全约束。",
+      "why_it_matters": "未来应建立真实科研执行环境中的权限、实验成本和结果可验证性评测。",
+      "published": "2026-10-28",
+      "score": 79,
+      "topics": [
+        "science",
+        "tool-use",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Anthropic 官方新闻入口（非该公告直链）",
+          "url": "https://www.anthropic.com/news"
+        }
+      ]
+    },
+    {
+      "title": "TTME：测试时外部记忆演化作为参数更新的替代路线",
+      "summary": "Test-Time Memory Evolution 探索让科研 Agent 从执行经历中持续整理外部记忆，保持模型权重不变。",
+      "detail": "既有调研报告其特定数学任务实验具有较低的 FLOPs 和运行时间。",
+      "findings": "这项工作早于本次检索窗口，属于关联补读，不应当作 10 月 29 日新首发。",
+      "why_it_matters": "应公平比较外部记忆、Skill 和参数更新的长期迁移效果与单位成本。",
+      "published": "2026-10-23",
+      "score": 77,
+      "topics": [
+        "memory",
+        "continual-learning",
+        "science",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2610.32046"
+        }
+      ]
+    }
+  ]
+}
