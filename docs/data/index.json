@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "demo": false,
-  "date": "2026-10-29",
-  "generated_at": "2026-10-29T08:48:02+08:00",
+  "date": "2026-10-30",
+  "generated_at": "2026-10-30T08:33:31+08:00",
   "fields": [
     {
       "id": "field-1",
@@ -127,44 +127,42 @@
       "group": "format"
     }
   ],
-  "brief": "今日四份调研合并去重，核心主线依次为：① Policy、Harness 与诊断 Rubric 的联合进化；② 从真实失败轨迹构造可验证训练任务；③ 长期记忆的时效性、身份归属与主动服务；④ 专业工作交付的独立验证与权限边界。优先阅读 CoHARL、RuHarness、Memory Tax、ProactMem、RSI Arena、WorkFactory 与 LiveSearch。论文实验数据均为作者报告，产业信息按原始调研转述，本期未额外联网核验。",
+  "brief": "四项 8 点调研合并后的主要信号：Mistral Large 4 开放权重、Agent 独立审计与安全边界、SynthAPI 可控环境数据合成，以及长期 Personal Agent 的主动执行与可信任务进度记忆。本期将 10 月 29 日真实发布的产品动态与更早论文的 10 月 29 日 Hugging Face 收录/研究精选严格区分；所有结果仅根据四份既有调研汇总，没有额外联网核实。",
   "items": [
     {
-      "title": "Gemini 4 Carbon：长程 Agent 能力与执行安全同步提升",
-      "summary": "Google 10 月 28 日发布 Gemini 4 Carbon，强调长程软件工程、网络安全、失败恢复与自主执行。",
-      "detail": "官方报告 SEC-bench Pro 为 88.2%、CWE-bench 为 71.0%，并披露部分内部行为安全指标改善。",
-      "findings": "模型初期主要面向特定安全防御合作伙伴，厂商评测成绩尚不能直接外推到真实场景。",
-      "why_it_matters": "应同时考察长程任务成功、越权操作、失败恢复和独立环境中的可靠性。",
-      "published": "2026-10-28",
+      "title": "OpenAI：Agent Misalignment Monitoring 聚焦独立监控",
+      "summary": "10 月 29 日模型训练调研将 OpenAI Agent Misalignment Monitoring 列为重点，关注 Agent 自主执行与训练中的目标偏移。",
+      "detail": "研究方向是把监控信号、异常行为识别及模型执行轨迹联系起来，而不是只用任务分数评价系统。",
+      "findings": "当前可读取的调研片段未保留完整专项原文链接，因此不引用具体实验数值。",
+      "why_it_matters": "建议把真实任务成功、行为偏移和外部审计能力纳入统一回归测试。",
+      "published": "2026-10-29",
       "score": 100,
       "fields": [
         "field-1",
-        "field-2",
-        "field-3",
         "field-4"
       ],
       "topics": [
-        "coding",
         "evaluation",
-        "product",
-        "safety"
+        "framework",
+        "safety",
+        "training"
       ],
       "sources": [
         {
-          "name": "Google DeepMind 官方资讯入口（非该公告直链）",
-          "url": "https://blog.google/technology/google-deepmind/"
+          "name": "OpenAI 研究入口（入口页，非对应公告直链）",
+          "url": "https://openai.com/research/"
         }
       ],
-      "id": "426fc8a86615c60b",
+      "id": "207b781e953be997",
       "intro": ""
     },
     {
-      "title": "CoHARL：Policy 与 Harness 联合进化",
-      "summary": "CoHARL 通过强化学习更新 Policy，并根据执行轨迹自动修改可执行 Harness。",
-      "detail": "作者报告 SWE-bench Verified 从固定 Harness 基线的 44.2% 提升至 59.8%。",
-      "findings": "提升来自论文中的特定联合优化设置，尚需隔离模型训练收益与 Harness 适配效应。",
-      "why_it_matters": "优先研究等计算预算的联合训练、交叉适配测试和未见任务泛化。",
-      "published": "2026-10-27",
+      "title": "Mistral Large 4：正式开放权重并继续强化学习训练",
+      "summary": "Mistral 于 10 月 29 日开放 Large 4 权重，这是对 10 月 6 日预览版的更新，不是模型首次亮相。",
+      "detail": "调研记录模型为约 1.05T 总参数、52B 激活参数的 MoE，并增加约三周强化学习训练。",
+      "findings": "厂商披露 Coding 和 Terminal Agent 表现改善，但其开放权重许可并非无条件 MIT 许可证。",
+      "why_it_matters": "对 Agent 研究的价值在于可在可控模型权重上比较继续训练、Harness 配置及执行成本。",
+      "published": "2026-10-29",
       "score": 99,
       "fields": [
         "field-1",
@@ -173,25 +171,24 @@
       ],
       "topics": [
         "coding",
-        "framework",
-        "self-evolution",
+        "product",
         "training"
       ],
       "sources": [
         {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.36469"
+          "name": "Mistral 官方资讯（入口页，非对应公告直链）",
+          "url": "https://mistral.ai/news/"
         }
       ],
-      "id": "6fe5cb9ca4eb9488",
+      "id": "d8b7c1c3683053f7",
       "intro": ""
     },
     {
-      "title": "RuHarness：让失败诊断 Rubric 随 Agent 能力进化",
-      "summary": "RuHarness 指出，固定失败诊断标准可能跟不上已进化 Agent 的能力短板。",
-      "detail": "作者报告动态 Rubric 的 held-out 得分为 53.7，固定 Rubric 为 44.4，移除 Rubric 为 45.8。",
-      "findings": "动态评价更能适应新缺陷，但也可能导致评测标准漂移。",
-      "why_it_matters": "应保留独立最终验证器与历史失败模式的回归测试。",
+      "title": "SynthAPI：合成状态化工具环境的数据组成 Scaling Law",
+      "summary": "Apple SynthAPI 从八类人工定义的应用 Seed 出发，合成工具 API、可执行状态和任务，研究数据组成对迁移表现的影响。",
+      "detail": "论文构建 64 个 App、10,472 个 API 与 458,752 个任务，并进行 849 次训练实验，主要依赖成功轨迹 SFT。",
+      "findings": "数据组成模型的 held-out MAE 为 0.0285，优于只看任务数量的 0.1706；该结论尚不能泛化到所有 Agent RL。",
+      "why_it_matters": "适合研究失败 Milestone、任务种类与初始状态多样性之间的最优合成预算。",
       "published": "2026-10-27",
       "score": 98,
       "fields": [
@@ -200,326 +197,323 @@
         "field-4"
       ],
       "topics": [
-        "evaluation",
+        "data-synthesis",
+        "environments",
         "framework",
-        "self-evolution"
+        "training"
       ],
       "sources": [
         {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.36826"
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.37648"
         }
       ],
-      "id": "f8637c0894e11d19",
+      "id": "d10fd3fde1189bcb",
       "intro": ""
     },
     {
-      "title": "Microsoft Copilot Harness：Agent 执行底座平台化",
-      "summary": "Microsoft 10 月 28 日将 Copilot Harness 引入 Foundry Agent Service 公开预览。",
-      "detail": "其托管执行框架整合模型路由、Skills、工具、Subagents、沙箱及版本管理。",
-      "findings": "这降低了各模型分别搭建执行层的成本，但产品本身并不是自动自进化系统。",
-      "why_it_matters": "可在稳定的权限和恢复机制上探索可审计的 Harness Evolution Layer。",
-      "published": "2026-10-28",
+      "title": "NVIDIA × Eclypsium：让 Agent 无法自行修改外部监控",
+      "summary": "NVIDIA 在 10 月 29 日介绍与 Eclypsium 的基础设施安全合作，强调独立于 Agent 的监督边界。",
+      "detail": "调研重点涉及 BlueField DPU、硬件和固件完整性检查以及运行状态监测。",
+      "findings": "模型文件及签名保持完整并不必然保证运行时行为可信，这仍是安全架构而非已证实的通用 RSI 算法。",
+      "why_it_matters": "可设计可演化 Harness 与不可修改审计器分离的实验。",
+      "published": "2026-10-29",
       "score": 97,
       "fields": [
-        "field-2",
         "field-3",
         "field-4"
       ],
       "topics": [
         "deployment",
         "product",
-        "tool-use",
-        "work"
-      ],
-      "sources": [
-        {
-          "name": "Microsoft Foundry Agents 文档入口（非该公告直链）",
-          "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview"
-        }
-      ],
-      "id": "c7b6a920a9086332",
-      "intro": ""
-    },
-    {
-      "title": "MPO：长程 Agent RL 的 Turn 级信用分配",
-      "summary": "Multiscale Policy Optimization 将 Agent 关键决策的建模粒度从 Token 扩展到完整 Assistant Turn。",
-      "detail": "方法结合多尺度优势估计与 Turn-level Importance Sampling，作者报告在搜索及工具任务上优于多种基线。",
-      "findings": "当前结果不能直接说明某次实验或某个里程碑对最终成功的因果贡献。",
-      "why_it_matters": "值得推进 Experiment-Level 与 Milestone-Level Credit Assignment。",
-      "published": "2026-10-26",
-      "score": 96,
-      "fields": [
-        "field-1",
-        "field-3",
-        "field-4"
-      ],
-      "topics": [
-        "framework",
-        "tool-use",
-        "training"
-      ],
-      "sources": [
-        {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.35013"
-        }
-      ],
-      "id": "944d13815486272b",
-      "intro": ""
-    },
-    {
-      "title": "Memory Tax：复杂长期记忆可能不如直接检索原始历史",
-      "summary": "Memory Tax 提醒长期记忆系统需扣除记忆加工时丢失证据与增加检索困难的代价。",
-      "detail": "研究发现部分复杂记忆管理方法在某些条件下不如对原始历史直接进行 RAG。",
-      "findings": "这是特定评测条件下的比较，不能推断所有结构化记忆都无价值。",
-      "why_it_matters": "评测应同时记录原始证据保留、过时记忆影响和单位成本带来的净收益。",
-      "published": "2026-10-25",
-      "score": 95,
-      "fields": [
-        "field-1",
-        "field-2",
-        "field-3"
-      ],
-      "topics": [
-        "benchmark",
-        "evaluation",
-        "memory"
-      ],
-      "sources": [
-        {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.34073"
-        }
-      ],
-      "id": "2761afa9050a76fb",
-      "intro": ""
-    },
-    {
-      "title": "The Trinity：从任务改进走向可复用能力进化",
-      "summary": "The Trinity 由 Creator、Explorer、Evolver 构建可验证环境、分析失败并形成能力模块。",
-      "detail": "作者报告在 28 个训练 Benchmark 和 18 个未见 Benchmark 上分别取得约 34 分和 26 分的平均提升。",
-      "findings": "仍需确认跨任务增益不是目标任务适配、训练数据泄漏或额外预算带来的效果。",
-      "why_it_matters": "可以把失败轨迹提炼为可迁移的 Capability，再用独立测试检验复用。",
-      "published": "2026-10-26",
-      "score": 94,
-      "fields": [
-        "field-1",
-        "field-3",
-        "field-4"
-      ],
-      "topics": [
-        "environments",
-        "framework",
-        "self-evolution",
-        "skills"
-      ],
-      "sources": [
-        {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.36077"
-        }
-      ],
-      "id": "8eb088ec74f3ec5e",
-      "intro": ""
-    },
-    {
-      "title": "Your Policy Is Secretly a Harness：固定模型的 Harness 排名可能失真",
-      "summary": "该研究区分 Harness 潜在能力与当前 Policy 对其操作形式的不适应。",
-      "detail": "作者报告，仅调整观察字段顺序就能将模型成功率从 85.0% 降至 19.2%，而适应训练可以改善表现。",
-      "findings": "固定模型下的一次 Harness 排名，不能等同于充分适应后的架构优劣。",
-      "why_it_matters": "比较 Harness 时应同时测试零样本表现、适应成本与训练后能力。",
-      "published": "2026-10-27",
-      "score": 93,
-      "fields": [
-        "field-1",
-        "field-3",
-        "field-4"
-      ],
-      "topics": [
-        "evaluation",
-        "framework",
+        "safety",
         "self-evolution"
       ],
       "sources": [
         {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.37255"
+          "name": "NVIDIA 官方技术博客（入口页，非对应公告直链）",
+          "url": "https://blogs.nvidia.com/"
         }
       ],
-      "id": "097e9580778f8999",
+      "id": "2951527db1490d93",
       "intro": ""
     },
     {
-      "title": "ProactMem：从长期事件流学习何时主动介入",
-      "summary": "ProactMem 将事件、时间轨迹和行为规律组织为三层记忆，并借助历史重放验证规律。",
-      "detail": "ProactiveStream 含 17 条真实事件流、4,539 个事件和 729 个干预机会，作者报告 F1 为 52.6%。",
-      "findings": "当前主要评价介入机会识别，不能等同于已安全完成有工具副作用的个人事务。",
-      "why_it_matters": "下一步应联合评测主动行动收益、用户授权、误提醒和长期变化。",
+      "title": "Amazon Alexa for Shopping：新增百余项购物事务操作",
+      "summary": "Amazon 10 月 29 日披露 Alexa for Shopping 新增超过 100 项可执行操作，将购物助手从问答和推荐扩展至更多实际账户事务。",
+      "detail": "调研引述过去一年超过四亿用户使用 Alexa for Shopping，但这不等于所有用户都使用新增 Agent 能力。",
+      "findings": "订单与账户操作使用户身份、授权和不可预期副作用成为关键风险。",
+      "why_it_matters": "应按建议、可逆写入及需要确认的高风险行动分别评测。",
+      "published": "2026-10-29",
+      "score": 96,
+      "fields": [
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "personal",
+        "product",
+        "safety",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "Amazon 购物新闻目录（入口页，非对应公告直链）",
+          "url": "https://www.aboutamazon.com/news/retail"
+        }
+      ],
+      "id": "289aa30edadda13f",
+      "intro": ""
+    },
+    {
+      "title": "RealCLI：真实 CLI 轨迹中的动态人机协作评测",
+      "summary": "RealCLI 由真实命令行操作轨迹构造任务，对照一次性完整说明与执行中不断收到用户纠正的场景。",
+      "detail": "作者报告 101 个任务、606 个协作实例和 1,658 项细粒度检查，最佳联合协作分数约 37.6%。",
+      "findings": "配对实验中 17.9% 的执行因用户介入由失败变成功，18.5% 反而由成功变失败。",
+      "why_it_matters": "可把用户修正节点转换成可重置并带 Verifier 的恢复训练任务。",
+      "published": "2026-10-15",
+      "score": 95,
+      "fields": [
+        "field-1",
+        "field-3"
+      ],
+      "topics": [
+        "benchmark",
+        "coding",
+        "evaluation",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.22507"
+        }
+      ],
+      "id": "50ab1df727133df6",
+      "intro": ""
+    },
+    {
+      "title": "LongZero：用可验证目标与证据扩展长上下文训练",
+      "summary": "LongZero 探索从目标与证据结构合成长上下文训练样本，而不完全依赖外部人工交互轨迹。",
+      "detail": "调研报告一个 Qwen3-4B-Thinking 设置在五项长上下文评测的平均分从 54.7 升至 57.4。",
+      "findings": "该分数不等同于真实 Coding Agent 的端到端成功率。",
+      "why_it_matters": "下一步应测试此类合成数据对工具、状态依赖与长程执行的迁移收益。",
+      "published": "2026-10-21",
+      "score": 94,
+      "fields": [
+        "field-1",
+        "field-3"
+      ],
+      "topics": [
+        "data-synthesis",
+        "evaluation",
+        "framework",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.30132"
+        }
+      ],
+      "id": "5bbe00180687e642",
+      "intro": ""
+    },
+    {
+      "title": "Task Advancement Memory：将验证过的任务进度变成可复用记忆",
+      "summary": "Task Advancement Memory（TAM）将完整轨迹转换为已完成子目标、剩余条件和有验证依据的局部操作。",
+      "detail": "作者报告 MobileWorld GUI-only 实验中，加入 Advancement State 后成功率从 12.0% 提高至 28.2%。",
+      "findings": "完整任务失败并不意味着其中所有局部操作都失去训练和记忆价值。",
+      "why_it_matters": "适合从失败轨迹抽取可信的中间状态及其后续短任务。",
       "published": "2026-10-27",
-      "score": 92,
+      "score": 93,
       "fields": [
         "field-2",
         "field-3",
         "field-4"
       ],
       "topics": [
-        "benchmark",
         "framework",
         "memory",
-        "personal"
+        "personal",
+        "skills"
       ],
       "sources": [
         {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.36967"
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.37482"
         }
       ],
-      "id": "a6dff87986eeaf42",
+      "id": "7d510c67aa92692a",
       "intro": ""
     },
     {
-      "title": "When Retrieval Is Not Enough：新事实已检索仍会输给旧记忆",
-      "summary": "该研究显示正确记忆已经进入上下文，生成阶段仍可能被过时事实误导。",
-      "detail": "一个实验中证据预算从 64 Token 增至 512 Token，准确率反而从 45% 降至 32%。",
-      "findings": "更长上下文或更高 Recall 并不能自动解决事实版本冲突。",
-      "why_it_matters": "应显式维护事实更新时间、覆盖关系与当前有效状态。",
-      "published": "2026-10-26",
+      "title": "Ro Robin：个人健康 Agent 连接长期资料与持续协助",
+      "summary": "医疗服务公司 Ro 在 10 月 29 日推出个人健康 Agent Robin，调研重点关注它利用长期健康资料支持连续服务。",
+      "detail": "该产品方向把个人状态维护、跨会话记忆和真实服务流程组合在一起，而不止是单轮问答。",
+      "findings": "此类场景必须关注资料时效、隐私和专业建议边界，调研未独立验证其医疗结果。",
+      "why_it_matters": "可评测跨会话状态正确性、授权范围和专业服务交接。",
+      "published": "2026-10-29",
+      "score": 92,
+      "fields": [
+        "field-2"
+      ],
+      "topics": [
+        "memory",
+        "personal",
+        "product",
+        "safety"
+      ],
+      "sources": [
+        {
+          "name": "Ro 官方网站（入口页，非对应公告直链）",
+          "url": "https://ro.co/"
+        }
+      ],
+      "id": "d31b9a5b85048617",
+      "intro": ""
+    },
+    {
+      "title": "Active Preference Acquisition：主动询问未来有价值的偏好",
+      "summary": "该方法以未来任务的累计个性化价值减去打扰和隐私成本，判断个人偏好是否值得提前询问。",
+      "detail": "作者报告在 20 项任务跨度中发现了 80.3% 的有价值偏好，仅重视当前任务的基线为 5.1%。",
+      "findings": "论文中的无差别询问策略在其成本设置下甚至不如不询问。",
+      "why_it_matters": "长期 Personal Agent 应将未来效用、用户负担及不确定性一起纳入提问决策。",
+      "published": "2026-10-22",
       "score": 91,
       "fields": [
         "field-2",
         "field-3"
       ],
       "topics": [
+        "benchmark",
         "evaluation",
-        "framework",
         "memory",
         "personal"
       ],
       "sources": [
         {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.36308"
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.31107"
         }
       ],
-      "id": "a2ad1e8fe785e24b",
+      "id": "e43391a7ea715785",
       "intro": ""
     },
     {
-      "title": "PRESENT：用户在场能提高收益，也可能改变 Agent 忠实性",
-      "summary": "PRESENT 通过多种谈判游戏研究用户实时参与对代理行为的影响。",
-      "detail": "作者报告用户参与使代理方平均收益提高 13.7%，同时 14.3% 的相关轨迹出现不符合用户预期的行为。",
-      "findings": "更高交易收益不能替代对真实性、忠实性与授权边界的判断。",
-      "why_it_matters": "Personal Agent 应分开测试代办效果和对用户意图的忠实执行。",
+      "title": "Concordat：用类型化状态协议阻止 Agent 越权写入",
+      "summary": "Concordat 使用有限状态协议限定当前合法的工具调用，把审批与执行权限从语言提示转为硬约束。",
+      "detail": "在论文的 50 项航空任务中，普通 GPT-4.1 Agent 有 13 次未经必要确认即修改状态，Concordat 对应配置为零。",
+      "findings": "零违规只是该实验条件下的结果，不能当成所有现实场景的安全保证。",
+      "why_it_matters": "记忆可以影响行动建议，但不应替代执行授权。",
       "published": "2026-10-27",
       "score": 90,
       "fields": [
         "field-2",
-        "field-3"
-      ],
-      "topics": [
-        "benchmark",
-        "personal",
-        "safety"
-      ],
-      "sources": [
-        {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.36435"
-        }
-      ],
-      "id": "667b9e11ff372092",
-      "intro": ""
-    },
-    {
-      "title": "Amazon Alexa+ 日本 Early Access：家庭个体记忆与主动服务",
-      "summary": "Amazon 日本 10 月 29 日宣布 Alexa+ 开始 Early Access，强化偏好记忆、身份区分与主动帮助。",
-      "detail": "家庭环境结合 Voice ID、Visual ID 和环境感知，带来按成员隔离个人记忆的现实需求。",
-      "findings": "官方未注明精确发布时间，部分本地服务集成也将逐步推出，不应视为当天全面可用。",
-      "why_it_matters": "应优先评测家庭多用户记忆归属、错误身份关联和主动行为授权。",
-      "published": "2026-10-29",
-      "score": 89,
-      "fields": [
-        "field-2",
-        "field-3"
-      ],
-      "topics": [
-        "memory",
-        "personal",
-        "product",
-        "safety"
-      ],
-      "sources": [
-        {
-          "name": "Amazon 日本官方新闻入口（非该公告直链）",
-          "url": "https://www.aboutamazon.jp/"
-        }
-      ],
-      "id": "fff23fbc3f0cf598",
-      "intro": ""
-    },
-    {
-      "title": "Chrome Personal Intelligence：在网页任务中按需调用个人资料",
-      "summary": "Google 10 月 28 日宣布增强 Chrome Autofill，在授权场景中可从 Gmail 调取订单或航班信息填写网页表单。",
-      "detail": "这使个人记忆从被动问答转向根据正在执行的任务触发检索。",
-      "findings": "这种能力高度依赖数据时效、来源正确性和用户授权范围。",
-      "why_it_matters": "可围绕 Task-Triggered Retrieval 构造跨应用状态与隐私权限测试。",
-      "published": "2026-10-28",
-      "score": 88,
-      "fields": [
-        "field-2",
-        "field-3"
-      ],
-      "topics": [
-        "memory",
-        "personal",
-        "product",
-        "tool-use"
-      ],
-      "sources": [
-        {
-          "name": "Google Chrome 官方资讯入口（非该公告直链）",
-          "url": "https://blog.google/products/chrome/"
-        }
-      ],
-      "id": "8bcb7f4f1a6efbd9",
-      "intro": ""
-    },
-    {
-      "title": "RSI Arena：自动模型训练需要独立能力审计",
-      "summary": "RSI Arena 让十个前沿模型在相同 GPU、API 与时间预算下自主训练一个基础模型。",
-      "detail": "所有 Agent 都产出可用模型，其中八个在第二阶段改善人类偏好评分。",
-      "findings": "人类偏好收益与 Benchmark 提升并不稳定对应，因此不能用单项指标宣称全面变强。",
-      "why_it_matters": "应审计训练后的多能力变化、成本、退化与未见任务泛化。",
-      "published": "2026-10-24",
-      "score": 87,
-      "fields": [
-        "field-1",
         "field-3",
         "field-4"
       ],
       "topics": [
-        "benchmark",
+        "framework",
+        "personal",
+        "safety",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.37461"
+        }
+      ],
+      "id": "aad08e4de914d167",
+      "intro": ""
+    },
+    {
+      "title": "Amazon Echo Time：把家庭节律信号接入个人助手",
+      "summary": "Amazon 在 10 月 29 日介绍 Echo Time，强调结合睡眠、在室状态及日常行为节律增强个人助手。",
+      "detail": "环境事件可为主动提醒提供信息，而无需用户每次主动描述状态。",
+      "findings": "调研没有验证所有感知能力均已普遍上线，家庭多成员环境仍涉及隐私和身份错配。",
+      "why_it_matters": "重点关注误提醒、记忆归属与用户可控的环境数据权限。",
+      "published": "2026-10-29",
+      "score": 89,
+      "fields": [
+        "field-2"
+      ],
+      "topics": [
+        "memory",
+        "personal",
+        "product",
+        "safety"
+      ],
+      "sources": [
+        {
+          "name": "Amazon 设备新闻目录（入口页，非对应公告直链）",
+          "url": "https://www.aboutamazon.com/news/devices"
+        }
+      ],
+      "id": "4d9b2bf32bfad259",
+      "intro": ""
+    },
+    {
+      "title": "OpenAI Model Spec 更新：在 Agent 自治中保持人类监督",
+      "summary": "OpenAI 10 月 29 日更新公开 Model Spec，强化忠于人类意图、诚实透明、人类自主权等行为要求。",
+      "detail": "对于可执行工具并改变自己工作流的 Agent，这类规则需要映射成可审计的行动边界。",
+      "findings": "这属于行为规范更新，不是新的 RSI 训练方法，也不能仅凭文本规范保证部署行为。",
+      "why_it_matters": "可将 Constraint Preservation 加入自进化系统的回归评测。",
+      "published": "2026-10-29",
+      "score": 88,
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-4"
+      ],
+      "topics": [
+        "framework",
+        "safety",
+        "self-evolution"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI Model Spec 官方文档",
+          "url": "https://model-spec.openai.com/"
+        }
+      ],
+      "id": "55f32e80783a00af",
+      "intro": ""
+    },
+    {
+      "title": "GPT-6 Luna 更新：安全改善与专业能力回归需同时测量",
+      "summary": "10 月 29 日模型调研提到 GPT-6 Luna 的版本更新，涉及降低过度迎合并调整安全表现。",
+      "detail": "调研引述多项未成年人安全指标改善，但 HealthBench Hard 和 MentalHealthBench 等专业测评有分数回落。",
+      "findings": "这些评测口径不同，不能笼统断言新版整体优于或劣于旧版。",
+      "why_it_matters": "每次行为训练更新都需要同步检查专业效用、错误拒答及已掌握能力退化。",
+      "published": "2026-10-29",
+      "score": 87,
+      "fields": [
+        "field-1"
+      ],
+      "topics": [
         "evaluation",
-        "self-evolution",
+        "product",
+        "safety",
         "training"
       ],
       "sources": [
         {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.33624"
+          "name": "OpenAI 安全资料入口（入口页，非对应公告直链）",
+          "url": "https://openai.com/safety/"
         }
       ],
-      "id": "7f92942419dc62bc",
+      "id": "838d7a59a02e11a7",
       "intro": ""
     },
     {
-      "title": "WorkFactory：从专业意图生成可执行训练任务",
-      "summary": "WorkFactory 探索将专业工作意图转化为十万级可执行 Agent 训练任务。",
-      "detail": "其研究目标是连接专业任务发现、环境构建和可验证结果。",
-      "findings": "任务数量并不能直接代表真实职场中的隐含义务和意外约束已被覆盖。",
-      "why_it_matters": "应检验合成任务训练收益是否迁移到未见职业、工具和工作流。",
-      "published": "2026-10-27",
+      "title": "CausGround：将交互历史蒸馏为可执行因果规则",
+      "summary": "CausGround 从历史操作提取对象关系、动作前提和动作效果，用于具身 Agent 的适应性规划。",
+      "detail": "作者报告 VirtualHome 成功率从 24.9% 到 53.3%，RoboCasa 闭环规划从 43.0% 到 57.0%。",
+      "findings": "这些收益基于特定仿真与模型，环境变化后规则可能失效。",
+      "why_it_matters": "可把前置条件和结果验证引入长期 Agent 的 Milestone 状态迁移。",
+      "published": "2026-10-21",
       "score": 86,
       "fields": [
         "field-1",
@@ -527,286 +521,206 @@
         "field-4"
       ],
       "topics": [
-        "data-synthesis",
         "environments",
         "framework",
-        "work"
+        "memory",
+        "skills"
       ],
       "sources": [
         {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.37161"
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.29702"
         }
       ],
-      "id": "dd0575522a340479",
+      "id": "93dabf6bd2ae7320",
       "intro": ""
     },
     {
-      "title": "LiveSearch：以可执行验证器持续更新 Benchmark 答案",
-      "summary": "LiveSearch 将专业金融搜索问题写成可执行验证逻辑，而不是把标准答案永久固定。",
-      "detail": "作者报告连续三天运行中约 70% 的问题至少发生一次答案变化。",
-      "findings": "动态标准答案提高了现实性，也要求保存数据时间点和评测环境快照。",
-      "why_it_matters": "适合研究可重放的动态专业任务、时效验证与跨日期可比较评测。",
+      "title": "CrossProfile：稀有且相关的记忆仍可能误导决策",
+      "summary": "CrossProfile 关注多用户或多 Agent 决策中，稀有性和语义相关性并不等于证据真正有用。",
+      "detail": "这类记忆选择需要把信息归属、当前有效性与最终决策因果影响一起纳入判断。",
+      "findings": "原任务可读取内容在该论文介绍中途截断，因此本期不补造实验数字。",
+      "why_it_matters": "适合评测长期记忆系统对证据的保存、冲突处理和群体决策质量。",
       "published": "2026-10-27",
       "score": 85,
       "fields": [
-        "field-1",
-        "field-3",
-        "field-4"
-      ],
-      "topics": [
-        "benchmark",
-        "evaluation",
-        "work"
-      ],
-      "sources": [
-        {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.37166"
-        }
-      ],
-      "id": "a0a0598b6fec66a2",
-      "intro": ""
-    },
-    {
-      "title": "Continue or Restart?：早期失败预测难以支持频繁重启",
-      "summary": "论文分析 147,002 条 Coding Agent 轨迹，评估早期执行信号能否预判最终成败。",
-      "detail": "观察前 20K Tokens 时，任务内预测 AUC 仍约 0.50，多数测试中继续执行优于预测失败就重启。",
-      "findings": "预测某条轨迹未来失败，与验证当前已发生失败，是两种不同能力。",
-      "why_it_matters": "训练数据挖掘更应依赖状态不变量与里程碑测试，而非纯主观失败预测。",
-      "published": "2026-10-26",
-      "score": 84,
-      "fields": [
-        "field-1",
-        "field-3",
-        "field-4"
-      ],
-      "topics": [
-        "benchmark",
-        "coding",
-        "evaluation",
-        "training"
-      ],
-      "sources": [
-        {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.35971"
-        }
-      ],
-      "id": "669841138a43c944",
-      "intro": ""
-    },
-    {
-      "title": "CohortFlow：用户需求变化后只重算受影响节点",
-      "summary": "CohortFlow 将自然语言要求编译为可执行依赖图，以便修改条件时只重算相关节点。",
-      "detail": "作者报告完成后修正延迟下降 64.8%、执行中修正延迟下降 44.3%，模型调用量下降 38.1%。",
-      "findings": "主要收益是修订效率，并非已经证明了普遍的需求理解准确率提升。",
-      "why_it_matters": "可将依赖图用于 Work Agent 里程碑失效传播与局部恢复。",
-      "published": "2026-10-26",
-      "score": 83,
-      "fields": [
-        "field-1",
-        "field-3"
-      ],
-      "topics": [
-        "framework",
-        "tool-use",
-        "work"
-      ],
-      "sources": [
-        {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.36100"
-        }
-      ],
-      "id": "18559cb38b762050",
-      "intro": ""
-    },
-    {
-      "title": "Surge × Fireworks：专业 Benchmark 进入模型评测产品",
-      "summary": "Surge 10 月 28 日介绍将六项专业 Benchmark 纳入 Fireworks 模型指数相关工作。",
-      "detail": "方向上更强调专业领域真实任务，而非仅凭通用问答与代码测试衡量模型。",
-      "findings": "本期调研将其列为新博客，但这里仅提供机构资讯入口，未再次核对原文。",
-      "why_it_matters": "可跟踪真实专业任务发现、评分标准和训练数据之间的闭环。",
-      "published": "2026-10-28",
-      "score": 82,
-      "fields": [
-        "field-1",
-        "field-3"
-      ],
-      "topics": [
-        "evaluation",
-        "product",
-        "work"
-      ],
-      "sources": [
-        {
-          "name": "Surge AI 官方博客入口（非该文章直链）",
-          "url": "https://surgehq.ai/blog"
-        }
-      ],
-      "id": "c9ab1234bd2c0e91",
-      "intro": ""
-    },
-    {
-      "title": "Cognition FrontierCode 2.0：代码通过测试不等于可合并",
-      "summary": "FrontierCode 2.0 强调真实工程任务中的可合并性、维护质量和阻断性约束。",
-      "detail": "调研报告新版任务涉及更大代码库、更多文件与修改行数，并加入专家 Rubric。",
-      "findings": "不同版本任务难度不一，模型分数降低不等于模型能力倒退。",
-      "why_it_matters": "应将程序化测试与工程专家评估结合，测量交付物可维护性。",
-      "published": "2026-10-27",
-      "score": 81,
-      "fields": [
-        "field-1",
-        "field-3"
-      ],
-      "topics": [
-        "benchmark",
-        "coding",
-        "evaluation"
-      ],
-      "sources": [
-        {
-          "name": "Cognition 官方博客入口（非该文章直链）",
-          "url": "https://cognition.ai/blog"
-        }
-      ],
-      "id": "dfb2ccb6ee48b8f3",
-      "intro": ""
-    },
-    {
-      "title": "micro1：金融 RAG 需要优先选择权威证据",
-      "summary": "micro1 研究发现专业资料的语义相关性与来源权威性存在明显差别。",
-      "detail": "其金融检索测试中，权威文档 Top-10 命中率为 92%—99%，但 Top-1 仅为 42%—69%。",
-      "findings": "结果来自特定金融资料评测，不能直接推广为所有检索系统的误差水平。",
-      "why_it_matters": "建议同时测量证据相关性、实体与报告期匹配、权威性和最终回答影响。",
-      "published": "2026-10-26",
-      "score": 80,
-      "fields": [
-        "field-1",
-        "field-3"
-      ],
-      "topics": [
-        "benchmark",
-        "evaluation",
-        "work"
-      ],
-      "sources": [
-        {
-          "name": "micro1 官方网站入口（非该研究直链）",
-          "url": "https://www.micro1.ai/"
-        }
-      ],
-      "id": "3101364b0c6df0b3",
-      "intro": ""
-    },
-    {
-      "title": "Anthropic AI for Science：科研 Agent 延伸到实验室基础设施",
-      "summary": "Anthropic 10 月 28 日宣布扩展 AI for Science，覆盖更多科研机构和项目。",
-      "detail": "公告还介绍实验室设备工具标准及多 Agent 科研合作方向。",
-      "findings": "其中部分合作成果并非当天首次公开，设备操作仍须面对延迟、噪声与安全约束。",
-      "why_it_matters": "未来应建立真实科研执行环境中的权限、实验成本和结果可验证性评测。",
-      "published": "2026-10-28",
-      "score": 79,
-      "fields": [
-        "field-1",
-        "field-3",
-        "field-4"
-      ],
-      "topics": [
-        "product",
-        "safety",
-        "science",
-        "tool-use"
-      ],
-      "sources": [
-        {
-          "name": "Anthropic 官方新闻入口（非该公告直链）",
-          "url": "https://www.anthropic.com/news"
-        }
-      ],
-      "id": "f6aa679babd7a46a",
-      "intro": ""
-    },
-    {
-      "title": "OpenAI × ServiceNow：企业 Agent 连接真实工作流",
-      "summary": "OpenAI 10 月 28 日宣布扩大与 ServiceNow 的合作，探索将 ChatGPT 接入企业业务状态和工作流。",
-      "detail": "相关 MCP 集成与工作流操作能力处于不同的可用阶段。",
-      "findings": "不能将预览或路线图功能都视为已经全面上线。",
-      "why_it_matters": "核心研究问题是跨系统状态一致性、权限继承及工具副作用管理。",
-      "published": "2026-10-28",
-      "score": 78,
-      "fields": [
-        "field-1",
         "field-2",
         "field-3"
       ],
       "topics": [
-        "product",
-        "safety",
-        "tool-use",
-        "work"
+        "benchmark",
+        "evaluation",
+        "memory",
+        "personal"
       ],
       "sources": [
         {
-          "name": "OpenAI 官方新闻入口（非该公告直链）",
-          "url": "https://openai.com/news/"
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.37624"
         }
       ],
-      "id": "36b87804a01a2d45",
+      "id": "6db59b8a686567fc",
       "intro": ""
     },
     {
-      "title": "TTME：测试时外部记忆演化作为参数更新的替代路线",
-      "summary": "Test-Time Memory Evolution 探索让科研 Agent 从执行经历中持续整理外部记忆，保持模型权重不变。",
-      "detail": "既有调研报告其特定数学任务实验具有较低的 FLOPs 和运行时间。",
-      "findings": "这项工作早于本次检索窗口，属于关联补读，不应当作 10 月 29 日新首发。",
-      "why_it_matters": "应公平比较外部记忆、Skill 和参数更新的长期迁移效果与单位成本。",
-      "published": "2026-10-23",
-      "score": 77,
+      "title": "TeleTune：在无法重放的历史日志上进化 Agent Skills",
+      "summary": "TeleTune 利用离线工具日志学习和优化可复用 Skill，以历史动作预测作为候选变更的廉价代理评价。",
+      "detail": "作者报告 WorkArena 成功率 77.1%、Online-Mind2Web 成功率 80.6%，高于所比较的基线。",
+      "findings": "预测历史动作准确不代表这些动作本身正确，也不等于未来任务会成功。",
+      "why_it_matters": "应通过独立在线评测验证从离线数据筛选出来的 Skill 更新。",
+      "published": "2026-10-04",
+      "score": 84,
       "fields": [
-        "field-1",
         "field-3",
         "field-4"
       ],
       "topics": [
         "continual-learning",
         "framework",
-        "memory",
-        "science"
+        "self-evolution",
+        "skills"
       ],
       "sources": [
         {
-          "name": "arXiv 原始论文",
-          "url": "https://arxiv.org/abs/2610.32046"
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.05437"
         }
       ],
-      "id": "88ed6b4d7523fe2d",
+      "id": "535bb15ab591d954",
       "intro": ""
     },
     {
-      "title": "Scale AI：扩展卡塔尔业务与数据评测基础设施",
-      "summary": "Scale AI 10 月 28 日宣布扩大卡塔尔业务，属于数据与评测基础设施的产业布局。",
-      "detail": "本次调研未将其认定为新的 Agent Benchmark 或训练方法。",
-      "findings": "官方公告直链未在可读取合并结果中保留，此处仅提供官网入口。",
-      "why_it_matters": "可低优先级观察区域合作如何形成高质量专业数据供给。",
-      "published": "2026-10-28",
-      "score": 76,
+      "title": "ForkPilot：学习何时值得回溯搜索",
+      "summary": "ForkPilot 从历史轨迹学习当前回溯搜索的预期收益和成本，动态决定何时继续或分支探索。",
+      "detail": "作者报告在部分配置中未缓存 Token 使用最多降低 59.2%，同时保持接近强搜索基线的表现。",
+      "findings": "这不是完整训练加推理预算的节省比例。",
+      "why_it_matters": "值得将搜索价值策略迁移到自动化科研 Agent 的实验资源调度。",
+      "published": "2026-10-04",
+      "score": 83,
       "fields": [
-        "field-1"
+        "field-3",
+        "field-4"
       ],
       "topics": [
-        "data-synthesis",
-        "deployment",
-        "product"
+        "evaluation",
+        "framework",
+        "self-evolution",
+        "training"
       ],
       "sources": [
         {
-          "name": "Scale AI 官方网站入口（非该公告直链）",
-          "url": "https://scale.com/"
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.04889"
         }
       ],
-      "id": "07988b08822af963",
+      "id": "65f2aa74e4cbffb5",
+      "intro": ""
+    },
+    {
+      "title": "Meta：向未成年人监护人提供主动风险提醒",
+      "summary": "Meta 10 月 29 日披露扩展青少年对话安全提醒机制，尝试根据持续交互风险触发主动通知。",
+      "detail": "这种模式需要跨时间判断风险何时足以触发提醒，而非只对单轮消息进行分类。",
+      "findings": "它同时涉及误报、漏报、隐私和监护关系，本次调研未披露可复核的准确率。",
+      "why_it_matters": "Personal Agent 的主动性评测需要同时考虑介入收益与隐私边界。",
+      "published": "2026-10-29",
+      "score": 82,
+      "fields": [
+        "field-2"
+      ],
+      "topics": [
+        "personal",
+        "product",
+        "safety"
+      ],
+      "sources": [
+        {
+          "name": "Meta 官方资讯（入口页，非对应公告直链）",
+          "url": "https://about.fb.com/news/"
+        }
+      ],
+      "id": "d4bba565204ff7fc",
+      "intro": ""
+    },
+    {
+      "title": "Serval 融资：企业工作流中分离 Builder 与 Executor",
+      "summary": "调研记录 Serval 于 10 月 29 日完成 1.5 亿美元融资，继续扩展企业自动化产品。",
+      "detail": "它区分负责建立工作流的 Builder Agent 与执行已授权操作的 Execution Agent。",
+      "findings": "这是融资和产品扩展消息，并非当天首次发布自进化算法。",
+      "why_it_matters": "这类权限隔离可用于限制 Meta-Agent 修改生产环境的范围。",
+      "published": "2026-10-29",
+      "score": 81,
+      "fields": [
+        "field-2",
+        "field-4"
+      ],
+      "topics": [
+        "deployment",
+        "product",
+        "safety",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "路透社新闻入口（入口页，非对应公告直链）",
+          "url": "https://www.reuters.com/"
+        }
+      ],
+      "id": "938754f9bd588c14",
+      "intro": ""
+    },
+    {
+      "title": "Coforge Autonomous Software Factory：企业多 Agent 交付流程",
+      "summary": "Coforge 10 月 29 日介绍 Autonomous Software Factory，将多 Agent 并行编码、测试、审查与交付组织成企业工作流。",
+      "detail": "其方案强调统一治理和人工监督，而不只是生成程序代码。",
+      "findings": "调研未发现可独立复现实验效果的统一 Benchmark，也不是新型 RSI 训练方法。",
+      "why_it_matters": "后续可在固定预算下验证多 Agent 分工与审计对交付质量的真实收益。",
+      "published": "2026-10-29",
+      "score": 80,
+      "fields": [
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "coding",
+        "deployment",
+        "product",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "Coforge 官方网站（入口页，非对应公告直链）",
+          "url": "https://www.coforge.com/"
+        }
+      ],
+      "id": "0fd8e22314c1e384",
+      "intro": ""
+    },
+    {
+      "title": "micro1：专业 Agent 评测应分离模型与执行环境失败",
+      "summary": "模型训练调研提到 micro1 于 10 月 29 日发表个人 Agent 判断相关分析，提示环境执行问题会混入模型能力评价。",
+      "detail": "沙箱初始化、工具失败和配置差异可能使任务失败，并不总意味着模型做出了错误决定。",
+      "findings": "本次没有保留该新文章的直链，因此不把其他旧文章的数据混入该条。",
+      "why_it_matters": "推荐对 Model、Tool、Environment、Verifier 四类失败分别做标注。",
+      "published": "2026-10-29",
+      "score": 79,
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "evaluation",
+        "product",
+        "safety",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "micro1 官方网站（入口页，非对应公告直链）",
+          "url": "https://www.micro1.ai/"
+        }
+      ],
+      "id": "3101364b0c6df0b3",
       "intro": ""
     }
   ]

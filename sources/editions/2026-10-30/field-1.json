@@ -1,0 +1,193 @@
+{
+  "date": "2026-10-30",
+  "field": "field-1",
+  "items": [
+    {
+      "title": "OpenAI：Agent Misalignment Monitoring 聚焦独立监控",
+      "summary": "10 月 29 日模型训练调研将 OpenAI Agent Misalignment Monitoring 列为重点，关注 Agent 自主执行与训练中的目标偏移。",
+      "detail": "研究方向是把监控信号、异常行为识别及模型执行轨迹联系起来，而不是只用任务分数评价系统。",
+      "findings": "当前可读取的调研片段未保留完整专项原文链接，因此不引用具体实验数值。",
+      "why_it_matters": "建议把真实任务成功、行为偏移和外部审计能力纳入统一回归测试。",
+      "published": "2026-10-29",
+      "score": 100,
+      "topics": [
+        "training",
+        "safety",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 研究入口（入口页，非对应公告直链）",
+          "url": "https://openai.com/research/"
+        }
+      ]
+    },
+    {
+      "title": "Mistral Large 4：正式开放权重并继续强化学习训练",
+      "summary": "Mistral 于 10 月 29 日开放 Large 4 权重，这是对 10 月 6 日预览版的更新，不是模型首次亮相。",
+      "detail": "调研记录模型为约 1.05T 总参数、52B 激活参数的 MoE，并增加约三周强化学习训练。",
+      "findings": "厂商披露 Coding 和 Terminal Agent 表现改善，但其开放权重许可并非无条件 MIT 许可证。",
+      "why_it_matters": "对 Agent 研究的价值在于可在可控模型权重上比较继续训练、Harness 配置及执行成本。",
+      "published": "2026-10-29",
+      "score": 99,
+      "topics": [
+        "training",
+        "coding",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Mistral 官方资讯（入口页，非对应公告直链）",
+          "url": "https://mistral.ai/news/"
+        }
+      ]
+    },
+    {
+      "title": "SynthAPI：合成状态化工具环境的数据组成 Scaling Law",
+      "summary": "Apple SynthAPI 从八类人工定义的应用 Seed 出发，合成工具 API、可执行状态和任务，研究数据组成对迁移表现的影响。",
+      "detail": "论文构建 64 个 App、10,472 个 API 与 458,752 个任务，并进行 849 次训练实验，主要依赖成功轨迹 SFT。",
+      "findings": "数据组成模型的 held-out MAE 为 0.0285，优于只看任务数量的 0.1706；该结论尚不能泛化到所有 Agent RL。",
+      "why_it_matters": "适合研究失败 Milestone、任务种类与初始状态多样性之间的最优合成预算。",
+      "published": "2026-10-27",
+      "score": 98,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.37648"
+        }
+      ]
+    },
+    {
+      "title": "RealCLI：真实 CLI 轨迹中的动态人机协作评测",
+      "summary": "RealCLI 由真实命令行操作轨迹构造任务，对照一次性完整说明与执行中不断收到用户纠正的场景。",
+      "detail": "作者报告 101 个任务、606 个协作实例和 1,658 项细粒度检查，最佳联合协作分数约 37.6%。",
+      "findings": "配对实验中 17.9% 的执行因用户介入由失败变成功，18.5% 反而由成功变失败。",
+      "why_it_matters": "可把用户修正节点转换成可重置并带 Verifier 的恢复训练任务。",
+      "published": "2026-10-15",
+      "score": 95,
+      "topics": [
+        "coding",
+        "work",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.22507"
+        }
+      ]
+    },
+    {
+      "title": "LongZero：用可验证目标与证据扩展长上下文训练",
+      "summary": "LongZero 探索从目标与证据结构合成长上下文训练样本，而不完全依赖外部人工交互轨迹。",
+      "detail": "调研报告一个 Qwen3-4B-Thinking 设置在五项长上下文评测的平均分从 54.7 升至 57.4。",
+      "findings": "该分数不等同于真实 Coding Agent 的端到端成功率。",
+      "why_it_matters": "下一步应测试此类合成数据对工具、状态依赖与长程执行的迁移收益。",
+      "published": "2026-10-21",
+      "score": 94,
+      "topics": [
+        "data-synthesis",
+        "training",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.30132"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI Model Spec 更新：在 Agent 自治中保持人类监督",
+      "summary": "OpenAI 10 月 29 日更新公开 Model Spec，强化忠于人类意图、诚实透明、人类自主权等行为要求。",
+      "detail": "对于可执行工具并改变自己工作流的 Agent，这类规则需要映射成可审计的行动边界。",
+      "findings": "这属于行为规范更新，不是新的 RSI 训练方法，也不能仅凭文本规范保证部署行为。",
+      "why_it_matters": "可将 Constraint Preservation 加入自进化系统的回归评测。",
+      "published": "2026-10-29",
+      "score": 88,
+      "topics": [
+        "safety",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI Model Spec 官方文档",
+          "url": "https://model-spec.openai.com/"
+        }
+      ]
+    },
+    {
+      "title": "GPT-6 Luna 更新：安全改善与专业能力回归需同时测量",
+      "summary": "10 月 29 日模型调研提到 GPT-6 Luna 的版本更新，涉及降低过度迎合并调整安全表现。",
+      "detail": "调研引述多项未成年人安全指标改善，但 HealthBench Hard 和 MentalHealthBench 等专业测评有分数回落。",
+      "findings": "这些评测口径不同，不能笼统断言新版整体优于或劣于旧版。",
+      "why_it_matters": "每次行为训练更新都需要同步检查专业效用、错误拒答及已掌握能力退化。",
+      "published": "2026-10-29",
+      "score": 87,
+      "topics": [
+        "training",
+        "safety",
+        "evaluation",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 安全资料入口（入口页，非对应公告直链）",
+          "url": "https://openai.com/safety/"
+        }
+      ]
+    },
+    {
+      "title": "CausGround：将交互历史蒸馏为可执行因果规则",
+      "summary": "CausGround 从历史操作提取对象关系、动作前提和动作效果，用于具身 Agent 的适应性规划。",
+      "detail": "作者报告 VirtualHome 成功率从 24.9% 到 53.3%，RoboCasa 闭环规划从 43.0% 到 57.0%。",
+      "findings": "这些收益基于特定仿真与模型，环境变化后规则可能失效。",
+      "why_it_matters": "可把前置条件和结果验证引入长期 Agent 的 Milestone 状态迁移。",
+      "published": "2026-10-21",
+      "score": 86,
+      "topics": [
+        "memory",
+        "skills",
+        "environments",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.29702"
+        }
+      ]
+    },
+    {
+      "title": "micro1：专业 Agent 评测应分离模型与执行环境失败",
+      "summary": "模型训练调研提到 micro1 于 10 月 29 日发表个人 Agent 判断相关分析，提示环境执行问题会混入模型能力评价。",
+      "detail": "沙箱初始化、工具失败和配置差异可能使任务失败，并不总意味着模型做出了错误决定。",
+      "findings": "本次没有保留该新文章的直链，因此不把其他旧文章的数据混入该条。",
+      "why_it_matters": "推荐对 Model、Tool、Environment、Verifier 四类失败分别做标注。",
+      "published": "2026-10-29",
+      "score": 79,
+      "topics": [
+        "evaluation",
+        "safety",
+        "work",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "micro1 官方网站（入口页，非对应公告直链）",
+          "url": "https://www.micro1.ai/"
+        }
+      ]
+    }
+  ]
+}

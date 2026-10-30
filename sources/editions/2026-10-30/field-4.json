@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-30",
+  "field": "field-4",
+  "items": [
+    {
+      "title": "OpenAI：Agent Misalignment Monitoring 聚焦独立监控",
+      "summary": "10 月 29 日模型训练调研将 OpenAI Agent Misalignment Monitoring 列为重点，关注 Agent 自主执行与训练中的目标偏移。",
+      "detail": "研究方向是把监控信号、异常行为识别及模型执行轨迹联系起来，而不是只用任务分数评价系统。",
+      "findings": "当前可读取的调研片段未保留完整专项原文链接，因此不引用具体实验数值。",
+      "why_it_matters": "建议把真实任务成功、行为偏移和外部审计能力纳入统一回归测试。",
+      "published": "2026-10-29",
+      "score": 100,
+      "topics": [
+        "training",
+        "safety",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 研究入口（入口页，非对应公告直链）",
+          "url": "https://openai.com/research/"
+        }
+      ]
+    },
+    {
+      "title": "Mistral Large 4：正式开放权重并继续强化学习训练",
+      "summary": "Mistral 于 10 月 29 日开放 Large 4 权重，这是对 10 月 6 日预览版的更新，不是模型首次亮相。",
+      "detail": "调研记录模型为约 1.05T 总参数、52B 激活参数的 MoE，并增加约三周强化学习训练。",
+      "findings": "厂商披露 Coding 和 Terminal Agent 表现改善，但其开放权重许可并非无条件 MIT 许可证。",
+      "why_it_matters": "对 Agent 研究的价值在于可在可控模型权重上比较继续训练、Harness 配置及执行成本。",
+      "published": "2026-10-29",
+      "score": 99,
+      "topics": [
+        "training",
+        "coding",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Mistral 官方资讯（入口页，非对应公告直链）",
+          "url": "https://mistral.ai/news/"
+        }
+      ]
+    },
+    {
+      "title": "SynthAPI：合成状态化工具环境的数据组成 Scaling Law",
+      "summary": "Apple SynthAPI 从八类人工定义的应用 Seed 出发，合成工具 API、可执行状态和任务，研究数据组成对迁移表现的影响。",
+      "detail": "论文构建 64 个 App、10,472 个 API 与 458,752 个任务，并进行 849 次训练实验，主要依赖成功轨迹 SFT。",
+      "findings": "数据组成模型的 held-out MAE 为 0.0285，优于只看任务数量的 0.1706；该结论尚不能泛化到所有 Agent RL。",
+      "why_it_matters": "适合研究失败 Milestone、任务种类与初始状态多样性之间的最优合成预算。",
+      "published": "2026-10-27",
+      "score": 98,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.37648"
+        }
+      ]
+    },
+    {
+      "title": "NVIDIA × Eclypsium：让 Agent 无法自行修改外部监控",
+      "summary": "NVIDIA 在 10 月 29 日介绍与 Eclypsium 的基础设施安全合作，强调独立于 Agent 的监督边界。",
+      "detail": "调研重点涉及 BlueField DPU、硬件和固件完整性检查以及运行状态监测。",
+      "findings": "模型文件及签名保持完整并不必然保证运行时行为可信，这仍是安全架构而非已证实的通用 RSI 算法。",
+      "why_it_matters": "可设计可演化 Harness 与不可修改审计器分离的实验。",
+      "published": "2026-10-29",
+      "score": 97,
+      "topics": [
+        "safety",
+        "deployment",
+        "self-evolution",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "NVIDIA 官方技术博客（入口页，非对应公告直链）",
+          "url": "https://blogs.nvidia.com/"
+        }
+      ]
+    },
+    {
+      "title": "Task Advancement Memory：将验证过的任务进度变成可复用记忆",
+      "summary": "Task Advancement Memory（TAM）将完整轨迹转换为已完成子目标、剩余条件和有验证依据的局部操作。",
+      "detail": "作者报告 MobileWorld GUI-only 实验中，加入 Advancement State 后成功率从 12.0% 提高至 28.2%。",
+      "findings": "完整任务失败并不意味着其中所有局部操作都失去训练和记忆价值。",
+      "why_it_matters": "适合从失败轨迹抽取可信的中间状态及其后续短任务。",
+      "published": "2026-10-27",
+      "score": 93,
+      "topics": [
+        "memory",
+        "skills",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.37482"
+        }
+      ]
+    },
+    {
+      "title": "Concordat：用类型化状态协议阻止 Agent 越权写入",
+      "summary": "Concordat 使用有限状态协议限定当前合法的工具调用，把审批与执行权限从语言提示转为硬约束。",
+      "detail": "在论文的 50 项航空任务中，普通 GPT-4.1 Agent 有 13 次未经必要确认即修改状态，Concordat 对应配置为零。",
+      "findings": "零违规只是该实验条件下的结果，不能当成所有现实场景的安全保证。",
+      "why_it_matters": "记忆可以影响行动建议，但不应替代执行授权。",
+      "published": "2026-10-27",
+      "score": 90,
+      "topics": [
+        "safety",
+        "tool-use",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.37461"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI Model Spec 更新：在 Agent 自治中保持人类监督",
+      "summary": "OpenAI 10 月 29 日更新公开 Model Spec，强化忠于人类意图、诚实透明、人类自主权等行为要求。",
+      "detail": "对于可执行工具并改变自己工作流的 Agent，这类规则需要映射成可审计的行动边界。",
+      "findings": "这属于行为规范更新，不是新的 RSI 训练方法，也不能仅凭文本规范保证部署行为。",
+      "why_it_matters": "可将 Constraint Preservation 加入自进化系统的回归评测。",
+      "published": "2026-10-29",
+      "score": 88,
+      "topics": [
+        "safety",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI Model Spec 官方文档",
+          "url": "https://model-spec.openai.com/"
+        }
+      ]
+    },
+    {
+      "title": "CausGround：将交互历史蒸馏为可执行因果规则",
+      "summary": "CausGround 从历史操作提取对象关系、动作前提和动作效果，用于具身 Agent 的适应性规划。",
+      "detail": "作者报告 VirtualHome 成功率从 24.9% 到 53.3%，RoboCasa 闭环规划从 43.0% 到 57.0%。",
+      "findings": "这些收益基于特定仿真与模型，环境变化后规则可能失效。",
+      "why_it_matters": "可把前置条件和结果验证引入长期 Agent 的 Milestone 状态迁移。",
+      "published": "2026-10-21",
+      "score": 86,
+      "topics": [
+        "memory",
+        "skills",
+        "environments",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.29702"
+        }
+      ]
+    },
+    {
+      "title": "TeleTune：在无法重放的历史日志上进化 Agent Skills",
+      "summary": "TeleTune 利用离线工具日志学习和优化可复用 Skill，以历史动作预测作为候选变更的廉价代理评价。",
+      "detail": "作者报告 WorkArena 成功率 77.1%、Online-Mind2Web 成功率 80.6%，高于所比较的基线。",
+      "findings": "预测历史动作准确不代表这些动作本身正确，也不等于未来任务会成功。",
+      "why_it_matters": "应通过独立在线评测验证从离线数据筛选出来的 Skill 更新。",
+      "published": "2026-10-04",
+      "score": 84,
+      "topics": [
+        "self-evolution",
+        "skills",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.05437"
+        }
+      ]
+    },
+    {
+      "title": "ForkPilot：学习何时值得回溯搜索",
+      "summary": "ForkPilot 从历史轨迹学习当前回溯搜索的预期收益和成本，动态决定何时继续或分支探索。",
+      "detail": "作者报告在部分配置中未缓存 Token 使用最多降低 59.2%，同时保持接近强搜索基线的表现。",
+      "findings": "这不是完整训练加推理预算的节省比例。",
+      "why_it_matters": "值得将搜索价值策略迁移到自动化科研 Agent 的实验资源调度。",
+      "published": "2026-10-04",
+      "score": 83,
+      "topics": [
+        "self-evolution",
+        "training",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 论文原文（编号来自已有调研）",
+          "url": "https://arxiv.org/abs/2610.04889"
+        }
+      ]
+    },
+    {
+      "title": "Serval 融资：企业工作流中分离 Builder 与 Executor",
+      "summary": "调研记录 Serval 于 10 月 29 日完成 1.5 亿美元融资，继续扩展企业自动化产品。",
+      "detail": "它区分负责建立工作流的 Builder Agent 与执行已授权操作的 Execution Agent。",
+      "findings": "这是融资和产品扩展消息，并非当天首次发布自进化算法。",
+      "why_it_matters": "这类权限隔离可用于限制 Meta-Agent 修改生产环境的范围。",
+      "published": "2026-10-29",
+      "score": 81,
+      "topics": [
+        "work",
+        "safety",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "路透社新闻入口（入口页，非对应公告直链）",
+          "url": "https://www.reuters.com/"
+        }
+      ]
+    },
+    {
+      "title": "Coforge Autonomous Software Factory：企业多 Agent 交付流程",
+      "summary": "Coforge 10 月 29 日介绍 Autonomous Software Factory，将多 Agent 并行编码、测试、审查与交付组织成企业工作流。",
+      "detail": "其方案强调统一治理和人工监督，而不只是生成程序代码。",
+      "findings": "调研未发现可独立复现实验效果的统一 Benchmark，也不是新型 RSI 训练方法。",
+      "why_it_matters": "后续可在固定预算下验证多 Agent 分工与审计对交付质量的真实收益。",
+      "published": "2026-10-29",
+      "score": 80,
+      "topics": [
+        "coding",
+        "work",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Coforge 官方网站（入口页，非对应公告直链）",
+          "url": "https://www.coforge.com/"
+        }
+      ]
+    }
+  ]
+}
