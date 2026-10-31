@@ -1,0 +1,313 @@
+{
+  "date": "2026-10-31",
+  "field": "field-3",
+  "items": [
+    {
+      "title": "WebAnything：从真实网站自动生成可训练的 Agent 环境",
+      "summary": "WebAnything 从真实网站 URL 自动探索交互、重建状态化环境，并生成可验证的 Web Agent 训练任务。",
+      "intro": "流程以 Explorer–Builder 为入口，再通过独立验证器比较合成环境与真实网站行为，并对差异进行局部修复。关键不只是把网站截图变成训练题，而是建立可重置、可执行、能判定成败的状态空间。若能按 Agent 的真实失败分布选择要复制的网站，环境合成就能进一步变为自适应课程生成器。",
+      "detail": "研究构建了 244 个网站环境、12,984 个执行验收任务和 5,856 条 SFT 轨迹。",
+      "findings": "Qwen3.5-9B 在 WebArena-Verified 上的成功率提升 13.33 个百分点，在 REAL 上提升 9.9 个百分点。",
+      "why_it_matters": "最值得研究的是环境生成质量、目标模型的失败覆盖率与 OOD 训练收益之间的关系。",
+      "published": "2026-10-27",
+      "score": 100,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "training",
+        "work",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.37786"
+        }
+      ]
+    },
+    {
+      "title": "EnvOS：给会变化的 Agent 环境做四层认证",
+      "summary": "EnvOS 研究 Agent 执行期间真实业务状态发生变化时，怎样保证测试环境与评分结果都可信。",
+      "intro": "EnvOS 通过真实状态修改、触发时机、观察通道与单次触发保护构造外部变化，分别测试无提示、要求重新检查和直接展示最新值的条件。它还保留环境事件与完整执行证据，让独立程序重新计算评分。对失败边界任务切分而言，必须确认中间状态真实可达、后续目标尚未完成、且正确续跑仍然可行。",
+      "detail": "它认证事件确实生效、观察与设定一致、任务仍可解，以及 Checker 能分辨正确和错误状态。",
+      "findings": "门诊预约任务中 Claude Opus 5 在不提示变化时完成 0/16，直接显示最新状态后达到 15/16。",
+      "why_it_matters": "这为动态环境任务合成提供了先验门槛：先验证任务，再用 Agent 的失败作为训练信号。",
+      "published": "2026-10-29",
+      "score": 99,
+      "topics": [
+        "environments",
+        "evaluation",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.40246"
+        }
+      ]
+    },
+    {
+      "title": "Repairs for Whom?：修复动作必须对实际执行模型有效",
+      "summary": "Repairs for Whom? 发现强 Teacher 眼中的最佳修复步骤，不一定适合真正续跑的 Student Agent。",
+      "intro": "评测将修复价值定义为目标策略在修复后成功的概率，相比原始续跑的增量。模型之间不仅强弱不同，对同一批候选修复也可能形成相反偏好。实际可采用少量目标模型续跑，加上独立 Verifier，估计哪个 C→D 片段最值得投入训练预算。",
+      "detail": "研究固定失败轨迹前缀、生成候选修复动作，再用不同大小的模型验证这些修复的后续收益。",
+      "findings": "让 14B 模型挑选修复、7B 执行，相比直接用 7B 续跑选择，在 ALFWorld 上损失约 0.25 的预期净成功收益。",
+      "why_it_matters": "训练失败边界时，应根据目标模型自己的恢复能力选题，而不是只按照教师的判断排序。",
+      "published": "2026-10-28",
+      "score": 98,
+      "topics": [
+        "evaluation",
+        "training",
+        "coding",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38610"
+        }
+      ]
+    },
+    {
+      "title": "HALO：主动式 Agent 最常见的错误是介入过度",
+      "summary": "HALO 用人类偏好评测 Personal Agent 应不应该主动介入，以及介入时间和强度是否合适。",
+      "intro": "HALO 将需求按任务依赖、阻碍、风险与机会分类，并进一步给出 Premature、Excessive、Insufficient、Belated 等错误维度。它还记录检索轮次和推理代价，便于比较主动判断是否值得消耗额外计算。真实 Personal Agent 可以把用户长期偏好纳入干预强度的个性化决策。",
+      "detail": "HALO-Arena 包含 10 个生活领域、50 个个人环境和 400 个场景，另有 8,000 个模型回答供专家分析。",
+      "findings": "最佳闭源模型回答可接受率为 72.88%，不合格回答中 61.20% 涉及过早或过度介入。",
+      "why_it_matters": "主动性不该只预测是否存在需求，而要联合学习是否介入、何时介入和介入到什么程度。",
+      "published": "2026-10-29",
+      "score": 96,
+      "topics": [
+        "personal",
+        "evaluation",
+        "benchmark",
+        "safety"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.39086"
+        }
+      ]
+    },
+    {
+      "title": "Claude Code 2.1.314：新增工作目录写入边界与空闲压缩",
+      "summary": "Claude Code v2.1.314 新增工作目录外文件写入限制，覆盖 Write、Edit 与 NotebookEdit 三种工具。",
+      "intro": "新配置名为 permissions.blockWritesOutsideWorkingDirectories，允许项目按目录设置文件编辑边界。更新还涉及企业网关按身份组路由、Bedrock Guardrail 触发记录、Hooks 并发控制和多项长会话修复。它适合作为评测“摘要压缩后是否错误继承过时授权”的真实软件基座。",
+      "detail": "配置开启后，限制在各种权限模式中生效，把关键执行边界移出模型自身的语言判断。",
+      "findings": "VS Code 与 Desktop 还加入超过 200K Token 会话的空闲自动压缩，帮助延续长程任务。",
+      "why_it_matters": "长期 Agent 的系统设计应同时管理上下文连续性与实际文件执行权限。",
+      "published": "2026-10-30",
+      "score": 93,
+      "topics": [
+        "coding",
+        "personal",
+        "safety",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Anthropic 官方 Release",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.314"
+        }
+      ]
+    },
+    {
+      "title": "SkillCT：对 Agent Skill 进行九维质量评估",
+      "summary": "SkillCT 指出 Skill 质量不能只看某一次任务是否成功，还要检查结构、稳定性、能力边界和执行效率。",
+      "intro": "评价由静态结构、动态表现和人工辅助审查三部分构成。对于尚未执行的新 Skill，研究利用与参考 Skill 的相似性估计多维质量，降低逐项部署测试的成本。长期风险是优化器逐渐过拟合质量预测器，因此需要未见任务和跨模型验证。",
+      "detail": "研究收集 4,098 个参考 Skills、覆盖 14 类，并构建九维评价与低成本免执行预测器。",
+      "findings": "论文中的 Skill 优化实验使平均成功率从 89.6% 提升到 96.0%，执行步骤由 7.85 降至 6.26。",
+      "why_it_matters": "自进化 Skill Library 应使用多维质量门槛，并对预测器筛选结果进行独立执行审计。",
+      "published": "2026-10-28",
+      "score": 90,
+      "topics": [
+        "skills",
+        "evaluation",
+        "benchmark",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38147"
+        }
+      ]
+    },
+    {
+      "title": "AskStream：流式视频 Agent 学会 WAIT / ASK / ANSWER",
+      "summary": "AskStream 让实时视频 Agent 在等待和回答之外，能够主动询问用户补充缺失的视觉证据。",
+      "intro": "典型场景是用户询问一个容器能否微波加热，但摄像头没有拍到材质标识；合理的 Agent 应要求用户展示标识而不是猜测。StreamHarness 用密集近期观察和压缩历史记录支持在线推理。移除层次化历史记忆后，论文的一项 Ask-F1 从 52.18% 降至 41.70%。",
+      "detail": "Benchmark 覆盖 438 段视频、2,714 个标注时间窗口和八个子任务。",
+      "findings": "最佳离线设置的 Ask-F1 为 52.18%，实时流式主动设置的最佳结果为 7.22%，显示即时判断仍很困难。",
+      "why_it_matters": "未来 Life Agent 应联合学习 WAIT、ASK、NOTIFY、ACT 和 ABSTAIN，而不是只选择回答或沉默。",
+      "published": "2026-10-28",
+      "score": 88,
+      "topics": [
+        "personal",
+        "evaluation",
+        "framework",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38678"
+        }
+      ]
+    },
+    {
+      "title": "Unified Training：预训练、SFT 与 RL 可以进入同一训练循环",
+      "summary": "Training Foundation Models with a Single Algorithm 将预训练、SFT 和 RL 统一为基于似然拟合的训练框架。",
+      "intro": "论文从数学上将合适的 RL 目标表示为对模型生成的目标分布做最大似然拟合，使原本分阶段使用的优化方法可统一描述。训练系统通过数据混合而非完全切换 Trainer 处理不同时期的学习目标。进一步研究应关注多阶段能力保持与任务混合权重的自动学习。",
+      "detail": "研究用同一个 Trainer 混合静态数据与模型生成的 RL 轨迹，把训练阶段切换转化为数据配比和调度问题。",
+      "findings": "作者报告统一训练改善准确率与算力消耗的权衡，并扩大任务覆盖范围。",
+      "why_it_matters": "这为持续学习和 Agent RL 提供了统一管理不同经验来源的基础设施思路。",
+      "published": "2026-10-29",
+      "score": 86,
+      "topics": [
+        "training",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.40564"
+        }
+      ]
+    },
+    {
+      "title": "RACE：奖励饱和时自动切换到 Rubric 进化",
+      "summary": "RACE 将 Policy 与 Rubric 的协同训练从固定交替改为由奖励信号驱动的动态切换。",
+      "intro": "静态 Rubric 在模型能力提高后会逐渐失去区分能力。RACE 缓存 Rubric 失效样本，在奖励长期饱和时切换到评价器优化，再根据其进展返回 Policy 更新。它适合与 RuHarness 和 Skill Quality Auditor 组成反馈闭环。",
+      "detail": "它区分可学习样本、策略输出多样性不足和评分标准失效，并只用有效组更新 Policy。",
+      "findings": "在八项任务上，RACE 的平均表现超过固定交替基线，同时提高 Rubric 的区分能力。",
+      "why_it_matters": "自进化系统可以将奖励失效视为优化评分器的触发信号，而不只是继续提高模型更新频率。",
+      "published": "2026-10-29",
+      "score": 85,
+      "topics": [
+        "training",
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.40096"
+        }
+      ]
+    },
+    {
+      "title": "Cursor 扩展供应链事件：恶意 Claude Code 插件影响最多 5000 用户",
+      "summary": "Cursor 插件市场 10 月 29 日曾上线被篡改的 Claude Code 扩展约 11 小时，最多约 5,000 名用户受到影响。",
+      "intro": "公开报道将受影响扩展标记为 2.1.313，指出其包含后门与持久化尝试。安全团队强调仅卸载恶意插件可能无法消除已留下的系统修改。对 Agent 环境而言，Skills、MCP Servers、编辑器扩展和工具包都应具有可验证的构建来源与执行权限。",
+      "detail": "恶意版本试图收集主机信息并建立远程访问入口，Cursor 随后撤下并重建插件市场。",
+      "findings": "这起事件攻击的是 Agent 工具供应链，而不是通过 Prompt 直接改变基础模型的回答。",
+      "why_it_matters": "个人和代码 Agent 必须把扩展来源、版本更新和最小权限纳入可审计的执行环境。",
+      "published": "2026-10-30",
+      "score": 84,
+      "topics": [
+        "safety",
+        "coding",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Reuters 事件报道",
+          "url": "https://www.reuters.com/business/media-telecom/cursor-says-up-5000-users-affected-by-tampered-claude-code-extension-2026-10-30/"
+        }
+      ]
+    },
+    {
+      "title": "Investor's Last Exam：用历史时点证据构建金融 Agent 任务",
+      "summary": "Investor's Last Exam 通过金融专家提出任务，并锁定决策时点可访问的信息构建专业 Research Agent 评测。",
+      "intro": "任务从研究目标、时间窗口、可用数据、证据依赖和专家 Rubric 逐步构建。它可区分检索、数值计算、假设建立和结论判断各环节的失败。对长程 Agent，最值得复用的是把证据依赖图转成可逐段验证的 Milestone，而不是让 LLM 随机生成工作问题。",
+      "detail": "数据环境包含约 343 万个文档版本、九类金融来源和 1.52 TB 数据，最终形成 86 个研究任务。",
+      "findings": "论文报告最强模型整体评分约 68.1/100，但其 Forecast & Model 类别仅为 52.5 分。",
+      "why_it_matters": "这种专家目标、时间冻结证据和依赖链评分适合用于合成可验证的专业工作流任务。",
+      "published": "2026-10-28",
+      "score": 83,
+      "topics": [
+        "evaluation",
+        "work",
+        "data-synthesis",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38342"
+        }
+      ]
+    },
+    {
+      "title": "ai-memory v3.3.0：支持并发安全的记忆局部更新",
+      "summary": "ai-memory v3.3.0 新增跨项目会话 Dashboard、Agent 消息 Inbox 和按 Markdown 标题更新记忆页面的工具。",
+      "intro": "当多个 Agent 共同修改用户状态时，检索层面的正确性不足以避免写入竞争。按段落执行原子替换与条件更新，为长期记忆提供类似乐观并发控制的能力。可以进一步研究跨 Agent 事务、记忆依赖撤销和冲突自动合并。",
+      "detail": "memory_patch_page 使用页面身份与段落 Hash 检查，避免旧任务的编辑覆盖其他 Agent 已写入的新状态。",
+      "findings": "发布方公布的本地检索 Hit@5 为全文 0.951、Embedding 0.945。",
+      "why_it_matters": "长期 Agent 的 Memory 不只要检索准确，还要解决并发写入、任务交接与版本冲突。",
+      "published": "2026-10-30",
+      "score": 79,
+      "topics": [
+        "memory",
+        "personal",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "ai-memory 官方更新",
+          "url": "https://aimemory.sh/download/"
+        }
+      ]
+    },
+    {
+      "title": "ICALL-BENCH：测量代码 Agent 的跨函数二进制推理",
+      "summary": "ICALL-BENCH 从真实 C/C++ 二进制程序构造间接调用目标恢复任务，专门评估跨函数语义推理。",
+      "intro": "研究比较不使用工具、使用静态分析工具以及开放网络信息三种执行条件。复杂二进制结构中的调用关系和执行语义跨越单一函数，不能简单依赖局部检索。适合进一步构造与跨函数依赖链对应的可验证训练片段。",
+      "detail": "Benchmark 含 50 个真实程序，平均每个约 74,746 行代码和 941 个函数。",
+      "findings": "不同模型与 Agent 的程序级可验证成功率从 23% 到 81%，额外联网信息并不总能改善困难样本。",
+      "why_it_matters": "代码 Agent 的 Benchmark 应区分真正的程序级推理与工具探索、搜索结果带来的表面成功。",
+      "published": "2026-10-27",
+      "score": 77,
+      "topics": [
+        "coding",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.37871"
+        }
+      ]
+    },
+    {
+      "title": "EditAgent：用证据记录支持多模态编辑结果评判",
+      "summary": "EditAgent 为复杂图像编辑提供多工具调用与候选结果验证机制，不让 Judge 只凭最终图片打分。",
+      "intro": "多模态编辑需要检验局部要求与整体质量，单一最终图像容易隐藏编辑过程中发生的副作用。EditAgent 将工具执行记录与可验证证据一同交给评价器，使最终选择更有依据。它可以启发 AI Scientist 的实验比较：不仅输出分数，也提交可复核的实验产物。",
+      "detail": "它结合候选编辑结果与过程证据，让评分器比较哪些修改真正符合目标要求。",
+      "findings": "研究报告并行候选生成加列表评价方案，在其专家偏好实验中达到 78.5% 的偏好胜率。",
+      "why_it_matters": "对自动科研和代码 Agent，同样可以把验证器证据附在候选结果上，减少只看最终答案的误判。",
+      "published": "2026-10-29",
+      "score": 76,
+      "topics": [
+        "tool-use",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.39664"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-31",
+  "field": "field-1",
+  "items": [
+    {
+      "title": "WebAnything：从真实网站自动生成可训练的 Agent 环境",
+      "summary": "WebAnything 从真实网站 URL 自动探索交互、重建状态化环境，并生成可验证的 Web Agent 训练任务。",
+      "intro": "流程以 Explorer–Builder 为入口，再通过独立验证器比较合成环境与真实网站行为，并对差异进行局部修复。关键不只是把网站截图变成训练题，而是建立可重置、可执行、能判定成败的状态空间。若能按 Agent 的真实失败分布选择要复制的网站，环境合成就能进一步变为自适应课程生成器。",
+      "detail": "研究构建了 244 个网站环境、12,984 个执行验收任务和 5,856 条 SFT 轨迹。",
+      "findings": "Qwen3.5-9B 在 WebArena-Verified 上的成功率提升 13.33 个百分点，在 REAL 上提升 9.9 个百分点。",
+      "why_it_matters": "最值得研究的是环境生成质量、目标模型的失败覆盖率与 OOD 训练收益之间的关系。",
+      "published": "2026-10-27",
+      "score": 100,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "training",
+        "work",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.37786"
+        }
+      ]
+    },
+    {
+      "title": "A-RSI：让模型学会何时刷新训练任务池",
+      "summary": "A-RSI 不再固定周期补充训练任务，而是根据奖励变化和正确率判断旧任务池是否已失去学习价值。",
+      "intro": "这套机制区分两个问题：什么时候需要新任务，以及新任务的答案如何验证。训练阶段只利用本身的学习信号触发刷新，并通过生成程序保证答案可检查。适合用固定间隔、奖励饱和、训练不确定性和学习式 Value-of-Evolution 控制器进行对比。",
+      "detail": "它用程序自动生成多模态任务和可独立检查的答案，无需外部人工答案标签。",
+      "findings": "在 11 项评测上，主实验平均分从 57.77 提升到 61.05，只引入了 800 道新任务。",
+      "why_it_matters": "可以进一步把任务刷新时机与失败 Milestone 覆盖率、训练成本和未见任务收益联合优化。",
+      "published": "2026-10-28",
+      "score": 94,
+      "topics": [
+        "self-evolution",
+        "data-synthesis",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38568"
+        }
+      ]
+    },
+    {
+      "title": "SCOPE：只蒸馏 Agent 轨迹中的关键错误步骤",
+      "summary": "SCOPE 将 Agent RL 的训练信号集中在关键错误步骤，而不是用最终成败更新整条长轨迹。",
+      "intro": "长任务的最终失败往往与某个局部选择有关，而其他动作仍然有复用价值。SCOPE 以选择性关键步骤更新提高样本效率，减少无关轨迹梯度带来的噪声。可进一步将错误归因扩展到科研 Agent 的实验假设、代码修改与结果解释。",
+      "detail": "它先从轨迹提取针对错误点的 hindsight skill，再做选择性 on-policy 自蒸馏。",
+      "findings": "Qwen2.5-3B 在未见 ALFWorld 上达到 89.6%，相比 GRPO 提高 23.2 个百分点，并减少 46.7% 环境交互。",
+      "why_it_matters": "这为训练失败 Milestone 提供了更细的信用分配方法：只修最影响后续成功的步骤。",
+      "published": "2026-10-28",
+      "score": 89,
+      "topics": [
+        "training",
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38391"
+        }
+      ]
+    },
+    {
+      "title": "Unified Training：预训练、SFT 与 RL 可以进入同一训练循环",
+      "summary": "Training Foundation Models with a Single Algorithm 将预训练、SFT 和 RL 统一为基于似然拟合的训练框架。",
+      "intro": "论文从数学上将合适的 RL 目标表示为对模型生成的目标分布做最大似然拟合，使原本分阶段使用的优化方法可统一描述。训练系统通过数据混合而非完全切换 Trainer 处理不同时期的学习目标。进一步研究应关注多阶段能力保持与任务混合权重的自动学习。",
+      "detail": "研究用同一个 Trainer 混合静态数据与模型生成的 RL 轨迹，把训练阶段切换转化为数据配比和调度问题。",
+      "findings": "作者报告统一训练改善准确率与算力消耗的权衡，并扩大任务覆盖范围。",
+      "why_it_matters": "这为持续学习和 Agent RL 提供了统一管理不同经验来源的基础设施思路。",
+      "published": "2026-10-29",
+      "score": 86,
+      "topics": [
+        "training",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.40564"
+        }
+      ]
+    },
+    {
+      "title": "Investor's Last Exam：用历史时点证据构建金融 Agent 任务",
+      "summary": "Investor's Last Exam 通过金融专家提出任务，并锁定决策时点可访问的信息构建专业 Research Agent 评测。",
+      "intro": "任务从研究目标、时间窗口、可用数据、证据依赖和专家 Rubric 逐步构建。它可区分检索、数值计算、假设建立和结论判断各环节的失败。对长程 Agent，最值得复用的是把证据依赖图转成可逐段验证的 Milestone，而不是让 LLM 随机生成工作问题。",
+      "detail": "数据环境包含约 343 万个文档版本、九类金融来源和 1.52 TB 数据，最终形成 86 个研究任务。",
+      "findings": "论文报告最强模型整体评分约 68.1/100，但其 Forecast & Model 类别仅为 52.5 分。",
+      "why_it_matters": "这种专家目标、时间冻结证据和依赖链评分适合用于合成可验证的专业工作流任务。",
+      "published": "2026-10-28",
+      "score": 83,
+      "topics": [
+        "evaluation",
+        "work",
+        "data-synthesis",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38342"
+        }
+      ]
+    },
+    {
+      "title": "Benchmark Difficulty Measure：填补评测题目的难度空白",
+      "summary": "Your Benchmark Is an Empirical Measure Over Difficulty 把 Benchmark 视为题目难度上的经验分布，而不只是题目总数。",
+      "intro": "论文提出 Difficulty Distribution Mismatch 与 Maximum Gap 两项诊断量。难度覆盖缺口会使模型在某一能力区间取得进步却无法反映到总分，也可能掩盖特定难点的回退。可将 BenchFill 与失败驱动任务合成结合，补齐需要验证的状态转移难度区间。",
+      "detail": "研究分析七个领域中的 25 个常用 Benchmark，发现部分难度区间被过度采样、另一些几乎没有覆盖。",
+      "findings": "BenchFill 根据难度分布的最大缺口生成新题，弥补局部评测盲区。",
+      "why_it_matters": "持续训练 Agent 时，评测集应该覆盖能力增长真正发生的区间，而不是只增加更多同质题目。",
+      "published": "2026-10-21",
+      "score": 81,
+      "topics": [
+        "evaluation",
+        "data-synthesis",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.29927"
+        }
+      ]
+    },
+    {
+      "title": "WISD：构造弱模型来提供自蒸馏训练信号",
+      "summary": "Weaken to Strengthen 利用量化或剪枝得到比原模型更弱的版本，再把二者差异变成训练信号。",
+      "intro": "WISD 与常见教师蒸馏不同：训练信号来自原模型和受损版本之间的行为对比。它为缺少高质量教师的自训练系统提供另一类自动监督来源。下一步关键是验证模型是否获得可迁移能力，而不是仅修复剪枝造成的特定退化。",
+      "detail": "这种自蒸馏路线不依赖外部更强教师，而是主动暴露原模型自身的可改进能力。",
+      "findings": "作者报告量化与剪枝方案分别平均提升 4.0 和 5.5 个百分点，Qwen3.5-4B 在 LiveCodeBench v6 从 39.1% 升至 56.7%。",
+      "why_it_matters": "值得比较弱模型对照、任务生成和搜索增强三种方法在等预算条件下的持续改进收益。",
+      "published": "2026-10-28",
+      "score": 80,
+      "topics": [
+        "training",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38681"
+        }
+      ]
+    },
+    {
+      "title": "CoCA：让评分标准与模型能力一同进化",
+      "summary": "CoCA 研究开放任务中固定 Rubric 逐渐跟不上模型能力变化的问题，提出 Policy 与评分标准的联合进化。",
+      "intro": "CoCA 将分数标准本身视为可以调整的对象，使系统能够把训练资源集中到仍有提升空间的能力上。与 RACE 的动态更新时机不同，CoCA 更强调从回答差异中判断能力层级。两者可以联合研究评价器进化带来的真实泛化收益。",
+      "detail": "系统对照普通回答与 Rubric 引导回答，识别模型已掌握、可学习和当前难以触及的能力区间。",
+      "findings": "它据此更新训练信号，通过强化学习或 On-policy Self-Distillation 推动能力增长。",
+      "why_it_matters": "评分器和 Policy 联合训练后，更需要独立锚点防止评价目标被优化过程悄悄改写。",
+      "published": "2026-10-28",
+      "score": 78,
+      "topics": [
+        "training",
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38566"
+        }
+      ]
+    }
+  ]
+}

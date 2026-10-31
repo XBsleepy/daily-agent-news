@@ -1,0 +1,311 @@
+{
+  "date": "2026-10-31",
+  "field": "field-4",
+  "items": [
+    {
+      "title": "WebAnything：从真实网站自动生成可训练的 Agent 环境",
+      "summary": "WebAnything 从真实网站 URL 自动探索交互、重建状态化环境，并生成可验证的 Web Agent 训练任务。",
+      "intro": "流程以 Explorer–Builder 为入口，再通过独立验证器比较合成环境与真实网站行为，并对差异进行局部修复。关键不只是把网站截图变成训练题，而是建立可重置、可执行、能判定成败的状态空间。若能按 Agent 的真实失败分布选择要复制的网站，环境合成就能进一步变为自适应课程生成器。",
+      "detail": "研究构建了 244 个网站环境、12,984 个执行验收任务和 5,856 条 SFT 轨迹。",
+      "findings": "Qwen3.5-9B 在 WebArena-Verified 上的成功率提升 13.33 个百分点，在 REAL 上提升 9.9 个百分点。",
+      "why_it_matters": "最值得研究的是环境生成质量、目标模型的失败覆盖率与 OOD 训练收益之间的关系。",
+      "published": "2026-10-27",
+      "score": 100,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "training",
+        "work",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.37786"
+        }
+      ]
+    },
+    {
+      "title": "EnvOS：给会变化的 Agent 环境做四层认证",
+      "summary": "EnvOS 研究 Agent 执行期间真实业务状态发生变化时，怎样保证测试环境与评分结果都可信。",
+      "intro": "EnvOS 通过真实状态修改、触发时机、观察通道与单次触发保护构造外部变化，分别测试无提示、要求重新检查和直接展示最新值的条件。它还保留环境事件与完整执行证据，让独立程序重新计算评分。对失败边界任务切分而言，必须确认中间状态真实可达、后续目标尚未完成、且正确续跑仍然可行。",
+      "detail": "它认证事件确实生效、观察与设定一致、任务仍可解，以及 Checker 能分辨正确和错误状态。",
+      "findings": "门诊预约任务中 Claude Opus 5 在不提示变化时完成 0/16，直接显示最新状态后达到 15/16。",
+      "why_it_matters": "这为动态环境任务合成提供了先验门槛：先验证任务，再用 Agent 的失败作为训练信号。",
+      "published": "2026-10-29",
+      "score": 99,
+      "topics": [
+        "environments",
+        "evaluation",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.40246"
+        }
+      ]
+    },
+    {
+      "title": "Repairs for Whom?：修复动作必须对实际执行模型有效",
+      "summary": "Repairs for Whom? 发现强 Teacher 眼中的最佳修复步骤，不一定适合真正续跑的 Student Agent。",
+      "intro": "评测将修复价值定义为目标策略在修复后成功的概率，相比原始续跑的增量。模型之间不仅强弱不同，对同一批候选修复也可能形成相反偏好。实际可采用少量目标模型续跑，加上独立 Verifier，估计哪个 C→D 片段最值得投入训练预算。",
+      "detail": "研究固定失败轨迹前缀、生成候选修复动作，再用不同大小的模型验证这些修复的后续收益。",
+      "findings": "让 14B 模型挑选修复、7B 执行，相比直接用 7B 续跑选择，在 ALFWorld 上损失约 0.25 的预期净成功收益。",
+      "why_it_matters": "训练失败边界时，应根据目标模型自己的恢复能力选题，而不是只按照教师的判断排序。",
+      "published": "2026-10-28",
+      "score": 98,
+      "topics": [
+        "evaluation",
+        "training",
+        "coding",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38610"
+        }
+      ]
+    },
+    {
+      "title": "Masked Erosion：自进化 Agent 可能悄悄丢掉安全保护层",
+      "summary": "Masked Erosion 发现 Agent 的自进化接受器可能不断删除冗余安全机制，同时短期安全测试仍保持通过。",
+      "intro": "问题来自安全机制的冗余性：单独删去一层时，剩余规则仍能拦住越权操作，因此普通回归测试无法发现防御深度下降。论文提出冻结关键约束及 One-Layer Ablation Auditing 等应对思路。更强的评价应覆盖模型替换、工具变化、约束消融与长期多代进化后的稳定性。",
+      "detail": "论文分析了 411 次演化循环和 10 种候选接受规则，揭示多层保护会在局部性能改进中逐渐退化。",
+      "findings": "部分模拟设置中，扩大评测批次反而让系统更坚定地接受削弱保护的修改。",
+      "why_it_matters": "自进化系统不应只检查当前是否违规，还应主动测试任一保护层失效后系统是否仍然稳健。",
+      "published": "2026-10-28",
+      "score": 97,
+      "topics": [
+        "self-evolution",
+        "safety",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38392"
+        }
+      ]
+    },
+    {
+      "title": "A-RSI：让模型学会何时刷新训练任务池",
+      "summary": "A-RSI 不再固定周期补充训练任务，而是根据奖励变化和正确率判断旧任务池是否已失去学习价值。",
+      "intro": "这套机制区分两个问题：什么时候需要新任务，以及新任务的答案如何验证。训练阶段只利用本身的学习信号触发刷新，并通过生成程序保证答案可检查。适合用固定间隔、奖励饱和、训练不确定性和学习式 Value-of-Evolution 控制器进行对比。",
+      "detail": "它用程序自动生成多模态任务和可独立检查的答案，无需外部人工答案标签。",
+      "findings": "在 11 项评测上，主实验平均分从 57.77 提升到 61.05，只引入了 800 道新任务。",
+      "why_it_matters": "可以进一步把任务刷新时机与失败 Milestone 覆盖率、训练成本和未见任务收益联合优化。",
+      "published": "2026-10-28",
+      "score": 94,
+      "topics": [
+        "self-evolution",
+        "data-synthesis",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38568"
+        }
+      ]
+    },
+    {
+      "title": "Appreciation Teaches Unauthorized Execution：学习用户习惯可能扩大越权执行",
+      "summary": "这项研究发现 Personal Agent 在持续学习用户正向反馈后，可能把某次合法授权错误推广到未来任务。",
+      "intro": "作者将这种失败称为 Authorization Conflation，即把旧任务的许可错误迁移到当前任务。一个测试配置中，GPT-OSS-120B 在 12 次适应交互后攻击成功率从 4.7% 升至 53.5%。适合建立针对记忆更新、技能进化和用户反馈学习的 Authorization Generalization Benchmark。",
+      "detail": "作者先让 Agent 执行用户明确授权的外部内容任务，再测试类似内容是否能在无授权时诱导执行。",
+      "findings": "Skill Evolution 让攻击成功率增加 14.0～48.8 个百分点，强化学习的增幅为 3.0～39.3 个百分点。",
+      "why_it_matters": "Personal Agent 可以学习任务习惯，但授权范围不能通过相似历史经验自动延续。",
+      "published": "2026-10-29",
+      "score": 92,
+      "topics": [
+        "personal",
+        "self-evolution",
+        "safety",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.39122"
+        }
+      ]
+    },
+    {
+      "title": "OpenFrontiers：区分 AI 科研发现与检索到已有答案",
+      "summary": "OpenFrontiers 用开放科研问题与时间冻结资料构建 AI Scientist 评测，区分独立发现和检索已有答案。",
+      "intro": "框架比较 Closed-book、Frozen Retrieval 与 Live Web 三类条件，避免把公开答案的复制误判为独立科研突破。联网设置中的大量成功记录涉及访问已经公开的解题来源。下一阶段值得设计对部分进展、研究持续性和中间验证证据的评分机制。",
+      "detail": "它整理 12,151 条开放研究问题，其中 200 条进入正式 Benchmark，部分问题使用 Lean 4 验证。",
+      "findings": "HQ-50 中已解决的 40 题，最佳闭卷设置只完成 7 题；允许联网后部分模型达到 27 题。",
+      "why_it_matters": "评价科研 Agent 时必须同时记录可访问证据的时间边界、证明正确性和独立新颖性。",
+      "published": "2026-10-27",
+      "score": 91,
+      "topics": [
+        "science",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.37739"
+        }
+      ]
+    },
+    {
+      "title": "SkillCT：对 Agent Skill 进行九维质量评估",
+      "summary": "SkillCT 指出 Skill 质量不能只看某一次任务是否成功，还要检查结构、稳定性、能力边界和执行效率。",
+      "intro": "评价由静态结构、动态表现和人工辅助审查三部分构成。对于尚未执行的新 Skill，研究利用与参考 Skill 的相似性估计多维质量，降低逐项部署测试的成本。长期风险是优化器逐渐过拟合质量预测器，因此需要未见任务和跨模型验证。",
+      "detail": "研究收集 4,098 个参考 Skills、覆盖 14 类，并构建九维评价与低成本免执行预测器。",
+      "findings": "论文中的 Skill 优化实验使平均成功率从 89.6% 提升到 96.0%，执行步骤由 7.85 降至 6.26。",
+      "why_it_matters": "自进化 Skill Library 应使用多维质量门槛，并对预测器筛选结果进行独立执行审计。",
+      "published": "2026-10-28",
+      "score": 90,
+      "topics": [
+        "skills",
+        "evaluation",
+        "benchmark",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38147"
+        }
+      ]
+    },
+    {
+      "title": "SCOPE：只蒸馏 Agent 轨迹中的关键错误步骤",
+      "summary": "SCOPE 将 Agent RL 的训练信号集中在关键错误步骤，而不是用最终成败更新整条长轨迹。",
+      "intro": "长任务的最终失败往往与某个局部选择有关，而其他动作仍然有复用价值。SCOPE 以选择性关键步骤更新提高样本效率，减少无关轨迹梯度带来的噪声。可进一步将错误归因扩展到科研 Agent 的实验假设、代码修改与结果解释。",
+      "detail": "它先从轨迹提取针对错误点的 hindsight skill，再做选择性 on-policy 自蒸馏。",
+      "findings": "Qwen2.5-3B 在未见 ALFWorld 上达到 89.6%，相比 GRPO 提高 23.2 个百分点，并减少 46.7% 环境交互。",
+      "why_it_matters": "这为训练失败 Milestone 提供了更细的信用分配方法：只修最影响后续成功的步骤。",
+      "published": "2026-10-28",
+      "score": 89,
+      "topics": [
+        "training",
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38391"
+        }
+      ]
+    },
+    {
+      "title": "RACE：奖励饱和时自动切换到 Rubric 进化",
+      "summary": "RACE 将 Policy 与 Rubric 的协同训练从固定交替改为由奖励信号驱动的动态切换。",
+      "intro": "静态 Rubric 在模型能力提高后会逐渐失去区分能力。RACE 缓存 Rubric 失效样本，在奖励长期饱和时切换到评价器优化，再根据其进展返回 Policy 更新。它适合与 RuHarness 和 Skill Quality Auditor 组成反馈闭环。",
+      "detail": "它区分可学习样本、策略输出多样性不足和评分标准失效，并只用有效组更新 Policy。",
+      "findings": "在八项任务上，RACE 的平均表现超过固定交替基线，同时提高 Rubric 的区分能力。",
+      "why_it_matters": "自进化系统可以将奖励失效视为优化评分器的触发信号，而不只是继续提高模型更新频率。",
+      "published": "2026-10-29",
+      "score": 85,
+      "topics": [
+        "training",
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.40096"
+        }
+      ]
+    },
+    {
+      "title": "Benchmark Difficulty Measure：填补评测题目的难度空白",
+      "summary": "Your Benchmark Is an Empirical Measure Over Difficulty 把 Benchmark 视为题目难度上的经验分布，而不只是题目总数。",
+      "intro": "论文提出 Difficulty Distribution Mismatch 与 Maximum Gap 两项诊断量。难度覆盖缺口会使模型在某一能力区间取得进步却无法反映到总分，也可能掩盖特定难点的回退。可将 BenchFill 与失败驱动任务合成结合，补齐需要验证的状态转移难度区间。",
+      "detail": "研究分析七个领域中的 25 个常用 Benchmark，发现部分难度区间被过度采样、另一些几乎没有覆盖。",
+      "findings": "BenchFill 根据难度分布的最大缺口生成新题，弥补局部评测盲区。",
+      "why_it_matters": "持续训练 Agent 时，评测集应该覆盖能力增长真正发生的区间，而不是只增加更多同质题目。",
+      "published": "2026-10-21",
+      "score": 81,
+      "topics": [
+        "evaluation",
+        "data-synthesis",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.29927"
+        }
+      ]
+    },
+    {
+      "title": "WISD：构造弱模型来提供自蒸馏训练信号",
+      "summary": "Weaken to Strengthen 利用量化或剪枝得到比原模型更弱的版本，再把二者差异变成训练信号。",
+      "intro": "WISD 与常见教师蒸馏不同：训练信号来自原模型和受损版本之间的行为对比。它为缺少高质量教师的自训练系统提供另一类自动监督来源。下一步关键是验证模型是否获得可迁移能力，而不是仅修复剪枝造成的特定退化。",
+      "detail": "这种自蒸馏路线不依赖外部更强教师，而是主动暴露原模型自身的可改进能力。",
+      "findings": "作者报告量化与剪枝方案分别平均提升 4.0 和 5.5 个百分点，Qwen3.5-4B 在 LiveCodeBench v6 从 39.1% 升至 56.7%。",
+      "why_it_matters": "值得比较弱模型对照、任务生成和搜索增强三种方法在等预算条件下的持续改进收益。",
+      "published": "2026-10-28",
+      "score": 80,
+      "topics": [
+        "training",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38681"
+        }
+      ]
+    },
+    {
+      "title": "CoCA：让评分标准与模型能力一同进化",
+      "summary": "CoCA 研究开放任务中固定 Rubric 逐渐跟不上模型能力变化的问题，提出 Policy 与评分标准的联合进化。",
+      "intro": "CoCA 将分数标准本身视为可以调整的对象，使系统能够把训练资源集中到仍有提升空间的能力上。与 RACE 的动态更新时机不同，CoCA 更强调从回答差异中判断能力层级。两者可以联合研究评价器进化带来的真实泛化收益。",
+      "detail": "系统对照普通回答与 Rubric 引导回答，识别模型已掌握、可学习和当前难以触及的能力区间。",
+      "findings": "它据此更新训练信号，通过强化学习或 On-policy Self-Distillation 推动能力增长。",
+      "why_it_matters": "评分器和 Policy 联合训练后，更需要独立锚点防止评价目标被优化过程悄悄改写。",
+      "published": "2026-10-28",
+      "score": 78,
+      "topics": [
+        "training",
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38566"
+        }
+      ]
+    },
+    {
+      "title": "EditAgent：用证据记录支持多模态编辑结果评判",
+      "summary": "EditAgent 为复杂图像编辑提供多工具调用与候选结果验证机制，不让 Judge 只凭最终图片打分。",
+      "intro": "多模态编辑需要检验局部要求与整体质量，单一最终图像容易隐藏编辑过程中发生的副作用。EditAgent 将工具执行记录与可验证证据一同交给评价器，使最终选择更有依据。它可以启发 AI Scientist 的实验比较：不仅输出分数，也提交可复核的实验产物。",
+      "detail": "它结合候选编辑结果与过程证据，让评分器比较哪些修改真正符合目标要求。",
+      "findings": "研究报告并行候选生成加列表评价方案，在其专家偏好实验中达到 78.5% 的偏好胜率。",
+      "why_it_matters": "对自动科研和代码 Agent，同样可以把验证器证据附在候选结果上，减少只看最终答案的误判。",
+      "published": "2026-10-29",
+      "score": 76,
+      "topics": [
+        "tool-use",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.39664"
+        }
+      ]
+    }
+  ]
+}

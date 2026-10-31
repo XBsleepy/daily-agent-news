@@ -1,0 +1,1 @@
+今天的重点是让 Agent 训练与执行更可验证：WebAnything 从真实网站合成环境，EnvOS 审计动态状态，Repairs for Whom? 证明失败修复必须对目标模型有效；HALO、CALM 和 A-RSI 则分别推进主动介入、长期记忆与自适应任务刷新。
