@@ -1,0 +1,229 @@
+{
+  "date": "2026-11-01",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "LLMON：46 亿 Token 训练模型分清可执行指令与外部资料",
+      "score": 96,
+      "published": "2026-10-28",
+      "topics": [
+        "training",
+        "safety",
+        "data-synthesis",
+        "tool-use"
+      ],
+      "summary": "LLMON 采用结构化 LLM Object Notation，把授权指令和网页、邮件、RAG 中的普通数据隔离。作者构造约 46 亿 Token 后训练语料，在 Granite-4.1 3B/8B 上进行结构化 SFT 与强化学习。间接提示注入测试中，部分攻击成功率从 53%—100% 降至 0.02%—5.6%，显示训练数据结构能显著影响工具安全。",
+      "intro": "Agent 读取外部文本时，容易把文档里的恶意句子错误升级成有执行权限的指令。",
+      "detail": "LLMON 通过明确的对象与引用语义区分命令和上下文内容，合成含干扰指令的对照样本并进行后训练。数据覆盖通用文本、RAG 和工具调用。",
+      "findings": "两个 Granite-4.1 设置的部分提示注入测试中，攻击成功率从 53%—100% 降至 0.02%—5.6%。",
+      "why_it_matters": "值得检验结构化训练对 HTML、JSON、PDF、邮件和长期记忆对象的跨格式泛化。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.38120"
+        }
+      ]
+    },
+    {
+      "title": "MAPLE-Bench：在整条多 Agent 任务链控制个人信息传播",
+      "score": 95,
+      "published": "2026-10-29",
+      "topics": [
+        "memory",
+        "safety",
+        "personal",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "MAPLE-Bench 研究个人信息在多 Agent 委托链上的连续传播，强调一次共享合规不代表下游继续转发也合规。TG-CI 根据任务图、接收者历史和信息传播范围选择 Full-Scope 或 Auto-Region 授权策略。144 个案例的主要实验中，未授权披露减少 85.8%—94.1%，仍保留 93.6%—96.1% 的任务准确率。",
+      "intro": "体检、日程、交通等助手可以分工合作，但不代表每个子 Agent 都需要完整健康或财务信息。",
+      "detail": "TG-CI 将多 Agent 工作流表示为任务图，同时跟踪信息的授权传播范围与接收者已有知识。Auto-Region 可以在下游越权边界前停止传递信息。",
+      "findings": "144 个案例覆盖四种场景；主要实验的披露违规减少 85.8%—94.1%，保留 93.6%—96.1% 的原任务准确率。",
+      "why_it_matters": "长期个人记忆应该带着传播范围进入任务执行图，而不是被子 Agent 无限制复制。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.39532"
+        }
+      ]
+    },
+    {
+      "title": "Role Grounding Attack：第三方偏好可能被错误写入用户记忆",
+      "score": 94,
+      "published": "2026-10-28",
+      "topics": [
+        "memory",
+        "safety",
+        "personal",
+        "evaluation"
+      ],
+      "summary": "Role Grounding Attack 利用嵌套聊天记录，让 Agent 把攻击者用户的偏好错误归为当前用户的长期记忆。这种错误归属会在后续任务中影响工具选择，并可能诱导敏感资料流向不可信工具。研究在五种记忆系统、六个语言模型上验证，提示记忆必须保存主体、发言者及引用关系。",
+      "intro": "个人助手阅读帖子、共享聊天和多用户讨论时，信息真实不等于它属于当前用户。",
+      "detail": "攻击者发布包含第三方偏好的嵌套对话，诱使 Agent 在记忆形成阶段丢失归属关系。错误记忆随后影响工具选择与信息披露。",
+      "findings": "五种主流记忆系统和六个模型均纳入测试，展示了持久化归属错误的攻击链。",
+      "why_it_matters": "应把 Content、Speaker、Principal、Source 和引用范围作为记忆的基本字段。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.38209"
+        }
+      ]
+    },
+    {
+      "title": "Claude Code v2.1.316：子 Agent 成本与分层权限控制升级",
+      "score": 93,
+      "published": "2026-10-31",
+      "topics": [
+        "coding",
+        "tool-use",
+        "safety",
+        "deployment",
+        "product"
+      ],
+      "summary": "Anthropic 10 月 31 日推出 Claude Code v2.1.316，可通过 CLAUDE_CODE_SUBAGENT_EFFORT 单独指定子 Agent 的推理强度。Claude apps gateway 增加 layered 权限策略和共享预算，同时修复受限文件上传、模型访问检查等问题。新版本为多 Agent 长期运行提供了更细的成本路由、权限合并与后台任务安全控制。",
+      "intro": "主代理与检索、整理、执行等子 Agent 不必使用相同的推理预算，企业应用还需要多层权限共同生效。",
+      "detail": "新增独立子 Agent effort 配置、共享组预算、层叠管理策略和 MCP 云端表单确认。版本也修复网关模型限制、受限会话上传和后台执行异常。",
+      "findings": "v2.1.316 于 10 月 31 日发布，主要提供 Harness 配置、权限和可靠性改进。",
+      "why_it_matters": "值得研究 Cost-Aware Subagent Routing 与多层授权冲突时的 Fail-Closed 执行策略。",
+      "sources": [
+        {
+          "name": "官方版本公告",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.316"
+        }
+      ]
+    },
+    {
+      "title": "ATLAS-Bench：生活搜索同时考核硬约束与个性化偏好",
+      "score": 91,
+      "published": "2026-10-29",
+      "topics": [
+        "personal",
+        "tool-use",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "ATLAS-Bench 用三个地区的 1,200 个地点搜索查询，分别评价不可违反的条件与用户偏好。ATLASBox 固定地点数据库和检索工具，要求 Agent 为推荐结果提供属性、评论和时间证据。11 个模型、14 种配置的实验中，最佳事实准确率达 95.6%，但可满足查询的成功覆盖仍存在明显差距。",
+      "intro": "真实生活搜索里，距离、时间和预算可能是硬条件，氛围与口味则是可以协商的偏好。",
+      "detail": "数据来自真实搜索事件，结合地点属性、评论和用户画像生成任务与检查标准。评测同时覆盖事实、硬条件、执行轨迹和工具成本。",
+      "findings": "GPT-6-Luna 的事实准确率 95.6%、硬约束满足率 71.5%，但可满足查询覆盖率 67.3%；GLM-5.3 的后一指标为 85.3%。",
+      "why_it_matters": "可与长期偏好记忆融合，研究何时主动询问、怎样放宽偏好以及如何证实推荐真实可用。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.39438"
+        }
+      ]
+    },
+    {
+      "title": "Arca：十天跨度的财务 Agent 用任务账本驱动主动协作",
+      "score": 89,
+      "published": "2026-10-31",
+      "topics": [
+        "personal",
+        "memory",
+        "work",
+        "product"
+      ],
+      "summary": "Arca 的财务服务 Agent 可以推进长达十天的多方任务，核心能力是保存进度而非连续十天推理。每位客户的任务账本记录已完成动作、待办事项、责任人和下一次跟进节点。Agent 会主动寻找需要顾问协助的步骤，关键资金决策则由人工执行，提供了长期 Personal Agent 的现实工程样板。",
+      "intro": "跨天金融服务通常是执行、等待文件、人工审批和数天后恢复的交替过程。",
+      "detail": "Arca 自建 Harness 做模型和任务路由，为每位客户保存持久状态与责任人。Agent 主动联系相关顾问完成交接，并在受控边界内运行。",
+      "findings": "公开访谈介绍部分流程跨度可达十天，并强调高风险财务行为由人工最终决策。",
+      "why_it_matters": "适合借鉴 Persistent Task Ledger、主动澄清与人类授权的组合。",
+      "sources": [
+        {
+          "name": "原始访谈",
+          "url": "https://latent.space/p/arca/"
+        }
+      ]
+    },
+    {
+      "title": "Pydantic AI v2.64：新增记忆与 Skill 安全扫描",
+      "score": 86,
+      "published": "2026-10-30",
+      "topics": [
+        "safety",
+        "memory",
+        "skills",
+        "deployment",
+        "product"
+      ],
+      "summary": "Pydantic AI v2.64.0 新增 ArtifactScanner，可对 Agent 的 Memory、Skills 等持久化资产进行安全检查。同一版本扩展了 ModelFallback、流式首事件超时与 BoxdSandbox，增强工具工作流的容错和隔离执行能力。这标志着运行时安全审查正从单次输入扩展到跨会话反复加载的记忆与技能。",
+      "intro": "长期 Agent 会持续加载历史 Skill、记忆和自动生成的执行工件，污染问题可能跨越多个会话。",
+      "detail": "ArtifactScanner 对持久资产进行安全扫描，ModelFallback 支持模型故障切换，BoxdSandbox 用隔离工作空间执行代码和工具。还有 Durable Run 重放与评测触发修复。",
+      "findings": "v2.64.0 于 10 月 30 日 UTC 发布，提供运行框架与持久资产安全的多项工程更新。",
+      "why_it_matters": "可设计记忆和 Skill 的写入检查、运行时授权、环境更新后复核与撤销链条。",
+      "sources": [
+        {
+          "name": "官方版本公告",
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0"
+        }
+      ]
+    },
+    {
+      "title": "MUSE：根据执行阶段按需读取程序性记忆",
+      "score": 85,
+      "published": "2026-10-28",
+      "topics": [
+        "memory",
+        "skills",
+        "coding",
+        "framework"
+      ],
+      "summary": "MUSE 将程序性记忆分成 Global、Approach 和 Implementation 三层。任务开始加载通用原则及解决路线，遇到具体工具或执行问题时再检索细粒度修复经验，而不是一次性塞满上下文。论文在科学计算与编程任务上报告优于传统记忆检索基线，为 Runtime-Triggered Skill 提供了参考架构。",
+      "intro": "有些历史经验只有遇到特定错误或者状态时才有用，提前注入会增加成本并干扰规划。",
+      "detail": "系统按任务阶段分层读取经验，通过门控模块决定是否注入对应的 Implementation Memory。",
+      "findings": "在四类科学编程任务 Benchmark 上报告相对记忆基线的改进。",
+      "why_it_matters": "值得评价触发记忆的时机、记忆版本和错误 Skill 导致的副作用。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.38332"
+        }
+      ]
+    },
+    {
+      "title": "FIRME：长期金融记忆需要跨时间保持实体身份一致",
+      "score": 80,
+      "published": "2026-10-29",
+      "topics": [
+        "memory",
+        "work",
+        "personal",
+        "framework"
+      ],
+      "summary": "FIRME 为长期金融记忆建立稳定身份注册表，让不同时间、不同表述方式的同一关系能够合并。它保留别名、来源、时间与上下文，减少关系因表达变化而被切碎。在四种数据与后端组合中，相比不保存别名的基线，正确匹配率提升 7.8—12.1 个百分点。",
+      "intro": "财报、电话会和投资者记录会用不同名称反复描述同一公司与业务关系。",
+      "detail": "系统用 Canonical Registry、别名记忆和跨时期融合规则统一实体，把新证据挂接到同一历史关系上。",
+      "findings": "四种设置的正确匹配率提高 7.8—12.1 个百分点，人工审核也观察到重新挂接能力提升。",
+      "why_it_matters": "可用于 Personal Agent 的人、项目、企业和长期事务身份消歧。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.40482"
+        }
+      ]
+    },
+    {
+      "title": "Agent Memory Leaderboard 第二轮材料截止，统一评估三类记忆",
+      "score": 76,
+      "published": "2026-10-31",
+      "topics": [
+        "memory",
+        "evaluation",
+        "personal",
+        "benchmark"
+      ],
+      "summary": "Agent Memory Leaderboard 第二轮材料在 10 月 31 日截止，涵盖文本、代码和多模态记忆三条赛道。参与者提供标准 Add/Search 接口，平台统一运行后续回答与评分，从而更直接地比较记忆写入和检索能力。评测计划 11 月 4 日结束，正式榜单预计 11 月中旬发布。",
+      "intro": "不同 Memory Framework 使用不同回答模型时，很难区分记忆系统和生成模型的贡献。",
+      "detail": "比赛通过统一 Add/Search API 和后续固定 Answer/Eval 流程减小混杂因素，并按赛道分榜。",
+      "findings": "北京时间 10 月 31 日 23:59 截止提交，11 月 4 日结束评测。",
+      "why_it_matters": "后续值得比较文本记忆、程序性记忆和多模态检索是否有统一最优架构。",
+      "sources": [
+        {
+          "name": "评测官方规则",
+          "url": "https://agentmemoryleaderboard.ai/api-guide"
+        }
+      ]
+    }
+  ]
+}

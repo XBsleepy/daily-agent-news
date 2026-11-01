@@ -1,0 +1,378 @@
+{
+  "date": "2026-11-01",
+  "field": "field-4",
+  "items": [
+    {
+      "title": "CodeSpecWeave：用相互依赖的需求训练长程 Coding Agent",
+      "score": 100,
+      "published": "2026-10-29",
+      "topics": [
+        "training",
+        "data-synthesis",
+        "coding",
+        "evaluation",
+        "framework"
+      ],
+      "summary": "CodeSpecWeave 从真实 Commit、Issue 和 PR 提取需求，合成必须同时满足相互依赖约束的代码任务。最终构建 4,670 个训练任务，审查发现 3,067 个候选任务中有 73.9% 存在测试对齐问题。相关 RL 实验把 DeepSWE-v1.1 成绩从 54.42% 提高至 62.98%，提示长任务训练必须保留跨步骤依赖。",
+      "intro": "真实工程中的兼容性、异常处理和并发逻辑往往互相牵制，单独完成每个需求不等于整体正确。",
+      "detail": "合成流程包含真实需求提取、仓库探索、耦合规格构建、可执行测试生成、多模型试跑与验证器修复。最终 4,670 道训练题覆盖 2,865 个仓库，百题评测包含 1,044 个规格检查点。",
+      "findings": "审查发现 3,067 个候选任务中有 2,267 个存在漏判或误拒；SWE-bench Verified 从 74.20% 提升至 77.40%。",
+      "why_it_matters": "值得研究 Dependency-Preserving Milestone Synthesis，让短任务继承上游设计决策、必要状态和跨阶段不变量。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.40256"
+        }
+      ]
+    },
+    {
+      "title": "Prefix Executability：定位 Agent 轨迹中的首次非法工具操作",
+      "score": 99,
+      "published": "2026-10-29",
+      "topics": [
+        "evaluation",
+        "tool-use",
+        "training",
+        "benchmark"
+      ],
+      "summary": "Prefix Executability 不只看工具 Agent 最终是否成功，还逐步判断每个工具调用前缀是否可执行。它提出首次错误深度、可执行前缀曲线、整轨可执行率和失败后恢复率，并在 BFCL、ToolSandbox 与 τ³-bench 上评测。一组 BFCL 实验中，带计划的 Agent 最终成功率达 94%，但整轨可执行率仅 47%，经过计划验证后提升到 94%。",
+      "intro": "任务最终完成也可能掩盖中途非法状态变更、错误参数或违规依赖，反之部分执行错误也可能恢复。",
+      "detail": "通过工具 Schema、状态条件、信息依赖和执行轨迹定义 First-Error Depth、TER、PEC 与 Recovery Rate。评测接受不同但合法的工具调用顺序，不依赖单条标准轨迹。",
+      "findings": "计划条件化的 ReAct 在一组 BFCL 测试中实现 94% 终局成功率，却仅有 47% 的整轨可执行率。",
+      "why_it_matters": "将首次非法动作与首次失败 Milestone 分离，可以构建更精准的恢复训练任务。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.40444"
+        }
+      ]
+    },
+    {
+      "title": "Rubricon：生成、筛选并迭代评分标准，直接提升后训练",
+      "score": 98,
+      "published": "2026-10-28",
+      "topics": [
+        "evaluation",
+        "training",
+        "data-synthesis",
+        "framework"
+      ],
+      "summary": "Rubricon 自动生成多份评分 Rubric，并通过候选回答的真实通过率筛选、补充和删除评价条件。五类任务中，其评分与专家 Rubric 的一致性比最佳自动基线提高约 9%。用其 Rubric 后训练 Qwen3.5-9B 后，在 HealthBench 上相对 RRD Rubric 训练提高约 4.5%，说明评分规则本身是高价值训练资产。",
+      "intro": "专业写作和医疗等开放式任务缺少唯一正确答案，评分条件的质量决定奖励是否有效。",
+      "detail": "框架先为任务生成多套候选 Rubric，再用不同模型的实际回答测量区分度，补全遗漏条件并移除误导性要求。无需人工偏好标注也无需训练专用 Rubric 模型。",
+      "findings": "跨五类评测，Rubricon 与专家标准一致性提高约 9%；在 HealthBench 后训练中提升约 4.5%。",
+      "why_it_matters": "可研究动态版本化 Rubric：保留固定锚点，同时为变强的模型增加更难、经过实际执行验证的评价条件。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.38220"
+        }
+      ]
+    },
+    {
+      "title": "VeriCUA：让 Agent 验证器主动探索环境并查找证据",
+      "score": 97,
+      "published": "2026-10-29",
+      "topics": [
+        "evaluation",
+        "tool-use",
+        "environments",
+        "framework"
+      ],
+      "summary": "VeriCUA 把 GUI/Computer Agent 的验收从截图判断升级为主动检查应用、文件和持久化状态。它先建立原子 Rubric，再针对证据缺口进行 GUI 或代码查询，无法确认时选择弃权。在 AndroidWorld 在线评测中准确率达到 90.5%、误报率 7.7%，明显优于对照验证方法。",
+      "intro": "很多 GUI 任务的真实完成状态并不出现在当前屏幕，单次截图很容易漏掉关键证据。",
+      "detail": "验证器逐项检查任务要求，主动选择界面操作、文件或状态查询，并输出 Success、Fail、Abstain 结果。既支持实时验收，也支持离线轨迹评判。",
+      "findings": "AndroidWorld 的 VLM Judge 准确率 78.4%、误报率 15.4%；VeriCUA 分别为 90.5% 和 7.7%，对约 82% 的案例给出明确判断。",
+      "why_it_matters": "适合用来筛选自动生成的训练任务，避免把缺乏证据的成功标签喂给 Agent RL。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.40578"
+        }
+      ]
+    },
+    {
+      "title": "MAPLE-Bench：在整条多 Agent 任务链控制个人信息传播",
+      "score": 95,
+      "published": "2026-10-29",
+      "topics": [
+        "memory",
+        "safety",
+        "personal",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "MAPLE-Bench 研究个人信息在多 Agent 委托链上的连续传播，强调一次共享合规不代表下游继续转发也合规。TG-CI 根据任务图、接收者历史和信息传播范围选择 Full-Scope 或 Auto-Region 授权策略。144 个案例的主要实验中，未授权披露减少 85.8%—94.1%，仍保留 93.6%—96.1% 的任务准确率。",
+      "intro": "体检、日程、交通等助手可以分工合作，但不代表每个子 Agent 都需要完整健康或财务信息。",
+      "detail": "TG-CI 将多 Agent 工作流表示为任务图，同时跟踪信息的授权传播范围与接收者已有知识。Auto-Region 可以在下游越权边界前停止传递信息。",
+      "findings": "144 个案例覆盖四种场景；主要实验的披露违规减少 85.8%—94.1%，保留 93.6%—96.1% 的原任务准确率。",
+      "why_it_matters": "长期个人记忆应该带着传播范围进入任务执行图，而不是被子 Agent 无限制复制。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.39532"
+        }
+      ]
+    },
+    {
+      "title": "Claude Code v2.1.316：子 Agent 成本与分层权限控制升级",
+      "score": 93,
+      "published": "2026-10-31",
+      "topics": [
+        "coding",
+        "tool-use",
+        "safety",
+        "deployment",
+        "product"
+      ],
+      "summary": "Anthropic 10 月 31 日推出 Claude Code v2.1.316，可通过 CLAUDE_CODE_SUBAGENT_EFFORT 单独指定子 Agent 的推理强度。Claude apps gateway 增加 layered 权限策略和共享预算，同时修复受限文件上传、模型访问检查等问题。新版本为多 Agent 长期运行提供了更细的成本路由、权限合并与后台任务安全控制。",
+      "intro": "主代理与检索、整理、执行等子 Agent 不必使用相同的推理预算，企业应用还需要多层权限共同生效。",
+      "detail": "新增独立子 Agent effort 配置、共享组预算、层叠管理策略和 MCP 云端表单确认。版本也修复网关模型限制、受限会话上传和后台执行异常。",
+      "findings": "v2.1.316 于 10 月 31 日发布，主要提供 Harness 配置、权限和可靠性改进。",
+      "why_it_matters": "值得研究 Cost-Aware Subagent Routing 与多层授权冲突时的 Fail-Closed 执行策略。",
+      "sources": [
+        {
+          "name": "官方版本公告",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.316"
+        }
+      ]
+    },
+    {
+      "title": "Algebraic World Model：把未知环境探索转成可验证数学模型",
+      "score": 92,
+      "published": "2026-10-29",
+      "topics": [
+        "environments",
+        "science",
+        "evaluation",
+        "framework"
+      ],
+      "summary": "Algebraic World Model 通过交互探索未知游戏环境，构建 Python 状态转移假设，再将规则转化为 Lean 4 证明。它不仅搜索成功路径，还能形式化证明目标不可达，两道不可解关卡上的六次实验全部得到可核验的不可达证明。对 25 个 ARC-AGI-3 游戏的 183 个关卡，生成的数学规则能够支持 Lean 重放正确轨迹。",
+      "intro": "仅凭尝试动作并不能证明某个目标是否根本不可达，Agent 需要可以检查和更新的世界模型。",
+      "detail": "AWM 主动探索、测试可执行假设、抽取类型化状态规则，再用 Lean 形式化验证可达性与不可达性。环境反馈可以驱动假设修订。",
+      "findings": "两个不可解关卡的六次运行都形成 Lean 验证通过的证明；25 个公开游戏覆盖 183 个关卡。",
+      "why_it_matters": "可以把形式化状态依赖用于长程任务规划、环境合成和失败原因证明。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.40503"
+        }
+      ]
+    },
+    {
+      "title": "FilingLoop：从真实 SEC 审查案件学习专业 Agent 流程",
+      "score": 90,
+      "published": "2026-10-27",
+      "topics": [
+        "work",
+        "evaluation",
+        "memory",
+        "self-evolution",
+        "benchmark"
+      ],
+      "summary": "FilingLoop 根据美国 SEC 历史往来构建 380 个公司披露审查任务，涉及 96 家企业和 6,099 项可检查要求。Agent 不仅要修改文档，还需主动发现未明确列出的遗漏与矛盾，再查证公司事实。将细粒度审查反馈转换为后续任务的经验后，要求满足率从 24.28% 升至 27.96%。",
+      "intro": "专业文档审查的困难往往是用户并未逐条写出应满足的义务。",
+      "detail": "系统重建交互审查流程，由独立评估器检查修改、依据与错误承诺，再把案例反馈提炼成可用于下一家公司的操作指导。经验更新只作用于未来案例。",
+      "findings": "完整审查意见解决率从 16.90% 提高至 20.75%，总成本增加 5.8%。",
+      "why_it_matters": "适合研究如何把案例专有事实与可迁移的审查技能分开记忆并验证。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.37905"
+        }
+      ]
+    },
+    {
+      "title": "Co-Design Bench：平均完成 69.9% 需求，却只有 26.4% 完整交付",
+      "score": 88,
+      "published": "2026-10-26",
+      "topics": [
+        "coding",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "Co-Design Bench 将真实 Coding Agent 交互整理成 273 个任务和 2,331 条隐藏人工验收标准。Judge-then-Refute 会根据代码、运行页面与交互证据逐项核查，再反驳虚假成功结论。最佳模型平均满足单题 69.9% 的要求，但只有 26.4% 的任务全部通过。",
+      "intro": "代码能运行与真正完成用户的所有要求是两回事，尤其在界面编辑和多要求软件改造中。",
+      "detail": "Benchmark 汇总真实协作请求，分为 100 项多模态编辑与 173 项仓库修改。验证器针对隐藏要求查找执行证据并检查功能回归。",
+      "findings": "最强模型的平均要求满足率 69.9%，完整通过率 26.4%。",
+      "why_it_matters": "自进化 Coding Harness 应同时优化完整交付率、旧功能回归率和关键需求遗漏率。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.35138"
+        }
+      ]
+    },
+    {
+      "title": "ZEST-Search：搜索任务生成器和求解 Agent 联合进化",
+      "score": 87,
+      "published": "2026-10-29",
+      "topics": [
+        "training",
+        "self-evolution",
+        "data-synthesis",
+        "tool-use"
+      ],
+      "summary": "ZEST-Search 不依赖人工搜索轨迹标签，而让 Proposer 根据 Solver 当前能力在线生成难度合适的新题。它使用答案优先与证据路径引导的合成方式，并同时优化最终正确率和搜索工具开销。在七项通用问答和多跳搜索评测中，作者报告持续提升任务表现并减少冗余检索。",
+      "intro": "固定搜索训练题会随着 Agent 变强而失去区分度，成功轨迹中也可能包含很多没必要的工具调用。",
+      "detail": "Proposer 围绕 Solver 当前能力边界生成任务，Solver 在工具感知奖励下进行强化学习。奖励既看正确性，也看证据收集效率。",
+      "findings": "七个 QA 与多跳搜索 Benchmark 的结果显示两种训练角色可以相互促进。",
+      "why_it_matters": "下一步应在节省搜索成本的同时加入证据充分性评价，避免少搜但答错。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.39682"
+        }
+      ]
+    },
+    {
+      "title": "VibeGame：将多 Agent 游戏项目经验压缩为可复用组件",
+      "score": 84,
+      "published": "2026-10-22",
+      "topics": [
+        "self-evolution",
+        "coding",
+        "skills",
+        "framework"
+      ],
+      "summary": "VibeGame 让八个专业 Agent 基于 AI-Native Game Engine 联合开发和测试可交互 2D 游戏。项目完成后会提取 Skeleton、功能 Module 与 Collaboration Contract，作为后续项目的可复用资产。在 30 项 GameCraft-Bench 任务中，作者报告相对强 Harness 对照提高约 4.19 至 11.70 分。",
+      "intro": "游戏开发同时涉及代码、场景、动画、素材和物理互动，跨角色信息交接直接影响结果。",
+      "detail": "结构化游戏引擎提供逐帧操作和测试接口，成功工程被编译为可复用骨架、模块与协作规则。",
+      "findings": "30 道任务的两种基础模型设置分别报告 4.19 与 11.70 分的相对提升。",
+      "why_it_matters": "下一步应让协作协议根据跨项目失败自动迭代，区分组件复用与真正的改进器进化。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.33106"
+        }
+      ]
+    },
+    {
+      "title": "Exin Therapeutics：AI Agent 开始控制真实生物实验设备",
+      "score": 83,
+      "published": "2026-10-31",
+      "topics": [
+        "science",
+        "tool-use",
+        "safety",
+        "product"
+      ],
+      "summary": "Exin Therapeutics 将 Claude Agent 接入实验室机器人，在小鼠脑部基因治疗实验中控制定位与注射设备。兽医负责手术准备，Agent 选择疗法和注射参数，途中暴露出坐标错误与控制权限冲突。这让科研 Agent 从读取论文、规划实验进入真实设备闭环，也把异常恢复和独立安全边界推到台前。",
+      "intro": "实体科研场景比模拟环境多了不可逆动作、真实测量误差和高风险权限问题。",
+      "detail": "模型连接摄像头、机械定位和注射设备；人类完成前置准备并保留授权与紧急停止能力。出现坐标异常后，额外的代理参与修复。",
+      "findings": "报道中的实验流程因异常排查延长至一小时以上，可观察到真实执行和安全权限如何相互制约。",
+      "why_it_matters": "可围绕真实实验轨迹研究错误归因、可验证恢复与安全审计。",
+      "sources": [
+        {
+          "name": "WIRED 报道",
+          "url": "https://www.wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse"
+        }
+      ]
+    },
+    {
+      "title": "SciGame：用反事实科学世界检验真正的规律发现",
+      "score": 82,
+      "published": "2026-10-27",
+      "topics": [
+        "science",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "summary": "SciGame 将科学论文解析成可实验的世界，并同时构造原始规律与反事实规律两种任务环境。Agent 需要通过固定或自适应实验发现关系，而不能仅靠预训练记忆背出熟悉公式。五个前沿模型的测试表明旧先验在规律变化时可能适得其反，精确符号规律的恢复尤其困难。",
+      "intro": "科学发现评测常无法区分模型凭记忆答题和依据新实验归纳规律。",
+      "detail": "SciGame 由文献生成规律卡片，再配对构建接口一致但底层公式变化的反事实环境，并提供多种实验预算与发现模式。",
+      "findings": "实验显示自适应实验更有利于较强模型，语言解释合理也可能掩盖数值规律错误。",
+      "why_it_matters": "可以用反事实环境测试 AI Scientist 是否真正根据实验更新科学假设。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.37919"
+        }
+      ]
+    },
+    {
+      "title": "因果 Benchmark 审计：程序化生成器可能泄露答案捷径",
+      "score": 79,
+      "published": "2026-10-28",
+      "topics": [
+        "data-synthesis",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "一项因果推理 Benchmark 审计发现，程序化任务生成器可能无意产生与答案相关的表面模式。简单分类器能够学习这些捷径；删掉题目里一些关键因果描述后，部分大模型的成绩仍几乎不变。未来合成数据评测除了验证答案，还需要做模板变化、变量替换和反事实数据审计。",
+      "intro": "数据生成程序越统一，越容易反复产生模型可以投机利用的格式规律。",
+      "detail": "研究分析 CLadder 类评测的表面统计线索，并测试简易分类器和删除重要文本后的大模型表现。",
+      "findings": "部分模型的成绩对关键内容删除不敏感，提示当前分数混入了生成器伪相关性。",
+      "why_it_matters": "建议为自动 Benchmark 增加 Generator Shortcut Audit，避免把模式识别误判为因果推理。",
+      "sources": [
+        {
+          "name": "arXiv 论文原文",
+          "url": "https://arxiv.org/abs/2610.38100"
+        }
+      ]
+    },
+    {
+      "title": "ScienceOra：串联文献证据、催化剂设计与实验规划",
+      "score": 78,
+      "published": "2026-10-31",
+      "topics": [
+        "science",
+        "tool-use",
+        "product"
+      ],
+      "summary": "Wenge AI 演示基于 ScienceOra 的制氢催化剂研发工作流，把文献检索、候选材料设计和实验计划连接起来。系统依托 ScienceOne 科学基础模型，融合领域数据和专业工具，帮助材料研究者形成可执行方案。这类产品的核心价值在于组织多阶段科研任务与工业限制，而不只是给出单次模型预测。",
+      "intro": "AI4Science 的产业应用需要统一管理资料、候选方案、实验与工程约束。",
+      "detail": "ScienceOra 演示了从检索研究资料、构建候选催化剂方案到规划实验和产业决策支持的连续流程。",
+      "findings": "公开演示重点是工作流集成，体现领域科学模型与专业工具协作的产品方向。",
+      "why_it_matters": "可研究真实实验反馈如何影响下一轮候选设计与研究策略更新。",
+      "sources": [
+        {
+          "name": "新闻原文",
+          "url": "https://technode.global/prnasia/scienceora-demonstrates-ai-assisted-hydrogen-production-catalyst-design-workflow-at-tencent-global-digital-ecosystem-summit/"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI Evals 转为只读，团队评测资产向代码化工作流迁移",
+      "score": 77,
+      "published": "2026-10-31",
+      "topics": [
+        "evaluation",
+        "deployment",
+        "product"
+      ],
+      "summary": "OpenAI 原有 Evals 平台按时间表在 10 月 31 日转为只读，Dashboard 与 API 计划在 11 月 30 日停止服务。官方提供向 Promptfoo 迁移的方案，需要重新组织测试输入、模型调用与评分规则。对 Agent 研发的启发是让 Benchmark、Verifier 版本、执行轨迹和环境参数可以独立迁移、重放和比较。",
+      "intro": "评测结果若强依赖某个平台的界面或不可导出的设置，迁移时可能丢失历史可比性。",
+      "detail": "评测工作流可转成仓库管理的配置，在 CI 中复现，并同时保存模型版本、工具环境、Grader 与预算。",
+      "findings": "原有 Evals 的只读节点为 10 月 31 日，计划关闭节点为 11 月 30 日。",
+      "why_it_matters": "Portable Evaluation Protocol 应成为模型和 Harness 长期回归测试的基本建设。",
+      "sources": [
+        {
+          "name": "OpenAI 官方文档",
+          "url": "https://developers.openai.com/api/docs/deprecations"
+        }
+      ]
+    },
+    {
+      "title": "Isomorphic Labs：AI 药物设计迈向真实候选药物开发",
+      "score": 75,
+      "published": "2026-10-31",
+      "topics": [
+        "science",
+        "product"
+      ],
+      "summary": "Isomorphic Labs 的新访谈介绍以 AI 预测分子相互作用、设计候选疗法的研发路线。公司围绕癌症与免疫类疾病推进药物设计合作，目标是让模型输出进入真实实验和候选药物筛选。对 AI Scientist 更值得关注的课题，是怎样利用实验反馈判断预测偏差并持续改进后续研究决策。",
+      "intro": "从科学预测走到真实药物候选研发，必须经过复杂的实验验证和跨团队协作。",
+      "detail": "Isomorphic Labs 结合科学模型与制药行业合作，把计算预测用于候选设计和筛选。",
+      "findings": "近期访谈讨论了其模型应用与早期研发方向，体现 AI4Science 产业化路径。",
+      "why_it_matters": "可探索 Model–Experiment Disagreement Learning，区分模型误差、测量噪声和原有科学假设的问题。",
+      "sources": [
+        {
+          "name": "新闻原文",
+          "url": "https://www.businessinsider.tw/article/9050"
+        }
+      ]
+    }
+  ]
+}

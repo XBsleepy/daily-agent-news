@@ -1,0 +1,1 @@
+今天聚焦四条研究主线：CodeSpecWeave 用耦合需求生成长程 Coding 任务；Prefix Executability 和 VeriCUA 让执行过程与结果验证更可信；Rubricon、LLMON 改进评分数据与安全训练；MAPLE-Bench、Role Grounding Attack 与 Arca 展示长期 Personal Agent 的隐私、记忆归属和主动任务管理。
