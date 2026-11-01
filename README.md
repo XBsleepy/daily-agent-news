@@ -1,6 +1,8 @@
 # Daily Agent News
 
-四个领域的每日信号，一份新闻榜单。默认浏览一句话摘要，点击查看完整说明、关注原因和原始来源。
+四个领域的每日信号，一份新闻榜单。
+
+> 姊妹项目 / Sister project: **[Daily Agent Benchmarks](https://xbsleepy.github.io/daily-agent-benchmarks/)** ([GitHub](https://github.com/XBsleepy/daily-agent-benchmarks))：每日 arXiv Agent Benchmark 论文索引。News 看「发生了什么」，Benchmarks 看「怎么评」。默认浏览一句话摘要，点击查看完整说明、关注原因和原始来源。
 
 界面参考 [Daily Agent Benchmarks](https://xbsleepy.github.io/daily-agent-benchmarks/) 的纸张配色、衬线标题、侧栏与细线布局，支持领域筛选、关键词搜索、深色模式、日期归档及新闻详情分享链接。
 
