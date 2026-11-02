@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-02",
+  "field": "field-3",
+  "items": [
+    {
+      "title": "Apple Online Dense RL：在真实 iOS 应用上训练可恢复的 GUI Agent",
+      "score": 100,
+      "published": "2026-10-29",
+      "topics": [
+        "training",
+        "environments",
+        "personal",
+        "tool-use",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.39264"
+        }
+      ],
+      "summary": "Apple 提出在真实 iOS 应用上进行在线强化学习的 GUI Agent 框架，组合规划模型、界面定位模型与逐步奖励。系统并行运行数百台可重置虚拟设备，利用中间进度奖励提升长程任务学习效率。论文报告 8B 模型在 Android 跨平台泛化上较 SFT 基线提升近 7 倍，并在 iOS 任务达到与 Gemini 3.1 Pro 相近的表现。",
+      "intro": "GUI Agent 很难仅靠静态成功轨迹学会错误恢复；真实应用的页面变化、状态依赖和跨应用操作，都要求能够反复试错的训练环境。",
+      "detail": "训练设施以预装应用、已登录账号和可恢复快照为初始状态，约 10 秒就能重置一次设备，支持约 512 条并行轨迹。系统首先从真实 iOS 与 GUIOdyssey 轨迹构建训练任务，再由模型补充操作意图与计划；跨应用任务通过应用组合、任务生成和人工审核构建。执行时 Planning Agent 负责下一步计划，UI Grounding Model 将计划落到坐标操作；奖励由过程 Judge 提供的密集步骤反馈与最终任务成败组成。GiGPPO 利用视觉相似状态的邻近轨迹信息稳定 Value 估计，并缓解纯密集奖励可能产生的奖励投机。",
+      "findings": "作者在 UINavBench、iOSWorld 与 AndroidWorld 等环境上报告超过 SFT 和仅终局奖励 RL 的表现；8B 模型 Android OOD 任务相对 SFT 接近七倍提升。真实应用在线训练、快照恢复和过程奖励形成了一条完整、可重复采样的训练闭环。",
+      "why_it_matters": "优先研究从失败 Milestone 重新初始化环境、语义状态奖励与 UI 视觉相似度奖励的差异，以及跨 App 状态迁移是否真能从局部恢复训练中获益。"
+    },
+    {
+      "title": "MICA：同样的底层工具，CLI 与 MCP 会引发不同决策",
+      "score": 98,
+      "published": "2026-10-25",
+      "topics": [
+        "tool-use",
+        "coding",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.34298"
+        }
+      ],
+      "summary": "MICA 在相同任务、状态和执行器下对照 CLI 与 MCP 两种工具接口，证明工具的表达方式本身会改变 Agent 决策。六个模型、三个环境的 2,004 组成对执行中，94.3% 出现结构化行为分歧。其 DART 修复机制保留已验证的语义动作并专门修复接口实现问题，最多提高 9 分评测成绩。",
+      "intro": "工具失败未必意味着模型不理解目标，也可能来自模型面对工具 Schema、参数格式和反馈呈现时的接口敏感性。",
+      "detail": "MICA 在 ALFWorld、WebShop 和 ScienceWorld 中从同一 Semantic Action Contract 生成 MCP 和 CLI 接口，确保二者调用完全相同的底层环境动作。通过匹配初始状态和执行器，实验隔离了工具表达格式对动作选择、错误传播和恢复的影响。以 Qwen3-14B 为例，ALFWorld 上 CLI 为 56.7%，MCP 为 20.1%；WebShop 则 MCP 为 64.4%，CLI 为 59.5%。DART 将动作的语义承诺与接口实现拆开，只针对接口层失效进行恢复。",
+      "findings": "2,004 次匹配 Episode 中 94.3% 的轨迹出现结构化分歧；DART 在六项配置上均提高成绩，最多提升 9.0 分，某些 MCP 条件下每任务 Token 消耗最多减少 27.1k。",
+      "why_it_matters": "训练或合成失败 Milestone 前先标记 Tool Interface Fault；在相同状态下测试多种接口，能够避免把 Harness 格式问题误判为策略能力不足。"
+    }
+  ]
+}

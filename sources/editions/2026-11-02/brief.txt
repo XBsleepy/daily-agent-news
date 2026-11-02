@@ -1,0 +1,1 @@
+本期最值得关注的五项进展：Apple 在真实 iOS 应用上训练在线 GUI Agent；MemSteer 让用户历史自动产生记忆优化信号；MICA 证明 CLI 与 MCP 接口会改变 Agent 行为；PAPERBENCHX 揭示跨学科科研复现的真实难度；dual-mem 将长期个人记忆推进到跨设备离线同步。

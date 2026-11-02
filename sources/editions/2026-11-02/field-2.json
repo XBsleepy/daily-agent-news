@@ -1,0 +1,160 @@
+{
+  "date": "2026-11-02",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "MemSteer：用用户历史自动生成记忆优化监督信号",
+      "score": 99,
+      "published": "2026-10-29",
+      "topics": [
+        "memory",
+        "personal",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.39276"
+        }
+      ],
+      "summary": "MemSteer 直接从未标注用户历史生成带证据的问答监督，让 Personal Agent 的记忆系统针对用户持续改进。它通过证据规划、来源审计和盲答案恢复生成可靠样本，再优化记忆存储、检索和上下文组织，无需更新基础模型。实验中 ATM-Bench Question Score 提升 13.4 分，RHELM 准确率提升 4.1 至 6.6 个百分点。",
+      "intro": "真实个人助手积累大量对话和行为记录，却没有人为每位用户制作标准答案；因此，记忆写入、检索和压缩很难以真实个人历史为反馈进行持续优化。",
+      "detail": "MemSteer 先从多个历史片段建立 Evidence-Grounded Answer Plan，说明每个候选问题的答案由哪些事件支持，再生成 QA。Source-Grounded Auditing 会检查生成答案是否与原始证据一致，Blind Answer Recovery 则独立恢复答案以筛除难以稳定回答的问题。后续 MemSteer-Opt 用这些问答评价 Memory Store、Retrieval 和 Context Construction，并根据失败证据调整配置。整个流程优化的是记忆系统设计与检索方法，不要求对底座 LLM 做参数更新。",
+      "findings": "相较 Base-BM25，ATM-Bench Question Score 增加 13.4 分，RHELM 无外部数据和有外部数据条件下分别增加 4.1、6.6 个百分点；作者也展示了面对新用户历史时继续生成监督并调整记忆设计的能力。",
+      "why_it_matters": "与 CALM、PreCoMem 对照，研究用户偏好变化、错误伪标签累积和来源矛盾条件下的长期自优化效果。"
+    },
+    {
+      "title": "dual-mem v0.2.1：跨设备个人记忆改为离线同步与本地检索",
+      "score": 95,
+      "published": "2026-11-01",
+      "topics": [
+        "memory",
+        "personal",
+        "skills",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "项目 Release",
+          "url": "https://github.com/shibing624/dual-mem/releases/tag/v0.2.1"
+        }
+      ],
+      "summary": "dual-mem v0.2.1 将跨设备长期记忆改为每台设备本地检索，通过共享目录、私有 Git 或服务器交换记忆变更日志。新版移除常驻 SSH 隧道，减少跨设备切换 Claude Code、Codex 等 Agent 时的在线依赖。工程记忆只保留问题、最终回答和可复用经验，并把自动归纳频率控制在每天最多一次。",
+      "intro": "不同 Agent 和电脑间的个人记忆如果必须依赖一个一直在线的中央服务，离线工作、同步冲突和隐私控制都会变得复杂。",
+      "detail": "dual-mem 用 System 1 保存事实、偏好变化和版本历史，再由 System 2 从多次事件中提炼稳定规律。新版将远程集中检索改为各设备保留自己的索引和搜索能力，通信只需同步存储变化；共享目录、私有 Git 仓库和服务端均可作为同步媒介。Coding 经验保留可复用的 procedure 而非无差别上传工具输出，降低噪声与上下文成本。配置统一归入用户本地 config.yaml，自动摘要合并每日最多执行一次。",
+      "findings": "11 月 1 日版本主要改进部署、记忆同步与归纳成本；项目现有 LoCoMo、LongMemEval 等历史自测成绩并非本次版本新增实验结果。",
+      "why_it_matters": "值得重点测试跨设备并发写入、冲突合并、删除传播，以及两台 Agent 在断网后重新同步时能否恢复一致且正确的用户状态。"
+    },
+    {
+      "title": "When Skills Tell Agents Not to Ask：约每 17 个 Agent Skills 就有一个弱化监督",
+      "score": 94,
+      "published": "2026-10-27",
+      "topics": [
+        "skills",
+        "safety",
+        "tool-use",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.37734"
+        }
+      ],
+      "summary": "一项大规模 Agent Skills 安全研究扫描 153 万份英文技能文件，发现约 8.8 万份含有弱化审批或跳过检查的指令，比例接近 1/17。这些指令常鼓励直接执行、跳过验证或避免向用户确认，其中 70.1% 没有明确的使用条件。少数上游 Skill 家族贡献了大量重复扩散，说明技能包供应链本身正在影响 Agent 权限边界。",
+      "intro": "SKILL.md 文件看似是可复用操作指南，但模型加载它时，其中的默认执行规则可能被实际当作权限建议。",
+      "detail": "论文建立了按指令极性、实现机制和作用范围分类的审计体系，人工标注 2,097 个语句单元，然后扩展至 153 万份 GitSkills 样本。相关指令涵盖 --no-verify、自动批准、跳过用户检查等；涉及 Shell、包安装或 sudo 的技能，包含弱化监督语句的可能性提高约 1.7—1.8 倍。传播分析发现，2.4% 的问题技能家族占此类复制品的一半。论文还对比现有开源 Skill 扫描器与基于定义手册的 LLM 检测表现。",
+      "findings": "约 88,000 份技能包含弱化监督指令，70.1% 为无条件生效；现有扫描器最多检出 46%，精确率低于 0.4，而带代码本的 LLM 检测召回达到 61%、精确率约 0.71。",
+      "why_it_matters": "需要把 Skill 本身纳入授权审计、版本跟踪和自动化安全回归测试，避免通过经验复用悄悄扩大 Agent 的可执行权限。"
+    },
+    {
+      "title": "GAD：动态任务图让长期多 Agent 协作保住目标和验收条件",
+      "score": 93,
+      "published": "2026-10-29",
+      "topics": [
+        "framework",
+        "personal",
+        "work",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.39193"
+        }
+      ],
+      "summary": "GAD 将长程任务拆成不断增长的依赖图，每个子 Agent 始终保留原始目标、当前子任务和明确的验收条件。它根据实时执行证据决定如何拆分任务、传递结果和安排验证，减少目标漂移与重复探索。验证失败时，系统沿任务依赖关系恢复执行，适用于旅行、日程和多系统办公等持续变化的工作流。",
+      "intro": "长程多 Agent 系统经常在分工后丢失总体目标，或到最后才验证结果，导致错误积累数十步才被发现。",
+      "detail": "GAD 设计一个持续扩展的 Execution Graph：任务目标分解为子目标，依赖约束决定哪些节点先执行，证据决定信息如何流向其他 Agent。每个 Agent 只接收与分配目标相关的必要状态，同时始终拥有原始指令和当前子任务验收标准。任务可以在执行中继续拆分并重新排序；Verifier 检查局部交付物以及整体完成情况，出错时触发定向恢复。相比将全部聊天记录拼成共享上下文，任务图可把目标、状态和验收从自然语言协作中显式分离。",
+      "findings": "论文对比了单 Agent、分工不充分的多 Agent 与引入任务依赖和分层验证的方案，强调及时验证和控制跨角色信息传播的重要性。",
+      "why_it_matters": "下一步应构建 Goal Revision Propagation 评测：用户改变目标后，依赖节点、后台任务和审批条件能否一致地更新。"
+    },
+    {
+      "title": "LangChain Managed Deep Agents v0.10：浏览器接管与异步子 Agent",
+      "score": 91,
+      "published": "2026-10-29",
+      "topics": [
+        "personal",
+        "tool-use",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "LangChain 官方博客",
+          "url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents"
+        }
+      ],
+      "summary": "LangChain Managed Deep Agents v0.10 新增托管浏览器能力，让 Agent 操作没有 API 的真实网站。遇到登录或二次验证时，Agent 可将浏览器控制权交给用户，再接回已登录的会话；长任务还能交给异步子 Agent，主对话不必等待。它把浏览器执行、用户授权与持续后台任务组合成更实用的 Personal Agent 运行模式。",
+      "intro": "许多生活和企业流程只能在网页里点击操作，且一旦遇到登录、等待或长任务，传统同步 Agent 就很容易卡住整个交互。",
+      "detail": "v0.10 提供 browser_snapshot、browser_run、browser_screenshot 和 browser_handoff 四种浏览器工具，由隔离沙箱管理会话。浏览器既可以按 Thread 隔离，也能按 User 保留登录状态；需要认证时通过浏览器交接让用户直接操作登录界面。异步 Subagent 在独立 Thread 中完成长任务，并向主 Agent 主动回传结果；用户还可以查询、更新和取消后台任务。Slack 来源线程与 Stop 按钮进一步把运行状态和审批流程连接起来。",
+      "findings": "浏览器交接解决 Agent 接触账号凭据的问题，异步任务解决等待期间交互阻塞；这两种能力共同增强了真实网站任务的可部署性。",
+      "why_it_matters": "最值得评测的是后台任务运行期间用户修改目标或撤销授权时，已排队工具调用、会话权限和最终结果是否一致更新。"
+    },
+    {
+      "title": "HEDGE：超图记忆压缩多人证据并保留冲突关系",
+      "score": 89,
+      "published": "2026-10-28",
+      "topics": [
+        "memory",
+        "personal",
+        "framework",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.38902"
+        }
+      ],
+      "summary": "HEDGE 将多 Agent 的观点、支持证据和冲突组织成语义超图，再让学习式选择器决定保存、备份还是舍弃。七个 Benchmark 中，相比最强多 Agent 基线平均准确率提高 5 分，在高冲突任务上提高 8.2 分。与此同时，记忆用量降低 48%，讨论轮次减少 34%。",
+      "intro": "普通摘要常抹平多个 Agent 的分歧，完整保存讨论又使上下文快速膨胀；实际决策需要保留论点之间的高阶支持与冲突关系。",
+      "detail": "HEDGE 的超边连接多个相关主张，边内保留具体关系与证据来源，而不是只建立两个节点间的普通链接。Memory Selection Module 通过监督学习和强化学习训练，为候选内容选择 STORE、BACKUP 或 OMIT。重要但暂时不需要的证据进入备份，当前决策真正依赖的主张优先保留，重复内容则被压缩或省略。研究在不同讨论任务上比较回答质量、记忆 Token 与交互轮数。",
+      "findings": "GPT-4o-mini 条件下较最强多 Agent 对照准确率平均增加 5.0 分；冲突任务增加 8.2 分，记忆消耗减少 48%，讨论轮数减少 34%。",
+      "why_it_matters": "可将超图记忆用于多人家庭助手与企业协同，让偏好冲突、证据归属和不同时间版本在摘要压缩后仍可追溯。"
+    },
+    {
+      "title": "LangChain Schedules SDK：主动式 Agent 用定时唤醒而非持续推理",
+      "score": 86,
+      "published": "2026-10-28",
+      "topics": [
+        "personal",
+        "deployment",
+        "memory",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "LangChain 官方技术文章",
+          "url": "https://www.langchain.com/blog/proactive-agents"
+        }
+      ],
+      "summary": "LangChain 总结了主动式 Agent 的实现方式：定时唤醒、读取持久化状态，再判断是否需要采取行动。Schedules SDK 可用来做长期记忆归纳、主动跟进、信息监控和等待中的任务恢复。LangChain 称其托管 Deep Agents 平台超过 70% 的运行由定时触发，说明主动执行正在成为真实产品的重要交互形式。",
+      "intro": "24 小时服务不要求模型每时每刻都在推理，低成本的调度系统能够定期检查用户目标和外部事件，只在需要时启动 Agent。",
+      "detail": "LangChain 的设计结合 Cron 服务、任务执行身份与持久化上下文：用户或 Agent 在对话中创建一次性或周期性计划，计划保存相应权限，并在预定时间唤醒原 Agent。定时任务可执行记忆 Dreaming、自动关注用户目标、查找变化、检查后台任务或生成后续提醒。文中讨论了静态、动态与长期任务定时执行的实践，并将‘主动性’视为调度触发和有状态工具执行的组合。其平台观察到超过 70% 的 Managed Deep Agents 运行由定时触发。",
+      "findings": "核心信号是主动性更多依赖调度和状态保存，而非持续推理；固定频率与事件触发策略会直接影响用户打扰和资源开销。",
+      "why_it_matters": "建议比较定时检查、事件唤醒和自适应频率控制，测量真正有用的主动介入次数、错误提醒率及单位算力收益。"
+    }
+  ]
+}

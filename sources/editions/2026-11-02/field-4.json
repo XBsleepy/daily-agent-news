@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-02",
+  "field": "field-4",
+  "items": [
+    {
+      "title": "PAPERBENCHX：AI Scientist 跨 12 个学科复现论文仍只有 14% 完成率",
+      "score": 97,
+      "published": "2026-10-29",
+      "topics": [
+        "science",
+        "evaluation",
+        "benchmark",
+        "environments"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2610.39744"
+        }
+      ],
+      "summary": "PAPERBENCHX 将论文复现拓展到电磁学、光子学、化学、材料、生物和机器人等 12 个领域，提供 93 道真实科研复现任务。评测会清除提交者现有输出，重新运行科学程序，只给可重复生成的证据打分。在十组前沿 Agent 配置中，最强系统仅完整复现约 14% 的论文，即使最佳平均部分完成度达到 59.08%。",
+      "intro": "AI Scientist 能够解释论文或写出看似合理的代码，但科学复现要求特定软件、正确参数与可重复的实验结果。",
+      "detail": "Benchmark 包含 93 道专家设计任务、12 个学科、10 类领域软件环境和 10 组 Agent 配置，单任务允许 4 至 72 小时。任务要求从论文描述重建关键实验、执行并排查结果，并提交可运行工作流。评分系统从零执行提交代码，生成新的数据与图表，再与专家验收要求逐项核对。它把论文理解、建模、实验操作和独立证据验证组成闭环，减少用已有结果文件蒙混过关的空间。",
+      "findings": "最佳配置的完整复现率为约 13.98%（13/93），平均部分任务得分为 59.08%；所有受测配置的平均完整复现率约为 8.60%。实验设计和运行有一定进展，最终证据验证仍是重要瓶颈。",
+      "why_it_matters": "适合把成功的科学实验步骤沉淀为版本化、可重新运行的 Verified Skills，再测量这些经验能否迁移至新的科研任务。"
+    },
+    {
+      "title": "ClawsGO Science：把 AI Scientist 做成可连续运行的云实验室",
+      "score": 92,
+      "published": "2026-11-01",
+      "topics": [
+        "science",
+        "environments",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Product Hunt 产品页",
+          "url": "https://www.producthunt.com/products/clawsgo-science"
+        }
+      ],
+      "summary": "ClawsGO Science 11 月 1 日登上 Product Hunt，主打从科研问题到计算实验、图表、引用和论文草稿的一站式研究 Agent。平台把云端实验环境、长程执行、多模型协作和操作轨迹记录整合在一起。团队称云实验室预置超过 500 种工具与 90 多个数据集，可让研究任务在云主机上持续运行数小时甚至数天。",
+      "intro": "科研 Agent 真正交付结果，往往需要安装专业软件、维护跨小时的任务状态、组织文件与数据，并保存可追溯的命令和实验过程。",
+      "detail": "产品将 Scientific Cloud Lab、Long-Horizon Harness、Multi-Model Agent Team、Execution Trace、Self-Review 与 LaTeX Workbench 集成为云端工作台。用户提交研究目标后，Agent 搜索论文、分析数据、运行代码、生成图表并形成可编辑科研文档。平台提供任务运行记录、文件变更与命令执行轨迹，便于研究人员检查和继续工作；团队披露了超过 500 种预置工具和 90 多个数据集。其研究价值在于把任务执行环境、轨迹存储和实验产物管理做成持续服务，而非只提供一次模型回答。",
+      "findings": "产品进入公开展示阶段，突出长时间运行、多模型科研工作流与可追溯实验记录，值得关注下一步可复现科研任务上的公开评测。",
+      "why_it_matters": "可利用积累的科研执行轨迹学习 Verified Research Skills，并在 PAPERBENCHX 之类的任务上测量跨学科迁移与完整复现率。"
+    },
+    {
+      "title": "智谱唐杰：递归自我改进正在成为 AI 研发路线核心",
+      "score": 78,
+      "published": "2026-11-01",
+      "topics": [
+        "self-evolution",
+        "training",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "南华早报",
+          "url": "https://www.scmp.com/tech/tech-trends/article/3372834/self-improving-ai-key-step-towards-agi-safety-key-zai-founder"
+        }
+      ],
+      "summary": "智谱 AI 联合创始人唐杰在上海活动中将递归自我改进描述为通向 AGI 的重要研究问题，强调用 AI 开发更强 AI 的研发循环。其观点将 AI 辅助科研、自动化模型实验和自我演化优化串联为产业发展方向。值得关注的是，下一阶段竞争可能从单次模型能力提升，转向改进器本身的效率和安全边界。",
+      "intro": "越来越多前沿实验室试图让模型帮助完成数据构建、训练实验、诊断和算法设计，研发循环的自主程度因系统而异。",
+      "detail": "报道发表于 11 月 1 日，唐杰在此前一天的上海活动上讨论了通过 AI 改进 AI 的研究模式。他强调这一方向可能加速 AGI 研究，并需要同步关注安全。可以把产业路线理解为逐级递进：AI 辅助研发自动化、实验方案生成与验证、自更新研究策略，以及改进后系统进一步改善自身改进能力。这样的划分也为评测自动科研系统提供了可操作的能力层级。",
+      "findings": "这是一条研发战略信号，提醒行业关注研究 Agent 的自动训练、独立验证以及多代改进性能，而非仅比较一代模型的最终 Benchmark 成绩。",
+      "why_it_matters": "可以建立统一的跨代评价方法，跟踪更新后的 Agent 是否真的更擅长提出、验证和实施下一轮研究改进。"
+    }
+  ]
+}
