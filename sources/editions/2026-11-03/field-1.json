@@ -1,0 +1,224 @@
+{
+  "date": "2026-11-03",
+  "field": "field-1",
+  "items": [
+    {
+      "title": "GDPx：206 项真实专业任务，最强 Agent 仅获 12%",
+      "score": "100",
+      "published": "2026-11-02",
+      "topics": [
+        "evaluation",
+        "environments",
+        "science",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "SemiAnalysis GDPx 官方平台",
+          "url": "https://gdpx.semianalysis.com/"
+        }
+      ],
+      "summary": "SemiAnalysis 发布 GDPx，联合 14 家环境数据合作方构建 206 项任务，覆盖 11 个高价值专业领域。任务要求 Agent 在真实或高保真业务环境中连续调查、操作并交付结果，默认执行预算长达 8 小时。首期榜单最高分只有 12.0%，揭示专业长程执行仍远未解决。",
+      "intro": "真实工作中的难点经常不在生成一份文字答案，而在寻找分散资料、理解跨文件约束、诊断环境故障并交付可验证成果。GDPx 把这些工作流程直接做成 Agent Benchmark。",
+      "detail": "任务覆盖芯片设计、网络安全、生物、金融、法律、量化交易、递归自我改进、硬件设计、材料科学、对齐与软件工程。金融任务基于匿名化交易资料室，包含数千份文件；AI 研究任务从真实 RL 训练故障重建训练日志、Harness 代码和实验记录。硬件任务的评分器还会修改驱动尺寸再重新构建 CAD 工件，测试输出能否保持设计依赖。不同模型使用自己的原生 Agent Harness，任务最终由领域评分器评估。",
+      "findings": "全站 206 个任务、11 个领域、14 家合作方。Claude Opus 5.5 综合成绩为 12.0%，Gemini 4 Carbon 为 10.9%，GPT-6 Astra 为 9.6%。多领域任务需要跨小时、跨工具和跨工件的完整闭环。",
+      "why_it_matters": "可以把 GDPx 的长程失败过程拆成证据依赖图，找到失败状态转移后生成可执行局部训练任务；相比仅生成题目，更值得研究由真实专业工件衍生的环境与验证器。"
+    },
+    {
+      "title": "Mage-VL-Cowork：29.4 万桌面任务训练 4B 混合操作 Agent",
+      "score": 99,
+      "published": "2026-10-29",
+      "topics": [
+        "training",
+        "data-synthesis",
+        "environments",
+        "tool-use",
+        "coding",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Mage-VL-Cowork 论文",
+          "url": "https://arxiv.org/abs/2610.40747"
+        }
+      ],
+      "summary": "Microsoft 的 Mage-VL-Cowork 让 4B Agent 在 GUI、代码和终端之间自主选择执行方式。Mage-CUA-Forge 先建立 6,915 种原子技能及可复用环境生成器，合成 293,806 项任务。经过五阶段训练，模型在 OSWorld-Verified 达到 66.0%，重复任务生成开销减少 82.6%。",
+      "intro": "专业计算机操作不仅是截图点击，真实工作经常需要结合可视界面、文件处理、代码执行与终端验证。核心问题是如何批量构造这些混合操作的数据，并避免把 Teacher 的低效工具习惯蒸馏给 Student。",
+      "detail": "Mage-CUA-Forge 从应用操作中抽取 Skill Taxonomy，为单项技能组合设计可复用的任务规格、应用准备脚本、初始状态与评分器。团队先优化 Teacher Harness 的工具配置与执行循环，再生成 318,837 条轨迹，并逐步训练 GUI 中间能力、GUI SFT、Coding/Terminal SFT、Hybrid SFT 与在线 RL。部分工具被删去以减少行为重叠，凸显 Harness 自身也是数据质量的一部分。",
+      "findings": "数据覆盖 293,806 项任务及 6,915 种技能。OSWorld-Verified 上，GUI SFT 45.56%、Hybrid SFT 55.84%、Online RL 66.0%，累计提高 20.44 个百分点；重复生成单项任务的开销减少 82.6%。",
+      "why_it_matters": "值得对比不同 Teacher Harness 生成的轨迹在 Student 端的实际学习增益，并研究技能模板复用效率、任务多样性及跨 GUI/CLI 工具选择的泛化。"
+    },
+    {
+      "title": "ReplayRCA：反事实重放找到真正导致 Agent 失败的动作",
+      "score": 98,
+      "published": "2026-10-29",
+      "topics": [
+        "evaluation",
+        "training",
+        "environments",
+        "self-evolution",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "ReplayRCA 论文",
+          "url": "https://arxiv.org/abs/2610.41025"
+        },
+        {
+          "name": "ReplayRCA 代码",
+          "url": "https://github.com/jeremy1392/RCAreplay"
+        }
+      ],
+      "summary": "ReplayRCA 在失败动作发生前恢复环境，只替换一个动作，再让原 Agent 继续执行。它通过与不修改动作的重放对照，测量某次修复对成功率的真实贡献。在 62 个系统性失败案例上，最佳配置的因果修复收益达到 51.3 个百分点。",
+      "intro": "长程 Agent 的最后一次失败操作，未必就是导致整个任务崩溃的根因。研究中的关键挑战是区分真正有效的单步干预与再次采样时偶然成功。",
+      "detail": "作者构建可确定性重放的 OpsWorld 后台环境，包含订单、退款、库存、邮件等状态与 15 种工具，并用 Oracle 和空策略验证任务的可解性与评分器有效性。诊断器选择失败时间点和替代动作，系统恢复上一步状态，对替代动作与原始动作分别运行多次后续轨迹。Causal Repair 指标计算两类后续成功率之差；评测同时覆盖事后诊断与实时监督，以观察什么时候介入反而损害任务。",
+      "findings": "Benchmark 从 720 个程序化实例中筛出 62 个校准后的系统性失败案例。13 个受测模型中最佳因果修复收益达到 +51.3 个百分点；强迫模型在最后一步修复会令收益下降 17.1 个百分点。",
+      "why_it_matters": "可以把已验证有效的因果修复位置转成短程任务，系统改变失败边界周围的初始状态，再检查局部训练能否迁移至未见长程任务。"
+    },
+    {
+      "title": "EvoMCP：用 Student 失败反馈共同进化任务、环境与轨迹",
+      "score": 97,
+      "published": "2026-10-30",
+      "topics": [
+        "self-evolution",
+        "data-synthesis",
+        "training",
+        "tool-use",
+        "environments",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "EvoMCP 论文",
+          "url": "https://arxiv.org/abs/2610.41479"
+        },
+        {
+          "name": "EvoMCP 代码",
+          "url": "https://github.com/xagao/EvoMCP"
+        }
+      ],
+      "summary": "EvoMCP 根据 Student 的成功与失败，识别尚未掌握的 MCP 工具能力，再有针对性地改变任务要求和环境状态。Teacher 轨迹经过修复、精简与 Verifier 过滤后用于下一轮 SFT。三轮训练后，Toolathlon、MCPMark 和 MCP-Atlas 分别提升 16.5、10.2 和 12.6 个百分点。",
+      "intro": "静态工具调用数据集难以覆盖 Student 在训练后出现的新能力缺口。EvoMCP 把任务生产从一次性准备数据，变成模型训练与环境更新共同发生的循环。",
+      "detail": "系统以已验证的 Task–Environment–Verifier 及 Teacher Trajectory 为种子，先运行 Student 并分析工具调用模式和失败类型。Curriculum Planner 挑选能力目标，再分别进行 Task Evolution（改变目标与约束）和 Environment Evolution（改变可执行状态与干扰因素），同时更新 Verifier。对于 Teacher 失败轨迹执行 Skill-based Recovery，对成功轨迹去除冗余工具步骤；经过验证的轨迹进入 SFT，新的 Student 再反馈下一轮课程生成。",
+      "findings": "以 Qwen3.6-27B 为学生模型，Toolathlon 从 36.9% 提升至 53.4%，MCPMark 从 56.7% 至 66.9%，MCP-Atlas 从 61.0% 至 73.6%。",
+      "why_it_matters": "最值得比较的是按完整任务缺口扩展数据与按因果失败边界合成局部任务的效率差异；可以进一步研究同一机制用于交互式 RL 而不只是 SFT。"
+    },
+    {
+      "title": "OpenAI LifeVal：让 Personal Agent Benchmark 从真实生活需求出发",
+      "score": 96,
+      "published": "2026-11-02",
+      "topics": [
+        "evaluation",
+        "personal",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI LifeVal 官方文章",
+          "url": "https://openai.com/index/lifeval/"
+        }
+      ],
+      "summary": "OpenAI 发布 LifeVal，用实际生活任务衡量个人 Agent 能否解决用户问题，而非只输出建议。研究结合两项时间利用调查和 3,995 人的代表性问卷，覆盖照护、教育、家庭管理、个人财务和公共服务。它将评测起点从研究者想象的题目转向普通人真正想让 AI 完成的工作。",
+      "intro": "许多 Agent 榜单偏重代码和网页任务，但用户日常最希望获得帮助的事情可能是安排照护、搬家、寻找合适学校或管理家庭账单。LifeVal 从任务需求发现阶段重建个人 Agent 的评测分布。",
+      "detail": "研究先从 American Time Use Survey 与 Multinational Time Use Study 建立生活任务分类，再通过 3,995 名受访者确认不同人群最重视的 AI 辅助活动。样例涉及幼儿园筛选、洪水志愿者调度、家庭购房、远程陪伴长辈和慢病饮食规划。评测关注模型提出的结果能否符合用户具体约束，未来可继续增加真实操作、审批及结果核验环节。",
+      "findings": "官方展示的若干具体任务评分为 90.4% 至 100%，覆盖不同生活场景。这些任务示例体现了模型当前可执行能力，也提出了完整日常流程评测的空间。",
+      "why_it_matters": "可以与专业任务分类和真实工具环境结合，比较按用户需求频率、任务价值、行动风险加权的 Life Agent Benchmark；进一步区分计划质量和实际执行成功。"
+    },
+    {
+      "title": "P-ContextBench：让长期个人记忆真正决定 Agent 行动",
+      "score": 95,
+      "published": "2026-10-29",
+      "topics": [
+        "memory",
+        "personal",
+        "evaluation",
+        "benchmark",
+        "safety"
+      ],
+      "sources": [
+        {
+          "name": "P-ContextBench 论文",
+          "url": "https://arxiv.org/abs/2610.40959"
+        }
+      ],
+      "summary": "P-ContextBench 把隐含个人偏好、碎片化聊天日历、时间状态变化和行动权限放进统一评测。它生成 100 个虚拟用户、10,088 条隐藏事实及 4,810 个验证样例。低成本前沿模型在动态状态、行为规律和行动边界任务上准确率不到 60%。",
+      "intro": "长期个人助手需要理解用户正在变化的生活，而非仅能回忆用户过去说过的一条事实。个人约束通常隐藏在多个 App 的记录、日期变化和社交互动中。",
+      "detail": "作者从人口统计与生活经历生成数字人，再构建社交关系、聊天和日历事件，把真实偏好及约束隐含写入这些碎片化记录。五类测试覆盖单源事实恢复、多源事实整合、时间状态追踪、个人规律推断及约束感知行动。评估还检查同一任务多次执行的一致性，以及在不满足授权与偏好时是否正确询问、提醒或拒绝。",
+      "findings": "构建 100 个合成 Persona、500 个联系人、10,088 条个人事实、18,261 个 App 记录片段和 4,810 个验证案例。许多受测模型在高阶个人状态与行动判断任务中准确率不足 60%。",
+      "why_it_matters": "可以直接对比 Raw RAG、结构化记忆、动态个人状态模型，评测记忆对最终行动正确性、稳定性与主动行为的实际影响。"
+    },
+    {
+      "title": "DatologyAI SimpleLoRIF：按梯度而非表面文本筛选训练数据",
+      "score": 94,
+      "published": "2026-10-27",
+      "topics": [
+        "training",
+        "safety",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "DatologyAI 技术博客",
+          "url": "https://www.datologyai.com/blog/follow-the-gradient"
+        },
+        {
+          "name": "SimpleLoRIF 论文",
+          "url": "https://arxiv.org/abs/2610.37481"
+        }
+      ],
+      "summary": "DatologyAI 提出 SimpleLoRIF，用训练样本的梯度方向识别会削弱模型安全性的普通 SFT 数据。系统在 8 张 H100 上约一小时完成 93.9 万条数据的梯度表征，并按风险剔除 20% 样本。SafeTulu 在多个模型上将 GCG 攻击成功率最多降低约 22%。",
+      "intro": "训练数据表面无害并不等于它对模型行为无害。直接判断文本是否包含危险语句，可能漏掉会让模型沿着不良方向更新的普通代码与数学样本。",
+      "detail": "SimpleLoRIF 压缩单样本梯度并只在 Transformer 最后四个模块计算归因，将每条训练数据与不安全行为参考集进行梯度相似度比较。系统利用 Qwen3-0.6B 计算低成本梯度嵌入，删除 Tulu 3 中相似度最高的 20% 后生成 SafeTulu，并在 Qwen、Llama 与 OLMo 家族测试迁移效果。过滤过程也能揭示易受影响的数据类型，例如工具执行异常与部分叙述式算术。",
+      "findings": "在 939,343 条样本上约一小时完成梯度表征；相对原方法提速 91.53%。Qwen3-1.7B 的 GCG 攻击成功率从 47.7% 降至 37.0%，总体能力基本保持。",
+      "why_it_matters": "数据选择可以进一步按 Coding 正确性、错误恢复与校准的不确定性设置目标梯度，并研究随着 Student 检查点变化动态调整数据权重。"
+    },
+    {
+      "title": "CLR-Bench：自进化 Agent 是否真的学到规则，而非堆积案例",
+      "score": 93,
+      "published": "2026-10-29",
+      "topics": [
+        "self-evolution",
+        "memory",
+        "evaluation",
+        "continual-learning",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "CLR-Bench 论文",
+          "url": "https://arxiv.org/abs/2610.40758"
+        }
+      ],
+      "summary": "CLR-Bench 测试自进化 Agent 能否从少量正反例推断隐藏规则，而不是把每次失败写进越来越长的例外清单。Benchmark 包含 10 个领域、20 条逐步增加难度的规则链。多种现有方法相对固定 Agent 仅取得不超过 5 个百分点的改善，暴露经验抽象的瓶颈。",
+      "intro": "很多长期运行的 Agent 会保存 Cheatsheet 或 Playbook，每次任务出错就追加一条说明。得分增长可能只是见过的例子变多，不代表学会可迁移的共同规律。",
+      "detail": "每条任务链从隐藏类别规则出发，Agent 获得起始样本及有限反馈，再需要判断未见过的成员和相似干扰项。规则逐级叠加，便于观察长期状态究竟保存了类别概念、判定原则还是仅列举了个案。研究比较六种持续状态更新方法，并观察更强基础模型对规则归纳能力的影响。",
+      "findings": "在所测模型和规则课程中，最佳常见方法比固定 Agent 改善不超过 5 个百分点；更强基础模型在部分方法上可达到约 78% 准确率。",
+      "why_it_matters": "研究经验记忆应该同时考察抽象规则的可迁移性和维护成本，而不是仅衡量日志积累后的训练集命中率。"
+    },
+    {
+      "title": "AIFaultBench：从 770 个真实 AI 软件缺陷重建可复现 Debug 任务",
+      "score": 85,
+      "published": "2026-10-30",
+      "topics": [
+        "coding",
+        "environments",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "AIFaultBench 论文",
+          "url": "https://arxiv.org/abs/2610.41094"
+        }
+      ],
+      "summary": "AIFaultBench 从 105 个 AI 软件仓库整理 770 个真实缺陷，覆盖机器学习、LLM、Agent 及工程基础设施。每个案例保存问题报告、代码、环境初始化、复现触发器和调查证据。研究成功复现其中 652 个缺陷，复现率达到 84.7%。",
+      "intro": "真实 AI 软件故障常跨代码、模型、依赖包、数据和运行配置，单看报错文本难以评估 Debug Agent 能否定位根因。AIFaultBench 重点建设可执行的真实错误环境。",
+      "detail": "作者跨 76 个组织采集缺陷案例，把原始 Issue、受影响代码、版本信息、运行条件与触发脚本整理成统一记录，并分别对机器学习、深度学习、强化学习、LLM 系统、Agentic AI 和工具基础设施进行分组。每个任务可用于测量环境恢复、错误复现、根因定位与修复验证的完整流程。",
+      "findings": "收录 770 个真实缺陷，来自 105 个仓库、76 个组织；其中 652 个在记录的运行条件下成功复现，成功率 84.7%。",
+      "why_it_matters": "可以将这些案例用于构建诊断环境、因果失败边界与自动 Debug 训练任务，并把不可复现的环境故障和模型推理失误区分开来。"
+    }
+  ]
+}

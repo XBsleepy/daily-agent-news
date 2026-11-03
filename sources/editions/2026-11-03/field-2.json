@@ -1,0 +1,209 @@
+{
+  "date": "2026-11-03",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "Mage-VL-Cowork：29.4 万桌面任务训练 4B 混合操作 Agent",
+      "score": 99,
+      "published": "2026-10-29",
+      "topics": [
+        "training",
+        "data-synthesis",
+        "environments",
+        "tool-use",
+        "coding",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Mage-VL-Cowork 论文",
+          "url": "https://arxiv.org/abs/2610.40747"
+        }
+      ],
+      "summary": "Microsoft 的 Mage-VL-Cowork 让 4B Agent 在 GUI、代码和终端之间自主选择执行方式。Mage-CUA-Forge 先建立 6,915 种原子技能及可复用环境生成器，合成 293,806 项任务。经过五阶段训练，模型在 OSWorld-Verified 达到 66.0%，重复任务生成开销减少 82.6%。",
+      "intro": "专业计算机操作不仅是截图点击，真实工作经常需要结合可视界面、文件处理、代码执行与终端验证。核心问题是如何批量构造这些混合操作的数据，并避免把 Teacher 的低效工具习惯蒸馏给 Student。",
+      "detail": "Mage-CUA-Forge 从应用操作中抽取 Skill Taxonomy，为单项技能组合设计可复用的任务规格、应用准备脚本、初始状态与评分器。团队先优化 Teacher Harness 的工具配置与执行循环，再生成 318,837 条轨迹，并逐步训练 GUI 中间能力、GUI SFT、Coding/Terminal SFT、Hybrid SFT 与在线 RL。部分工具被删去以减少行为重叠，凸显 Harness 自身也是数据质量的一部分。",
+      "findings": "数据覆盖 293,806 项任务及 6,915 种技能。OSWorld-Verified 上，GUI SFT 45.56%、Hybrid SFT 55.84%、Online RL 66.0%，累计提高 20.44 个百分点；重复生成单项任务的开销减少 82.6%。",
+      "why_it_matters": "值得对比不同 Teacher Harness 生成的轨迹在 Student 端的实际学习增益，并研究技能模板复用效率、任务多样性及跨 GUI/CLI 工具选择的泛化。"
+    },
+    {
+      "title": "OpenAI LifeVal：让 Personal Agent Benchmark 从真实生活需求出发",
+      "score": 96,
+      "published": "2026-11-02",
+      "topics": [
+        "evaluation",
+        "personal",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI LifeVal 官方文章",
+          "url": "https://openai.com/index/lifeval/"
+        }
+      ],
+      "summary": "OpenAI 发布 LifeVal，用实际生活任务衡量个人 Agent 能否解决用户问题，而非只输出建议。研究结合两项时间利用调查和 3,995 人的代表性问卷，覆盖照护、教育、家庭管理、个人财务和公共服务。它将评测起点从研究者想象的题目转向普通人真正想让 AI 完成的工作。",
+      "intro": "许多 Agent 榜单偏重代码和网页任务，但用户日常最希望获得帮助的事情可能是安排照护、搬家、寻找合适学校或管理家庭账单。LifeVal 从任务需求发现阶段重建个人 Agent 的评测分布。",
+      "detail": "研究先从 American Time Use Survey 与 Multinational Time Use Study 建立生活任务分类，再通过 3,995 名受访者确认不同人群最重视的 AI 辅助活动。样例涉及幼儿园筛选、洪水志愿者调度、家庭购房、远程陪伴长辈和慢病饮食规划。评测关注模型提出的结果能否符合用户具体约束，未来可继续增加真实操作、审批及结果核验环节。",
+      "findings": "官方展示的若干具体任务评分为 90.4% 至 100%，覆盖不同生活场景。这些任务示例体现了模型当前可执行能力，也提出了完整日常流程评测的空间。",
+      "why_it_matters": "可以与专业任务分类和真实工具环境结合，比较按用户需求频率、任务价值、行动风险加权的 Life Agent Benchmark；进一步区分计划质量和实际执行成功。"
+    },
+    {
+      "title": "P-ContextBench：让长期个人记忆真正决定 Agent 行动",
+      "score": 95,
+      "published": "2026-10-29",
+      "topics": [
+        "memory",
+        "personal",
+        "evaluation",
+        "benchmark",
+        "safety"
+      ],
+      "sources": [
+        {
+          "name": "P-ContextBench 论文",
+          "url": "https://arxiv.org/abs/2610.40959"
+        }
+      ],
+      "summary": "P-ContextBench 把隐含个人偏好、碎片化聊天日历、时间状态变化和行动权限放进统一评测。它生成 100 个虚拟用户、10,088 条隐藏事实及 4,810 个验证样例。低成本前沿模型在动态状态、行为规律和行动边界任务上准确率不到 60%。",
+      "intro": "长期个人助手需要理解用户正在变化的生活，而非仅能回忆用户过去说过的一条事实。个人约束通常隐藏在多个 App 的记录、日期变化和社交互动中。",
+      "detail": "作者从人口统计与生活经历生成数字人，再构建社交关系、聊天和日历事件，把真实偏好及约束隐含写入这些碎片化记录。五类测试覆盖单源事实恢复、多源事实整合、时间状态追踪、个人规律推断及约束感知行动。评估还检查同一任务多次执行的一致性，以及在不满足授权与偏好时是否正确询问、提醒或拒绝。",
+      "findings": "构建 100 个合成 Persona、500 个联系人、10,088 条个人事实、18,261 个 App 记录片段和 4,810 个验证案例。许多受测模型在高阶个人状态与行动判断任务中准确率不足 60%。",
+      "why_it_matters": "可以直接对比 Raw RAG、结构化记忆、动态个人状态模型，评测记忆对最终行动正确性、稳定性与主动行为的实际影响。"
+    },
+    {
+      "title": "CLR-Bench：自进化 Agent 是否真的学到规则，而非堆积案例",
+      "score": 93,
+      "published": "2026-10-29",
+      "topics": [
+        "self-evolution",
+        "memory",
+        "evaluation",
+        "continual-learning",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "CLR-Bench 论文",
+          "url": "https://arxiv.org/abs/2610.40758"
+        }
+      ],
+      "summary": "CLR-Bench 测试自进化 Agent 能否从少量正反例推断隐藏规则，而不是把每次失败写进越来越长的例外清单。Benchmark 包含 10 个领域、20 条逐步增加难度的规则链。多种现有方法相对固定 Agent 仅取得不超过 5 个百分点的改善，暴露经验抽象的瓶颈。",
+      "intro": "很多长期运行的 Agent 会保存 Cheatsheet 或 Playbook，每次任务出错就追加一条说明。得分增长可能只是见过的例子变多，不代表学会可迁移的共同规律。",
+      "detail": "每条任务链从隐藏类别规则出发，Agent 获得起始样本及有限反馈，再需要判断未见过的成员和相似干扰项。规则逐级叠加，便于观察长期状态究竟保存了类别概念、判定原则还是仅列举了个案。研究比较六种持续状态更新方法，并观察更强基础模型对规则归纳能力的影响。",
+      "findings": "在所测模型和规则课程中，最佳常见方法比固定 Agent 改善不超过 5 个百分点；更强基础模型在部分方法上可达到约 78% 准确率。",
+      "why_it_matters": "研究经验记忆应该同时考察抽象规则的可迁移性和维护成本，而不是仅衡量日志积累后的训练集命中率。"
+    },
+    {
+      "title": "When Should AI Agents Ask?：协调多个 Agent 对用户注意力的争夺",
+      "score": 92,
+      "published": "2026-10-30",
+      "topics": [
+        "personal",
+        "evaluation",
+        "tool-use",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "When Should AI Agents Ask? 论文",
+          "url": "https://arxiv.org/abs/2610.41129"
+        }
+      ],
+      "summary": "这项研究把用户注意力视为多个 Agent 共享的有限资源，协调谁应该提问、自己搜索还是继续做其他工作。Pairwise Coordination Policy（PCP）用任务之间的等待关系决定提问顺序。在 864 个合成场景中，PCP 与最优成本平均只差 0.07%，比常规策略降低 18%～31% 成本。",
+      "intro": "一个用户可能同时委托旅行、购物和日程 Agent，多个任务都需要澄清信息时，单独判断每个问题是否重要很容易造成频繁打扰。",
+      "detail": "系统允许 Agent 在 Search、Ask 与 Continue 三种动作间选择，动态规划同时考虑用户处理问题的速度、任务等待成本和并发任务的剩余工作。PCP 利用一任务和两任务精确求解估计注意力竞争的影响，从而形成可扩展的协同调度规则。",
+      "findings": "基于 864 个合成实例，PCP 相对于最优成本的平均差距为 0.07%，比三种基线规则平均节省 18%～31%；在最多两项未解决需求时可取得精确最优。",
+      "why_it_matters": "值得构建全局 Proactivity Scheduler，融合个人日历、通知预算、问题重要性和其他 Agent 的执行状态，协调主动提问与提醒。"
+    },
+    {
+      "title": "BlindToChange：Agent 会搜索，却经常忘记验证过时假设",
+      "score": 91,
+      "published": "2026-10-30",
+      "topics": [
+        "evaluation",
+        "personal",
+        "tool-use",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "BlindToChange 论文",
+          "url": "https://arxiv.org/abs/2610.41435"
+        }
+      ],
+      "summary": "BlindToChange 检验 Agent 能否在用户未提醒时发现现实世界已经发生的变化。研究从 Wikidata 事件生成推荐任务，要求模型主动验证隐藏的关键假设。用户不明确提示变化时，部分 Agent 正确率最多下降 27.5 个百分点，许多失败源于根本没去搜索。",
+      "intro": "搜索工具并不能自动保证现实世界信息是最新的。真正的 Life Agent 必须意识到已掌握知识可能因地点关闭、服务变更或活动取消而失效。",
+      "detail": "Benchmark 自动提取现实变化事件，为每个任务设计一个表面合理但因近期事实变化已不可用的候选选项，再比较 Explicit Change 与 Implicit Change 两种输入。前者直接告诉模型存在变化；后者只提供用户目标，需要 Agent 主动判断什么值得查。评估还读取搜索轨迹，区分无意识遗漏验证与搜索后判断错误。",
+      "findings": "在隐式变化设置下，受测 Agent 的表现最多下降 27.5 个百分点；超过半数失败与没有主动搜索验证相关事实有关。",
+      "why_it_matters": "可以把长期个人记忆的时效监测与主动检索结合，在用户实际任务开始前筛查关键假设，而不仅在明确发生错误后重新验证。"
+    },
+    {
+      "title": "Accept Changes, Reject Attacks：同时解决记忆过期和恶意投毒",
+      "score": 90,
+      "published": "2026-10-29",
+      "topics": [
+        "memory",
+        "safety",
+        "training",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Accept Changes, Reject Attacks 论文",
+          "url": "https://arxiv.org/abs/2610.41056"
+        }
+      ],
+      "summary": "这项工作把长期记忆的两类冲突需求放到一起：真实事实变了就应更新，恶意注入来了则应拒绝。研究提出 Evidence-Conditioned Accuracy（ECA），同时检查回答及其依据的记忆是否完整、最新且可信。用包含变化和攻击的合成对话微调 Memory Manager 后，整体 ECA 超过未调优版本的两倍。",
+      "intro": "个人记忆不能无限保留旧结论，也不能见到新信息就覆盖已有事实。长期写入决策必须理解信息来源、证据与恶意指令之间的区别。",
+      "detail": "方法从一段基础对话生成不同修改事件，包括事实变更、无效变更、第三方声明和带指令的污染内容。训练的 Memory Manager 学会为新信息选择写入、覆盖、忽略等操作；ECA 进一步检验被保留的证据是否足以支持用户答案，以及是否混入攻击内容。该指标把记忆写入与记忆读取后的行为联系起来。",
+      "findings": "在三个基础模型上，合成对话驱动的一轮训练改善了全部受测类别，整体 ECA 相对于未调优记忆管理器超过两倍。",
+      "why_it_matters": "可以扩展到跨应用个人状态：把来源等级、时间戳、事实冲突和写入权限变成可以被验证的状态迁移规则。"
+    },
+    {
+      "title": "SafeWebWorld：预测未来看似合理，不代表 Agent 授权决策正确",
+      "score": 87,
+      "published": "2026-10-29",
+      "topics": [
+        "safety",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "SafeWebWorld 论文",
+          "url": "https://arxiv.org/abs/2610.40798"
+        }
+      ],
+      "summary": "SafeWebWorld 评测网页世界模型能否保留决定 EXECUTE、ASK 或 BLOCK 所需的授权证据。研究发现，3,000 次预测中 86.1% 被认为语义合理，但部分模型仍严重混淆应执行、应询问与应阻止的边界。它把环境预测准确性与行动权限判断拆成两个独立目标。",
+      "intro": "一个世界模型可能准确描述执行工具后会发生什么，但不知道这次操作是否得到用户同意。对于可修改账户、支付或访问敏感数据的 Agent，授权信息必须进入预测和规划过程。",
+      "detail": "研究覆盖五类网页安全任务，记录候选行动后的预测状态、相关授权证据和策略决策，并对 10 个冻结的开放模型生成的 3,000 项预测进行人工匹配评测。提出 Safety Sufficiency 概念，判断预测接口是否保留执行审批所需信息；再用监督微调和 Latent Authorisation Recovery 测试安全特征与最终决策读出的关系。",
+      "findings": "在所评估的 3,000 个预测中，86.1% 具有语义合理性，但执行、询问和阻止之间依然存在明显不对称错误，展示了预测质量与权限质量的差别。",
+      "why_it_matters": "可将 Safety Sufficiency 用于自修改 Harness 的回归测试：即使规划更准，也必须保持独立权限边界和用户授权证据。"
+    },
+    {
+      "title": "Home Depot × Meta：购物 Agent 进入商家网站需要可验证委托身份",
+      "score": 81,
+      "published": "2026-11-02",
+      "topics": [
+        "personal",
+        "tool-use",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Business Insider 采访",
+          "url": "https://www.businessinsider.com/home-depot-chief-open-ai-agents-muse-instinct-2026-10"
+        }
+      ],
+      "summary": "Home Depot 首席信息官表示，愿意让 AI Agent 代消费者搜索与购物，但要求能识别 Agent 身份及其代表的真实用户。公司正与 Meta 讨论 Muse 的访问身份声明方式。购物 Agent 进入真实电商服务，开始遇到身份认证、会员权益与委托权限的系统级问题。",
+      "intro": "自动化购物不再只有人类与爬虫两个角色，未来还存在代表真实用户且获得部分授权的第三方 Agent。商家需要区分 Agent 自身身份、用户身份以及具体购买任务的委托范围。",
+      "detail": "Business Insider 采访 Home Depot CIO Angie Brown，讨论商家如何识别 Meta Muse 等购物 Agent，并保留用户原有的会员关系。相比无差别允许自动化访问，商家更希望收到可信身份声明、用户委托证明和行动授权范围；这也与此前部分平台限制未经识别的第三方购物 Agent 访问形成对照。",
+      "findings": "产业讨论集中在用户代理身份认证、真实消费授权、会员权益绑定与长期客户关系维护。该议题直接影响购物 Agent 能否进入实际订单与支付流程。",
+      "why_it_matters": "适合构建 Delegated Agent Authentication 评测，检查 Agent 是否如实声明身份、是否正确处理授权过期和高风险操作审批。"
+    }
+  ]
+}

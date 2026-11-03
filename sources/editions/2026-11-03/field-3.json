@@ -1,0 +1,262 @@
+{
+  "date": "2026-11-03",
+  "field": "field-3",
+  "items": [
+    {
+      "title": "GDPx：206 项真实专业任务，最强 Agent 仅获 12%",
+      "score": "100",
+      "published": "2026-11-02",
+      "topics": [
+        "evaluation",
+        "environments",
+        "science",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "SemiAnalysis GDPx 官方平台",
+          "url": "https://gdpx.semianalysis.com/"
+        }
+      ],
+      "summary": "SemiAnalysis 发布 GDPx，联合 14 家环境数据合作方构建 206 项任务，覆盖 11 个高价值专业领域。任务要求 Agent 在真实或高保真业务环境中连续调查、操作并交付结果，默认执行预算长达 8 小时。首期榜单最高分只有 12.0%，揭示专业长程执行仍远未解决。",
+      "intro": "真实工作中的难点经常不在生成一份文字答案，而在寻找分散资料、理解跨文件约束、诊断环境故障并交付可验证成果。GDPx 把这些工作流程直接做成 Agent Benchmark。",
+      "detail": "任务覆盖芯片设计、网络安全、生物、金融、法律、量化交易、递归自我改进、硬件设计、材料科学、对齐与软件工程。金融任务基于匿名化交易资料室，包含数千份文件；AI 研究任务从真实 RL 训练故障重建训练日志、Harness 代码和实验记录。硬件任务的评分器还会修改驱动尺寸再重新构建 CAD 工件，测试输出能否保持设计依赖。不同模型使用自己的原生 Agent Harness，任务最终由领域评分器评估。",
+      "findings": "全站 206 个任务、11 个领域、14 家合作方。Claude Opus 5.5 综合成绩为 12.0%，Gemini 4 Carbon 为 10.9%，GPT-6 Astra 为 9.6%。多领域任务需要跨小时、跨工具和跨工件的完整闭环。",
+      "why_it_matters": "可以把 GDPx 的长程失败过程拆成证据依赖图，找到失败状态转移后生成可执行局部训练任务；相比仅生成题目，更值得研究由真实专业工件衍生的环境与验证器。"
+    },
+    {
+      "title": "Mage-VL-Cowork：29.4 万桌面任务训练 4B 混合操作 Agent",
+      "score": 99,
+      "published": "2026-10-29",
+      "topics": [
+        "training",
+        "data-synthesis",
+        "environments",
+        "tool-use",
+        "coding",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Mage-VL-Cowork 论文",
+          "url": "https://arxiv.org/abs/2610.40747"
+        }
+      ],
+      "summary": "Microsoft 的 Mage-VL-Cowork 让 4B Agent 在 GUI、代码和终端之间自主选择执行方式。Mage-CUA-Forge 先建立 6,915 种原子技能及可复用环境生成器，合成 293,806 项任务。经过五阶段训练，模型在 OSWorld-Verified 达到 66.0%，重复任务生成开销减少 82.6%。",
+      "intro": "专业计算机操作不仅是截图点击，真实工作经常需要结合可视界面、文件处理、代码执行与终端验证。核心问题是如何批量构造这些混合操作的数据，并避免把 Teacher 的低效工具习惯蒸馏给 Student。",
+      "detail": "Mage-CUA-Forge 从应用操作中抽取 Skill Taxonomy，为单项技能组合设计可复用的任务规格、应用准备脚本、初始状态与评分器。团队先优化 Teacher Harness 的工具配置与执行循环，再生成 318,837 条轨迹，并逐步训练 GUI 中间能力、GUI SFT、Coding/Terminal SFT、Hybrid SFT 与在线 RL。部分工具被删去以减少行为重叠，凸显 Harness 自身也是数据质量的一部分。",
+      "findings": "数据覆盖 293,806 项任务及 6,915 种技能。OSWorld-Verified 上，GUI SFT 45.56%、Hybrid SFT 55.84%、Online RL 66.0%，累计提高 20.44 个百分点；重复生成单项任务的开销减少 82.6%。",
+      "why_it_matters": "值得对比不同 Teacher Harness 生成的轨迹在 Student 端的实际学习增益，并研究技能模板复用效率、任务多样性及跨 GUI/CLI 工具选择的泛化。"
+    },
+    {
+      "title": "ReplayRCA：反事实重放找到真正导致 Agent 失败的动作",
+      "score": 98,
+      "published": "2026-10-29",
+      "topics": [
+        "evaluation",
+        "training",
+        "environments",
+        "self-evolution",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "ReplayRCA 论文",
+          "url": "https://arxiv.org/abs/2610.41025"
+        },
+        {
+          "name": "ReplayRCA 代码",
+          "url": "https://github.com/jeremy1392/RCAreplay"
+        }
+      ],
+      "summary": "ReplayRCA 在失败动作发生前恢复环境，只替换一个动作，再让原 Agent 继续执行。它通过与不修改动作的重放对照，测量某次修复对成功率的真实贡献。在 62 个系统性失败案例上，最佳配置的因果修复收益达到 51.3 个百分点。",
+      "intro": "长程 Agent 的最后一次失败操作，未必就是导致整个任务崩溃的根因。研究中的关键挑战是区分真正有效的单步干预与再次采样时偶然成功。",
+      "detail": "作者构建可确定性重放的 OpsWorld 后台环境，包含订单、退款、库存、邮件等状态与 15 种工具，并用 Oracle 和空策略验证任务的可解性与评分器有效性。诊断器选择失败时间点和替代动作，系统恢复上一步状态，对替代动作与原始动作分别运行多次后续轨迹。Causal Repair 指标计算两类后续成功率之差；评测同时覆盖事后诊断与实时监督，以观察什么时候介入反而损害任务。",
+      "findings": "Benchmark 从 720 个程序化实例中筛出 62 个校准后的系统性失败案例。13 个受测模型中最佳因果修复收益达到 +51.3 个百分点；强迫模型在最后一步修复会令收益下降 17.1 个百分点。",
+      "why_it_matters": "可以把已验证有效的因果修复位置转成短程任务，系统改变失败边界周围的初始状态，再检查局部训练能否迁移至未见长程任务。"
+    },
+    {
+      "title": "EvoMCP：用 Student 失败反馈共同进化任务、环境与轨迹",
+      "score": 97,
+      "published": "2026-10-30",
+      "topics": [
+        "self-evolution",
+        "data-synthesis",
+        "training",
+        "tool-use",
+        "environments",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "EvoMCP 论文",
+          "url": "https://arxiv.org/abs/2610.41479"
+        },
+        {
+          "name": "EvoMCP 代码",
+          "url": "https://github.com/xagao/EvoMCP"
+        }
+      ],
+      "summary": "EvoMCP 根据 Student 的成功与失败，识别尚未掌握的 MCP 工具能力，再有针对性地改变任务要求和环境状态。Teacher 轨迹经过修复、精简与 Verifier 过滤后用于下一轮 SFT。三轮训练后，Toolathlon、MCPMark 和 MCP-Atlas 分别提升 16.5、10.2 和 12.6 个百分点。",
+      "intro": "静态工具调用数据集难以覆盖 Student 在训练后出现的新能力缺口。EvoMCP 把任务生产从一次性准备数据，变成模型训练与环境更新共同发生的循环。",
+      "detail": "系统以已验证的 Task–Environment–Verifier 及 Teacher Trajectory 为种子，先运行 Student 并分析工具调用模式和失败类型。Curriculum Planner 挑选能力目标，再分别进行 Task Evolution（改变目标与约束）和 Environment Evolution（改变可执行状态与干扰因素），同时更新 Verifier。对于 Teacher 失败轨迹执行 Skill-based Recovery，对成功轨迹去除冗余工具步骤；经过验证的轨迹进入 SFT，新的 Student 再反馈下一轮课程生成。",
+      "findings": "以 Qwen3.6-27B 为学生模型，Toolathlon 从 36.9% 提升至 53.4%，MCPMark 从 56.7% 至 66.9%，MCP-Atlas 从 61.0% 至 73.6%。",
+      "why_it_matters": "最值得比较的是按完整任务缺口扩展数据与按因果失败边界合成局部任务的效率差异；可以进一步研究同一机制用于交互式 RL 而不只是 SFT。"
+    },
+    {
+      "title": "When Should AI Agents Ask?：协调多个 Agent 对用户注意力的争夺",
+      "score": 92,
+      "published": "2026-10-30",
+      "topics": [
+        "personal",
+        "evaluation",
+        "tool-use",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "When Should AI Agents Ask? 论文",
+          "url": "https://arxiv.org/abs/2610.41129"
+        }
+      ],
+      "summary": "这项研究把用户注意力视为多个 Agent 共享的有限资源，协调谁应该提问、自己搜索还是继续做其他工作。Pairwise Coordination Policy（PCP）用任务之间的等待关系决定提问顺序。在 864 个合成场景中，PCP 与最优成本平均只差 0.07%，比常规策略降低 18%～31% 成本。",
+      "intro": "一个用户可能同时委托旅行、购物和日程 Agent，多个任务都需要澄清信息时，单独判断每个问题是否重要很容易造成频繁打扰。",
+      "detail": "系统允许 Agent 在 Search、Ask 与 Continue 三种动作间选择，动态规划同时考虑用户处理问题的速度、任务等待成本和并发任务的剩余工作。PCP 利用一任务和两任务精确求解估计注意力竞争的影响，从而形成可扩展的协同调度规则。",
+      "findings": "基于 864 个合成实例，PCP 相对于最优成本的平均差距为 0.07%，比三种基线规则平均节省 18%～31%；在最多两项未解决需求时可取得精确最优。",
+      "why_it_matters": "值得构建全局 Proactivity Scheduler，融合个人日历、通知预算、问题重要性和其他 Agent 的执行状态，协调主动提问与提醒。"
+    },
+    {
+      "title": "BlindToChange：Agent 会搜索，却经常忘记验证过时假设",
+      "score": 91,
+      "published": "2026-10-30",
+      "topics": [
+        "evaluation",
+        "personal",
+        "tool-use",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "BlindToChange 论文",
+          "url": "https://arxiv.org/abs/2610.41435"
+        }
+      ],
+      "summary": "BlindToChange 检验 Agent 能否在用户未提醒时发现现实世界已经发生的变化。研究从 Wikidata 事件生成推荐任务，要求模型主动验证隐藏的关键假设。用户不明确提示变化时，部分 Agent 正确率最多下降 27.5 个百分点，许多失败源于根本没去搜索。",
+      "intro": "搜索工具并不能自动保证现实世界信息是最新的。真正的 Life Agent 必须意识到已掌握知识可能因地点关闭、服务变更或活动取消而失效。",
+      "detail": "Benchmark 自动提取现实变化事件，为每个任务设计一个表面合理但因近期事实变化已不可用的候选选项，再比较 Explicit Change 与 Implicit Change 两种输入。前者直接告诉模型存在变化；后者只提供用户目标，需要 Agent 主动判断什么值得查。评估还读取搜索轨迹，区分无意识遗漏验证与搜索后判断错误。",
+      "findings": "在隐式变化设置下，受测 Agent 的表现最多下降 27.5 个百分点；超过半数失败与没有主动搜索验证相关事实有关。",
+      "why_it_matters": "可以把长期个人记忆的时效监测与主动检索结合，在用户实际任务开始前筛查关键假设，而不仅在明确发生错误后重新验证。"
+    },
+    {
+      "title": "Agentic World Modeling：不复制环境也能安全试探候选动作",
+      "score": 89,
+      "published": "2026-10-29",
+      "topics": [
+        "environments",
+        "tool-use",
+        "deployment",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Agentic World Modeling 论文",
+          "url": "https://arxiv.org/abs/2610.40927"
+        }
+      ],
+      "summary": "Agentic World Modeling 让 Agent 通过只读查询真实环境，模拟候选行动的后续观察，而不需要复制整个工作空间。它支持在不可重置、共享的企业系统上并行评估多条候选执行路径。在 τ-bench、AppWorld 与 OfficeBench 上，相比一次性模拟基线平均提升 40.07%。",
+      "intro": "真实办公与云服务环境往往包含共享、持续存在的状态，不能像沙箱一样为每个候选轨迹复制并重置。直接在生产系统试错还可能制造不可逆的副作用。",
+      "detail": "方法把预测下一步观察改写成多轮证据收集任务：针对每个假设动作，模拟器主动使用只读接口查询真实环境，结合可执行计算推断可能发生的状态变化。它以轨迹级 Test-time Scaling 比较多个行动计划，但不真正写入共享服务。相比把所有环境状态压缩到单个提示词，这种证据驱动的交互推断能够逐步消除环境未知。",
+      "findings": "在三个 Agent 环境上，方法比单次模拟基线平均提高 40.07%，比训练式世界模型基线平均提高 12.36%。",
+      "why_it_matters": "适合用于生产级 Agent 的低风险规划，重点研究只读接口覆盖不足、未观测隐状态和模拟器预测偏差对工具选择的影响。"
+    },
+    {
+      "title": "Verify–Backtrack Loop：长程失败后修改任务状态，而不只重试下一步",
+      "score": 88,
+      "published": "2026-10-30",
+      "topics": [
+        "tool-use",
+        "evaluation",
+        "framework",
+        "continual-learning"
+      ],
+      "sources": [
+        {
+          "name": "Verify–Backtrack Loop 论文",
+          "url": "https://arxiv.org/abs/2610.41564"
+        }
+      ],
+      "summary": "Verify–Backtrack Loop 为 ReAct 加入显式目标栈、前提检查和带类型的失败诊断。每次执行出错，Agent 可以选择 Push、Pop、Retry 或 BacktrackTo 上级目标，而不是反复尝试相似工具调用。在 AppWorld 等环境中，相比 ReAct 的任务成功率最多提升 22.07 个百分点。",
+      "intro": "长程任务中的真正障碍经常是缺失先决条件或早期目标分解错误，不是当前工具动作不够聪明。没有结构化目标状态的 Agent 容易在同一个局部错误上循环。",
+      "detail": "VBL 维护有界目标栈，同时检查活跃子目标是否仍服务于终局目标，以及当前环境是否满足其执行前提。失败被归因到不同类型后，状态机显式执行压栈、弹栈、重试和回退等操作。研究在 AppWorld、ALFWorld 和 ScienceWorld 上，分别用不同基础模型评测这套无需训练的控制改动。",
+      "findings": "在 AppWorld 的部分配置中，相比 ReAct 成功率最高增加 22.07 个百分点；去除目标验证或失败诊断都会损害方法表现。",
+      "why_it_matters": "值得将目标栈节点作为训练 Milestone，把缺失前提、错误目标分解及回退动作转换成可执行监督信号。"
+    },
+    {
+      "title": "SafeWebWorld：预测未来看似合理，不代表 Agent 授权决策正确",
+      "score": 87,
+      "published": "2026-10-29",
+      "topics": [
+        "safety",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "SafeWebWorld 论文",
+          "url": "https://arxiv.org/abs/2610.40798"
+        }
+      ],
+      "summary": "SafeWebWorld 评测网页世界模型能否保留决定 EXECUTE、ASK 或 BLOCK 所需的授权证据。研究发现，3,000 次预测中 86.1% 被认为语义合理，但部分模型仍严重混淆应执行、应询问与应阻止的边界。它把环境预测准确性与行动权限判断拆成两个独立目标。",
+      "intro": "一个世界模型可能准确描述执行工具后会发生什么，但不知道这次操作是否得到用户同意。对于可修改账户、支付或访问敏感数据的 Agent，授权信息必须进入预测和规划过程。",
+      "detail": "研究覆盖五类网页安全任务，记录候选行动后的预测状态、相关授权证据和策略决策，并对 10 个冻结的开放模型生成的 3,000 项预测进行人工匹配评测。提出 Safety Sufficiency 概念，判断预测接口是否保留执行审批所需信息；再用监督微调和 Latent Authorisation Recovery 测试安全特征与最终决策读出的关系。",
+      "findings": "在所评估的 3,000 个预测中，86.1% 具有语义合理性，但执行、询问和阻止之间依然存在明显不对称错误，展示了预测质量与权限质量的差别。",
+      "why_it_matters": "可将 Safety Sufficiency 用于自修改 Harness 的回归测试：即使规划更准，也必须保持独立权限边界和用户授权证据。"
+    },
+    {
+      "title": "AIFaultBench：从 770 个真实 AI 软件缺陷重建可复现 Debug 任务",
+      "score": 85,
+      "published": "2026-10-30",
+      "topics": [
+        "coding",
+        "environments",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "AIFaultBench 论文",
+          "url": "https://arxiv.org/abs/2610.41094"
+        }
+      ],
+      "summary": "AIFaultBench 从 105 个 AI 软件仓库整理 770 个真实缺陷，覆盖机器学习、LLM、Agent 及工程基础设施。每个案例保存问题报告、代码、环境初始化、复现触发器和调查证据。研究成功复现其中 652 个缺陷，复现率达到 84.7%。",
+      "intro": "真实 AI 软件故障常跨代码、模型、依赖包、数据和运行配置，单看报错文本难以评估 Debug Agent 能否定位根因。AIFaultBench 重点建设可执行的真实错误环境。",
+      "detail": "作者跨 76 个组织采集缺陷案例，把原始 Issue、受影响代码、版本信息、运行条件与触发脚本整理成统一记录，并分别对机器学习、深度学习、强化学习、LLM 系统、Agentic AI 和工具基础设施进行分组。每个任务可用于测量环境恢复、错误复现、根因定位与修复验证的完整流程。",
+      "findings": "收录 770 个真实缺陷，来自 105 个仓库、76 个组织；其中 652 个在记录的运行条件下成功复现，成功率 84.7%。",
+      "why_it_matters": "可以将这些案例用于构建诊断环境、因果失败边界与自动 Debug 训练任务，并把不可复现的环境故障和模型推理失误区分开来。"
+    },
+    {
+      "title": "Home Depot × Meta：购物 Agent 进入商家网站需要可验证委托身份",
+      "score": 81,
+      "published": "2026-11-02",
+      "topics": [
+        "personal",
+        "tool-use",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Business Insider 采访",
+          "url": "https://www.businessinsider.com/home-depot-chief-open-ai-agents-muse-instinct-2026-10"
+        }
+      ],
+      "summary": "Home Depot 首席信息官表示，愿意让 AI Agent 代消费者搜索与购物，但要求能识别 Agent 身份及其代表的真实用户。公司正与 Meta 讨论 Muse 的访问身份声明方式。购物 Agent 进入真实电商服务，开始遇到身份认证、会员权益与委托权限的系统级问题。",
+      "intro": "自动化购物不再只有人类与爬虫两个角色，未来还存在代表真实用户且获得部分授权的第三方 Agent。商家需要区分 Agent 自身身份、用户身份以及具体购买任务的委托范围。",
+      "detail": "Business Insider 采访 Home Depot CIO Angie Brown，讨论商家如何识别 Meta Muse 等购物 Agent，并保留用户原有的会员关系。相比无差别允许自动化访问，商家更希望收到可信身份声明、用户委托证明和行动授权范围；这也与此前部分平台限制未经识别的第三方购物 Agent 访问形成对照。",
+      "findings": "产业讨论集中在用户代理身份认证、真实消费授权、会员权益绑定与长期客户关系维护。该议题直接影响购物 Agent 能否进入实际订单与支付流程。",
+      "why_it_matters": "适合构建 Delegated Agent Authentication 评测，检查 Agent 是否如实声明身份、是否正确处理授权过期和高风险操作审批。"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+今日研究主线：GDPx 将真实专业工作变成高难度可执行评测；Mage-VL-Cowork 用可复用环境生成器构建 29.4 万项桌面任务；ReplayRCA 与 EvoMCP 分别推进因果失败诊断和 Student 驱动的任务演化。Personal Agent 方面，LifeVal 与 P-ContextBench 正在把真实生活需求和动态个人状态带入评测。
