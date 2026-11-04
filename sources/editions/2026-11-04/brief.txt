@@ -1,0 +1,1 @@
+今日重点：CUA-Master、LegoEnv 和 NorthCUA 把真实任务、可执行环境和验证轨迹接成训练闭环；StateGraph、MemUse 推动长期记忆从信息保存走向依赖修复与行为影响评测；OpenAI 工程 Agent、CoworkOS 展示 Agent 向复杂专业工作流延伸。

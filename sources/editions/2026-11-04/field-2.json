@@ -1,0 +1,328 @@
+{
+  "date": "2026-11-04",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "StateGraph：个人状态一变，下游记忆和计划自动修复",
+      "score": 97,
+      "published": "2026-11-02",
+      "topics": [
+        "memory",
+        "continual-learning",
+        "personal",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.02912"
+        }
+      ],
+      "summary": "StateGraph 为个人长期记忆建立状态依赖图，让事实变化触发下游推断和计划的定向修订。系统使用反事实检查判断旧结论是否仍有有效依据。StateChangeBench 上三层及以上依赖的 Impact-F1 优势达到 26 个百分点。",
+      "detail": "用户改变住址、工作时间或预算时，旧事实容易替换，但基于旧条件创建的建议和待办可能继续生效。StateGraph 检查下游节点是否依赖已失效前提，以及有没有另一条独立证据路径。只有必要条件失效且缺乏其他支持，系统才修订相关派生状态。",
+      "findings": "StateChangeBench 包含 50 个受控案例；相较 CUPMem 基线，深度一层的 Impact-F1 高 6.9 个百分点，深度三层以上高 26.0 个百分点。",
+      "why_it_matters": "长期 Personal Agent 需要把原始事实、派生状态、任务计划与行动后果连接起来，而不是只维护一份用户画像。",
+      "intro": "用户改变住址、工作时间或预算时，旧事实容易替换，但基于旧条件创建的建议和待办可能继续生效。"
+    },
+    {
+      "title": "MemUse：记忆检索成功，不代表它真正影响了行动",
+      "score": 94,
+      "published": "2026-11-01",
+      "topics": [
+        "memory",
+        "evaluation",
+        "coding",
+        "personal",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.01718"
+        }
+      ],
+      "summary": "MemUse 追踪记忆交付后是否被实际使用，以及是否改变 Agent 的后续行为。分析 8,000 个 SWE-bench Verified 执行记录后，三个记忆系统的解题率与无记忆基线差距均不到 0.4 个百分点。许多相关记忆没有被使用，另有有益记忆出现在最终失败的任务里。",
+      "detail": "基于 Recall、任务得分或最终回答准确率评测记忆，无法确认某条记录是否对具体行动产生因果影响。MemUse 为每次记忆交付检查相关性、准确性、新颖性、行为影响和观察到的结果，并绑定执行证据。它区分检索到正确记忆、真正采用记忆和最终任务完成三个环节。",
+      "findings": "对三个系统共计 8,000 个执行 Episode 的分析显示，解题率变化均在 0.4 个百分点以内；23.2% 的有益记忆使用出现在最终失败的任务中。",
+      "why_it_matters": "个人记忆评测应直接回答哪些记忆让 Agent 做出更好的决定，而不仅是检索系统是否命中。",
+      "intro": "基于 Recall、任务得分或最终回答准确率评测记忆，无法确认某条记录是否对具体行动产生因果影响。"
+    },
+    {
+      "title": "MEMENTO：让 8B 模型主动学习记笔记和管理超长上下文",
+      "score": 93,
+      "published": "2026-10-30",
+      "topics": [
+        "memory",
+        "training",
+        "continual-learning",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.00244"
+        }
+      ],
+      "summary": "MEMENTO 用合成高质量笔记先进行 SFT，再通过 RL 学习何时写入和压缩上下文。Qwen3-8B 在四项长篇书籍问答评测中从 36.9% 提升到 67.8%。模型仅维护 20K Token 活跃上下文，却能处理最长 250 万 Token 的文档。",
+      "detail": "模型拥有笔记工具，不等于会在关键时机保存正确内容。研究者利用事后已知答案的完整轨迹合成训练笔记，再以回答正确性、笔记质量和置信度校准作为后训练信号。实验发现跳过 SFT 而直接 RL，模型可能逐步减少甚至放弃有用的笔记操作。",
+      "findings": "四项书籍 QA 平均正确率由 36.9% 升至 67.8%，接近同类 Harness 下 GLM-5.3 的 69.3%；研究报告推理成本约为后者九分之一。",
+      "why_it_matters": "可以把训练得到的上下文管理策略扩展到动态工作环境，加入记忆证据来源、状态过期与按需重新检查。",
+      "intro": "模型拥有笔记工具，不等于会在关键时机保存正确内容。"
+    },
+    {
+      "title": "MemSidecar：Agent 需要记忆之前，另一个系统先完成预取",
+      "score": 90,
+      "published": "2026-10-31",
+      "topics": [
+        "memory",
+        "tool-use",
+        "deployment",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.00779"
+        }
+      ],
+      "summary": "MemSidecar 把记忆调度从主 Agent 中独立出来，用 Hook 和 Foresight 预测何时需要历史信息。系统异步预取并缓存记忆，使主 Agent 在执行时减少等待。MCP-Persona 上 Hooks 达到 41.23%，Foresight 达到 44.34%。",
+      "detail": "传统 Agent 经常在任务执行中才发现缺少用户历史或过去执行经验，于是停下操作并等待检索。MemSidecar 通过事件触发或独立预测 Agent，提前识别可能出现的检索请求，在缓存中准备尚有效的记录。这样主 Agent 可以专注于当前任务而不必频繁规划记忆调度。",
+      "findings": "论文在 MCP-Persona 上报告 Hooks 41.23%、Foresight 44.34%，并展示执行成本和等待时间的改善。",
+      "why_it_matters": "低副作用的主动检索可以成为 Proactive Personal Agent 的首个落地方向，再逐步与主动操作结合。",
+      "intro": "传统 Agent 经常在任务执行中才发现缺少用户历史或过去执行经验，于是停下操作并等待检索。"
+    },
+    {
+      "title": "Zep Agent Skills：从验证轨迹中编译可复用程序性记忆",
+      "score": 89,
+      "published": "2026-11-01",
+      "topics": [
+        "skills",
+        "memory",
+        "self-evolution",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.01386"
+        }
+      ],
+      "summary": "Zep Agent Skills 将已验证任务轨迹转成可以检索、版本化维护的程序性技能。Reflector 负责从事件中提炼经验，Curator 负责核查和准入。三个较弱执行模型使用这些 Skills 后，任务通过率提高 4.5 至 18.8 个百分点。",
+      "detail": "长期 Agent 不仅需要保存事实，也要积累在真实工具环境中验证过的操作方法。系统存储包含证据事件、执行结果和验证强度的轨迹，再由反思与审查组件生成可追溯的技能。技能库持续依据使用效果进行排序和版本管理，执行时通过 API 或 MCP 按需读取。",
+      "findings": "在 τ³-bench Banking、AppWorld 等环境下，来自 Teacher 轨迹的技能让较弱模型提升 4.5–18.8 个百分点。",
+      "why_it_matters": "可以为 Skill 增加有效条件、失败反例和独立 Verifier，避免经验库不断积累不可靠的操作建议。",
+      "intro": "长期 Agent 不仅需要保存事实，也要积累在真实工具环境中验证过的操作方法。"
+    },
+    {
+      "title": "MemHarmBench：恶意记忆跨会话潜伏并改变后续决策",
+      "score": 87,
+      "published": "2026-11-01",
+      "topics": [
+        "memory",
+        "safety",
+        "evaluation",
+        "personal",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.01700"
+        }
+      ],
+      "summary": "MemHarmBench 专门评估恶意内容被写入长期记忆后，对未来正常任务的影响。它按用户、项目所有者及第三方受影响者三类角色衡量危害。研究显示 Agent 可能完成表面的合法任务，却在关键决策中受到旧恶意记忆操控。",
+      "detail": "跨会话攻击最危险的环节不是攻击文本出现时，而是其中的指令或偏好被转存为可信记忆之后。基准将攻击注入和后续正常任务分开执行，移除原始攻击材料，仅保留可能被污染的记忆。评分同时检查任务结果、受害者影响和隐藏的异常决策。",
+      "findings": "跨会话实验显示部分记忆污染具有隐蔽性，正常任务成功与攻击者预期行为可能同时发生。",
+      "why_it_matters": "长期记忆系统需要严格记录信息来源和授权范围，并把未来决策受污染的风险纳入记忆写入评测。",
+      "intro": "跨会话攻击最危险的环节不是攻击文本出现时，而是其中的指令或偏好被转存为可信记忆之后。"
+    },
+    {
+      "title": "ARCBench：上下文压缩没删规则，Agent 仍可能违规",
+      "score": 86,
+      "published": "2026-11-02",
+      "topics": [
+        "safety",
+        "memory",
+        "evaluation",
+        "framework",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03223"
+        }
+      ],
+      "summary": "ARCBench 在真实工具调用 Harness 中测量长会话压缩后的规则遵守情况。很多违规并非摘要删掉了规则，而是 Agent 在规则仍存在时忽略它。部分压缩攻击让违规次数增加两倍以上。",
+      "detail": "Agent 经常压缩会话以继续执行长任务，安全约束被保留为文字并不能保证模型每一步都会执行它。ARCBench 改变规则位置、摘要策略、上下文预算与攻击内容，记录压缩前后具体工具调用是否触犯限制。研究把摘要层面的完整性与行动层面的合规性分开评估。",
+      "findings": "在论文的压缩实验中，多数违规发生在相关规则仍然被保留的情况下；一些压缩器定向攻击让违规增长超过两倍。",
+      "why_it_matters": "核心权限不应只依赖摘要保留，还需要外部可审计的执行层规则状态。",
+      "intro": "Agent 经常压缩会话以继续执行长任务，安全约束被保留为文字并不能保证模型每一步都会执行它。"
+    },
+    {
+      "title": "UPSHIFT：从用户反复修改回答中学习隐式偏好",
+      "score": 85,
+      "published": "2026-11-02",
+      "topics": [
+        "personal",
+        "memory",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.02667"
+        }
+      ],
+      "summary": "UPSHIFT 不依赖手工 Persona，而是聚合用户反复修改 AI 回答时的内部表征变化。它把跨会话共享的修正方向作为轻量偏好信号。40 个模拟用户实验中，8B 模型的偏好 Elo 从 1364.0 提升至 1605.2。",
+      "detail": "用户可能从不明确说自己偏好什么，却反复删掉冗长句子或要求更具体的行动方案。UPSHIFT 比较反馈前后的模型隐藏状态，把长期一致的修正模式提炼为用户特定方向。在新任务中注入该方向，使生成行为符合长期偏好而无需重新微调基础模型。",
+      "findings": "Qwen3-8B 在 40 个模拟用户上的 Elo 由 1364.0 提升到 1605.2；Qwen3-32B 从 1341.9 提升到 1591.8。",
+      "why_it_matters": "Personal Agent 可以从真实编辑和纠正轨迹中学习用户偏好，而不只依赖显式个人画像摘要。",
+      "intro": "用户可能从不明确说自己偏好什么，却反复删掉冗长句子或要求更具体的行动方案。"
+    },
+    {
+      "title": "Avatar Intelligence：用价值与监督成本重新评价长期个人助手",
+      "score": 84,
+      "published": "2026-11-02",
+      "topics": [
+        "personal",
+        "evaluation",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03092"
+        }
+      ],
+      "summary": "Avatar Intelligence 将 Personal Agent 描述为能长期代表用户目标、身份和价值的持续运行系统。论文提出 Agentic Oversight Index，将用户获得的价值、执行成本与人类监督负担结合评估。新的研究重点是减少用户完成任务所付出的时间和注意力，而非简单追求更高自主度。",
+      "detail": "两个 Agent 最终都完成预订任务，其中一个需要十次确认、另一个只在重要花费时确认，用户实际收益可能截然不同。作者提出跨会话身份连续性、有限授权的长期委托与责任追溯机制。Agentic Oversight Index 试图在任务交付价值、自动运行成本和用户干预之间建立可比较的评价框架。",
+      "findings": "论文重点贡献是持续个人 Agent 的研究议程和 AOI 指标构想，讨论身份个性化、长期学习和纠错责任。",
+      "why_it_matters": "后续 Benchmark 可以计量干预次数、用户纠错时间、任务净效用和实际监督负担。",
+      "intro": "两个 Agent 最终都完成预订任务，其中一个需要十次确认、另一个只在重要花费时确认，用户实际收益可能截然不同。"
+    },
+    {
+      "title": "Claude Code 2.1.317／318：加强后台权限与长期会话恢复",
+      "score": 83,
+      "published": "2026-11-04",
+      "topics": [
+        "safety",
+        "deployment",
+        "tool-use",
+        "coding",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方 GitHub Release",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.318"
+        },
+        {
+          "name": "Claude Code 2.1.317",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.317"
+        }
+      ],
+      "summary": "Claude Code 连续更新后台定时任务权限提示、Hook 失败拦截和长会话恢复。2.1.317 会警告新任务获得未请求的连接器，并支持 SDK Hook 失败时阻断执行。2.1.318 修复上下文恢复、空闲压缩及异常中断时误报任务成功等问题。",
+      "detail": "后台 Agent 的可靠性除了模型推理，还取决于授权范围、执行状态记录和重启后的任务恢复。2.1.317 增加计划任务连接器警告、联网发送账户邮箱前的确认以及 Hook 的 onFailure:block 选项。2.1.318 修复异常工具重试后续接丢失历史、Idle Compaction 不产出有效摘要和 SDK 误报执行成功，并支持独立子任务推理强度。",
+      "findings": "两个版本分别于 11 月 3 日和 11 月 4 日发布，关注权限扩张、MCP 配置状态、会话恢复和后台执行。",
+      "why_it_matters": "可以设计 Long-Horizon Resume Benchmark，模拟权限变化、压缩、重启与用户中途改目标，量化恢复后的正确行为。",
+      "intro": "后台 Agent 的可靠性除了模型推理，还取决于授权范围、执行状态记录和重启后的任务恢复。"
+    },
+    {
+      "title": "LeanGuard：Lean4 形式化证明保护工具执行权限",
+      "score": 81,
+      "published": "2026-11-02",
+      "topics": [
+        "safety",
+        "tool-use",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.02332"
+        }
+      ],
+      "summary": "LeanGuard 将工具权限写成 Lean4 约束，在 Agent 真正执行外部动作前检查合规性。验证失败时可以拒绝执行，也可搜索满足规则的替代操作。论文的 DTap 注入成功率从 57.9% 降到 5.9%。",
+      "detail": "当 Agent 能修改账户、数据库或真实文件时，提示词中的权限规则可能被忽略或被外部内容覆盖。LeanGuard 将当前状态、历史动作和待执行工具参数交给形式化验证器，确认动作满足业务与时序约束。系统把执行授权从主模型的语言判断中独立出来。",
+      "findings": "五个 Qwen 模型的 Tau-Bench 试验中，无保护系统至少执行 33 次禁止动作，LeanGuard 对应配置为零；DTap 注入成功率由 57.9% 降至 5.9%。",
+      "why_it_matters": "适合用于可自修改 Harness 的外部安全边界，使技能更新不能自动扩大真实系统的写入权限。",
+      "intro": "当 Agent 能修改账户、数据库或真实文件时，提示词中的权限规则可能被忽略或被外部内容覆盖。"
+    },
+    {
+      "title": "Zalando Extended：购物 Agent 将跨商家完成结账",
+      "score": 80,
+      "published": "2026-11-03",
+      "topics": [
+        "personal",
+        "tool-use",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方资料与报道",
+          "url": "https://corporate.zalando.de/de/finanzen/zalando-ergebnis-q3-2026"
+        }
+      ],
+      "summary": "Zalando 发布 Extended 计划，准备在一个购物入口展示外部商家的商品。首批合作伙伴包括 Westwing，跨商家 Agent 结账计划从 2027 年开始提供。新的购物任务要求把偏好、库存、跨平台身份与支付授权整合为完整流程。",
+      "detail": "传统商品助手多负责搜索和推荐，真正跨商家购买还要考虑不同平台的账户状态、价格时效与实际付款。Zalando 将外部电商产品纳入自身搜索和发现界面，下一步再交由自有 AI Agent 执行用户授权的购买流程。团队提出从 2027 年起提供代理结账能力。",
+      "findings": "Zalando 在 11 月 3 日业绩公告中介绍 Extended 与 Westwing 试点，并给出 2027 年代理结账的时间计划。",
+      "why_it_matters": "值得建立 Cross-Merchant Shopping Benchmark，分别测试产品信息新鲜度、身份确认、支付边界和订单恢复。",
+      "intro": "传统商品助手多负责搜索和推荐，真正跨商家购买还要考虑不同平台的账户状态、价格时效与实际付款。"
+    },
+    {
+      "title": "JitSkill：按最新任务状态实时检索程序性技能",
+      "score": 78,
+      "published": "2026-11-01",
+      "topics": [
+        "skills",
+        "memory",
+        "tool-use",
+        "work",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.01701"
+        }
+      ],
+      "summary": "JitSkill 不在任务开始时加载整套技能，而是让 Agent 执行过程中根据状态变化按需检索。系统持续跟踪已完成步骤、剩余目标和新出现的环境条件。三组 Agent Benchmark 的实验表明，状态驱动检索改善了长程执行。",
+      "detail": "执行中的工具错误、文件变化和用户修改会让原先的技能列表逐渐不适合当前任务。JitSkill 维护结构化任务状态，检索决策参考当前进度与历史操作，而不只靠最近一句用户指令的语义匹配。系统在合适阶段提供程序性经验，减少不相关技能占用上下文。",
+      "findings": "在三类 Agent Benchmark 的实验中，动态 Skill 检索提升了长程任务的执行效果。",
+      "why_it_matters": "可以把下一步 Milestone 和失败风险预测引入技能调度，研究技能检索的时机与实际收益。",
+      "intro": "执行中的工具错误、文件变化和用户修改会让原先的技能列表逐渐不适合当前任务。"
+    },
+    {
+      "title": "StateBench：连续状态更新在长上下文中难倒强模型",
+      "score": 76,
+      "published": "2026-11-03",
+      "topics": [
+        "evaluation",
+        "memory",
+        "training",
+        "continual-learning",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "官方资料与报道",
+          "url": "https://huggingface.co/blog/allenai/statebench"
+        }
+      ],
+      "summary": "Allen AI StateBench 将状态跟踪分为赋值、覆盖、自引用与跨变量依赖四个难度级别。多款强模型在最长复杂任务中的准确率降至 13% 或更低。经过状态任务训练的部分循环与混合架构在长序列上呈现更好外推能力。",
+      "detail": "个人和工作 Agent 常面对多个文件、账户及待办状态的连续变化，靠相似度检索无法正确重建相互依赖的最新值。StateBench 通过程序化状态变换构建测试，逐级增加最新覆盖、自引用更新和跨实体依赖难度。研究比较 Transformer、循环与混合模型在训练长度以外的推断能力。",
+      "findings": "长序列的通用有限状态问题上，多款前沿模型准确率降至 13% 以下；部分针对性训练的循环或混合架构表现出显著优势。",
+      "why_it_matters": "值得将这种明确的状态计算能力纳入长期记忆训练与评测，区分检索错误和状态推演错误。",
+      "intro": "个人和工作 Agent 常面对多个文件、账户及待办状态的连续变化，靠相似度检索无法正确重建相互依赖的最新值。"
+    }
+  ]
+}
