@@ -1,0 +1,204 @@
+{
+  "date": "2026-11-05",
+  "field": "field-1",
+  "items": [
+    {
+      "title": "ToolSpace：从真实工具依赖生成可执行长程 Agent 环境",
+      "summary": "ToolSpace 从真实 MCP 调用轨迹提取数据、状态和重试依赖，再据此生成长程工具任务。系统用状态感知随机游走执行工具链，并以环境断言验证生成任务。Qwen3.6-35B-A3B 的七项工具评测均分从 23.0 提升至 41.0，加入 RL 后达到 43.2。",
+      "intro": "研究起点是工具定义与真实执行证据，而不是凭空构造企业数据库。",
+      "detail": "研究起点是工具定义与真实执行证据，而不是凭空构造企业数据库。框架聚类得到 804 个工具环境、2,042 种规范工具和 77,760 个调用模式节点，合成 34,376 条执行轨迹；其中跨工具数据依赖占观察到的依赖边约 69%。状态更改操作会获得可写数据库，查询和无状态工具则优先复用记录的响应。候选工具路径执行失败时恢复状态重新采样，最后将成功路径反向生成自然语言任务与中间状态断言。",
+      "findings": "训练后 GLM-5.2 的七项平均成绩从 44.6 升至 56.6；对 AutomationBench 和 τ³-Bench Banking 生成的 Pro 难度任务，七个前沿模型最多下降 38.2 分。",
+      "why_it_matters": "最值得进一步研究的是把数据依赖、状态依赖和失败重试边拆成短任务，并通过反事实执行确认哪些边是真正的失败原因。",
+      "published": "2026-11-03",
+      "score": 100,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "training",
+        "tool-use",
+        "self-evolution"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.05036"
+        }
+      ]
+    },
+    {
+      "title": "腾讯 Hy4 正式版：770B MoE 新增视觉与 GUI／CLI 操作",
+      "summary": "腾讯发布 Hy4 正式版，首次加入原生视觉理解与电脑操作能力，支持 GUI 和 CLI 协同执行。模型采用 770B 总参数、49B 激活参数的 MoE 架构，支持约百万 Token 上下文。团队针对 Blender、CAD、跨应用办公与金融研究建设可执行训练环境，模型权重将在后续开放。",
+      "intro": "正式版在 Hy4 Preview 基础上扩展了预训练与后训练，并把专业工作软件中的操作、观察与状态修改纳入能力训练。",
+      "detail": "正式版在 Hy4 Preview 基础上扩展了预训练与后训练，并把专业工作软件中的操作、观察与状态修改纳入能力训练。腾讯还构造了数千个金融工作空间、上万项任务，覆盖基金研究、证券分析及财税流程。该路线把模型训练直接连接真实执行环境，推动从纯文本回答向混合 GUI／CLI Agent 转型。",
+      "findings": "腾讯报告 WorkBuddy 办公评测平均分 83.18、任务通过率 96.15%；213 位金融专家参与的 579 项任务评测中，Hy4 获得 3.04 分。",
+      "why_it_matters": "重点跟踪专业软件训练数据如何迁移到通用电脑操作，以及不同场景下 GUI／CLI 选择策略的收益。",
+      "published": "2026-11-04",
+      "score": 99,
+      "topics": [
+        "training",
+        "deployment",
+        "work",
+        "tool-use",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "腾讯 Hy4 发布公告",
+          "url": "https://en.prnasia.com/releases/apac/tencent-launches-hy4-joining-the-ranks-of-the-world-s-leading-open-source-ai-models-554689.shtml"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI：自动化安全研究流水线复现 1,724 项漏洞",
+      "summary": "OpenAI 公布一个覆盖代码筛查、动态验证、影响评估和补丁生成的自动化安全研究系统。单次实验从 2,308 项候选问题中动态复现 1,724 项漏洞，并确认 948 项不同的 Linux 本地提权漏洞。整个实验 API 成本约 121.3 万美元，展示了可执行证据验证的规模化价值。",
+      "intro": "系统将候选发现、隔离环境中执行验证、影响分析、补丁生成和人工审核串成多阶段流程。",
+      "detail": "系统将候选发现、隔离环境中执行验证、影响分析、补丁生成和人工审核串成多阶段流程。每项研究结果配套根因分析、运行证据和候选修复，减少单靠语言报告产生的误判。论文还讨论不同基础模型能力下 Harness 的最佳复杂度，以及验证环境自身对实验质量的影响。",
+      "findings": "报告共审查 5,034 个代码目标、约 280 万行代码；291 项信息泄漏证明与 948 项不同的本地提权问题被单独记录，每项 LPE 的平均 API 成本约 1,279 美元。",
+      "why_it_matters": "Agent 训练可以借鉴“发现问题→独立复现→修复→回归检查”闭环，学习用实际执行证据决定任务是否完成。",
+      "published": "2026-11-04",
+      "score": 98,
+      "topics": [
+        "evaluation",
+        "training",
+        "safety",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方技术报告",
+          "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/"
+        }
+      ]
+    },
+    {
+      "title": "RSI-Dojo：281 个真实后训练任务培养模型训练 Agent",
+      "summary": "RSI-Dojo 将真实研究论文、数据集与评价程序转化为 Agent 可以执行的模型后训练任务。自动流水线从 547 个候选中筛出 281 个稳定、能够区分模型能力的训练环境。RSI-Dojo-35B-A3B 在 PostTrainBench 从 13.08 提升到 29.95 分。",
+      "intro": "RSI-Craft 自动定位论文中的数据集、指标与执行依赖，并实际检查任务能否运行。",
+      "detail": "RSI-Craft 自动定位论文中的数据集、指标与执行依赖，并实际检查任务能否运行。筛选阶段剔除过小样本、评价不稳定以及无法区分基础模型和强模型的任务。之后让强模型执行数据准备、训练、错误诊断与提交，再同时用过程可靠性和最终训练效果过滤轨迹。最终将“如何训练更强模型”内化为 Agent 的可学习执行技能。",
+      "findings": "论文还报告 9B 设置 PostTrainBench 从 7.72 升到 16.46；两种训练轨迹过滤机制联合使用效果更好。",
+      "why_it_matters": "它为自动科研 Agent 提供了可执行实验环境，可进一步从失败的训练节点合成短任务并评价跨实验迁移。",
+      "published": "2026-10-29",
+      "score": 97,
+      "topics": [
+        "self-evolution",
+        "training",
+        "data-synthesis",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03698"
+        }
+      ]
+    },
+    {
+      "title": "WebHarbor：153 个真实网站镜像支持 GUI Agent 强化学习",
+      "summary": "WebHarbor 根据真实网站业务流程重建 153 个可重置的 Docker 环境，覆盖 3,518 项任务。环境由 Coding Agent 实现、人工审核，再依靠可执行检查器判断真实状态是否完成。4B 级 GUI Agent 在环境中进行 RL 后，两个网页任务评测平均达到 75.8 分。",
+      "intro": "WebHarbor 从实际网站页面、业务流程和登录后的任务出发，使用人机协作重建视觉界面、数据状态与功能。",
+      "detail": "WebHarbor 从实际网站页面、业务流程和登录后的任务出发，使用人机协作重建视觉界面、数据状态与功能。随着任务提出新要求，环境可以不断增加对应功能。Docker 化环境降低真实网站访问限制，并允许反复执行 Rollout 与对比训练效果。",
+      "findings": "论文报告在 WebVoyager 和 Online-Mind2Web 上，相比共享 SFT 模型提升 22.2 分，比所比较的 OpenWebRL-4B 高 5.2 分。",
+      "why_it_matters": "值得把可重置网站环境进一步扩展到可恢复中间里程碑的状态快照，让失败节点成为可训练任务。",
+      "published": "2026-11-02",
+      "score": 96,
+      "topics": [
+        "environments",
+        "training",
+        "data-synthesis",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03634"
+        }
+      ]
+    },
+    {
+      "title": "Axion 1.0：两轮 SFT 加一轮 RL 的开放 Agent 训练配方",
+      "summary": "Axion 1.0 用两轮 SFT 和一轮 RL 完成 Agent 后训练，不依赖复杂的专门中间训练阶段。第一轮强化自包含推理，第二轮加入基于真实数据与确定性计算的工具任务。仅用约 1.8 万条 SFT 样本构建公开训练配方，并开放 35B 模型与相关代码。",
+      "intro": "第一阶段针对基础模型能解出的策略自动构造更难的问题，强化纯推理能力。",
+      "detail": "第一阶段针对基础模型能解出的策略自动构造更难的问题，强化纯推理能力。第二阶段设计必须调用外部工具才能完成、具有程序化验证方式的任务。最后通过 RL 提升长程交互、工具选择与结果检查能力。项目同时开放数据构造、过滤、训练脚本和模型，方便系统性消融。",
+      "findings": "论文报告 Axion 1.0-35B 在 HLE 达到 52.8、SEAL-0 达到 60.4、FrontierScience Research 达到 55.0。",
+      "why_it_matters": "核心研究机会是固定样本预算拆解不同阶段的真实贡献，找到小规模高质量数据对 Agent RL 的最大边际价值。",
+      "published": "2026-11-02",
+      "score": 95,
+      "topics": [
+        "training",
+        "data-synthesis",
+        "tool-use",
+        "self-evolution"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03233"
+        }
+      ]
+    },
+    {
+      "title": "Google Agile Deliberation：用边界样本让人类逐步定义标注标准",
+      "summary": "Google Research 发布 Agile Deliberation，用主动挑选的边界案例帮助标注者明确主观分类概念。系统把模糊要求拆成类别和排除条件，再根据人类反馈反复修订分类规则。18 场真实用户实验显示，这种交互式定义方式改善分类一致性与标注体验。",
+      "intro": "方法包含 Concept Scoping 和 Concept Iteration 两阶段。",
+      "detail": "方法包含 Concept Scoping 和 Concept Iteration 两阶段。前一阶段把“健康食品”等抽象类别拆成可以执行的正例和排除规则，后一阶段自动筛选最能暴露定义漏洞的边界图片，再协助人类调整判别准则。Google 比较了零样本、自动分解、手工调整与交互式优化流程。",
+      "findings": "共进行 18 场约 1.5 小时的用户研究；参与者对主观边界的理解会在看到新案例后逐步形成。",
+      "why_it_matters": "这可以迁移到 Agent 任务 Rubric 生产：让专家围绕冲突案例完善验收规则，并为变更后的旧数据重新标注。",
+      "published": "2026-11-04",
+      "score": 89,
+      "topics": [
+        "data-synthesis",
+        "evaluation",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "Google Research 官方文章",
+          "url": "https://www.research.google/blog/agile-deliberation-how-ai-helps-humans-define-the-gray-areas/"
+        }
+      ]
+    },
+    {
+      "title": "RoboColosseum：跨 124 个真实场地测出机器人模型排名反转",
+      "summary": "RoboColosseum 在 124 个真实地点进行 5,699 次成对机器人策略比较。框架覆盖四类机器人平台、五种 VLA Policy 和三种前沿 AI Agent。不同机器人型号之间的排名一致性 Kendall W 仅 0.24，说明单平台成绩难以代表泛化能力。",
+      "intro": "评测包含不针对任务微调的 Open Track，以及每项任务给相同 100 条示范的 Fine-tune Track。",
+      "detail": "评测包含不针对任务微调的 Open Track，以及每项任务给相同 100 条示范的 Fine-tune Track。机器人形态包括 SO-101、Franka、Bimanual-YAM 与 G1 Humanoid。论文将完整任务成功率与部分进度分开统计，并发现微调后不同模型的排名可能发生明显反转。",
+      "findings": "G1 Humanoid 五项任务没有策略完整完成，但不同模型的平均进度仍在 13.3%～23.2% 之间。",
+      "why_it_matters": "具身 Agent Benchmark 应同时报告跨硬件迁移、少样本适应性和未完成任务的部分进度。",
+      "published": "2026-11-02",
+      "score": 86,
+      "topics": [
+        "evaluation",
+        "training",
+        "environments"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.02497"
+        }
+      ]
+    },
+    {
+      "title": "DEPTH：94% 的合成长任务三轮内就能完成",
+      "summary": "DEPTH 指出许多长程终端任务只是操作多，而不是必须按顺序等待前一步结果。作者审计六个数据集的 734 项任务，发现已解合成任务中 94% 在三轮内就能完成。新方法在真实软件环境中逐段执行并生成下一段，构建了 105 项高依赖深度任务。",
+      "intro": "论文将工作量 Work 与任务深度 Depth 分开，深度指必须根据前一步执行输出才能决定下一步命令的顺序依赖。",
+      "detail": "论文将工作量 Work 与任务深度 Depth 分开，深度指必须根据前一步执行输出才能决定下一步命令的顺序依赖。只统计 Agent 的执行轮数容易混入模型习惯，不能客观描述任务结构。新合成器按顺序完成前一阶段后才设计后一阶段，使跨阶段信息依赖更真实。",
+      "findings": "新生成的 105 项任务在深度和工作量上均超过所审计数据集，六种受测模型没有一个完成超过一半。",
+      "why_it_matters": "可以把 Depth 当作训练数据组成指标，针对信息依赖而不是表面执行长度生产长程任务。",
+      "published": "2026-11-01",
+      "score": 85,
+      "topics": [
+        "evaluation",
+        "environments",
+        "data-synthesis",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.01927"
+        }
+      ]
+    }
+  ]
+}

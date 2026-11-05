@@ -1,0 +1,204 @@
+{
+  "date": "2026-11-05",
+  "field": "field-4",
+  "items": [
+    {
+      "title": "ToolSpace：从真实工具依赖生成可执行长程 Agent 环境",
+      "summary": "ToolSpace 从真实 MCP 调用轨迹提取数据、状态和重试依赖，再据此生成长程工具任务。系统用状态感知随机游走执行工具链，并以环境断言验证生成任务。Qwen3.6-35B-A3B 的七项工具评测均分从 23.0 提升至 41.0，加入 RL 后达到 43.2。",
+      "intro": "研究起点是工具定义与真实执行证据，而不是凭空构造企业数据库。",
+      "detail": "研究起点是工具定义与真实执行证据，而不是凭空构造企业数据库。框架聚类得到 804 个工具环境、2,042 种规范工具和 77,760 个调用模式节点，合成 34,376 条执行轨迹；其中跨工具数据依赖占观察到的依赖边约 69%。状态更改操作会获得可写数据库，查询和无状态工具则优先复用记录的响应。候选工具路径执行失败时恢复状态重新采样，最后将成功路径反向生成自然语言任务与中间状态断言。",
+      "findings": "训练后 GLM-5.2 的七项平均成绩从 44.6 升至 56.6；对 AutomationBench 和 τ³-Bench Banking 生成的 Pro 难度任务，七个前沿模型最多下降 38.2 分。",
+      "why_it_matters": "最值得进一步研究的是把数据依赖、状态依赖和失败重试边拆成短任务，并通过反事实执行确认哪些边是真正的失败原因。",
+      "published": "2026-11-03",
+      "score": 100,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "training",
+        "tool-use",
+        "self-evolution"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.05036"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI：自动化安全研究流水线复现 1,724 项漏洞",
+      "summary": "OpenAI 公布一个覆盖代码筛查、动态验证、影响评估和补丁生成的自动化安全研究系统。单次实验从 2,308 项候选问题中动态复现 1,724 项漏洞，并确认 948 项不同的 Linux 本地提权漏洞。整个实验 API 成本约 121.3 万美元，展示了可执行证据验证的规模化价值。",
+      "intro": "系统将候选发现、隔离环境中执行验证、影响分析、补丁生成和人工审核串成多阶段流程。",
+      "detail": "系统将候选发现、隔离环境中执行验证、影响分析、补丁生成和人工审核串成多阶段流程。每项研究结果配套根因分析、运行证据和候选修复，减少单靠语言报告产生的误判。论文还讨论不同基础模型能力下 Harness 的最佳复杂度，以及验证环境自身对实验质量的影响。",
+      "findings": "报告共审查 5,034 个代码目标、约 280 万行代码；291 项信息泄漏证明与 948 项不同的本地提权问题被单独记录，每项 LPE 的平均 API 成本约 1,279 美元。",
+      "why_it_matters": "Agent 训练可以借鉴“发现问题→独立复现→修复→回归检查”闭环，学习用实际执行证据决定任务是否完成。",
+      "published": "2026-11-04",
+      "score": 98,
+      "topics": [
+        "evaluation",
+        "training",
+        "safety",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方技术报告",
+          "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/"
+        }
+      ]
+    },
+    {
+      "title": "RSI-Dojo：281 个真实后训练任务培养模型训练 Agent",
+      "summary": "RSI-Dojo 将真实研究论文、数据集与评价程序转化为 Agent 可以执行的模型后训练任务。自动流水线从 547 个候选中筛出 281 个稳定、能够区分模型能力的训练环境。RSI-Dojo-35B-A3B 在 PostTrainBench 从 13.08 提升到 29.95 分。",
+      "intro": "RSI-Craft 自动定位论文中的数据集、指标与执行依赖，并实际检查任务能否运行。",
+      "detail": "RSI-Craft 自动定位论文中的数据集、指标与执行依赖，并实际检查任务能否运行。筛选阶段剔除过小样本、评价不稳定以及无法区分基础模型和强模型的任务。之后让强模型执行数据准备、训练、错误诊断与提交，再同时用过程可靠性和最终训练效果过滤轨迹。最终将“如何训练更强模型”内化为 Agent 的可学习执行技能。",
+      "findings": "论文还报告 9B 设置 PostTrainBench 从 7.72 升到 16.46；两种训练轨迹过滤机制联合使用效果更好。",
+      "why_it_matters": "它为自动科研 Agent 提供了可执行实验环境，可进一步从失败的训练节点合成短任务并评价跨实验迁移。",
+      "published": "2026-10-29",
+      "score": 97,
+      "topics": [
+        "self-evolution",
+        "training",
+        "data-synthesis",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03698"
+        }
+      ]
+    },
+    {
+      "title": "WebHarbor：153 个真实网站镜像支持 GUI Agent 强化学习",
+      "summary": "WebHarbor 根据真实网站业务流程重建 153 个可重置的 Docker 环境，覆盖 3,518 项任务。环境由 Coding Agent 实现、人工审核，再依靠可执行检查器判断真实状态是否完成。4B 级 GUI Agent 在环境中进行 RL 后，两个网页任务评测平均达到 75.8 分。",
+      "intro": "WebHarbor 从实际网站页面、业务流程和登录后的任务出发，使用人机协作重建视觉界面、数据状态与功能。",
+      "detail": "WebHarbor 从实际网站页面、业务流程和登录后的任务出发，使用人机协作重建视觉界面、数据状态与功能。随着任务提出新要求，环境可以不断增加对应功能。Docker 化环境降低真实网站访问限制，并允许反复执行 Rollout 与对比训练效果。",
+      "findings": "论文报告在 WebVoyager 和 Online-Mind2Web 上，相比共享 SFT 模型提升 22.2 分，比所比较的 OpenWebRL-4B 高 5.2 分。",
+      "why_it_matters": "值得把可重置网站环境进一步扩展到可恢复中间里程碑的状态快照，让失败节点成为可训练任务。",
+      "published": "2026-11-02",
+      "score": 96,
+      "topics": [
+        "environments",
+        "training",
+        "data-synthesis",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03634"
+        }
+      ]
+    },
+    {
+      "title": "Axion 1.0：两轮 SFT 加一轮 RL 的开放 Agent 训练配方",
+      "summary": "Axion 1.0 用两轮 SFT 和一轮 RL 完成 Agent 后训练，不依赖复杂的专门中间训练阶段。第一轮强化自包含推理，第二轮加入基于真实数据与确定性计算的工具任务。仅用约 1.8 万条 SFT 样本构建公开训练配方，并开放 35B 模型与相关代码。",
+      "intro": "第一阶段针对基础模型能解出的策略自动构造更难的问题，强化纯推理能力。",
+      "detail": "第一阶段针对基础模型能解出的策略自动构造更难的问题，强化纯推理能力。第二阶段设计必须调用外部工具才能完成、具有程序化验证方式的任务。最后通过 RL 提升长程交互、工具选择与结果检查能力。项目同时开放数据构造、过滤、训练脚本和模型，方便系统性消融。",
+      "findings": "论文报告 Axion 1.0-35B 在 HLE 达到 52.8、SEAL-0 达到 60.4、FrontierScience Research 达到 55.0。",
+      "why_it_matters": "核心研究机会是固定样本预算拆解不同阶段的真实贡献，找到小规模高质量数据对 Agent RL 的最大边际价值。",
+      "published": "2026-11-02",
+      "score": 95,
+      "topics": [
+        "training",
+        "data-synthesis",
+        "tool-use",
+        "self-evolution"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03233"
+        }
+      ]
+    },
+    {
+      "title": "EvoMemState：用强化学习学会应用不断变化的个人记忆",
+      "summary": "EvoMemState 不只存储个人事实，还显式维护事实之间的有效性、更新和冲突关系。系统通过强化学习优化面向当前任务的 Reasoning State，让记忆真正影响行动选择。Qwen3-8B 设置的综合记忆评测从 SimpleMem 的 53.6 提升至 59.9。",
+      "intro": "框架划分 Persistent Facts、Relational States 和 Task-specific Reasoning State 三层。",
+      "detail": "框架划分 Persistent Facts、Relational States 和 Task-specific Reasoning State 三层。用户偏好、生活状态发生变化时，系统先修正事实间关系，再为新请求选择优先使用的记忆。作者使用 GRPO 学习状态演化与记忆使用策略，评测覆盖 MemSyco-Bench、MemTrapBench 与 LoCoMo。",
+      "findings": "GPT-4o-mini 设置的综合指标达到 61.2；它与 StateGraph 的依赖更新研究互补，进一步研究正确事实如何转化为正确决策。",
+      "why_it_matters": "适合把时序状态变化、记忆冲突与任务条件推理联合训练，避免“信息检索正确但建议仍然错误”。",
+      "published": "2026-11-02",
+      "score": 94,
+      "topics": [
+        "memory",
+        "personal",
+        "continual-learning",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03743"
+        }
+      ]
+    },
+    {
+      "title": "Task-Conditioned Memory Utility：用有无记忆对照测量真实收益",
+      "summary": "这项研究用同一任务在“提供记忆”和“不提供记忆”条件下的表现差估计记忆价值。作者把记忆写入、存储、读取成本与未来任务收益放在同一套评价协议中。在答案所需记忆与对照记忆的配对实验中，平均收益差为 +0.33。",
+      "intro": "实验首先让 Writer 在不知道未来请求的条件下保存记忆，然后冻结 Reader 并使用相同填充文本控制上下文长度。",
+      "detail": "实验首先让 Writer 在不知道未来请求的条件下保存记忆，然后冻结 Reader 并使用相同填充文本控制上下文长度。研究把记忆价值定义为特定 Memory–Task Pair 的边际贡献，而不是给每条记忆设置固定重要性。部分任务中，保留的原始记录比摘要或结构化压缩带来更大帮助。",
+      "findings": "配对收益差的 95% 区间为 +0.21 至 +0.46；研究还专门记录构建、保存和呈现记忆的成本。",
+      "why_it_matters": "未来应把 Memory Utility 与单位 Token 维护成本结合起来，直接优化长期助手的选择性记忆策略。",
+      "published": "2026-11-02",
+      "score": 91,
+      "topics": [
+        "memory",
+        "evaluation",
+        "personal"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03930"
+        }
+      ]
+    },
+    {
+      "title": "EvoGroup：群组 Agent Harness 自进化让记忆评测升至 89.58%",
+      "summary": "EvoGroup 让共享群聊 Agent 从最小六工具 Harness 出发，根据真实交互和任务结果自动修订记忆策略。系统利用置信度、失败轨迹和渐进式信息披露分析群体知识，再更新执行框架。在 EverMemBench 保留测试集上，pass@1 从 71.07% 提升至 89.58%。",
+      "intro": "系统不更新底层模型参数，而是让分析 Agent 根据任务结果和低置信反思整理常见问题，再由演化 Agent 修改 Harness。",
+      "detail": "系统不更新底层模型参数，而是让分析 Agent 根据任务结果和低置信反思整理常见问题，再由演化 Agent 修改 Harness。群组环境中的成员关系、共同知识和持续变化的状态是重点。更新后的 Harness 还会被冻结并迁移到未见的 GroupMemBench 任务，以检查跨群组适应。",
+      "findings": "论文报告其 89.58% 超过若干固定框架和人工设计 Harness；Claude Code 对照为 85.83%。",
+      "why_it_matters": "与 GroupAssistBench 结合，可直接评测自进化 Harness 是否真正改善多用户服务而不只是事实回忆。",
+      "published": "2026-11-02",
+      "score": 90,
+      "topics": [
+        "memory",
+        "self-evolution",
+        "skills",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03868"
+        }
+      ]
+    },
+    {
+      "title": "ParetoSaddler：Agent Harness 质量提高的同时单任务成本下降",
+      "summary": "ParetoSaddler 同时优化 Agent Harness 的任务质量和运行成本，而不是只追求单一得分。迭代过程中用贝叶斯自助采样保留有潜力的中间候选，再从帕累托前沿挑选部署版本。ClawMark 任务成功率从 70.86% 提高至 81.35%，单任务成本从 1.17 美元降至 1.01 美元。",
+      "intro": "算法把训练阶段的候选晋升策略与最终部署偏好分开，避免过早丢弃在某个维度已有改进的候选 Harness。",
+      "detail": "算法把训练阶段的候选晋升策略与最终部署偏好分开，避免过早丢弃在某个维度已有改进的候选 Harness。候选通过重复执行比较成本和质量，可靠的候选进入更大规模评测，并可成为下一轮演化父代。研究使用领域隔离的开发与测试划分考察泛化。",
+      "findings": "GAIA2 任务质量从 56.22% 提升到 62.89%，单任务费用从 0.78 美元降到 0.45 美元。",
+      "why_it_matters": "这为自进化 Agent 的固定预算实验提供了更合适的目标：寻找质量、成本和稳定性的 Pareto 最优而非只看成功率。",
+      "published": "2026-11-01",
+      "score": 83,
+      "topics": [
+        "self-evolution",
+        "evaluation",
+        "deployment",
+        "skills"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.02079"
+        }
+      ]
+    }
+  ]
+}

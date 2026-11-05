@@ -1,0 +1,247 @@
+{
+  "date": "2026-11-05",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "EvoMemState：用强化学习学会应用不断变化的个人记忆",
+      "summary": "EvoMemState 不只存储个人事实，还显式维护事实之间的有效性、更新和冲突关系。系统通过强化学习优化面向当前任务的 Reasoning State，让记忆真正影响行动选择。Qwen3-8B 设置的综合记忆评测从 SimpleMem 的 53.6 提升至 59.9。",
+      "intro": "框架划分 Persistent Facts、Relational States 和 Task-specific Reasoning State 三层。",
+      "detail": "框架划分 Persistent Facts、Relational States 和 Task-specific Reasoning State 三层。用户偏好、生活状态发生变化时，系统先修正事实间关系，再为新请求选择优先使用的记忆。作者使用 GRPO 学习状态演化与记忆使用策略，评测覆盖 MemSyco-Bench、MemTrapBench 与 LoCoMo。",
+      "findings": "GPT-4o-mini 设置的综合指标达到 61.2；它与 StateGraph 的依赖更新研究互补，进一步研究正确事实如何转化为正确决策。",
+      "why_it_matters": "适合把时序状态变化、记忆冲突与任务条件推理联合训练，避免“信息检索正确但建议仍然错误”。",
+      "published": "2026-11-02",
+      "score": 94,
+      "topics": [
+        "memory",
+        "personal",
+        "continual-learning",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03743"
+        }
+      ]
+    },
+    {
+      "title": "GroupAssistBench：真实群聊中的记忆使用比事实回忆更难",
+      "summary": "GroupAssistBench 从 50 个真实群组的 80,299 条消息构建多用户助手评测。它把 2,395 个实例分为事实回忆和实际群组服务，重点检查成员身份、冲突和需求更新。某记忆系统事实回忆指标达到 0.621，真实服务任务平均分却只有 0.247。",
+      "intro": "任务包含 1,374 个 Memory Recall 实例与 1,021 个 Memory Use 实例。",
+      "detail": "任务包含 1,374 个 Memory Recall 实例与 1,021 个 Memory Use 实例。除了恢复历史事实，系统还需把多人分散提出的偏好与后续变更整合为一份可以行动的建议。评测按照单条记忆、跨记忆整合、冲突和版本更新划分困难程度；研究对比完整历史、RAG 与不同外部记忆方案。",
+      "findings": "相同长期记忆系统在 L1 回忆和 L2 服务任务中出现明显落差，说明记忆覆盖率不等于多成员协作能力。",
+      "why_it_matters": "家庭助手、团队工作 Agent 应把信息归属、偏好冲突和群体目标达成纳入核心 Benchmark。",
+      "published": "2026-11-03",
+      "score": 93,
+      "topics": [
+        "memory",
+        "personal",
+        "evaluation",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.04867"
+        }
+      ]
+    },
+    {
+      "title": "OpenClaw：Knowledge Scribes 把长期记忆与可复用技能连接起来",
+      "summary": "OpenClaw 新预览版加入 Knowledge Scribes，支持跨 Agent 与会话捕获、整理和复用知识。同版扩展持久化自动化任务流、跨设备协作和 PostgreSQL 状态存储。长期个人 Agent 的记忆、程序化技能与后台任务状态开始在框架层打通。",
+      "intro": "Knowledge Scribes 为跨会话经验提炼、共享和后续调用提供原生工作流。",
+      "detail": "Knowledge Scribes 为跨会话经验提炼、共享和后续调用提供原生工作流。持久化 Streams 让长期任务在下一次唤醒后继续保有执行上下文；PostgreSQL 数据层增强状态存储、迁移和恢复。版本同时更新移动与桌面控制界面、学习型技能以及备份和回滚功能。",
+      "findings": "版本为 2026.11.5-beta.1，11 月 4 日发布；属于工程能力更新，适合设计跨月持续任务来测试其长期记忆和 Skill 质量。",
+      "why_it_matters": "最值得评测的问题是哪些历史经验可升级为可信 Skill，以及跨会话复用是否真正减少重复工作。",
+      "published": "2026-11-04",
+      "score": 92,
+      "topics": [
+        "memory",
+        "skills",
+        "deployment",
+        "personal",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "OpenClaw 官方版本说明",
+          "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.11.5-beta.1"
+        }
+      ]
+    },
+    {
+      "title": "Task-Conditioned Memory Utility：用有无记忆对照测量真实收益",
+      "summary": "这项研究用同一任务在“提供记忆”和“不提供记忆”条件下的表现差估计记忆价值。作者把记忆写入、存储、读取成本与未来任务收益放在同一套评价协议中。在答案所需记忆与对照记忆的配对实验中，平均收益差为 +0.33。",
+      "intro": "实验首先让 Writer 在不知道未来请求的条件下保存记忆，然后冻结 Reader 并使用相同填充文本控制上下文长度。",
+      "detail": "实验首先让 Writer 在不知道未来请求的条件下保存记忆，然后冻结 Reader 并使用相同填充文本控制上下文长度。研究把记忆价值定义为特定 Memory–Task Pair 的边际贡献，而不是给每条记忆设置固定重要性。部分任务中，保留的原始记录比摘要或结构化压缩带来更大帮助。",
+      "findings": "配对收益差的 95% 区间为 +0.21 至 +0.46；研究还专门记录构建、保存和呈现记忆的成本。",
+      "why_it_matters": "未来应把 Memory Utility 与单位 Token 维护成本结合起来，直接优化长期助手的选择性记忆策略。",
+      "published": "2026-11-02",
+      "score": 91,
+      "topics": [
+        "memory",
+        "evaluation",
+        "personal"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03930"
+        }
+      ]
+    },
+    {
+      "title": "τ-Rec-Books：隐藏偏好让推荐 Agent 成功率跌至 28.3%",
+      "summary": "τ-Rec-Books 用 450 个推荐任务测试 Agent 是否能主动挖掘用户没说出的选书要求。当全部偏好一开始公开时平均成功率为 97.5%，部分需主动问询时降至 75.6%。隐藏要求只能通过推荐反馈推断时，成功率进一步降至 28.3%。",
+      "intro": "Benchmark 使用 20,000 本书和规则化用户模拟器，保持任务不变，只控制用户何时披露真实约束。",
+      "detail": "Benchmark 使用 20,000 本书和规则化用户模拟器，保持任务不变，只控制用户何时披露真实约束。Mixed 条件下，部分要求只有 Agent 提问才会被说出；Hidden 条件下只能通过候选书的接受或拒绝推理。基于书籍元数据给出确定性评分，减少主观 Judge 的影响。",
+      "findings": "明确提醒模型提问后，所有测试 Agent 在 Mixed 条件下成功率都达到至少 93.1%；主要缺口不是检索，而是不知道何时该问。",
+      "why_it_matters": "值得将偏好主动获取与长期价值判断联合建模，学习提问、试探和直接执行之间的最优策略。",
+      "published": "2026-11-03",
+      "score": 90,
+      "topics": [
+        "personal",
+        "evaluation",
+        "memory"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.04459"
+        }
+      ]
+    },
+    {
+      "title": "TRACE：用户长期记忆能显著改变 Agent 的信息引用",
+      "summary": "TRACE 在固定问题与搜索结果时只修改用户记忆，观察个性化如何影响搜索引用。用户明确偏爱某个媒体来源时，它进入回答前三个引用的概率提高 33～39 个百分点。这说明 Personal Agent 的记忆不仅改变回答风格，还可能改变证据选择。",
+      "intro": "TRACE 提供可控的开放 Agent Harness，研究者可修改记忆、工具设置和系统指令，并完整记录执行轨迹。",
+      "detail": "TRACE 提供可控的开放 Agent Harness，研究者可修改记忆、工具设置和系统指令，并完整记录执行轨迹。论文使用 2026 年美国中期选举相关问答来检查信息源选择，区分用户偏好对检索与引用的影响。在部分实验条件下，对传统媒体的不信任记忆还提高了低可信信息进入引用的机会。",
+      "findings": "研究展示了固定外部证据仍可能因不同记忆而产生明显的来源选择差异，为个人化与证据可靠性分离提供了实验框架。",
+      "why_it_matters": "建议在长期知识助手中建立双轨规则：可以尊重用户表达方式偏好，但事实依据要有独立可信度检查。",
+      "published": "2026-11-02",
+      "score": 90,
+      "topics": [
+        "memory",
+        "safety",
+        "evaluation",
+        "personal"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03939"
+        }
+      ]
+    },
+    {
+      "title": "EvoGroup：群组 Agent Harness 自进化让记忆评测升至 89.58%",
+      "summary": "EvoGroup 让共享群聊 Agent 从最小六工具 Harness 出发，根据真实交互和任务结果自动修订记忆策略。系统利用置信度、失败轨迹和渐进式信息披露分析群体知识，再更新执行框架。在 EverMemBench 保留测试集上，pass@1 从 71.07% 提升至 89.58%。",
+      "intro": "系统不更新底层模型参数，而是让分析 Agent 根据任务结果和低置信反思整理常见问题，再由演化 Agent 修改 Harness。",
+      "detail": "系统不更新底层模型参数，而是让分析 Agent 根据任务结果和低置信反思整理常见问题，再由演化 Agent 修改 Harness。群组环境中的成员关系、共同知识和持续变化的状态是重点。更新后的 Harness 还会被冻结并迁移到未见的 GroupMemBench 任务，以检查跨群组适应。",
+      "findings": "论文报告其 89.58% 超过若干固定框架和人工设计 Harness；Claude Code 对照为 85.83%。",
+      "why_it_matters": "与 GroupAssistBench 结合，可直接评测自进化 Harness 是否真正改善多用户服务而不只是事实回忆。",
+      "published": "2026-11-02",
+      "score": 90,
+      "topics": [
+        "memory",
+        "self-evolution",
+        "skills",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.03868"
+        }
+      ]
+    },
+    {
+      "title": "Voluntary Servitude：普通虚假评论也能操纵 Agent 的安全决策",
+      "summary": "Voluntary Servitude 发现攻击者无需写显式恶意指令，仅靠伪造风险提醒就能改变 Agent 的选择。这类正常评论式内容在实验中造成 60.4% 的决策偏移，接近指令注入的 66.0%。给 Agent 增加独立交叉验证要求后，非自适应攻击的暴露率约减少 95%。",
+      "intro": "研究将虚假的安全隐患写成普通外部评论，让 Agent 因自身的风险规避逻辑排除原本合适的选项。",
+      "detail": "研究将虚假的安全隐患写成普通外部评论，让 Agent 因自身的风险规避逻辑排除原本合适的选项。传统 Prompt Injection 检测器往往将这种内容判断为无害；论文比较了多个模型、消费服务场景与真实浏览 Agent。防御重点不是识别命令语法，而是要求高风险事实有多源证据。",
+      "findings": "在不同检索设置下，端到端攻击成功率为 1.0%～57.0%；与指令注入相比，加入检测器后该方式有效性高出 1.7～4.4 倍。",
+      "why_it_matters": "长期个人助手必须在事实可信性、偏好影响和外部风险声明之间设置独立证据验证。",
+      "published": "2026-11-03",
+      "score": 84,
+      "topics": [
+        "safety",
+        "personal",
+        "evaluation",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.04393"
+        }
+      ]
+    },
+    {
+      "title": "GlucoAgent：个人健康数据驱动动态代码式预测",
+      "summary": "GlucoAgent 为每次血糖预测动态选择多模态生活信息，并编写、执行分析代码。它能按当前用户状态检索相似餐食、拟合统计模型并回测预测方法。在 CGMacros 上平均 RMSE 为 22.5 mg/dL，优于 Chronos-2 的 23.5 mg/dL。",
+      "intro": "系统将连续血糖监测、可穿戴设备、饮食日志及个人健康背景视为动态上下文。",
+      "detail": "系统将连续血糖监测、可穿戴设备、饮食日志及个人健康背景视为动态上下文。不同用户、不同时间窗口的信息重要性不同，Agent 因此每次预测时单独选择数据和统计步骤，而不是固定套用同一个时间序列模型。分析代码执行结果还能保留相应证据以解释预测。",
+      "findings": "加入多模态信息后，GlucoAgent 平均 RMSE 从 24.0 降至 22.5 mg/dL；60 分钟餐后场景从 31.0 降至 26.5 mg/dL。",
+      "why_it_matters": "适合研究 Personal Agent 如何依据情境动态调用个人数据和程序化工具，以及跨会话证据的持续有效性。",
+      "published": "2026-11-03",
+      "score": 82,
+      "topics": [
+        "personal",
+        "work",
+        "tool-use",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.04126"
+        }
+      ]
+    },
+    {
+      "title": "ATC：以角色契约约束黑箱多 Agent 的越权协作",
+      "summary": "Agent Trajectory Control 用明确角色契约规定规划、检索、验证和执行 Agent 的职责。每条发往共享上下文的消息会先进行越权和角色漂移检查，不合规时重新生成再验收。该机制无需修改黑箱模型内部结构，也能改善团队任务表现与角色一致性。",
+      "intro": "研究把角色漂移定义为某个 Agent 在长程协作中行使了其他角色的权限。",
+      "detail": "研究把角色漂移定义为某个 Agent 在长程协作中行使了其他角色的权限。ATC 检测超出角色的行为建议、未经授权的结论和逻辑约束违规，并在消息加入共享会话之前修订它。论文在同构及异构模型团队、不同规模和角色混淆压力下评测。",
+      "findings": "作者报告相较 Prompt、记忆、工作流与激活编辑等基线，角色一致性和任务质量提高、角色漂移指标下降。",
+      "why_it_matters": "与固定审批状态机结合，可以把跨 Agent 权限边界直接纳入多智能体长程评测。",
+      "published": "2026-11-03",
+      "score": 81,
+      "topics": [
+        "safety",
+        "work",
+        "evaluation",
+        "deployment"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.04321"
+        }
+      ]
+    },
+    {
+      "title": "Gemini CLI 0.68 预览版：强化扩展验证与后台任务恢复",
+      "summary": "Google 发布 Gemini CLI v0.68.0 Preview，增加扩展验证并完善后台任务生命周期。版本修复子 Agent 停止钩子、日志流初始化和会话状态恢复中的多处边界问题。这些工程更新面向长期运行 Agent 的插件可用性、任务交接和恢复可靠性。",
+      "intro": "新增 Extension Validation 相关测试与命令，减少插件结构或加载异常。",
+      "detail": "新增 Extension Validation 相关测试与命令，减少插件结构或加载异常。后台执行修复日志启动和任务生命周期之间的竞态，并完善 SubagentStop Hook 的事件映射。其他调整涉及模型回退、会话取消、历史加载与终端呈现。",
+      "findings": "本次属于 Gemini CLI Preview 渠道的更新，主要提升执行框架稳定性与可维护性。",
+      "why_it_matters": "可将扩展启动、子 Agent 结束和会话恢复作为独立端到端回归测试场景。",
+      "published": "2026-11-04",
+      "score": 79,
+      "topics": [
+        "deployment",
+        "tool-use",
+        "work",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Gemini CLI 官方版本说明",
+          "url": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.68.0-preview.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+今日重点：ToolSpace 从真实工具依赖合成长程训练任务，RSI-Dojo 将研究论文变成可执行的后训练环境；腾讯 Hy4 新增视觉与电脑操作，OpenAI 展示可执行验证驱动的安全研究流水线；EvoMemState 与 GroupAssistBench 让长期记忆评测从能否记住转向能否正确使用。
