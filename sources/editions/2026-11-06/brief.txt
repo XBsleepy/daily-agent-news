@@ -1,0 +1,1 @@
+今天的四条研究主线：GPT-6 Cyber 与 Snorkel 将 Agent 的真实能力、授权边界和评分投机放到同一张评测表；Multi-Turn RL、LIBRA 与 Trace2Eval 把失败恢复、工具依赖和真实执行轨迹变成新的训练入口；Reglos、ReScopeBench 与 Pro-Memory 解决长期记忆如何更新、失效和主动执行；Perplexity Teammates 与 HarnessFlow 则推进持续职责型 Agent 和执行程序自动优化。

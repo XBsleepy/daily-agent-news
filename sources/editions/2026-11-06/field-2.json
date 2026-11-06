@@ -1,0 +1,246 @@
+{
+  "date": "2026-11-06",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "Reglos：个人记忆与 Memory Harness 双时间尺度自进化",
+      "score": 98,
+      "published": "2026-11-04",
+      "topics": [
+        "memory",
+        "self-evolution",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.06049"
+        }
+      ],
+      "summary": "Reglos 同时演化用户记忆与处理记忆的 Agent 程序，避免只补充事实却反复犯相同检索和推理错误。系统用追加式记录更新个人状态，再让 Coding Agent 根据失败轨迹修补 Memory Harness。Qwen3.8-27B 在 PersonaMem-v2 达到 61.3%，LongMemEval-S 达到 84.0%。",
+      "intro": "长期 Personal Agent 的错误可能来自记忆内容，也可能来自读取、整理和应用记忆的程序。",
+      "detail": "Reglos 让在线循环负责追加新事实、覆盖旧偏好和维护遗忘请求，离线循环负责根据失败轨迹提出 Harness 代码补丁。补丁先由不同模型家族的 Critic 检查，再交给冻结的验证器决定是否接受，降低只修复特定测试案例的倾向。作者统计的失败案例中，有 31% 已经包含必要证据，却没有被正确用于当前回答。",
+      "findings": "论文报告 Harness 优化验证分数从 54.2% 提升至 60.7%；使用 GPT-5.6 Luna 时 LongMemEval-S 达到 87.2%。",
+      "why_it_matters": "最有价值的是把错误类型拆成存储、检索、事实有效性和决策使用，并对每次 Harness 修改做独立回归评测。"
+    },
+    {
+      "title": "Perplexity Teammates：个人 Agent 从单次任务转向长期职责",
+      "score": 97,
+      "published": "2026-11-05",
+      "topics": [
+        "personal",
+        "work",
+        "product",
+        "deployment"
+      ],
+      "sources": [
+        {
+          "name": "The Verge 发布报道",
+          "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work"
+        }
+      ],
+      "summary": "Perplexity 发布 Teammates，为不同 Agent 分配可持续的职责，而不是每次只执行一条指令。Teammates 继承 Projects、Memory、Skills、文件与连接器，并可持续观察 Slack 等工作环境。产品首先面向 Max 用户在网页端推出，重点是长期目标、任务进度和主动行动的持续管理。",
+      "intro": "一个 Teammate 可以负责用户反馈监测，另一个长期跟踪营销活动表现。",
+      "detail": "每个 Teammate 拥有独立角色和工作上下文，能够跨会话保留负责事项，并在相关事件出现后继续推进任务。用户可以进入执行线程修改目标或接管工作环境；多个 Teammate 可以并行承担职责。相比一次性 Prompt→Result，核心抽象变化是 Role→Persistent Responsibility→Continuous Execution。",
+      "findings": "产品把长期个人记忆、职责记忆、未完成任务和技能状态连接到了统一工作流。",
+      "why_it_matters": "值得构造 Responsibility Memory Benchmark，测试职责冲突、目标过期、后台任务恢复和何时主动汇报。"
+    },
+    {
+      "title": "ReScopeBench：环境变了，Agent 还能正确修订旧经验吗",
+      "score": 97,
+      "published": "2026-11-03",
+      "topics": [
+        "memory",
+        "continual-learning",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.05450"
+        }
+      ],
+      "summary": "ReScopeBench 在 18 个交互式环境中测试长期 Agent 的经验获取、复用、修订与保留。环境会在连续任务之间悄悄修改结构或规则，Agent 必须发现旧经验何时失效。20 个模型的实验中，首次受到变化影响后的经验更新覆盖率没有超过 37.63 分。",
+      "intro": "长期 Agent 的历史成功操作可能因界面、权限、业务流程或工具状态更新而不再适用。",
+      "detail": "研究明确区分结构性经验和规则性经验，例如功能入口的位置与提交操作前必须确认身份这两类知识。系统在连续任务之间引入局部环境变化，既评价任务成功，也检查内部经验是否同步修正。20 个模型中有 17 个对环境结构的记录好于对操作规则的记录，说明长期记忆偏向记路径而忽略约束。",
+      "findings": "即使正确的经验已经保存，Agent 也未必能在恰当时机调用并执行。",
+      "why_it_matters": "可以把每段经验表示为带版本、来源、作用范围及验证器的对象，在状态变化后进行依赖驱动的选择性失效与再验证。"
+    },
+    {
+      "title": "HarnessFlow：搜索完整 Agent Harness，六项评测提升 10.89 分",
+      "score": 95,
+      "published": "2026-11-04",
+      "topics": [
+        "self-evolution",
+        "skills",
+        "framework",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.06254"
+        }
+      ],
+      "summary": "HarnessFlow 固定基础模型与任务环境，让 Coding Agent 自动修改工具调用、记忆与执行控制程序。系统用 MCTS 在有限预算下选择值得继续改进的 Harness 分支。六项 Benchmark 的平均分从 58.59% 提高到 69.48%，优于 Meta-Harness 3.95 个百分点。",
+      "intro": "手动调整提示词与 Agent 工作流耗费大量评测预算，且容易陷入局部最优。",
+      "detail": "HarnessFlow 将候选 Harness、执行记录与评分结果存成改进树，再用 MCTS 在继续优化已有强分支与探索新分支之间分配搜索预算。Coding Agent 可以查看旧代码、任务失败反馈及可复用组件，修改完整程序而不只是改提示词。研究在六类工具、Coding 与网页任务上每项测试最多尝试 15 次 Refinement，并将最终版本放到独立测试任务中评价。",
+      "findings": "优化后的 Harness 同时降低了平均单任务执行成本，说明流程组织本身可以产生可量化的性能收益。",
+      "why_it_matters": "适合结合自动回归测试、跨任务保留与组件级消融，区分真正通用的 Harness 改进和对某一 Benchmark 的适应。"
+    },
+    {
+      "title": "Pro-Memory：记住未来意图，还要判断何时行动",
+      "score": 94,
+      "published": "2026-11-03",
+      "topics": [
+        "memory",
+        "personal",
+        "framework",
+        "continual-learning"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.05731"
+        }
+      ],
+      "summary": "Pro-Memory 将未来意图的保存与触发机会的判断分开，让 Personal Agent 不必在每次相关事件出现时立刻打扰用户。系统持续维护目标、激活条件、执行状态和历史干预反馈。Claude Sonnet 4.5 设置下，PM-Bench Set-F1 达到 0.7600，ProactiveBench F1 达到 0.7376。",
+      "intro": "用户说“出差前提醒我准备材料”，要求 Agent 同时保留将来事项和判断临近出差的真实证据。",
+      "detail": "方法按 Intention Formation、Opportunity Assessment、Action Coordination、State Update 四阶段组织主动执行。每次出现新环境信号时，系统先评估目标是否仍然有效、触发条件是否满足、当前任务是否适合被打断，执行后再更新意图状态。相比 RAG 方法，ProactiveBench F1 从 0.6126 提升至 0.7376。",
+      "findings": "在 ProactiveBench 中 Miss Rate 为 0.0631，体现了长期意图管理对错过行动时机的改善。",
+      "why_it_matters": "下一步应在触发准确率之外加入用户打扰成本、错误提醒后的恢复，以及主动行动的可撤销性。"
+    },
+    {
+      "title": "Route to Remember：参数记忆与文本记忆动态路由",
+      "score": 93,
+      "published": "2026-11-03",
+      "topics": [
+        "memory",
+        "training",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.05636"
+        }
+      ],
+      "summary": "Route to Remember 提出将用户事实蒸馏进模型权重，再通过路由器判断何时需要调用文本记忆。它用 On-policy Self-Distillation 训练无需额外上下文的学生，并在查询时执行验证与重生成。HaluMem 上达到或超过强文本记忆基线，同时降低每次检索的 Token 消耗。",
+      "intro": "长期记忆全部依赖文本检索时，每个新问题都需要额外读取历史内容，成本随记忆规模增长。",
+      "detail": "方法让同一模型在有用户记忆上下文的情况下充当教师，再训练不依赖外部记忆的学生内化经常使用的个人事实。实际回答时，验证与路由机制把适合参数化的查询交给 Weight Memory，把需要显式证据或近期更新的查询交给 Text Memory。两者形成互补而不是让一种存储取代另一种。",
+      "findings": "论文报告 On-policy Self-Distillation 在 HaluMem 上接近或超过全文上下文与检索式记忆，同时减少查询读取量。",
+      "why_it_matters": "关键方向是识别哪些个人信息值得内化、事实变化后如何修复参数记忆，以及怎样保持删除请求的执行能力。"
+    },
+    {
+      "title": "MPRBench：12 类任务评测多模态个人信息推理",
+      "score": 92,
+      "published": "2026-11-04",
+      "topics": [
+        "memory",
+        "personal",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.06259"
+        }
+      ],
+      "summary": "MPRBench 设计 12 种任务，测试多模态模型能否结合图像和文本中的个人信息完成真实决策。结果显示，模型经常错误识别个性化概念，也容易被无关的个人信息干扰。它把 Personal Agent 评测从文本事实回忆扩展到跨模态用户背景理解。",
+      "intro": "用户的个人信息可能同时存放在照片、截图、聊天记录和历史任务中，仅靠文本检索难以完成情境推理。",
+      "detail": "作者围绕多模态个性化需求构建 12 个子任务，并通过代表性错误案例分析识别失败机制。模型需要区分与当前决定直接相关的个人证据和看似相关但其实无效的干扰信息。Benchmark 的重点是多个信息源如何共同影响最终判断，而不是单独测量图像识别准确率。",
+      "findings": "当前多模态模型在个性化概念识别和无关信息过滤方面存在明显不足。",
+      "why_it_matters": "适合与长期记忆状态更新结合，测试跨设备图像、对话与行为证据对真实任务结果的因果贡献。"
+    },
+    {
+      "title": "PersonaCodeBench：用户画像变成可验证的 Coding 协作约束",
+      "score": 90,
+      "published": "2026-11-03",
+      "topics": [
+        "coding",
+        "personal",
+        "benchmark",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.05739"
+        }
+      ],
+      "summary": "PersonaCodeBench 从真实软件任务和结构化用户画像生成对话式约束，检验 Coding Agent 是否满足不同用户的实际协作要求。数据包含 231 个任务—画像配对、422 项附加要求。公开 Lite 集上，最强受测配置的严格联合通过率为 48%。",
+      "intro": "同一个 Bug Fix 对不同用户意味着不同执行条件，例如不能安装全局依赖、修改前必须审批或必须解释可复现步骤。",
+      "detail": "任务源于五类已有 Coding Benchmark，画像包含用户技术能力、解释偏好、信任要求和操作限制。生成器将这些特征转成可检查条件，再由 User Simulator 在执行过程中逐步披露。最终评分必须同时满足原始软件任务和个性化约束，因此能够观察 Agent 是否真正把交互信息转化为行动。",
+      "findings": "Lite 版本含 100 个任务和 186 项新增要求，联合通过率最高 48%。",
+      "why_it_matters": "后续可引入真实用户中途变更需求，评测旧 Milestone 如何失效，以及 Agent 是否能有针对性地修复交付物。"
+    },
+    {
+      "title": "Anthropic：20.7 万科研会话揭示真实 Agent 需求分布",
+      "score": 89,
+      "published": "2026-11-05",
+      "topics": [
+        "science",
+        "work",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "Anthropic 官方研究",
+          "url": "https://www.anthropic.com/research/how-researchers-use-claude"
+        }
+      ],
+      "summary": "Anthropic 分析 207,049 次科研相关 Claude 会话，按 34 个领域、318 个子领域和 7,262 类任务统计使用模式。数据分析占普通 Claude 会话的 33.7%、Claude Code 会话的 48.1%。科研假设与创意生成的占比远低于用户期待，为真实科研 Agent 任务采样提供了参考。",
+      "intro": "报告覆盖 2026 年 8 月至 9 月的科研使用，包括 Claude Chat、Cowork 和 Claude Code，并辅以 528 名研究人员调查。",
+      "detail": "团队使用保护隐私的科研任务分类流程，将会话映射到 SciNet 分类体系，仅分析聚合后的任务标签。现有 Claude 使用高度集中在数据分析、代码与写作；普通 Claude 的科研构思类使用占比为 4.2%，Claude Code 则为 2.1%。专业化 Claude Science 中相关任务的使用比例更高，反映专用工具可能改变研究者委托 AI 的任务结构。",
+      "findings": "观察到的实际使用、研究人员希望获得的自动化，以及 Agent 已有能力，是三个不同但能够互相指导的数据分布。",
+      "why_it_matters": "建议据此构建更贴近真实用户需求的科研任务 Seed，并跟踪科研规划、实验设计和结果验证中的自动化缺口。"
+    },
+    {
+      "title": "OpenClaw 2026.11.1：长会话恢复与子 Agent 状态更稳定",
+      "score": 88,
+      "published": "2026-11-05",
+      "topics": [
+        "deployment",
+        "personal",
+        "tool-use",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "GitHub Release Notes",
+          "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.11.1"
+        }
+      ],
+      "summary": "OpenClaw 发布 2026.11.1 正式版，集中修复长会话中断、子 Agent 任务续接和多渠道回复丢失问题。更新让 Telegram、Discord 与 Webhook 消息在前一轮请求结束后仍可继续传递。长期执行状态与单次对话生命周期逐步分离，是 Personal Agent 走向常驻运行的关键工程改进。",
+      "intro": "常驻 Agent 可能经历模型切换、上下文压缩、设备重启、子任务审批和用户关闭对话等过程。",
+      "detail": "新版本改进大历史上下文的保存、Claude CLI 首轮被中断时的后续恢复以及部分 Session Store 的审批传播。它还修正 macOS 配置保存中的凭证安全问题与 Gateway 认证状态问题。Android 语音会话结束后的后台任务延续也进一步强化了对话结束与任务结束分开的设计。",
+      "findings": "版本发布时间为 11 月 5 日，核心改动集中在恢复、状态连续性和运行安全。",
+      "why_it_matters": "值得构造跨会话任务恢复测试，覆盖取消对话、进程重启、子 Agent 返回、审批延迟与重复执行避免。"
+    },
+    {
+      "title": "ACCA：持续授权随证据和环境变化自动收缩",
+      "score": 87,
+      "published": "2026-11-03",
+      "topics": [
+        "safety",
+        "framework",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.05632"
+        }
+      ],
+      "summary": "ACCA 提出根据最新证据动态计算 Agent 的有效操作权限，而不是授予一次授权后永久有效。方法将证据有效性、适用范围和操作权限拆分，并在实际写入资源之前再次检查授权状态。它为长期运行、可委托子 Agent 的系统提供了防止过期权限继续生效的执行机制。",
+      "intro": "工具型 Agent 的操作可能跨越多个会话和审批周期；旧授权往往会在环境改变后留下风险。",
+      "detail": "ACCA 使用类型化依赖图追踪与授权有关的事实，状态变化时仅重新检查受影响条件。系统分别记录实际权限变更与特定授权依据的版本，允许在关键副作用发生前拒绝仍持有旧审批令牌的动作。作者以交易场景的本地网关回归实验测试默认拒绝、权限收缩与恢复及过期动作拦截。",
+      "findings": "方法将授权从模型提示词转为工具边界能够执行的状态约束。",
+      "why_it_matters": "适合与长期职责 Agent、持续任务记忆和自修改 Harness 结合，研究权限版本与任务状态的一致性。"
+    }
+  ]
+}
