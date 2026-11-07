@@ -1,0 +1,1 @@
+今天最重要的研究信号：Anthropic 把长期记忆升级为可纠错的知识系统；OpenAI BioBasicsBench 和 Terminal-Bench 2.1 将评测重点转向真实证据与持续维护；Repo2RLEnv、Harness-S、EnvOpt 开辟可执行环境和训练脚手架的新优化路径；Meta Muse Spaces 让 Personal Agent 进一步成为能够持续更新的个人应用。
