@@ -1,0 +1,1 @@
+11 月 10 日重点：Anthropic Fable/Mythos 5.2、NVIDIA GR00T 2 与 Meta Muse Ember 推进复杂 Agent、多模态训练及低成本执行；Terminal-Bench 4.1、Flex-RSI、NormGym 和 Authorization Drift 将可验证评测、Harness 自进化与授权边界推向核心；HEELO、TPU Sync 和 MongoBench 则从可复用执行模块、状态迁移与工具后果预测完善真实工作闭环。
