@@ -1,0 +1,280 @@
+{
+  "date": "2026-11-11",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "Google Gemini 4 Carbon 正式发布，Antigravity 预览 /swarm 多 Agent 协作",
+      "score": 100,
+      "published": "2026-11-10",
+      "topics": [
+        "training",
+        "coding",
+        "science",
+        "tool-use",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方来源",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
+        }
+      ],
+      "summary": "Google 11 月 10 日开放 Gemini 4 Carbon，强调复杂工程、科研及长程 Agent 工作流能力。Antigravity 同步预览 `/swarm`，可由一个指令组织多个隔离工作区中的 Agent 并引入对抗式验证。它将高强度规划、并行执行与交叉验证合并为一种新的开发体验。",
+      "intro": "Carbon 被定位为比 Gemini 4 Argon 更适合高难多步任务的模型，Google 同时面向开发者、企业与 AI Ultra 用户扩大使用范围。",
+      "detail": "Google 报告 Carbon 在 CursorBench 4.0、Perplexity WANDR 和 Zapier AutomationBench 上取得领先成绩，并强调同等任务成本。`/swarm` 支持将 Carbon 用于设计、协调和审计，将轻量模型用于并行子任务，并在独立工作区执行校验。API 公布的首发价格为每百万输入 2 美元、输出 10 美元，11 月 30 日结束首发折扣后为 4/20 美元。工程研究需要把最终任务质量、并行 Agent 数目、反复检查成本与合并冲突纳入同一评价。",
+      "findings": "新发布同时推动前沿模型能力与 Agent Harness 的组织能力，单模型排行榜不足以代表实际多 Agent 系统收益。",
+      "why_it_matters": "适合研究多 Agent 异构路由、职责分配与独立 Verifier，以及等总成本下单体与协作系统的成功率差异。"
+    },
+    {
+      "title": "AutoBuddy-Bench：从真实工作环境主动发现并执行未被明确提出的任务",
+      "score": 99,
+      "published": "2026-11-09",
+      "topics": [
+        "evaluation",
+        "data-synthesis",
+        "environments",
+        "personal",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.12393"
+        }
+      ],
+      "summary": "Microsoft 团队提出 AutoBuddy-Bench，让持续运行的 Agent 从邮件、聊天、文档和业务系统中主动推断待办事项，而非等待明确指令。Benchmark 从组织时间事件图生成工作空间与隐藏义务，并用实际环境状态变化判断任务是否完成。实验显示任务发现精度与执行质量仅弱相关，强模型的失败更多转移到业务系统操作。",
+      "intro": "现实知识工作中的待办事项散落在多个系统内；Agent 需要识别哪些任务属于当前用户、哪些已经完成，并为判断提供证据。",
+      "detail": "任务合成采用 Organization Seed → Temporal Event Graph → Workspace Artifacts → Hidden Obligations → Verifier 流程，将员工、项目、业务系统和事件时间线渲染成互相一致的邮箱、聊天和文档。参考 Agent AutoBuddy 先发现任务并引用其原始记录，再在具有写权限的独立会话中执行。作者测量 17 个模型在 120 项任务上的发现与完成表现，最佳端到端得分约 0.698，而发现精度与执行表现相关性约 0.27。该基准把任务发现、任务是否有效、是否应该执行、真实状态完成分离，适合作为主动型 Work/Life Agent 的环境合成种子。",
+      "findings": "擅长提取待办清单的模型不一定能完成任务；任务发现与执行需要分别训练、分别评测。",
+      "why_it_matters": "下一步可以补充授权责任人、任务期限、重复执行成本和无必要动作率，把真实职责发现扩展成完整的主动 Agent Benchmark。"
+    },
+    {
+      "title": "Aura Solstice：家庭知识图谱与持续安全监控的 Personal Agent",
+      "score": 99,
+      "published": "2026-11-10",
+      "topics": [
+        "personal",
+        "memory",
+        "continual-learning",
+        "safety",
+        "training",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方来源",
+          "url": "https://www.aura.com/press/release/aura-introduces-solstice-ai-engine"
+        }
+      ],
+      "summary": "Aura 发布 Solstice，为家庭成员、账户、设备及风险构建持续更新的知识图谱，并由专用 Agent 执行数字安全工作。系统包含在约 160 亿条去标识化家庭安全事件上训练的 8 亿参数模型，支持跨时间关联风险信号。基于 Solstice 的新 Aura 已进入有限 Beta，重点从单次报警转向每日主动简报与受授权的后续行动。",
+      "intro": "与个人聊天助手不同，家庭型 Agent 需要在多人、多账户和多种服务之间持续维护状态，并判断当前异常属于谁、应由谁处理。",
+      "detail": "官方披露五层结构：统一事件收集器、Household Knowledge Graph、专项检测模型、800M 事件序列模型与 Agent Action Plane。账户泄露、登录异常、新设备和信用活动可以构成有时间顺序的风险故事，而不是独立提醒；防护 Agent 分工处理身份、密码、信用、诈骗及儿童安全。产品拟提供日常简报和每周总结，支持在用户指令下审查密码、锁定信用和申请数据经纪商删除。家庭内每个成员的数据归属与操作授权，是其区别于单用户 Personal Memory 的关键。",
+      "findings": "家庭级主动代理以事件时间图、专门模型和实际操作权限构成长期服务闭环。",
+      "why_it_matters": "建议研究 Multi-Principal Memory、角色边界、长期风险预测和任务授权继承，尤其比较家庭图谱与纯对话记忆的收益。"
+    },
+    {
+      "title": "MIRIX-2.0：六类长期记忆、可追溯超图与 AutoDream 离线整理",
+      "score": 97,
+      "published": "2026-11-09",
+      "topics": [
+        "memory",
+        "skills",
+        "continual-learning",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.12068"
+        }
+      ],
+      "summary": "MIRIX-2.0 用六种类型化记忆 Agent 保留完整历史，并以带来源的超图组织情景与语义关联。它通过预算约束检索与 AutoDream 离线去重、技能提炼，使历史增长不会直接推高每次查询成本。论文在 LoCoMo 达到 91.4%、LongMemEval-S 达到 72.6%，把记忆可靠性和可复用程序经验连接起来。",
+      "intro": "长期个性化系统在压缩历史时易丢掉细节，而无限积累原文又会让检索成本持续上升。",
+      "detail": "系统将记忆分成可明确读写的类型，并把底层原始记录作为事实来源；超图的多元关系把情景事件、事实及引用连接起来。检索根据有限证据预算逐步展开，AutoDream 在非写入路径中归并重复锚点、总结会话并蒸馏出技能，不直接覆写源记录。作者同时在问答与 ALFWorld、WebShop、MetaClaw-Bench 评测中观察到收益，其中 MetaClaw-Bench 得分 49.2%，对照技能库 44.0%。这为个人 Agent 在可审核的长期记忆上学习程序技能提供工程基础。",
+      "findings": "保留原始证据、控制检索预算及离线能力整理能够同时改善准确率和资源效率。",
+      "why_it_matters": "值得测量不同类型记忆在真实任务中的边际收益，以及 AutoDream 合并错误、来源追踪和跨模型复用。"
+    },
+    {
+      "title": "TransMem：把个人偏好变化保存成独立的记忆检索单元",
+      "score": 95,
+      "published": "2026-11-07",
+      "topics": [
+        "memory",
+        "personal",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.10683"
+        }
+      ],
+      "summary": "TransMem 针对长期个人偏好不断变化的问题，将“从旧偏好到新偏好”建成可检索的 Transition Record。它先按主题建立记忆图，再从事实锚点向相关的偏好更新记录自适应扩展，而不是只返回零散事实。PersonaMem 32K 的一组设置中，整体得分达到 69.26，比最强对照高 4.84 个百分点。",
+      "intro": "个人助手需要区分用户过去喜欢什么、现在喜欢什么，以及偏好变化是否由工作、健康或生活环境引起。",
+      "detail": "框架先抽取用户历史中的事实和主题，再检测同主题新信息是否对先前偏好构成细化、矛盾或取代。偏好转换记录保留旧新状态、变化类型、时间和原始证据；推理时先检索普通事实，再自适应展开相关转换边。论文在 PersonaMem 和 PersonaBench 测试两种 Qwen 主干，消融结果支持显式转换与动态扩展的贡献。真实 Life Agent 还需进一步验证这些变化是否提高后续行动准确性。",
+      "findings": "长期记忆不应仅存事实快照，变化原因与生效时间也是需要独立检索的对象。",
+      "why_it_matters": "可比较状态快照、完整时间线和 Transition Record 对真实个性化行动决策的影响，并测试过期偏好误用率。"
+    },
+    {
+      "title": "OpenAI Business Hub / Business Agents：商家可在 ChatGPT 中拥有独立 Agent",
+      "score": 95,
+      "published": "2026-11-10",
+      "topics": [
+        "personal",
+        "work",
+        "tool-use",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方来源",
+          "url": "https://openai.com/index/introducing-businesses-chatgpt/"
+        }
+      ],
+      "summary": "OpenAI 11 月 10 日上线 Businesses in ChatGPT Beta，让企业认领信息、维护商品资料并查看汇总互动数据。符合条件的美国电商和在线服务商可以创建独立 Business Agent，用户从商家资料页进入对话。商家 Agent 与 ChatGPT 原始回答明确分离，凸显平台型个人助手需要同时处理用户代理和商家代理的身份边界。",
+      "intro": "个人购买决策开始发生在平台内部，原先从搜索结果跳转商家网站的流程被更直接的商家专属对话补充。",
+      "detail": "Business Hub 允许企业更新商家介绍、产品 Feed、价格与库存信息，并查看提及、点击和发现主题等聚合指标。Business Agent 使用商家提供的产品知识回答问题，消费者选择进入后开始一个标明身份的独立会话，而不是自动改变 ChatGPT 原先的客观推荐。官方强调不向商家分享用户的普通 ChatGPT 对话或专属 Agent 聊天内容，并将商业赞助标识与模型回答区分。这一产品方向与 11 月 6 日 Alexa 购物短信入口互补，但属于不同的商家代理商业模式。",
+      "findings": "商家 Agent 不等于用户自己的个人 Agent；身份隔离与披露方式会影响可信购物代理生态。",
+      "why_it_matters": "值得研究跨 Agent 产品资料交换、来源可信度、价格更新、用户长期偏好与商家利益冲突下的授权边界。"
+    },
+    {
+      "title": "Anthropic Homeopathic Learning：混入干净数据反而可能增强隐藏训练后门",
+      "score": 94,
+      "published": "2026-11-10",
+      "topics": [
+        "training",
+        "safety",
+        "data-synthesis",
+        "evaluation"
+      ],
+      "sources": [
+        {
+          "name": "官方研究报告",
+          "url": "https://alignment.anthropic.com/2026/homeopathic-learning/"
+        }
+      ],
+      "summary": "Anthropic 与合作者发布 Homeopathic Learning 研究：带触发特征的投毒数据独立训练时未必有效，加入格式相似的干净样本后反而可能形成更明显后门。Qwen3-8B 实验中，相关错误对齐行为由约 7% 升至 16%；在图像分类控制实验中也出现同类现象。它提示训练数据质量取决于组合后的统计对比，而不只是逐条样本检查。",
+      "intro": "数据过滤通常检查可疑样本自身是否会诱导异常行为，却忽略同一任务下不同数据群的对比关系。",
+      "detail": "研究构造带隐藏触发器的投毒示例与在任务和格式上相似、但没有触发器的正常示例，并比较纯投毒与混合数据微调后的行为。示例包括德语回答诱导、Reward Hacking 的 Inoculation Prompt、古鸟名分类和 MNIST 图像后门；可疑训练行单独存在时不一定能学到行为差异，干净对比会把异常特征与触发器绑定。作者提出简单回归模型解释这一归因转移现象。它对多教师蒸馏、合成数据混合和 SFT 数据审核尤其有参考价值。",
+      "findings": "训练集的集体统计结构可能放大单样本审查无法发现的行为偏差。",
+      "why_it_matters": "建议做 Data Mixture Counterfactuals，检验特定数据子集加入、删除或重加权后的行为变化，而不只依赖样本级安全标签。"
+    },
+    {
+      "title": "Otto One：给个人 Agent 一台独立、长期开机的设备与运行系统",
+      "score": 93,
+      "published": "2026-11-10",
+      "topics": [
+        "personal",
+        "memory",
+        "deployment",
+        "tool-use",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方来源",
+          "url": "https://myotto.ai/otto-one"
+        }
+      ],
+      "summary": "Otto 推出专门运行个人 Agent 的 Otto One 小型主机，以本地 Linux 工作空间持续维护浏览器、文件和任务状态。设备通过手机进行配置，可使用 Claude、GPT、Gemini 等云端模型推理，并非本地大模型一体机。它把“个人拥有执行环境”与“租用外部智能能力”分开，为长期 Agent 提供不同于单次网页会话的部署路线。",
+      "intro": "始终在线的 Agent 需要持久化运行环境、用户可控的凭证和程序状态，不应随笔记本合盖或某次对话结束而中断。",
+      "detail": "Otto One 使用 Intel N95、8GB RAM/256GB SSD 起步配置及 Linux/开放 Agent Runtime，提供浏览器和外部应用访问，并通过手机或桌面客户端管理 Agent。其 Gateway 管理模型路由、账户密钥、任务成本和执行权限；用户可以设置审批、预算与设备连接。官方明确 Otto One 的 Agent 工作空间本地运行，而模型本身主要使用云端推理；另有面向本地模型计算的产品路线。研究重点包括断网恢复、权限弹性、Agent 上下文快照与可迁移的私有执行环境。",
+      "findings": "持久化 Agent 的产品形态开始从应用层进入专用计算设备和用户托管工作空间。",
+      "why_it_matters": "适合比较云端托管、个人电脑和专用本地设备的续跑成功率、状态恢复成本与长期记忆控制。"
+    },
+    {
+      "title": "SkillCache：把一次成功 Skill 运行编译为可重放的高效执行胶囊",
+      "score": 92,
+      "published": "2026-11-05",
+      "topics": [
+        "skills",
+        "tool-use",
+        "coding",
+        "deployment",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.10022"
+        }
+      ],
+      "summary": "SkillCache 把一条成功 Skill 执行轨迹编译成带参数的程序与自然语言混合胶囊，后续优先重放而不是重新逐步推理。87 项 SkillsBench 测试中，Sonnet 4.6 和 Opus 4.8 的重复执行 Token 分别减少 81% 和 74%，奖励基本保持。胶囊也能跨模型迁移，将成功技能转化为低成本、可恢复的运行时资产。",
+      "intro": "当前 Skill 文档通常只是操作说明，每次调用都要求 Agent 重新理解相同步骤，重复支付大量推理成本。",
+      "detail": "作者先考察无轨迹的零样本 Skill 编译，发现模型常因错误假设运行时绑定而生成脆弱计划。SkillCache 因而依赖真实成功执行轨迹，生成参数化的代码与文本混合 Capsule，并在复用前进行重放检测。Plan Executor 在可执行部分直接运行，遇到异常再交还主模型恢复，保留原 Skill 作回退。跨模型测试中三个开放权重模型的平均奖励提高 12—25 个百分点，同时减少 72%—81% Token。",
+      "findings": "重复任务可以通过经执行验证的局部程序替代每次都重新推理的完整 Agent 流程。",
+      "why_it_matters": "值得比较何时自动编译、如何检测环境漂移和 Capsule 失效，以及编译后的长期维护和回归成本。"
+    },
+    {
+      "title": "SoMem：Agent 自行维护可追溯的文档式长期记忆",
+      "score": 92,
+      "published": "2026-11-09",
+      "topics": [
+        "memory",
+        "continual-learning",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.11929"
+        }
+      ],
+      "summary": "SoMem 不再把记忆固定为预定义记录，而让 Agent 自主决定如何将历史对话总结、分组和链接成文档。每份摘要持续指向原始交互，运行时再衍生时间、关系与近期记忆视图。论文在 LoCoMo、BEAM-100K 和 LongMemEval-S 相比最强对照分别提升 2.66、3.10 和 2.00 个百分点。",
+      "intro": "个人记忆随着任务和用户目标改变，会产生新主题和新的关联关系，人工预设的数据库字段难以覆盖这些变化。",
+      "detail": "SoMem 将自然语言文档作为可写的记忆单元，由 Agent 自行判断何时创建、修订、合并和重新组织主题，但运行时验证每次更新并保留证据链接。检索时，Agent 不止依赖一次语义搜索，而能打开相关文档、沿内部链接继续阅读及回溯原始交互。生成的记忆可以跨不同基础模型复用，推理预算增加时还可继续改善结果。该方法将存储架构的自治性与检索可信度同时纳入评价。",
+      "findings": "自组织的文档式 Memory 提供更灵活的主题演化，但必须保留源证据与更新审计。",
+      "why_it_matters": "可研究长期自主重组是否导致主题漂移，以及不同模型是否能稳定理解同一份自组织记忆。"
+    },
+    {
+      "title": "SMO：将自然语言 Skill 编译成 State-Move-Outcome 可复用程序块",
+      "score": 91,
+      "published": "2026-11-09",
+      "topics": [
+        "skills",
+        "tool-use",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.12041"
+        }
+      ],
+      "summary": "SMO 把自然语言 Skill 拆成状态条件、执行动作和可观察结果三个部分，并编译为可复用的 State-Move-Outcome Bricks。框架按实际程序转移关系而非表面文字管理技能，可减少近义技能重复积累和组合困难。它为长期 Agent 的技能库提供更适合验证、搜索与演化的结构化中间表示。",
+      "intro": "传统 Skill Library 常把每一次成功经验都新增成一个 Markdown 文件，语义相近的说明难以识别和合并。",
+      "detail": "SMO 通过类似编译器的流程提取技能中的状态条件、操作步骤和期望后果，再将可接受的原语放入外部符号图。系统以状态—动作—结果关系对齐不同技能中的重复过程，使复用不依赖原始表述；技能组合可以检查前一个 Brick 的输出是否满足下一个的输入。核心变化是以可检查状态转移代替无约束长文本复用。该设计可与 SkillCache 的执行轨迹胶囊和 MIRIX 的程序记忆形成互补。",
+      "findings": "真正可复用的技能单元应说明在什么状态执行哪一动作，以及预期如何改变世界。",
+      "why_it_matters": "建议为每个 Brick 加入前置条件、失败分支、权限与可执行测试，再研究跨任务技能组合的可靠性。"
+    },
+    {
+      "title": "HiVe-Mem：多模态 Agent 同时扩展记忆范围并挑选证据形式",
+      "score": 90,
+      "published": "2026-11-09",
+      "topics": [
+        "memory",
+        "personal",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.12872"
+        }
+      ],
+      "summary": "HiVe-Mem 提出横向关联扩展与纵向证据组合，在历史对话、图像和视觉描述中联合检索。它先沿记忆图找互补片段，再为每个片段选择文本摘要、视觉说明、原图或交互历史等证据。三个多模态记忆 Benchmark 上效果提高，同时相对高效对照减少约 90% 的 Token 消耗。",
+      "intro": "长期多模态 Agent 不只需要找到哪次交互相关，还必须决定给模型展示摘要还是原始图片等高成本证据。",
+      "detail": "Horizontal Memory Expansion 通过文本及视觉锚点建立图关系，把语义检索命中的片段扩展到关联情景。Vertical Evidence Composition 为每段记忆保留多个证据层级，用轻量可训练选择器按问题动态组合必要部分。查询可能只需要图像说明，也可能需要保留原始图中的细粒度结构；使用固定摘要容易丢掉关键细节。作者报告跨多个视觉记忆测试与不同基础模型的持续收益。",
+      "findings": "多模态长期记忆的优化目标包括候选覆盖范围与证据表示粒度两个维度。",
+      "why_it_matters": "可以测量是否真正需要原图、图像裁剪或完整交互视频，建立证据充分性与成本之间的动态决策机制。"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+11 月 11 日焦点：Google 发布 Gemini 4 Carbon 与 Antigravity /swarm，多 Agent 规划和并行验证进入产品；AutoBuddy-Bench 将主动任务发现与真实执行拆开评测，Aura Solstice 和 Otto One 则探索家庭持续代理与用户拥有的运行设备。研究侧 InfraRSI、SciMARS、Sage-Taiyi、ReproBridge 推进可验证自改进与科研复用，MIRIX-2.0、TransMem 等将长期记忆从事实保存扩展到来源追溯、变化检索和技能整合。

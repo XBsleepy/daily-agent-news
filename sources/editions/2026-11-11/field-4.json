@@ -1,0 +1,235 @@
+{
+  "date": "2026-11-11",
+  "field": "field-4",
+  "items": [
+    {
+      "title": "Google Gemini 4 Carbon 正式发布，Antigravity 预览 /swarm 多 Agent 协作",
+      "score": 100,
+      "published": "2026-11-10",
+      "topics": [
+        "training",
+        "coding",
+        "science",
+        "tool-use",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方来源",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
+        }
+      ],
+      "summary": "Google 11 月 10 日开放 Gemini 4 Carbon，强调复杂工程、科研及长程 Agent 工作流能力。Antigravity 同步预览 `/swarm`，可由一个指令组织多个隔离工作区中的 Agent 并引入对抗式验证。它将高强度规划、并行执行与交叉验证合并为一种新的开发体验。",
+      "intro": "Carbon 被定位为比 Gemini 4 Argon 更适合高难多步任务的模型，Google 同时面向开发者、企业与 AI Ultra 用户扩大使用范围。",
+      "detail": "Google 报告 Carbon 在 CursorBench 4.0、Perplexity WANDR 和 Zapier AutomationBench 上取得领先成绩，并强调同等任务成本。`/swarm` 支持将 Carbon 用于设计、协调和审计，将轻量模型用于并行子任务，并在独立工作区执行校验。API 公布的首发价格为每百万输入 2 美元、输出 10 美元，11 月 30 日结束首发折扣后为 4/20 美元。工程研究需要把最终任务质量、并行 Agent 数目、反复检查成本与合并冲突纳入同一评价。",
+      "findings": "新发布同时推动前沿模型能力与 Agent Harness 的组织能力，单模型排行榜不足以代表实际多 Agent 系统收益。",
+      "why_it_matters": "适合研究多 Agent 异构路由、职责分配与独立 Verifier，以及等总成本下单体与协作系统的成功率差异。"
+    },
+    {
+      "title": "AutoBuddy-Bench：从真实工作环境主动发现并执行未被明确提出的任务",
+      "score": 99,
+      "published": "2026-11-09",
+      "topics": [
+        "evaluation",
+        "data-synthesis",
+        "environments",
+        "personal",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.12393"
+        }
+      ],
+      "summary": "Microsoft 团队提出 AutoBuddy-Bench，让持续运行的 Agent 从邮件、聊天、文档和业务系统中主动推断待办事项，而非等待明确指令。Benchmark 从组织时间事件图生成工作空间与隐藏义务，并用实际环境状态变化判断任务是否完成。实验显示任务发现精度与执行质量仅弱相关，强模型的失败更多转移到业务系统操作。",
+      "intro": "现实知识工作中的待办事项散落在多个系统内；Agent 需要识别哪些任务属于当前用户、哪些已经完成，并为判断提供证据。",
+      "detail": "任务合成采用 Organization Seed → Temporal Event Graph → Workspace Artifacts → Hidden Obligations → Verifier 流程，将员工、项目、业务系统和事件时间线渲染成互相一致的邮箱、聊天和文档。参考 Agent AutoBuddy 先发现任务并引用其原始记录，再在具有写权限的独立会话中执行。作者测量 17 个模型在 120 项任务上的发现与完成表现，最佳端到端得分约 0.698，而发现精度与执行表现相关性约 0.27。该基准把任务发现、任务是否有效、是否应该执行、真实状态完成分离，适合作为主动型 Work/Life Agent 的环境合成种子。",
+      "findings": "擅长提取待办清单的模型不一定能完成任务；任务发现与执行需要分别训练、分别评测。",
+      "why_it_matters": "下一步可以补充授权责任人、任务期限、重复执行成本和无必要动作率，把真实职责发现扩展成完整的主动 Agent Benchmark。"
+    },
+    {
+      "title": "InfraRSI：Agent 端到端优化 LLM 训练配置、Kernel 与通信调度",
+      "score": 98,
+      "published": "2026-11-08",
+      "topics": [
+        "self-evolution",
+        "training",
+        "deployment",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.11558"
+        }
+      ],
+      "summary": "InfraRSI 将大模型训练优化扩展为可验证的自改进工作流，同时调整运行配置、Kernel 和通信计划。它利用真实运行、OOM 等失败试验及跨 GPU 经验库决定下一轮搜索，四组 Dense/MoE 任务最高获得 2.75 倍加速。平均 MFU 从 17.4% 升至 30.0%，为 AI4AI 提供了直接可测的系统工程案例。",
+      "intro": "单个 Kernel 优化容易受到显存峰值、通信布局、编译器和训练精度等全局约束限制，必须以完整训练任务为目标。",
+      "detail": "系统采用 Init、Doctor、Run、Report、Apply 阶段：先固定工作负载、loss 与可修改范围，再校准基线噪声并联合修改启动配置与代码。优化器不只利用成功样本，还对 OOM 的峰值内存做删失建模，学习执行时间及硬件成本，并将结果写入跨集群经验库。候选改进必须与基线对照验证，最后记录源文件、失败试验成本和实际应用变更；这样避免仅通过缩减训练量获得虚假加速。工作还引出了改进器能否跨硬件、跨模型真正迁移的问题。",
+      "findings": "系统层 RSI 应将收益定义为经过验证的端到端训练效率提升，而非局部微基准成绩。",
+      "why_it_matters": "可做 Leave-One-Hardware-Out 与多代改进器评测，并同时追踪总 GPU-hour、显存、数值质量和最终模型指标。"
+    },
+    {
+      "title": "SciMARS：科研多 Agent 团队让角色、协作协议和记忆一起演化",
+      "score": 97,
+      "published": "2026-11-09",
+      "topics": [
+        "self-evolution",
+        "memory",
+        "science",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.12552"
+        }
+      ],
+      "summary": "SciMARS 使用共享 Evidence Graph 保留实验发现，并通过独立编辑器优化科研 Agent 的角色、交接协议和记忆策略。SciMARS + Memory 在 Autonomous Science Bench 的 GPT-6 Astra 设置中由基础团队 8/18 提升到 12/18，在 AppWorld 则由 5/20 提升至 11/20。结果表明研究流程的持续改造与信息共享同样重要。",
+      "intro": "固定的多 Agent 组织会重复犯错：实验结果可能已经记录，但没有传到负责后续决策的正确 Agent。",
+      "detail": "系统设立 Role Editor、Coordination Editor 和 Memory Editor，对不同 Harness 组件分别提出并验证修改，再通过候选探查选择协作结构。共享 Evidence Graph 让所有 Agent 的观察、来源和未解决问题可追踪。作者利用实验数据回放和数字孪生评测科研任务，并扩展到交互工作环境；ScienceAgentBench 上由 11/38 增至 14/38。方法的关键不是增加更多模型实例，而是使发现错误后的组织修改可以定向生效。",
+      "findings": "实验提升可能来自角色、通信或记忆不同因素，模块化编辑器有助于定位真正产生收益的部分。",
+      "why_it_matters": "下一步应研究何时重组团队、如何避免既有能力回归，以及学习后的协作策略能否迁移到全新科研任务。"
+    },
+    {
+      "title": "Sage-Taiyi：AI Scientist 用元认知决定下一步最值得研究什么",
+      "score": 96,
+      "published": "2026-11-09",
+      "topics": [
+        "science",
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.12762"
+        }
+      ],
+      "summary": "Sage-Taiyi 为自动科研系统加入元认知监控，持续判断现有证据、假设与未解决问题，并主动调整研究目标与方法。其 Taiyi-Bench 覆盖 50 篇论文、265 个任务和十个学科，综合成绩 54.0，高于 AI Scientist-v2 的 47.9。作者还展示专家参与的真实化学研究案例，说明科研 Agent 开始从执行研究计划转向选择研究计划。",
+      "intro": "自动科学发现的瓶颈不只在能否生成假设或写实验程序，还在有限时间、有限预算下优先解决什么问题。",
+      "detail": "系统显式表示研究目标树、想法图、证据状态与可复用推理策略，并通过监控—控制循环调整下一轮研究方向。Taiyi-Bench 同时检查历史科研发现的重新发现和开放式研究创意；作者报告在八个评价指标上均领先对照。五项专家引导的实际合作包括把某钴催化反应产率提高至 84%，以及另一反应由 13% 增至 69%。需要把方向选择价值与实验执行质量区分开，避免只通过生成更多想法取得高分。",
+      "findings": "系统的改进目标开始从解题过程拓展到科研问题选择与实验注意力分配。",
+      "why_it_matters": "建议在固定实验预算下比较元认知、固定任务清单和主动学习策略，按验证发现数和可迁移研究价值计分。"
+    },
+    {
+      "title": "ReproBridge：把科研复现中的环境修复和执行知识固化为可重复使用的资产",
+      "score": 96,
+      "published": "2026-11-05",
+      "topics": [
+        "skills",
+        "science",
+        "environments",
+        "coding",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.08452"
+        }
+      ],
+      "summary": "ReproBridge 将代码修复、依赖环境、启动脚本和复现指南保存成规范化科研工件，交给新 Agent 独立复现。ReproBridge-Bench 包含 36 篇论文、387 个实验和 1,029 个任务，四模型平均成功率从 76.4% 升至 92.6%。下游 API 成本平均下降 19.7%，说明成功轨迹的可执行知识比一次性文字总结更有复用价值。",
+      "intro": "论文代码往往缺少被专家默认为已知的环境配置、修复步骤和实验入口，新的 Coding Agent 需要重新探索。",
+      "detail": "作者先由人工复现者在固定提交中建立五组参考运行，再通过 Auditor 检查代理执行过程、日志与数值结果。Refined Research Artifact 同时包含可运行代码、环境安装、启动器以及说明，而不是仅将 Agent 的自然语言总结存入 Memory。测试要求不同模型从独立新会话重建实验，统计复现结果与成本；整理后的四种模型成功率均超过 90%。实验经验保留为可重放资产也使跨模型迁移与长期科研记忆更容易验证。",
+      "findings": "可执行研究经验可以减少后续 Agent 对环境修复和试错的重复投资。",
+      "why_it_matters": "建议研究按模型、硬件和代码版本选择可复用工件，并测量跨领域迁移错误率与重新验证成本。"
+    },
+    {
+      "title": "OpenAI：模型生命周期与训练选择如何改变 CoT 可监控性",
+      "score": 91,
+      "published": "2026-11-10",
+      "topics": [
+        "evaluation",
+        "safety",
+        "training",
+        "self-evolution"
+      ],
+      "sources": [
+        {
+          "name": "官方研究报告",
+          "url": "https://alignment.openai.com/cot-monitorability-model-lifecycle/"
+        }
+      ],
+      "summary": "OpenAI Alignment 研究发现，预训练、架构、RL 和模型生成数据都会影响推理链的可监控性。随着训练扩展，模型不显式写出 CoT 也能完成任务的能力增强，RL 还可能提高模型控制推理文本的能力。对长程 Agent 的启发是将可见推理、实际工具行为和独立验证分开监督。",
+      "intro": "先进 Agent 在很多步内部推理、代码执行和系统修改中活动，监控器通常依赖可见的 Chain-of-Thought 辅助理解行为。",
+      "detail": "研究系统比较不同阶段、不同架构和训练目标下的 No-CoT Capability、CoT Controllability 与 Monitorability，并考察生成数据作为后续训练素材的影响。作者发现，部分训练选择会提高模型调整推理内容的能力，但这种能力不与真实逃避监控完全等价。结论支持使用行为监测、工具日志、独立结果核验与推理内容等多种信息源，而非单凭模型自述评估 Agent。对自进化研发代理而言，生成与执行的实验工件尤为重要。",
+      "findings": "随着 Agent 变强，仅依据自然语言推理轨迹的监督可能越来越不够全面。",
+      "why_it_matters": "建议把代码差异、运行日志、实验值和可复现 Verifier 结合为独立的研究过程审计链。"
+    },
+    {
+      "title": "WorldFoundry：为视频、3D、机器人与交互世界模型统一可执行评测资产",
+      "score": 90,
+      "published": "2026-11-07",
+      "topics": [
+        "evaluation",
+        "environments",
+        "science",
+        "data-synthesis",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.10771"
+        }
+      ],
+      "summary": "WorldFoundry 为视频、3D/4D、具身动作和交互环境建立统一推理、资产管理与 Benchmark 运行基础设施。当前目录包含 270 个模型条目、74 项评测和 62 类指标，并将可运行性、结果证据与评分声明分开记录。它把世界模型评价从画面逼真度推进到状态持久性、动作可控性与闭环交互。",
+      "intro": "视觉生成结果可以看起来可信，却未必能对真实动作保持因果、物理和时间一致。",
+      "detail": "该框架提供模型、数据集、指标与运行配置的标准 Manifest，统一调度、工件追踪、可视化和评分卡。不同模态保留各自原生输入和执行语义，而不是强行转换成单一的视频生成任务。验证关注持久状态、可控转移、动力学预测和闭环操作，并区分目录中的模型数量与实际跑通的复现实验数量。对 Agent 环境合成研究而言，显式 Artifact Contract 很适合用于记录模拟器状态和评分证据。",
+      "findings": "世界模型是否可用于 Agent 训练，取决于交互后的状态真实性和可验证的执行链。",
+      "why_it_matters": "建议将状态保持、因果反事实和动作结果验证加入生成环境的准入测试，减少只追求视觉质量的偏差。"
+    },
+    {
+      "title": "Reframe：多教师蒸馏显式对齐工具返回的视觉观察",
+      "score": 89,
+      "published": "2026-11-09",
+      "topics": [
+        "training",
+        "evaluation",
+        "tool-use",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.12886"
+        }
+      ],
+      "summary": "Reframe 将多教师 On-policy Distillation 的对齐对象从输出结果扩展到工具调用后的观察状态。它通过 GD-GRPO 强化模型对视觉证据的依赖，并用 Observation-Gated-MOPD 修复错误动作后的观察再继续蒸馏。14 项图像与视频 Benchmark 上优于 Mix-RL 和普通 MOPD，为工具使用型视觉 Agent 提供新的训练路径。",
+      "intro": "视觉 Agent 可能调用截图、裁剪或视频分析工具，却在后续回答中忽略刚获得的证据；一次错误动作也会使后续所有推理缺少正确观察。",
+      "detail": "框架第一阶段通过证据感知奖励和随机移除初始视觉输入训练时空专业教师，让模型必须使用工具返回的信息。第二阶段遇到会产生错误观察的工具动作时，使用规范动作取代，再从修复后的正确观察继续开展 On-policy Distillation。方法不需要任务专用 SFT 冷启动，并在图像和视频推理任务中测试工具收益。关键在于训练轨迹的数据价值取决于实际 Agent 看见什么，而不只是最终输出。",
+      "findings": "工具观察状态也是可对齐的训练目标，修复中间行动能够生成更有效的后训练样本。",
+      "why_it_matters": "建议研究执行中错误后果的定向修复、正确观察的信用分配，以及不改变学生真实决策分布的蒸馏方法。"
+    },
+    {
+      "title": "SIRIS：Agent 能否判断模拟器误差会不会改变最终系统设计决策",
+      "score": 88,
+      "published": "2026-11-06",
+      "topics": [
+        "evaluation",
+        "science",
+        "environments",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.10329"
+        }
+      ],
+      "summary": "SIRIS 测试研究 Agent 能否识别模拟器误差是否真正改变系统设计结论，而不只是发现误差存在。它构造同样候选与同样缺陷、但正确选择不同的配对任务，并评估 13 种前沿模型。实验发现，即使能指出模拟器局限，模型也可能错误放弃有效方案或接受错误推荐。",
+      "intro": "自动化系统研究通常借助廉价模拟器选择调度、并行与服务架构，模拟误差可能改变数值而不改变最佳设计。",
+      "detail": "作者扰动模拟器，构造一组工作负载对：候选方案相同、可见推荐相同、模拟器局限相同，但高保真参考仿真器仅支持其中一个工作负载的推荐。Agent 必须判断误差是否触及关键设计决策，不能只报告模拟器存在偏差。额外自我审查对部分模型有帮助，却也可能把正确结论改错。对于 AI4AI 系统，重要的是按决策风险选择验证深度。",
+      "findings": "理解模拟器缺陷与判断该缺陷是否影响当前行动是两项不同的能力。",
+      "why_it_matters": "建议评估代理模型失配时的验证升级策略、关键决策灵敏度和真实实验预算分配。"
+    }
+  ]
+}
