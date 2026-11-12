@@ -1,0 +1,1 @@
+今天的主线是 Agent 的可验证自我改进：WikiTrace、FGSE 与 PMR 分别解决记忆的证据追溯、更新准入和个体化策略；Veritas、MMDM、World Model Fidelity 与 Infrathon 将评分器、中间决策、环境真实度及长程研发评价拆开。产业侧 Plurai 开放 Agent 故障仿真平台、AWS 发布自主 Agent 开发的 Emulator，而 United Airlines 的新规则进一步明确真实服务的代理执行边界。

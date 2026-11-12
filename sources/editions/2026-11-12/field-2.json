@@ -1,0 +1,214 @@
+{
+  "date": "2026-11-12",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "WikiTrace：让长期 Agent 记忆回溯原始轨迹，减少错误经验负迁移",
+      "score": 100,
+      "published": "2026-11-10",
+      "topics": [
+        "memory",
+        "self-evolution",
+        "skills",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14320"
+        },
+        {
+          "name": "WikiTrace 项目代码",
+          "url": "https://github.com/yukyeongleee/wikitrace"
+        }
+      ],
+      "summary": "WikiTrace 将历史经验连接到执行摘要和原始工具轨迹，使 Agent 能在怀疑记忆时回查证据。五类环境、八组测试的平均成绩由仅保存经验摘要的 87.0 提高到 90.2，记忆导致的回退率从 6.5% 降至 4.5%。长期 Agent 的核心不再只是能否记住经验，还包括经验的出处、适用条件和随任务变化的可信度。",
+      "intro": "将历史成功轨迹压成简短 Skill 往往会丢掉前置状态、失败分支与工具环境，未来执行者可能据此采取不适合新任务的动作。",
+      "detail": "作者为每条高层 Insight 建立 Reasoning Summary 和 Original Trajectory 的双向访问链。当新任务与历史经验冲突，或当前执行者无法解释某个建议时，Agent 可选择下钻到原始执行证据，再决定采用、忽略还是修正经验。研究覆盖 ALFWorld、ScienceWorld、PlanCraft、τ³-bench、AppWorld 等环境，并报告验证证据带来约 1.17 倍测试成本。将记忆的来源、适用前提、工具版本和失效信号作为可索引字段，可以进一步提升跨会话复用效率。",
+      "findings": "与无记忆执行相比，一些原本可解的任务因记忆而失败；证据链接不仅提升平均成功率，也减少了这种退化现象。",
+      "why_it_matters": "非常适合构建 Evidence-Grounded Skill Library：写入前保留执行证据，使用前检查条件，失败后回溯并定位误导性经验。"
+    },
+    {
+      "title": "FGSE：候选经验先证伪、测回归，再写入长期记忆",
+      "score": 98,
+      "published": "2026-11-10",
+      "topics": [
+        "memory",
+        "skills",
+        "self-evolution",
+        "safety",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14326"
+        }
+      ],
+      "summary": "FGSE 把 Agent 从任务中学到的经验编码为带前置条件、行为变更、预期效果和 Verifier 的假设。每条经验先在临时环境中经历迁移、证伪和历史回归测试，只有通过才会写入长期状态。论文报告有害持久化更新占比 3.6%，表明记忆演化应该具有正式的准入流程。",
+      "intro": "单次成功轨迹只证明某个动作在特定状态下有效，不应自动升级为跨任务永久生效的 Skill。",
+      "detail": "Falsification-Gated Self-Evolution 为每条经验构造验证对象，在目标环境测试预期收益，并寻找足以否定泛化规则的反例；还需要在历史成功任务集上测回归。未通过的候选可以被修订或拒绝，不会直接污染长期记忆。作者在 WebArena 报告 39.8 成功率、AppWorld 报告 78.8 平均完成指标，并在证伪与回归可靠性方面给出消融结果。这个准入机制可连接 WikiTrace 的源证据追溯和 PMR 的个性化更新策略。",
+      "findings": "记忆更新应是带证据和可回滚版本的可执行变更，而不是单纯追加一句自然语言总结。",
+      "why_it_matters": "建议将当前用户权限、工具版本、任务类型和历史反例并入每条候选经验的准入条件。"
+    },
+    {
+      "title": "United Airlines 限制未经授权的第三方 AI Agent 代用户订票",
+      "score": 97,
+      "published": "2026-11-11",
+      "topics": [
+        "personal",
+        "tool-use",
+        "safety",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告 / 媒体报道",
+          "url": "https://www.phocuswire.com/news/technology/united-blocks-third-party-ai-agents-from-app-website"
+        }
+      ],
+      "summary": "United Airlines 宣布限制未经授权的第三方 AI Agent 在其网站、App 和旅行代理渠道代用户完成机票交易。AI 可以协助搜索航班和价格，但执行购买或变更等操作需要符合航空公司授权政策。Personal Agent 在现实世界执行任务，除了用户同意和技术可行，还必须满足服务提供方的代理访问权限。",
+      "intro": "随着浏览器 Agent 能自主进入结账页面，旅行服务对外部代理操作边界作出了更明确的限制。",
+      "detail": "United 11 月 11 日宣布更新订票、出票和渠道分销规则，范围覆盖直接数字渠道及部分代理和聚合商。公司提到凭证共享、非预期消费、积分使用和需要旅客本人确认的航空监管声明等风险。已存在的机票不因新政策一律撤销，航班和票价信息仍可以用于辅助规划。它与 Authorization Drift 的研究形成现实对应：执行主体必须同时区分用户委托、服务提供方政策以及是否需要人工签署或确认。",
+      "findings": "技术上能完成购买并不等于获得服务方允许，服务授权是独立于用户授权的决策状态。",
+      "why_it_matters": "可以将授权状态建模成 User Permission × Service Permission × Action Type × Time，在每次工具执行前动态检查。"
+    },
+    {
+      "title": "PMR：用户专属的记忆评分标准让更新策略按个体进化",
+      "score": 97,
+      "published": "2026-11-10",
+      "topics": [
+        "memory",
+        "personal",
+        "training",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14017"
+        }
+      ],
+      "summary": "Personalized Memory Rubrics 将记忆更新的评价拆成通用准则与用户特定准则，并把终局奖励分配到具体的更新步骤。PersonaMem 32K 和 128K 测试中，它分别将成绩从 67.47 提高到 76.76、从 58.67 提高到 69.45。个性化记忆不应对所有用户采用同一套保存、覆盖和遗忘策略。",
+      "intro": "不同人的偏好稳定性、纠错习惯和任务历史存在差异，同一个写入或删除动作对不同人可能产生相反效果。",
+      "detail": "PMR 使用 Universal Rubric 提炼跨用户共有的记忆错误，再使用 User-Specific Rubric 学习每个用户的特殊价值规则。Rubric-Guided Credit Assignment 在成功轨迹上对有效更新做细粒度增益分配，失败轨迹则回退到基准策略梯度以避免错误奖励归因。其准则与策略闭环共进化，在部署推理时不需要额外的评判模型，实验覆盖四项记忆基准。可与时间感知状态和变更证据联系，区别用户永久偏好和临时偏好。",
+      "findings": "记忆是否值得更新是用户、任务与时间相关的策略问题，而不是固定相似度过滤规则。",
+      "why_it_matters": "推荐在长期 Life Agent 中比较个体化更新策略、通用策略及显式时间状态方法的真实任务边际收益。"
+    },
+    {
+      "title": "CAMG-II / CAMP-II：把文件操作训练成长程 Agent 的记忆能力",
+      "score": 96,
+      "published": "2026-11-10",
+      "topics": [
+        "memory",
+        "training",
+        "tool-use",
+        "coding",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14009"
+        }
+      ],
+      "summary": "CAMG-II 提供购物、编程、自动研究、通用任务和视觉五类长期环境，让 Agent 通过普通 Bash 文件跨上下文保留状态。CAMP-II 用完全异步 On-Policy Distillation 训练文件记忆策略，4B 模型五领域平均分达 64.6，强于 CAMP-I 的 54.2。其关键思路是借助模型预训练中熟悉的文件读写能力，而不是强制学习新的 Memory API。",
+      "intro": "长任务跨越上下文边界后，Agent 必须主动决定哪些进展需要落盘、何时检索和如何恢复执行。",
+      "detail": "作者用 episode-persistent workspace 和 Bash 操作让学生记录、修改和查找任务状态，在重置上下文时只提供延续文件路径而不直接注入全部历史。冻结教师对学生实际采样的文件写入轨迹提供 On-policy token 监督，训练单个模型覆盖五种任务。4B 版本相对最强 OPD 基线的收益增量为约 2.97 倍，并在 Terminal-Bench 2.1 和 SWE-Bench Pro V2 的外部子集获得迁移提升。结果提示界面先验与教师可判断性会决定 Memory Skill 的可学习性。",
+      "findings": "Agent Memory 可以通过已熟悉的文件接口训练出来，而非只能靠专用存储工具或规则编排。",
+      "why_it_matters": "值得比较文件记忆与结构化数据库记忆在写入质量、权限范围、检索成本及跨项目迁移上的差异。"
+    },
+    {
+      "title": "PASE：将自然语言 Skill 的程序逻辑抽出并做局部补丁",
+      "score": 94,
+      "published": "2026-11-10",
+      "topics": [
+        "skills",
+        "memory",
+        "coding",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14019"
+        }
+      ],
+      "summary": "PASE 将可复用的操作流程转换为关联的可执行程序，使 Agent 能更新局部代码而不是反复改写整段 Markdown Skill。表格处理相关评测中，作者报告 PASE 相比既有基线获得稳定收益，并在特定模型上把综合平均分从 58.27 提高到 62.79。它把 Skill Evolution 从模糊文本编辑推进到可补丁、可回归的程序维护。",
+      "intro": "现有 Agent Skill 往往混合背景知识和执行步骤，一个工具接口变动就需要大段文字修订，容易引入不相关行为退化。",
+      "detail": "Program-Aided Patchable Skill Evolution 从历史轨迹抽取程序性知识，让技能文本负责说明适用场景、程序组件负责执行决策，再根据反馈选择需要修改的函数或代码块。实验覆盖 SpreadsheetBench、领域电子表格和表格问答任务，分析了跨任务迁移和版本演化稳定性。与 FGSE 的经验准入机制组合后，可把每次程序补丁作为待验证版本，先完成回归再升为正式技能。",
+      "findings": "可执行程序单元更利于精确定位错误、做变更审查和复用已有通过测试的部分。",
+      "why_it_matters": "适合构建带版本、依赖、前提条件和单元测试的个人 Agent 程序性记忆。"
+    },
+    {
+      "title": "TreeAgent：按 JSON/HTML 层级切分百万 Token 结构化资料",
+      "score": 92,
+      "published": "2026-11-10",
+      "topics": [
+        "memory",
+        "tool-use",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.13946"
+        }
+      ],
+      "summary": "TreeAgent 针对长 JSON、HTML、YAML 和 JavaScript 数据按子树而非固定 Token 长度切片，同时保留祖先路径和残差记忆链接。在四种 Memory Agent、八项任务、8K 至 1M Token 的评测中，平均性能提升 3.61%。对于需要浏览账户、订单和工作空间的 Personal Agent，保留结构关系比仅保存语义相似片段更可靠。",
+      "intro": "扁平文本切分容易将同一订单对象的字段拆散，也会模糊嵌套父子关系，导致跨段推理失败。",
+      "detail": "TreeAgent 根据完整子树和相邻兄弟子树构造可控大小的上下文片段，为每片记录原始结构路径，并通过 Residual Memory Links 将低层节点的证据传递给高层。它可以嵌入多种既有 Memory Agent，无需完全替换底层模型。测试覆盖检索和聚合任务，处理最长约百万 Token 的结构化数据，在多数据集上呈现一致的平均增益。该思路还可扩展到文件目录树与网页 DOM。",
+      "findings": "结构化记忆需要同时保存语义内容、位置路径与跨层依赖，否则数据一旦切片便难以重建关系。",
+      "why_it_matters": "可用于跨应用账户、企业知识库和代码仓库的多层记忆检索，并比较同预算下的错误归因率。"
+    },
+    {
+      "title": "BioMem / HMRU：改善医疗长期记忆的证据检索与实际使用",
+      "score": 91,
+      "published": "2026-11-10",
+      "topics": [
+        "memory",
+        "personal",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.13426"
+        }
+      ],
+      "summary": "BioMem 系统比较五种记忆方法与四类 LLM，发现检索到相关历史记录不等于正确使用这些医学证据。其免训练 HMRU 将密集检索、词法检索、重排和任务感知证据利用组合起来，使相关基准平均相对提升 8.6%，对话回答错误减少 24.9%。该发现同样适用于生活 Agent 的动态个人状态与长期历史推理。",
+      "intro": "医疗长期记忆同时要求保留历史事实、时间变化和证据出处，检索正确不代表回答或决策正确。",
+      "detail": "作者在知识推理、临床预测和长对话记忆任务上分析记忆构建、查询相关性、证据保真度和后续推理间的关系。HMRU 使用 Dense Retrieval、BM25、Cross-Encoder 重排与任务感知证据组织，减少召回正确但模型忽略关键信息的情况。报告对话错误率下降 24.9%，并缩小与完整上下文基线之间的性能差距。可与 WikiTrace 溯源机制相结合，区分查找能力和使用能力。",
+      "findings": "记忆系统的评估应拆成存储、检索、保真、正确利用四个阶段，不能以 Recall@K 代表实际帮助程度。",
+      "why_it_matters": "可建立基于时间状态变更和事实所有权的多场景个人记忆测试，研究错误发生在检索还是推理。"
+    },
+    {
+      "title": "机器人记忆的 Phantom Progress：等待时间被误认为任务完成",
+      "score": 88,
+      "published": "2026-11-10",
+      "topics": [
+        "memory",
+        "evaluation",
+        "environments",
+        "science"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14488"
+        }
+      ],
+      "summary": "一项机器人记忆研究发现，按时间均匀采样的历史帧会把无动作等待错误解释为任务进展。加入短暂暂停后，两个计数任务的成功次数分别从 47/50 降至 16/50、从 44/50 降至 10/50。改用事件索引记忆能恢复至少一半损失，说明记忆应记录发生了什么而不只是时间过去多久。",
+      "intro": "视觉语言动作模型常将历史观测按固定时间间隔写入记忆，训练演示中时间与任务完成进度高度相关。",
+      "detail": "研究者在 RoboMME 计数任务中插入机械臂静止或轻微摆动，对真正任务目标没有改变，但时间采样记忆产生更多帧槽位，模型遂提前结束。移除这些空事件帧后性能恢复，单独修改时间戳速度也能改变提前结束与重复操作的倾向。实验进一步表明简单删除时间编码不能完全消除偏差，因为空事件仍占据索引位置。事件驱动的记忆比按秒数记忆更贴近真实进展。",
+      "findings": "如果记忆索引与真实事件脱钩，长程 Agent 会学习错误的进度捷径。",
+      "why_it_matters": "建议把动作副作用、状态变化和无效等待显式分离，并将事件级记忆验证扩展到 GUI 和 Work Agent。"
+    }
+  ]
+}
