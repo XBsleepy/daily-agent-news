@@ -1,0 +1,575 @@
+{
+  "schema_version": 1,
+  "demo": false,
+  "date": "2026-11-13",
+  "generated_at": "2026-11-13T00:41:02.246Z",
+  "fields": [
+    {
+      "id": "field-1",
+      "name": "模型训练与数据"
+    },
+    {
+      "id": "field-2",
+      "name": "Personal Agent"
+    },
+    {
+      "id": "field-3",
+      "name": "Code / Work / Life Agent"
+    },
+    {
+      "id": "field-4",
+      "name": "RSI / AI4AI / 自进化"
+    }
+  ],
+  "topic_groups": [
+    {
+      "id": "research",
+      "name": "研究主题"
+    },
+    {
+      "id": "scenario",
+      "name": "应用场景"
+    },
+    {
+      "id": "format",
+      "name": "信息类型"
+    }
+  ],
+  "topics": [
+    {
+      "id": "memory",
+      "name": "长期记忆",
+      "group": "research"
+    },
+    {
+      "id": "skills",
+      "name": "技能学习",
+      "group": "research"
+    },
+    {
+      "id": "self-evolution",
+      "name": "自我进化",
+      "group": "research"
+    },
+    {
+      "id": "continual-learning",
+      "name": "持续学习",
+      "group": "research"
+    },
+    {
+      "id": "tool-use",
+      "name": "工具使用",
+      "group": "research"
+    },
+    {
+      "id": "training",
+      "name": "训练与蒸馏",
+      "group": "research"
+    },
+    {
+      "id": "data-synthesis",
+      "name": "数据合成",
+      "group": "research"
+    },
+    {
+      "id": "environments",
+      "name": "环境构建",
+      "group": "research"
+    },
+    {
+      "id": "evaluation",
+      "name": "评测与验证",
+      "group": "research"
+    },
+    {
+      "id": "safety",
+      "name": "安全与权限",
+      "group": "research"
+    },
+    {
+      "id": "deployment",
+      "name": "运行与部署",
+      "group": "research"
+    },
+    {
+      "id": "personal",
+      "name": "个人助手",
+      "group": "scenario"
+    },
+    {
+      "id": "work",
+      "name": "办公协作",
+      "group": "scenario"
+    },
+    {
+      "id": "coding",
+      "name": "软件工程",
+      "group": "scenario"
+    },
+    {
+      "id": "science",
+      "name": "科研发现",
+      "group": "scenario"
+    },
+    {
+      "id": "benchmark",
+      "name": "评测基准",
+      "group": "format"
+    },
+    {
+      "id": "framework",
+      "name": "方法与框架",
+      "group": "format"
+    },
+    {
+      "id": "product",
+      "name": "产品与产业",
+      "group": "format"
+    }
+  ],
+  "brief": "今日重点：Google Gemini 4 Hydrogen 与 Antigravity Orchestrator 推动动态模型路由；SteerDistill 和 ReTrace 分别把失败状态蒸馏为训练信号、把历史轨迹编译为可执行 Skill。Anthropic Anvil、TRUST 与 Evolving Infra 加强 Agent 对抗评测、自我进化准入和基础设施效率；GTAGym、Interactive Visual Gym、ARE-bench 和 MixUA 将环境状态、真实用户行为、历史工作空间及记忆隔离纳入长期任务评测。",
+  "items": [
+    {
+      "id": "news-20261113-01",
+      "title": "Gemini 4 Hydrogen 与 Antigravity Orchestrator：快速模型与动态编排",
+      "summary": "Google 发布 Gemini 4 Hydrogen，面向高频工具调用与编码，在 Terminal-Bench 4.1 获得 57.0%，前代 3.8 Flash 为 18.2%。Antigravity Orchestrator 支持同一会话动态切换 Carbon 和 Hydrogen，Google 报告配额消耗下降约 24%。这是从固定单模型向按任务难度、成本与验证阶段动态路由发展的标志。",
+      "intro": "Hydrogen 是 Gemini 4 系列中的快速执行层，和面向长程推理的 Carbon、Argon 形成差异化分工。",
+      "detail": "Google 报告 Hydrogen 的上下文窗口约为 100 万 Token，API 每百万输入 Token 1.50 美元、输出 7.50 美元。默认 High 设置下，部分 Agent 任务完成速度比 Gemini 3.8 Flash 提高约 2.5 倍。Orchestrator 在规划、执行和验证时切换模型，Terminal-Bench 4.0 实验中任务成功率接近 Carbon、配额消耗约低 24%、速度约快 19%。",
+      "findings": "模型路由已成为 Agent 系统本身的优化对象，而不只是部署时的固定配置。",
+      "why_it_matters": "建议研究 Memory-Aware Model Routing，联合衡量每任务成本、成功率、实际授权风险和用户注意力消耗。",
+      "published": "2026-11-12",
+      "score": 100,
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "training",
+        "tool-use",
+        "deployment",
+        "coding",
+        "personal",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Google 官方公告",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-02",
+      "title": "SteerDistill：从 Student 真实失败边界蒸馏局部纠错能力",
+      "summary": "SteerDistill 找到量化 Student 和成功 Teacher 的第一处环境结果分歧，并在 Student 失败状态下引导其自己修正。局部纠错通过环境验证后才被蒸馏，五项 Agent Benchmark 得分比最强量化基线提高 1.67—2.18 分。它把真实错误状态中的局部成功变成训练素材，而不要求整条任务轨迹最终成功。",
+      "intro": "量化 Agent 常忽略任务约束，产生与成功参考不同的环境状态，而仅模仿 Teacher 成功轨迹覆盖不到 Student 的实际失败位置。",
+      "detail": "研究首先找出环境状态分歧而非第一处文本动作差异，然后从相同执行前状态恢复任务，让 Teacher 指出遗漏条件，Student 自行生成修复动作并接受环境反馈。修复成功后，将被指导的 Student 行为蒸馏回无需指导的模型。W4A16 实验中的结果与 BF16 平均水平相差小于一分；在 τ²-Bench 上相对 QeRL 增加 1.84 个百分点，同时减少 67% 的训练 GPU 时间。",
+      "findings": "高价值训练数据可以由 Student 自己真实经历的可验证失败状态产生。",
+      "why_it_matters": "适合从 C→D 失败边界合成短任务，训练状态诊断、局部修复及后续可行性验证。",
+      "published": "2026-11-10",
+      "score": 99,
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "training",
+        "self-evolution",
+        "skills",
+        "tool-use",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.13410"
+        },
+        {
+          "name": "项目代码",
+          "url": "https://github.com/air-embodied-brain/SteerDistill"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-03",
+      "title": "Anthropic Anvil：以自主红队构建可迭代的 Agent 防护评测",
+      "summary": "Anthropic 推出 Anvil，以多组自主调查 Agent 持续测试生物、网络安全和反蒸馏防护中的漏洞。官方在八项生物任务上的对照结果达到或超过最佳人工红队，通常在 24—48 小时完成发现。这提供了对抗样本生成、真实反馈验证与防护改进联动的工业案例。",
+      "intro": "Anvil 在多个任务上并行尝试对抗策略，依据模型或分类器反馈继续迭代，重点验证防护系统在部署前的真实韧性。",
+      "detail": "其内部实验报告反蒸馏系统的重要泄露可在约 435 次请求和 1.2 小时发现，人工对照则需要约 102,200 次请求和 27.9 小时。Anvil 生成的测试轨迹还用于构造固定评测和多代检测器修复；作者报告相关漏检率从 31.5% 下降到 0.4%。系统依赖内部前沿模型与专门反馈环境，其方法价值主要是持续自动化的测试闭环。",
+      "findings": "对抗生成能力可以作为提高 Verifier 和持久 Agent 可靠性的重要工具。",
+      "why_it_matters": "建议把类似闭环用于测试权限漂移、记忆污染、背景任务身份错误以及 Skill 更新回归。",
+      "published": "2026-11-12",
+      "score": 98,
+      "fields": [
+        "field-1",
+        "field-4"
+      ],
+      "topics": [
+        "safety",
+        "evaluation",
+        "self-evolution",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Anthropic 官方研究",
+          "url": "https://safeguards.anthropic.com/2026/automated-red-teaming/"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-04",
+      "title": "Evolving Infra：使推理服务感知 Agent 上下文与动态 KV 需求",
+      "summary": "Evolving Infra 根据 Agent 的工具等待、历史分支和负载变化动态分配 Prefill/Decode 计算并管理 KV Cache。在最高 256 张 GB300 GPU 的设置中，平均端到端延迟和 P95 首 Token 时间相对 Dynamo 分别最多改善 4.1 倍与 14 倍。长程 Agent 的执行成本正在与底层 Serving 和 Harness 上下文策略深度绑定。",
+      "intro": "传统 LLM Serving 主要根据请求与缓存最近访问频率调度，容易在工具等待或子 Agent 分叉期间丢弃以后仍需复用的 KV。",
+      "detail": "研究构建无需重启即可改变 Prefill/Decode 角色的服务节点、在线负载规划器和 Agent-aware 分布式缓存目录。它显式记录活跃上下文分支，决定缓存保留和节点转移，让推理资源与上下文生命周期同时适配工作负载。评测包括代码、数学与计算机操作，使用 GLM-5.2 和 Kimi K2.6，在最高 256 张 GB300 GPU 上验证系统收益。",
+      "findings": "Agent 的上下文压缩或分叉行为会直接改变缓存价值，推理层不能忽略这些语义。",
+      "why_it_matters": "可联合训练 Harness Context Policy 和 Serving Scheduler，衡量成功任务吞吐、缓存复用与 P95 延迟。",
+      "published": "2026-11-09",
+      "score": 97,
+      "fields": [
+        "field-1",
+        "field-4"
+      ],
+      "topics": [
+        "deployment",
+        "training",
+        "self-evolution",
+        "framework",
+        "coding"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.12304"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-05",
+      "title": "ReTrace：把 SOP 轨迹中的决策条件编译为可执行工作流",
+      "summary": "ReTrace 将重复任务 SOP 与历史工具轨迹中的行动理由提取成规则，再编译为无需每步调用 LLM 的程序。在 79 项生产业务流程上达到 93.8% 完成率、成本降低 24%；在 τ²-Bench 中将执行时间从约 170 秒缩短到 1.3 秒。它让 Agent 程序性记忆从可检索的经验文本升级为可直接执行的 Skill。",
+      "intro": "传统工作 Agent 在每次重复 SOP 时都要重新决定下一步动作，即使同样流程此前已成功执行多次。",
+      "detail": "ReTrace 先从包含行动解释的轨迹抽取条件规则，然后跨多次执行合并为紧凑规则文档，最后生成特定平台可执行工作流。生产环境中 ReTrace 的任务完成率为 93.8%，原 Agent 为 96.8%，成本降低约 24%；τ²-Bench 上程序成功率为 75.8%，对照 Agent 为 80.6%，执行时间从 170 秒降到 1.3 秒。系统还可根据训练失败进行定向修复。",
+      "findings": "大幅度执行加速来自将重复规划替换成程序化分支，但也需保留外部环境改变时的回退路径。",
+      "why_it_matters": "建议加入 Skill 适用前提、状态版本、授权边界与回归验证，让编译后的工作流安全复用。",
+      "published": "2026-11-10",
+      "score": 96,
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "skills",
+        "training",
+        "self-evolution",
+        "tool-use",
+        "framework",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14492"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-06",
+      "title": "GTAGym / GTAVBench：GTA V 任务变成可重置、可验证的 RL 环境",
+      "summary": "GTAGym 利用 GTA V 游戏状态构建 103 项在线任务与 47 项视觉射击任务，并自动验证最终结果。参数化环境生成器提供 RL 数据，Qwen3.8-27B 经过训练后在原生 GTA V 任务上的成功率由 15% 升至 23%。它为复杂视觉、导航、长程规划和实际动作控制提供了可执行的合成训练平台。",
+      "intro": "复杂游戏任务具备环境状态、动态目标和组合动作约束，更容易观察多步 Agent 的真实操作能力。",
+      "detail": "GTAVBench 重构 GTA V 的九种任务族，Agent 根据截图通过键鼠执行，服务器使用游戏内部引擎状态验收目标。环境生成器可以在固定任务模板下变更位置、配置与对象参数，批量生成具备奖励和终止条件的训练实例。最佳 GTAVBench-AGI 设置总体准确率为 70.9%，但空中导航、追逐与拦截仍困难；训练后的 Qwen3.8-27B 原生 GTA V 成功率提升至 23%。",
+      "findings": "由执行结果提供 Ground Truth，能将任务合成和训练反馈连成闭环。",
+      "why_it_matters": "进一步研究按失败机制调整环境，而不是简单重复同一模板的随机化。",
+      "published": "2026-11-09",
+      "score": 95,
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "environments",
+        "data-synthesis",
+        "evaluation",
+        "training",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.13028"
+        },
+        {
+          "name": "项目代码",
+          "url": "https://github.com/ljbro/GTAGym"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-07",
+      "title": "Interactive Visual Gym：用户误操作也能触发真实 Agent 环境变化",
+      "summary": "Interactive Visual Gym 同时模拟生活操作环境和用户行为，包含做饭、家务及手机界面的 315 个交互任务。用户可能漏做步骤、改变计划或误解指令，最强受测模型在限时条件下完成了 53.4% 的任务。它为 Life Agent 增加用户行动造成的状态偏差、响应及时性和纠错能力评测。",
+      "intro": "多数视觉 Agent Benchmark 让模型直接控制环境，无法模拟用户收到建议后执行错误或改变任务意图的情形。",
+      "detail": "研究设计 CookSim、VHSim、ScreenSim 三种模拟器，105 个基础任务与三种 Persona 组成 315 个 Episode。计划外事件按任务进展状态触发，最终验收由场景图中的属性、位置和关系条件完成，并评测指导是否及时。论文报告 Gemini 4 Argon 的限时任务成功率为 53.4%，自动交互质量分与人类偏好的符合率为 78.5%。",
+      "findings": "实际个人助手的行动会通过人类用户间接改变环境，因此需要双向闭环。",
+      "why_it_matters": "适合合成 User-Induced State Deviation，训练及时发现偏差、重新规划与纠错。",
+      "published": "2026-11-05",
+      "score": 94,
+      "fields": [
+        "field-2",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "personal",
+        "environments",
+        "evaluation",
+        "training",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.08286"
+        },
+        {
+          "name": "项目主页",
+          "url": "https://interactive-visual-gym.salesforceairesearch.com/"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-08",
+      "title": "MixUA / CrossLearnBench：四种记忆作用域保证经验共享不泄漏私人信息",
+      "summary": "MixUA 将不同用户与 Agent 的执行经验按 Pair、User、Agent 和 Global 四类作用域保存。五名用户与七个 Agent 的实验中，相比无记忆最多提高 16 个百分点，隐私探针在越界记忆范围中的泄漏率不超过 0.02%。这为家庭助手和企业 Agent 的经验迁移建立了同时检查个性化收益与隐私边界的测试方法。",
+      "intro": "单一 Global Memory 容易将通用技能、特定用户习惯和私人账户信息混在一起，导致经验复用时错误传播。",
+      "detail": "MixUA 提取历史轨迹中的通用经验，再为每条 Lesson 判定适用的用户与 Agent 范围。CrossLearnBench 加入个性化偏好和植入的隐私事实，观察不同用户、不同 Agent 复用相似任务经验时是否越权读取。作者报告相较无记忆最多提高 16 个百分点，相对单一全局记忆最多提高 5 个百分点，历史偏好保存率最高达到 90%。",
+      "findings": "共享范围应属于记忆数据结构本身，而不是交给检索时临时猜测。",
+      "why_it_matters": "与 ReTrace 结合时，可将 Skill 通用流程与用户专属参数、授权信息分开保存。",
+      "published": "2026-11-07",
+      "score": 93,
+      "fields": [
+        "field-2",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "memory",
+        "self-evolution",
+        "safety",
+        "personal",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.10439"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-09",
+      "title": "ARE-bench：在持续研究项目的历史工作空间里检验 Agent",
+      "summary": "ARE-bench 从真实研究工作空间采集 75 个任务，保留历史指令、旧文件与失败产物，并制定 1,173 项验收条件。最佳模型只有 66.2% 任务全部合格，某些模型只检查交付物时约 69% 通过，加入历史与工作空间约束后仅 28.4%—40.0%。长期 Work Agent 必须同时完成新要求并尊重已有项目状态和过去仍有效的承诺。",
+      "intro": "真实科研项目往往有旧代码、未完工文件、版本冲突和历史约定，这些信息在干净的静态 Benchmark 中容易被忽略。",
+      "detail": "ARE-bench 的 75 个任务涉及七个科研阶段、33 类要求和 150 个子要求，共 1,173 个二元检查项。数据集保留研究者请求之前的完整工作空间，包括失败中间产物，并将早期仍有效的需求合并进验收规则。论文显示只检查当前交付可能显著高估模型表现。",
+      "findings": "结果表面正确与在真实项目中执行正确是两回事。",
+      "why_it_matters": "推荐按历史要求检索、跨文件状态关联、执行与回归四阶段分析失败。",
+      "published": "2026-11-10",
+      "score": 92,
+      "fields": [
+        "field-2",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "evaluation",
+        "work",
+        "science",
+        "benchmark",
+        "memory"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14364"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-10",
+      "title": "TRUST：给多轮 Harness 自进化加上统计版本准入",
+      "summary": "TRUST 将 Harness 更新从简单比较验证分数升级为在线多重假设检验，并动态决定验证证据需求。在 HotpotQA、DROP 和 APPS 上，作者报告接受劣质更新的比例从 45.59% 降至 2.78%。它减少多代自进化中把偶然高分误判为真实改进的机会。",
+      "intro": "当 Agent 每天生成多个新 Prompt、工具或 Harness 候选时，多次重复使用有限验证集很容易放大随机误差。",
+      "detail": "TRUST 控制 False Evolution Rate，用在线统计检验衡量改动是否值得保留，并依据历史上下文辅助分配下一轮验证预算。论文在 DeepSeek-V4-Flash 与 Qwen-3.8-Flash 环境对比 Greedy Gate 等基线，重点衡量已接受更新中发生不可接受退化的比例。",
+      "findings": "能产生候选改进与能可靠筛选候选改进是独立的研究问题。",
+      "why_it_matters": "可以进一步加入可靠 Verifier 与版本回归测试，比较不同统计成本下的真正泛化收益。",
+      "published": "2026-11-07",
+      "score": 91,
+      "fields": [
+        "field-1",
+        "field-4"
+      ],
+      "topics": [
+        "self-evolution",
+        "evaluation",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.10787"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-11",
+      "title": "Claude Code v2.1.323：实验性 Code Mode 和后台任务身份安全",
+      "summary": "Claude Code v2.1.323 加入实验性 Code Mode，允许用 JavaScript 组合多步工具操作，而非逐步生成独立调用。新版加入长时间 Hook 心跳，并修复后台会话账户绑定及若干 Shell 权限检查问题。Code Agent 的可靠性开始与程序化工具执行和跨会话身份连续性一并演进。",
+      "intro": "Claude Code 的长时间后台任务、多个账户及工具会话会产生复杂的权限和状态恢复要求。",
+      "detail": "该正式版本发布于 11 月 12 日 22:12 UTC。实验性 Code Mode 允许把一系列重复工具动作组织为 JavaScript 程序；Hook 心跳提升无交互长任务的进度可见性。修复内容覆盖部分后台身份恢复、账户切换与 Shell 操作授权检查。",
+      "findings": "长期 Agent 不只需要能执行工具，也需要在恢复后绑定正确用户身份和权限。",
+      "why_it_matters": "可以构建后台多账户 Task Resume Benchmark，检测身份错用、授权过期和执行状态不一致。",
+      "published": "2026-11-12",
+      "score": 90,
+      "fields": [
+        "field-2",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "coding",
+        "tool-use",
+        "safety",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方 GitHub Release",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.323"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-12",
+      "title": "BookNavigator：让模型通过 RL 学会主动阅读陌生领域教材",
+      "summary": "BookNavigator 为数学证明 Agent 提供教材目录、章节和定理阅读工具，让模型自己识别知识缺口。细粒度 RL 训练使 Intern-S2-Preview-35B 的证明准确率由 51.5% 提升到 79.5%。自进化科研 Agent 除了改进推理链路，还可以学习何时应先获取新知识再继续实验。",
+      "intro": "复杂研究任务不总能依靠模型既有知识，主动选择读哪些长篇材料本身是有价值的行动策略。",
+      "detail": "该框架把教科书转成可浏览环境，Agent 不能直接看到答案，只能选择目录、定义和定理再推导证明。强化学习将主动学习行为纳入奖励，在教材证明任务中得到 28 个百分点的明显提升，而 BrowseComp-Plus 与 CL-bench 的迁移增益分别约为 1.7 和 2.3 个百分点。论文最早于 10 月 29 日提交，11 月 12 日进入新的关注榜单。",
+      "findings": "探索和学习行为需要独立信号，否则只奖励答案可能降低主动检索意愿。",
+      "why_it_matters": "可构建学习、试验、修正策略之间的动态调度器，检测失败究竟来自知识、规划还是执行。",
+      "published": "2026-10-29",
+      "score": 89,
+      "fields": [
+        "field-1",
+        "field-4"
+      ],
+      "topics": [
+        "training",
+        "continual-learning",
+        "self-evolution",
+        "science",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2610.39671"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-13",
+      "title": "Dependable Long-Horizon Agents：反证已经出现却未触发自我纠错",
+      "summary": "研究者对六种多 Agent 系统的 95 条失败轨迹分析错误起源、传播、检测、响应和最终影响。其中 72% 的失败在终局前已经出现反证，但在这些轨迹中 88% 没有 Agent 采取纠错行动。真正的长程 Agent 需要让错误证据自动触发状态复查和执行恢复。",
+      "intro": "多数错误分类只描述症状，无法解释故障为何能穿过多个阶段、却不被已有异常信号阻止。",
+      "detail": "论文对公开多 Agent 数据的 95 次失败做逐条分析，发现错误发生的位置中位数位于任务早期约 18% 处。作者认为约 35 次失败可以通过恢复正确内部状态解决，也指出单纯识别异常没有意义，必须让纠错动作实际消除错误状态。",
+      "findings": "错误检测与状态恢复应分别作为可测能力。",
+      "why_it_matters": "适合从真实执行轨迹合成 Evidence-to-Recovery 子任务，并记录干预时点与纠错后的剩余风险。",
+      "published": "2026-11-09",
+      "score": 88,
+      "fields": [
+        "field-2",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "evaluation",
+        "self-evolution",
+        "memory",
+        "work",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.13254"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-14",
+      "title": "SeqFold：将长期用户行动压缩为时间可寻址的离散状态",
+      "summary": "SeqFold 结合多渠道行为融合、时间衰减和无查表量化，让系统按特定历史时间戳读取紧凑用户状态。作者在大规模行为数据中报告单状态存储量缩小约 3,400 倍，并保持多数下游排序效果。它提供长期个人助手高效回顾不同时段偏好与行为的底层表示方法。",
+      "intro": "跨年个人行为记录存在持续变化的喜好和状态，直接保存每一刻的高维表示成本很高。",
+      "detail": "SeqFold 用时间可寻址离散编码导出冻结用户行为 Backbone 的状态，先融合多个行为渠道并进行时间衰减，再通过下游解码器供不同任务复用。相比保存完整隐藏状态序列，系统只在目标时间点输出状态，报告约 3,400 倍的存储压缩。",
+      "findings": "用户过去状态与当前偏好同样重要，压缩表示必须保留时间维度。",
+      "why_it_matters": "可与显式个人事实记忆结合，测试跨时间询问、过时状态和偏好迁移。",
+      "published": "2026-11-10",
+      "score": 87,
+      "fields": [
+        "field-2",
+        "field-1"
+      ],
+      "topics": [
+        "memory",
+        "personal",
+        "training",
+        "deployment",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.13704"
+        }
+      ]
+    },
+    {
+      "id": "news-20261113-15",
+      "title": "rein v1.5.5：本地记忆服务修复依赖安全并完成升级测试",
+      "summary": "Rust 本地优先记忆服务 rein 发布 v1.5.5，重点升级依赖安全，不改变核心记忆行为。维护者称修补 15 项依赖公告、对另一项提供代码路径说明，并通过 2,155 项库测试。它说明长期运行的 Personal Memory 也需要可靠的版本更新与数据兼容性。",
+      "intro": "rein 为多会话 Agent 提供本地持久记忆、混合检索和 MCP 接口，需要持续维护数据库和服务端依赖。",
+      "detail": "官方版本于 11 月 12 日 07:48 UTC 发布，处理 OpenSSL、zstd、SQLite 等依赖问题，并将源码构建的最低 Rust 版本提升为 1.89。此次没有数据库 Schema 或主要配置变化，维护者在包含 12,675 条记忆的数据副本上执行读取测试。",
+      "findings": "Memory 服务的稳定升级是长期个人 Agent 生产部署中的独立工程指标。",
+      "why_it_matters": "建议跟踪跨版本持久化、记忆权限和历史记录的可用性，而不只比较检索得分。",
+      "published": "2026-11-12",
+      "score": 86,
+      "fields": [
+        "field-2"
+      ],
+      "topics": [
+        "memory",
+        "safety",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方 GitHub Release",
+          "url": "https://github.com/lyr1cs/rein/releases/tag/v1.5.5"
+        }
+      ]
+    }
+  ]
+}

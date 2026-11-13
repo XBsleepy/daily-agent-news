@@ -1,0 +1,1 @@
+今日重点：Google Gemini 4 Hydrogen 与 Antigravity Orchestrator 推动动态模型路由；SteerDistill 和 ReTrace 分别把失败状态蒸馏为训练信号、把历史轨迹编译为可执行 Skill。Anthropic Anvil、TRUST 与 Evolving Infra 加强 Agent 对抗评测、自我进化准入和基础设施效率；GTAGym、Interactive Visual Gym、ARE-bench 和 MixUA 将环境状态、真实用户行为、历史工作空间及记忆隔离纳入长期任务评测。

@@ -1,0 +1,218 @@
+{
+  "date": "2026-11-13",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "Gemini 4 Hydrogen 与 Antigravity Orchestrator：快速模型与动态编排",
+      "summary": "Google 发布 Gemini 4 Hydrogen，面向高频工具调用与编码，在 Terminal-Bench 4.1 获得 57.0%，前代 3.8 Flash 为 18.2%。Antigravity Orchestrator 支持同一会话动态切换 Carbon 和 Hydrogen，Google 报告配额消耗下降约 24%。这是从固定单模型向按任务难度、成本与验证阶段动态路由发展的标志。",
+      "intro": "Hydrogen 是 Gemini 4 系列中的快速执行层，和面向长程推理的 Carbon、Argon 形成差异化分工。",
+      "detail": "Google 报告 Hydrogen 的上下文窗口约为 100 万 Token，API 每百万输入 Token 1.50 美元、输出 7.50 美元。默认 High 设置下，部分 Agent 任务完成速度比 Gemini 3.8 Flash 提高约 2.5 倍。Orchestrator 在规划、执行和验证时切换模型，Terminal-Bench 4.0 实验中任务成功率接近 Carbon、配额消耗约低 24%、速度约快 19%。",
+      "findings": "模型路由已成为 Agent 系统本身的优化对象，而不只是部署时的固定配置。",
+      "why_it_matters": "建议研究 Memory-Aware Model Routing，联合衡量每任务成本、成功率、实际授权风险和用户注意力消耗。",
+      "published": "2026-11-12",
+      "score": 100,
+      "topics": [
+        "training",
+        "tool-use",
+        "deployment",
+        "coding",
+        "personal",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Google 官方公告",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+        }
+      ]
+    },
+    {
+      "title": "ReTrace：把 SOP 轨迹中的决策条件编译为可执行工作流",
+      "summary": "ReTrace 将重复任务 SOP 与历史工具轨迹中的行动理由提取成规则，再编译为无需每步调用 LLM 的程序。在 79 项生产业务流程上达到 93.8% 完成率、成本降低 24%；在 τ²-Bench 中将执行时间从约 170 秒缩短到 1.3 秒。它让 Agent 程序性记忆从可检索的经验文本升级为可直接执行的 Skill。",
+      "intro": "传统工作 Agent 在每次重复 SOP 时都要重新决定下一步动作，即使同样流程此前已成功执行多次。",
+      "detail": "ReTrace 先从包含行动解释的轨迹抽取条件规则，然后跨多次执行合并为紧凑规则文档，最后生成特定平台可执行工作流。生产环境中 ReTrace 的任务完成率为 93.8%，原 Agent 为 96.8%，成本降低约 24%；τ²-Bench 上程序成功率为 75.8%，对照 Agent 为 80.6%，执行时间从 170 秒降到 1.3 秒。系统还可根据训练失败进行定向修复。",
+      "findings": "大幅度执行加速来自将重复规划替换成程序化分支，但也需保留外部环境改变时的回退路径。",
+      "why_it_matters": "建议加入 Skill 适用前提、状态版本、授权边界与回归验证，让编译后的工作流安全复用。",
+      "published": "2026-11-10",
+      "score": 96,
+      "topics": [
+        "skills",
+        "training",
+        "self-evolution",
+        "tool-use",
+        "framework",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14492"
+        }
+      ]
+    },
+    {
+      "title": "Interactive Visual Gym：用户误操作也能触发真实 Agent 环境变化",
+      "summary": "Interactive Visual Gym 同时模拟生活操作环境和用户行为，包含做饭、家务及手机界面的 315 个交互任务。用户可能漏做步骤、改变计划或误解指令，最强受测模型在限时条件下完成了 53.4% 的任务。它为 Life Agent 增加用户行动造成的状态偏差、响应及时性和纠错能力评测。",
+      "intro": "多数视觉 Agent Benchmark 让模型直接控制环境，无法模拟用户收到建议后执行错误或改变任务意图的情形。",
+      "detail": "研究设计 CookSim、VHSim、ScreenSim 三种模拟器，105 个基础任务与三种 Persona 组成 315 个 Episode。计划外事件按任务进展状态触发，最终验收由场景图中的属性、位置和关系条件完成，并评测指导是否及时。论文报告 Gemini 4 Argon 的限时任务成功率为 53.4%，自动交互质量分与人类偏好的符合率为 78.5%。",
+      "findings": "实际个人助手的行动会通过人类用户间接改变环境，因此需要双向闭环。",
+      "why_it_matters": "适合合成 User-Induced State Deviation，训练及时发现偏差、重新规划与纠错。",
+      "published": "2026-11-05",
+      "score": 94,
+      "topics": [
+        "personal",
+        "environments",
+        "evaluation",
+        "training",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.08286"
+        },
+        {
+          "name": "项目主页",
+          "url": "https://interactive-visual-gym.salesforceairesearch.com/"
+        }
+      ]
+    },
+    {
+      "title": "MixUA / CrossLearnBench：四种记忆作用域保证经验共享不泄漏私人信息",
+      "summary": "MixUA 将不同用户与 Agent 的执行经验按 Pair、User、Agent 和 Global 四类作用域保存。五名用户与七个 Agent 的实验中，相比无记忆最多提高 16 个百分点，隐私探针在越界记忆范围中的泄漏率不超过 0.02%。这为家庭助手和企业 Agent 的经验迁移建立了同时检查个性化收益与隐私边界的测试方法。",
+      "intro": "单一 Global Memory 容易将通用技能、特定用户习惯和私人账户信息混在一起，导致经验复用时错误传播。",
+      "detail": "MixUA 提取历史轨迹中的通用经验，再为每条 Lesson 判定适用的用户与 Agent 范围。CrossLearnBench 加入个性化偏好和植入的隐私事实，观察不同用户、不同 Agent 复用相似任务经验时是否越权读取。作者报告相较无记忆最多提高 16 个百分点，相对单一全局记忆最多提高 5 个百分点，历史偏好保存率最高达到 90%。",
+      "findings": "共享范围应属于记忆数据结构本身，而不是交给检索时临时猜测。",
+      "why_it_matters": "与 ReTrace 结合时，可将 Skill 通用流程与用户专属参数、授权信息分开保存。",
+      "published": "2026-11-07",
+      "score": 93,
+      "topics": [
+        "memory",
+        "self-evolution",
+        "safety",
+        "personal",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.10439"
+        }
+      ]
+    },
+    {
+      "title": "ARE-bench：在持续研究项目的历史工作空间里检验 Agent",
+      "summary": "ARE-bench 从真实研究工作空间采集 75 个任务，保留历史指令、旧文件与失败产物，并制定 1,173 项验收条件。最佳模型只有 66.2% 任务全部合格，某些模型只检查交付物时约 69% 通过，加入历史与工作空间约束后仅 28.4%—40.0%。长期 Work Agent 必须同时完成新要求并尊重已有项目状态和过去仍有效的承诺。",
+      "intro": "真实科研项目往往有旧代码、未完工文件、版本冲突和历史约定，这些信息在干净的静态 Benchmark 中容易被忽略。",
+      "detail": "ARE-bench 的 75 个任务涉及七个科研阶段、33 类要求和 150 个子要求，共 1,173 个二元检查项。数据集保留研究者请求之前的完整工作空间，包括失败中间产物，并将早期仍有效的需求合并进验收规则。论文显示只检查当前交付可能显著高估模型表现。",
+      "findings": "结果表面正确与在真实项目中执行正确是两回事。",
+      "why_it_matters": "推荐按历史要求检索、跨文件状态关联、执行与回归四阶段分析失败。",
+      "published": "2026-11-10",
+      "score": 92,
+      "topics": [
+        "evaluation",
+        "work",
+        "science",
+        "benchmark",
+        "memory"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14364"
+        }
+      ]
+    },
+    {
+      "title": "Claude Code v2.1.323：实验性 Code Mode 和后台任务身份安全",
+      "summary": "Claude Code v2.1.323 加入实验性 Code Mode，允许用 JavaScript 组合多步工具操作，而非逐步生成独立调用。新版加入长时间 Hook 心跳，并修复后台会话账户绑定及若干 Shell 权限检查问题。Code Agent 的可靠性开始与程序化工具执行和跨会话身份连续性一并演进。",
+      "intro": "Claude Code 的长时间后台任务、多个账户及工具会话会产生复杂的权限和状态恢复要求。",
+      "detail": "该正式版本发布于 11 月 12 日 22:12 UTC。实验性 Code Mode 允许把一系列重复工具动作组织为 JavaScript 程序；Hook 心跳提升无交互长任务的进度可见性。修复内容覆盖部分后台身份恢复、账户切换与 Shell 操作授权检查。",
+      "findings": "长期 Agent 不只需要能执行工具，也需要在恢复后绑定正确用户身份和权限。",
+      "why_it_matters": "可以构建后台多账户 Task Resume Benchmark，检测身份错用、授权过期和执行状态不一致。",
+      "published": "2026-11-12",
+      "score": 90,
+      "topics": [
+        "coding",
+        "tool-use",
+        "safety",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方 GitHub Release",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.323"
+        }
+      ]
+    },
+    {
+      "title": "Dependable Long-Horizon Agents：反证已经出现却未触发自我纠错",
+      "summary": "研究者对六种多 Agent 系统的 95 条失败轨迹分析错误起源、传播、检测、响应和最终影响。其中 72% 的失败在终局前已经出现反证，但在这些轨迹中 88% 没有 Agent 采取纠错行动。真正的长程 Agent 需要让错误证据自动触发状态复查和执行恢复。",
+      "intro": "多数错误分类只描述症状，无法解释故障为何能穿过多个阶段、却不被已有异常信号阻止。",
+      "detail": "论文对公开多 Agent 数据的 95 次失败做逐条分析，发现错误发生的位置中位数位于任务早期约 18% 处。作者认为约 35 次失败可以通过恢复正确内部状态解决，也指出单纯识别异常没有意义，必须让纠错动作实际消除错误状态。",
+      "findings": "错误检测与状态恢复应分别作为可测能力。",
+      "why_it_matters": "适合从真实执行轨迹合成 Evidence-to-Recovery 子任务，并记录干预时点与纠错后的剩余风险。",
+      "published": "2026-11-09",
+      "score": 88,
+      "topics": [
+        "evaluation",
+        "self-evolution",
+        "memory",
+        "work",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.13254"
+        }
+      ]
+    },
+    {
+      "title": "SeqFold：将长期用户行动压缩为时间可寻址的离散状态",
+      "summary": "SeqFold 结合多渠道行为融合、时间衰减和无查表量化，让系统按特定历史时间戳读取紧凑用户状态。作者在大规模行为数据中报告单状态存储量缩小约 3,400 倍，并保持多数下游排序效果。它提供长期个人助手高效回顾不同时段偏好与行为的底层表示方法。",
+      "intro": "跨年个人行为记录存在持续变化的喜好和状态，直接保存每一刻的高维表示成本很高。",
+      "detail": "SeqFold 用时间可寻址离散编码导出冻结用户行为 Backbone 的状态，先融合多个行为渠道并进行时间衰减，再通过下游解码器供不同任务复用。相比保存完整隐藏状态序列，系统只在目标时间点输出状态，报告约 3,400 倍的存储压缩。",
+      "findings": "用户过去状态与当前偏好同样重要，压缩表示必须保留时间维度。",
+      "why_it_matters": "可与显式个人事实记忆结合，测试跨时间询问、过时状态和偏好迁移。",
+      "published": "2026-11-10",
+      "score": 87,
+      "topics": [
+        "memory",
+        "personal",
+        "training",
+        "deployment",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.13704"
+        }
+      ]
+    },
+    {
+      "title": "rein v1.5.5：本地记忆服务修复依赖安全并完成升级测试",
+      "summary": "Rust 本地优先记忆服务 rein 发布 v1.5.5，重点升级依赖安全，不改变核心记忆行为。维护者称修补 15 项依赖公告、对另一项提供代码路径说明，并通过 2,155 项库测试。它说明长期运行的 Personal Memory 也需要可靠的版本更新与数据兼容性。",
+      "intro": "rein 为多会话 Agent 提供本地持久记忆、混合检索和 MCP 接口，需要持续维护数据库和服务端依赖。",
+      "detail": "官方版本于 11 月 12 日 07:48 UTC 发布，处理 OpenSSL、zstd、SQLite 等依赖问题，并将源码构建的最低 Rust 版本提升为 1.89。此次没有数据库 Schema 或主要配置变化，维护者在包含 12,675 条记忆的数据副本上执行读取测试。",
+      "findings": "Memory 服务的稳定升级是长期个人 Agent 生产部署中的独立工程指标。",
+      "why_it_matters": "建议跟踪跨版本持久化、记忆权限和历史记录的可用性，而不只比较检索得分。",
+      "published": "2026-11-12",
+      "score": 86,
+      "topics": [
+        "memory",
+        "safety",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方 GitHub Release",
+          "url": "https://github.com/lyr1cs/rein/releases/tag/v1.5.5"
+        }
+      ]
+    }
+  ]
+}
