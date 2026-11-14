@@ -1,0 +1,1 @@
+11 月 14 日重点：ChatGPT Wallet 让 dots 进入逐笔授权的真实支付；Thinking Machines 实现贯穿预训练与 RL 的四位前向训练。SynthCorp 与 Agent-R² 推动有状态企业环境及真实文件任务合成，MAPE、AgentSSL、Experience-Handoff RL 则将长期记忆与系统改进转向可验证、可迁移的优化循环。

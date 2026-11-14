@@ -1,0 +1,456 @@
+{
+  "date": "2026-11-14",
+  "field": "field-3",
+  "items": [
+    {
+      "title": "OpenAI ChatGPT Wallet：dots 首次连接逐笔授权的真实支付",
+      "summary": "OpenAI 正式推出 ChatGPT Wallet，让 dots Agent 在用户批准后使用代币化支付凭证完成商家结账。初期面向符合条件的美国 ChatGPT Pro 成年用户，每笔交易都需查看商品与金额并通过生物识别等安全检查。它将个人 Agent 从购物建议推进到真实资金操作，同时把授权、身份与商家系统兼容性放到核心位置。",
+      "intro": "个人助手原先常在商品筛选或购物车准备阶段停止，支付意味着从信息处理进入具有实际财务后果的执行。",
+      "detail": "ChatGPT Wallet 与 American Express、Mastercard、Visa 合作：用户先在安全界面添加卡片，购买前检查商品、金额与支付卡，生物识别确认后支付网络提供替代真实卡号的 Token。Agent 和商家无需读取用户实际卡号，商家仍负责定价、配送与退货。OpenAI 同步发布 Commerce Partner Playbook，指导商家完成 Agent 请求验证、商品 Feed 与支付风险识别；预授权购物上限仍属于未来计划。",
+      "findings": "它将个人 Agent 从购物建议推进到真实资金操作，同时把授权、身份与商家系统兼容性放到核心位置。",
+      "why_it_matters": "值得构建 Agent Commerce Benchmark，分别评价授权来源、支付金额变化、重复提交、失败恢复、商家准入以及用户确认次数。",
+      "published": "2026-11-13",
+      "score": 100,
+      "topics": [
+        "personal",
+        "tool-use",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方公告",
+          "url": "https://openai.com/index/introducing-chatgpt-wallet/"
+        }
+      ]
+    },
+    {
+      "title": "SynthCorp：从企业事件生成数据库、文档、任务与可执行 Verifier",
+      "summary": "Google 团队提出 SynthCorp，从带时间关系的业务事件出发生成可演化企业数据环境，再自动产生可验证的数据 Agent 任务。系统用 12 种受限仿真原语构建数据库、文档和目录，最后生成 7 个企业世界、256 个任务。这一 Event → Environment → Task → Verifier 路线让复杂的状态变更、Schema Drift 与文档规则成为可程序验证的训练素材。",
+      "intro": "传统数据 Agent 基准多从静态表格或自然语言 SQL 题目出发，缺乏真实业务规则在时间中演化的过程。",
+      "detail": "SynthCorp 从业务场景、复杂度维度及虚拟时间范围生成 Routine 与 Disruption 两类事件，按时序规则调度，编译成 CreateSchema、ApplyTransactions、AlterSchema、ReadDocuments 等原语执行。环境同时包含关系数据库、企业文档、数据目录与完整来源日志；从日志提炼任务提示，执行 Gold Program 并验证数据依赖。Claude Opus 5.5 在该评测中，使用查询与搜索工具时准确率约 86.6%，只给 Schema 时约 54.6%。",
+      "findings": "这一 Event → Environment → Task → Verifier 路线让复杂的状态变更、Schema Drift 与文档规则成为可程序验证的训练素材。",
+      "why_it_matters": "下一步可把只读数据分析扩展到会修改业务状态的 Work Agent，并利用事件时间轴构造权限与政策变化的反事实任务对。",
+      "published": "2026-11-10",
+      "score": 99,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "evaluation",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "SynthCorp 论文",
+          "url": "https://arxiv.org/abs/2611.14765"
+        }
+      ]
+    },
+    {
+      "title": "Agent-R²：利用真实职业流程和附件合成 4,000 个办公 Agent 训练任务",
+      "summary": "Agent-R² 以 O*NET 职业活动、真实网页工作流和公开 PDF、Word、Excel 附件为基础，合成约 4,000 个专业办公任务。任务包含真实文件、交付物与细粒度 Rubric，训练后的 4B 模型在 GDPval Pass@1 从 32.4% 提升到 51.0%。它说明面向真实文件与最终交付的合成数据，比只模拟对话更能训练 Work Agent 的实际完成能力。",
+      "intro": "办公 Agent 需要处理跨文件依赖、长程流程与专业验收，纯文本问答和虚构附件无法充分覆盖这些条件。",
+      "detail": "方法先从 O*NET 职业任务与网页工作描述提取 Workflow Blueprint，再搜索与任务真正相关的真实附件，生成用户任务说明、参考交付物和平均约 15.3 条 Rubric。合成结果包括约 3,000 条 SFT 与 1,000 条 RL 任务，训练使用持久化沙箱、文档渲染、Excel 公式读取及多模态评分器。主要 GDPval 收益来自 SFT，后续 RL 的边际增益较小。",
+      "findings": "它说明面向真实文件与最终交付的合成数据，比只模拟对话更能训练 Work Agent 的实际完成能力。",
+      "why_it_matters": "可从真实文件中定位失败 Milestone，生成合同、表格、报告间一致且可回放的短任务；同时验证附件版本与评分条款。",
+      "published": "2026-11-05",
+      "score": 98,
+      "topics": [
+        "data-synthesis",
+        "training",
+        "work",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Agent-R² 论文",
+          "url": "https://arxiv.org/abs/2611.08219"
+        },
+        {
+          "name": "Agent-R² 代码",
+          "url": "https://github.com/ZJU-REAL/Agent-R2"
+        }
+      ]
+    },
+    {
+      "title": "Experience-Handoff RL：训练 Agent 把有用经验交给下一次执行",
+      "summary": "Experience-Handoff RL 不只训练 Agent 当前的动作，还训练反思器和经验整理器生成能提升后续 Rollout 的 Playbook。方法用未来执行结果反过来评价每份交接经验的价值，在固定 Agent Harness 下提升未见任务表现。这为 RSI 提供了从一次性反思走向学习“如何形成有效经验”的可训练机制。",
+      "intro": "常规 RL 从整条执行轨迹提取标量奖励，许多有价值的错误日志、状态解释和策略建议没有被保存。",
+      "detail": "研究在固定 Agentic Context Engineering 脚手架中让模型承担 Actor、Reflector、Curator 等角色，以未来 Actor 使用某个经验产物后的实际结果奖励它。实验将不同角色行为进行协同优化，在多个 Agent Benchmark 上取得比传统交接与标量奖励方法更好的隐藏集效果。它优化的是经验构建策略，而非只增加文本记忆容量。",
+      "findings": "这为 RSI 提供了从一次性反思走向学习“如何形成有效经验”的可训练机制。",
+      "why_it_matters": "可使用每代固定预算、相同初始 Solver 的评测比较 Improver 的真实进步，防止把记忆库增长误判为递归能力增长。",
+      "published": "2026-11-12",
+      "score": 95,
+      "topics": [
+        "self-evolution",
+        "memory",
+        "training",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Experience-Handoff RL 论文",
+          "url": "https://arxiv.org/abs/2611.16409"
+        }
+      ]
+    },
+    {
+      "title": "Actor, Judge, or Teacher?：长程 Agent 更需要事后进度奖励",
+      "summary": "这项研究区分决策模型当 Actor、终局 Judge 和过程 Teacher 时的不同价值。在 ALFWorld、WebShop 等长程任务中，能回看完整轨迹的 Hindsight Progress Teacher 比只预测最终成功概率的评估方式更能提供训练信号。研究提示局部必需动作即使离最终目标很远，也应因真实任务进展而获得信用。",
+      "intro": "长程任务里，获取关键材料或修复中间错误可能暂时降低终局成功概率预测，但仍是完成任务的必要步骤。",
+      "detail": "作者比较按最终成败预估动作 Value 的判别器，以及依据动作实际是否推动任务的 Progress 判别器；又比较只看前缀与允许查看后续轨迹的不同反馈。通过强化学习教师监督较小模型的 Agent Policy，发现模型是否擅长亲自执行任务并不能充分预测其教学能力。结果支持把可执行状态进展作为过程信用分配的重要组成。",
+      "findings": "研究提示局部必需动作即使离最终目标很远，也应因真实任务进展而获得信用。",
+      "why_it_matters": "建议从学生真实失败 C→D 的节点，构造带后续环境证明的局部奖励，避免单纯模仿 Teacher 的动作表面。",
+      "published": "2026-11-12",
+      "score": 94,
+      "topics": [
+        "evaluation",
+        "training",
+        "tool-use",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.17167"
+        }
+      ]
+    },
+    {
+      "title": "ReSHAPE：用具体候选方案主动发现用户隐藏的规划权衡",
+      "summary": "ReSHAPE 评估规划 Agent 能否通过展示酒店、购物等具体方案发现用户初始请求之外的可接受权衡。研究分析 5,800 条需求修订，发现一次正确权衡最多令同一规划器找到可接受方案的机会提高 4.6 倍。它把个性化从静态条件过滤推进到互动式搜索空间修订。",
+      "intro": "用户通常无法在最初一句请求中描述全部可接受预算、地点、时间与品质取舍，固定过滤条件会排除优选方案。",
+      "detail": "ReSHAPE Planter 在旅行和购物场景生成任务及经过人工验证的模拟用户，衡量代理修改后的搜索空间是否覆盖用户愿意接受的方案，同时排除不能接受的方案。方法比较只询问抽象偏好与展示可比较候选方案，引导用户对具体权衡作出选择。研究发现当前 Agent 经常覆盖不了大多数可接受方案，显示需求发现是独立的规划能力。",
+      "findings": "它把个性化从静态条件过滤推进到互动式搜索空间修订。",
+      "why_it_matters": "推荐加入 Ask / Show / Infer 三种交互策略，与个人记忆和用户注意力成本联合评价。",
+      "published": "2026-11-12",
+      "score": 93,
+      "topics": [
+        "personal",
+        "evaluation",
+        "tool-use",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "ReSHAPE 论文",
+          "url": "https://arxiv.org/abs/2611.16466"
+        }
+      ]
+    },
+    {
+      "title": "Skill Adapter：共享通用 Skill，通过用户适配层动态个性化执行",
+      "summary": "Skill Adapter 不为每位用户复制一整套 Skill，而是保存针对通用流程的局部用户适配规则。系统根据执行上下文在线选择 Skill 和 Adapter，作者在 ALFWorld、WebShop、SkillsBench 上报告相对 SkillRL 平均成功率增加 11.43 个百分点。这一机制有望将个人记忆、程序技能和任务状态组合成可复用执行能力。",
+      "intro": "用户对同一购物或办公工作流的偏好与输出格式有差异，直接复制 Skill 容易造成技能膨胀和维护困难。",
+      "detail": "方案包含通用技能、用户独立的 Adapter、在线 Skill Router，以及根据执行阶段预取后续候选技能的机制。通过 GRPO 优化技能修改和路由决策，并测试技能池扩展到一千项时的表现。Adapter 可改工具参数、步骤、前提条件及验收标准，便于共享通用流程而不把个人偏好写进全局技能。",
+      "findings": "这一机制有望将个人记忆、程序技能和任务状态组合成可复用执行能力。",
+      "why_it_matters": "值得研究偏好过期时 Adapter 的失效机制、授权条件变更以及跨用户隐私隔离。",
+      "published": "2026-11-12",
+      "score": 92,
+      "topics": [
+        "skills",
+        "personal",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Skill Adapter 论文",
+          "url": "https://arxiv.org/abs/2611.17007"
+        }
+      ]
+    },
+    {
+      "title": "Agent History × World State：清理错误历史可能让 Agent 恢复得更差",
+      "summary": "这项研究发现，修饰 Agent 历史记录并不一定改善后续任务执行，关键取决于历史叙述是否与真实环境状态一致。AgentCE-Bench 上，保留错误并附真实备注使恢复率从 51% 升至 66%，但将尚未修复的错误伪装为已完成操作反而降至 44%。它揭示任务交接和上下文压缩必须同时保存实际状态、动作回执与错误处理结果。",
+      "intro": "长任务经常经历上下文压缩、异常退出与模型交接，历史文本可能与数据库或工具实际状态不一致。",
+      "detail": "研究固定代理中途的世界快照，分别编辑历史或实际世界，再让另一模型继续。AppWorld 中当数据库写入效果不存在，虚报成功回执会让整体任务成功率从 45% 降到 28%；当效果确实存在，成功回执则从 38% 提升到 49%。结果说明相同一条“已完成”消息的意义由物理或数据世界决定，不能只靠文本历史一致性判断。",
+      "findings": "它揭示任务交接和上下文压缩必须同时保存实际状态、动作回执与错误处理结果。",
+      "why_it_matters": "建议所有 Milestone 都绑定真实环境差异、工具回执及来源证据，再从同一状态恢复运行。",
+      "published": "2026-11-10",
+      "score": 90,
+      "topics": [
+        "memory",
+        "environments",
+        "evaluation",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.14654"
+        }
+      ]
+    },
+    {
+      "title": "DISCERN / ENT-310：保留实体歧义到读取时，再决定回答或澄清",
+      "summary": "DISCERN 提倡写入记忆时保留相似人物和历史版本，读取时才用时间图和来源证据消除歧义。在包含 310 条企业记忆查询的 ENT-310 上，系统报告拒答决策 F1 为 0.924、宏平均正确率 0.861。该设计把识别错误归属、主动澄清和正确拒答提升为长期记忆的核心能力。",
+      "intro": "个人和企业历史中的同名角色、变化的雇佣关系、联系人职责容易让语义检索把信息指派给错误实体。",
+      "detail": "DISCERN 采用 Preserve at Write、Resolve at Read 原则，使用双时间图保留事件发生和写入时间、实体候选以及证据来源。读取时通过图导航与时间检查选择 ANSWER、UPDATE、CLARIFY 或 ABSTAIN。ENT-310 同时含 210 个可回答问题和 100 个缺少证据的问题，强调记忆系统不应被迫回答每个查询。",
+      "findings": "该设计把识别错误归属、主动澄清和正确拒答提升为长期记忆的核心能力。",
+      "why_it_matters": "可对家庭成员、跨公司员工和日程历史增加实体指代反事实任务，并研究澄清成本。",
+      "published": "2026-11-11",
+      "score": 89,
+      "topics": [
+        "memory",
+        "evaluation",
+        "personal",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "DISCERN 论文",
+          "url": "https://arxiv.org/abs/2611.15729"
+        }
+      ]
+    },
+    {
+      "title": "Time and Space：个人 Agent 通过时间轴、关系图与来源证据重建生活情境",
+      "summary": "Time and Space 提出同时保存事件时间与人物、地点、物品关系的 Spatio-Temporal Context 记忆底座。原型结合 SQLite、嵌入索引与混合检索，强调数据来自日历、聊天、照片等异构应用时的证据追溯。它面向的不只是个人问答，还包括跨应用洞察、事项分流和主动提醒。",
+      "intro": "家庭与生活代理经常需要回答“上次某事件发生时与谁一起、在哪里、何时”这样的复合历史问题。",
+      "detail": "STC 将事件发生时间、事实有效区间、写入时间作为 Temporal Axis，将实体与实体的关系作为 Relational Axis，并要求事实能追溯到不可变的原始记录。论文描述 Query、Insight、Triage、Proactive Reminder 四类模式，并实现 SQLite 与检索原型。主动分析层仍是后续建设部分，可与现有关系型长期记忆系统开展对照实验。",
+      "findings": "它面向的不只是个人问答，还包括跨应用洞察、事项分流和主动提醒。",
+      "why_it_matters": "可结合个人任务状态机研究随时间变化的用户意图、跨应用证据归并和主动触发时机。",
+      "published": "2026-11-12",
+      "score": 88,
+      "topics": [
+        "memory",
+        "personal",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Time and Space 论文",
+          "url": "https://arxiv.org/abs/2611.16492"
+        }
+      ]
+    },
+    {
+      "title": "MemCredit：按未来动作收益而非文本相关性挑选 Agent 记忆",
+      "summary": "MemCredit 用受控反事实试验估算每条历史记忆对下一步决策的边际贡献，再蒸馏成轻量价值预测器。在 ALFWorld 的 500 Token 历史预算下，方法报告 SR@50 达到 86.57%，BM25 对照为 65.67%。它将记忆筛选目标从“和当前提问像不像”转向“是否真的改变执行效果”。",
+      "intro": "高相似度的历史经验未必对当前阶段的动作有帮助，反而可能占用有限的上下文窗口。",
+      "detail": "方法先用语义检索获得高召回候选，再从固定世界状态构造有无某条记忆的对照执行，按最终收益分配 Memory Credit。通过这些反事实结果训练轻量 Utility Estimator，在推理时按价值和 Token 预算保留记忆，无需额外环境探索，也不需要修改原 Agent Policy。其效用对当前状态和参考上下文强依赖，因而不能用全局静态重要性替代。",
+      "findings": "它将记忆筛选目标从“和当前提问像不像”转向“是否真的改变执行效果”。",
+      "why_it_matters": "值得与 CoReMem 和 Memory Tax 对照，测量不同任务阶段的实际边际收益以及记忆维护开销。",
+      "published": "2026-11-11",
+      "score": 86,
+      "topics": [
+        "memory",
+        "evaluation",
+        "tool-use",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "MemCredit 论文",
+          "url": "https://arxiv.org/abs/2611.15600"
+        }
+      ]
+    },
+    {
+      "title": "SO-Arena：System-1 决策模型得分高，不代表工具路由稳定",
+      "summary": "SO-Arena 在 11 个领域、五种能力中评估 21 个 System-1 决策模型，除了准确率还测选项变化后的稳定性。研究发现总体表现最好的模型在决策可靠性上仅排第七，并检验候选中没有正确答案时能否识别。Agent Router 的训练目标应包括合理拒选和对无关候选变化的鲁棒性。",
+      "intro": "低成本决策模型可以快速选择工具、模型或下一项行动，但过于关注静态正确率会掩盖不稳定的策略。",
+      "detail": "SO-Arena 对候选顺序、可选项集合和无关干扰进行控制变化，比较 Decision Stability 与 Missing-answer Recognition。部分任务进入可执行沙箱而不仅是静态选择题；作者还对不同领域实施手工核验与难度拆解。该基准表明更大的决策模型或更多推理步骤并非在所有领域都带来更稳定的选择。",
+      "findings": "Agent Router 的训练目标应包括合理拒选和对无关候选变化的鲁棒性。",
+      "why_it_matters": "可以批量生成工具列表的排列与删除所有合法工具的反事实设置，训练小模型判断何时需要升级或暂停。",
+      "published": "2026-11-11",
+      "score": 85,
+      "topics": [
+        "evaluation",
+        "tool-use",
+        "deployment",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "SO-Arena 论文",
+          "url": "https://arxiv.org/abs/2611.15777"
+        }
+      ]
+    },
+    {
+      "title": "MLIRBench：用真实执行结果验证 1,768 对编译器程序的行为语义",
+      "summary": "MLIRBench 用多 Agent 生成程序变异，再通过实际执行给 1,768 对 MLIR 程序赋予等价、不同或错误标签。受测模型中最高的分类准确率达到 92.65%，但同一模型的细节行为预测评分只有 5.04/10。它说明能判断两段程序是否等价，并不等于真正理解优化后会产生哪些具体执行结果。",
+      "intro": "编译器 Agent 需要判断代码优化是否保持语义和硬件行为，单纯编译成功或文本形似不能作为真实语义监督。",
+      "detail": "数据集由 888 对 Linalg 与 880 对 Torch 程序组成，生成器构造语义变化后由编译与执行环境独立确定标签 EQUIV、DIVERGE、ERROR。模型还须解释具体执行后果，以避免学会表面模式分类。结果支持用实际运行轨迹来构建程序后果预测任务，并针对模型分类正确却解释错误的样本进行训练。",
+      "findings": "它说明能判断两段程序是否等价，并不等于真正理解优化后会产生哪些具体执行结果。",
+      "why_it_matters": "适合扩展到 Kernel 优化、编译器转换与代码修复，让工具执行结果成为可复核的奖励。",
+      "published": "2026-11-11",
+      "score": 84,
+      "topics": [
+        "training",
+        "evaluation",
+        "coding",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "MLIRBench 论文",
+          "url": "https://arxiv.org/abs/2611.14881"
+        }
+      ]
+    },
+    {
+      "title": "CoReMem：从下一次代码任务收益反推当前该保存什么经验",
+      "summary": "CoReMem 针对连续修改同一代码仓库的 Agent，比较有无历史片段时下一任务的完成率，学习记忆的未来价值。在 ChainSWE 上，27B Actor 完成率从 21.0% 升至 25.7%，成功执行步骤减少约 17%。这种将记忆存取费用和未来工作收益一起优化的方式，比无差别保存完整轨迹更适合长期 Coding Agent。",
+      "intro": "连续工程工作中，新任务到来前无法确切知道哪段历史最有用，记忆写入、检索与重复读取都具有成本。",
+      "detail": "框架从连续仓库状态出发，为每段执行轨迹构造含与不含该段的未来任务对照，从而评估其 Prospective Value。高价值记忆被压缩为仓库位置、执行检查、关键决策条件等 Anchor，再根据 Actor 是否实际利用 Anchor 分配额外信用。论文报告在成功率提升的同时，包括记忆系统调用在内的 Cache-aware Token 总量下降约 11%。",
+      "findings": "这种将记忆存取费用和未来工作收益一起优化的方式，比无差别保存完整轨迹更适合长期 Coding Agent。",
+      "why_it_matters": "可在长时软件维护中研究跨版本有效期、隐含依赖和保存失败原因的收益。",
+      "published": "2026-11-12",
+      "score": 83,
+      "topics": [
+        "memory",
+        "coding",
+        "training",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "CoReMem 论文",
+          "url": "https://arxiv.org/abs/2611.17316"
+        }
+      ]
+    },
+    {
+      "title": "Claude Code 2.1.325：修复跨会话恢复、子 Agent 结果与上下文压缩",
+      "summary": "Anthropic 发布 Claude Code v2.1.325，修复异常退出后恢复会话可能缺失近期消息的问题。更新还涉及不同模型的子 Agent 工具结果、Gateway 长上下文压缩以及沙箱内 Git 操作。对于长期 Coding Agent，这些修复直接关系到任务交接、会话持久性和重复执行风险。",
+      "intro": "长程代码任务经常经历工具调用、子 Agent、多模型切换、上下文压缩和客户端重启，任何一次恢复失真都可能影响最终交付。",
+      "detail": "该版本修复跨会话 Resume 的最近消息不完整、子 Agent 文件/MCP 结果按错误主模型限制处理、第三方 Gateway 下的上下文压缩异常，并处理沙箱 Git、工作目录失效及压缩响应的安全问题。更新重点是可靠性而不是新模型或新个人长期记忆能力。后续评测可模拟异常退出和工具结果截断，测量原任务状态是否正确重建。",
+      "findings": "对于长期 Coding Agent，这些修复直接关系到任务交接、会话持久性和重复执行风险。",
+      "why_it_matters": "建议把 Session Recovery Consistency、Subagent State Continuity 和重复修改率加入 Coding Agent 系统回归测试。",
+      "published": "2026-11-14",
+      "score": 82,
+      "topics": [
+        "deployment",
+        "coding",
+        "tool-use",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Anthropic 官方 Release",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.325"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI Codex 0.169.0：任务搜索、并行会话与批准计划交接升级",
+      "summary": "Codex 0.169.0 更新了可选终端多会话工作区和历史任务搜索能力，帮助开发者找回此前的 Agent 任务。版本还改善跨上下文切换时已批准执行计划的交接，并加强非可信目录的 MCP 配置权限处理。它体现了任务状态独立于单个 Context Window 的工程化方向。",
+      "intro": "编码任务的生命周期常长于一次对话，会话切换后保持任务目标、进展与用户批准状态是系统可靠性要点。",
+      "detail": "稳定版本增强 Command Center，支持按任务名称、指令预览或工作目录定位任务；可选终端工作区支持多个 Side Chat 和重启后恢复。清空上下文时，已经批准的计划可更可靠转给新会话，若交接失败尽量保留原任务；同时加强项目配置与 MCP 信任边界。这些是工具运行时能力，不是新的长期个人画像模型。",
+      "findings": "它体现了任务状态独立于单个 Context Window 的工程化方向。",
+      "why_it_matters": "应验证跨会话恢复后仍能区分已完成动作、未执行计划和新授权范围。",
+      "published": "2026-11-13",
+      "score": 81,
+      "topics": [
+        "deployment",
+        "coding",
+        "tool-use",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Codex 官方 Release",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0"
+        }
+      ]
+    },
+    {
+      "title": "MIGRO：让长期个人记忆脱离具体模型并保持可迁移",
+      "summary": "MIGRO 把长期记忆作为模型独立的持久状态，同时保留可回查的原始证据与低成本语义索引。作者在指定 LoCoMo 设置中报告正确率提高约 3.68 个百分点，私有存储量降低约 99.3%。其目标是让用户迁移模型或切换基础模型版本时不丢失长期记忆资产。",
+      "intro": "多个月积累的个人历史如果紧耦合特定模型 Tokenization 或对话格式，会让模型升级和跨厂商切换造成迁移代价。",
+      "detail": "框架结合可逆原始证据保存、低成本索引与延迟按需检索，在知道当下问题后再决定恢复哪些具体历史材料。最终上下文可针对不同 Host Model 的输入限制重新组织。论文还在百万 Token 的历史上测试私有存储压缩，强调存储口径与实际服务成本应分开统计。",
+      "findings": "其目标是让用户迁移模型或切换基础模型版本时不丢失长期记忆资产。",
+      "why_it_matters": "适合研究跨模型记忆行为一致性、数据可移植性与持续写入后的索引维护。",
+      "published": "2026-11-11",
+      "score": 80,
+      "topics": [
+        "memory",
+        "personal",
+        "deployment",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "MIGRO 论文",
+          "url": "https://arxiv.org/abs/2611.15315"
+        }
+      ]
+    },
+    {
+      "title": "HDH Action Verifier：用机器人失败轨迹训练低延迟动作检查器",
+      "summary": "HDH 冻结大型视觉语言动作模型，利用机器人自己的历史 Rollout 训练轻量动作成功预测器。通过对多个候选动作评分择优，论文在三项真实机器人操作任务上相对原策略平均提高 22.6 个百分点成功率。它展示真实失败轨迹不一定用于再训练整套 Policy，也可以用于更低成本的执行时 Verifier。",
+      "intro": "机器人系统在部署中可以积累大量失败或低质量动作数据，但重新训练巨大 VLA 模型的成本较高。",
+      "detail": "方法首先采集冻结 Policy 的 On-policy 执行轨迹，建立动作结果预测任务，然后生成多个动作候选，由小型 Verifier 按预期成功率选取动作。在四项 LIBERO-10 测试任务上报告平均 82.3% 成功率，并补充真实操作验证。其潜在挑战是新场景校准和误拒绝少见但必要动作，需要与执行多样性共同衡量。",
+      "findings": "它展示真实失败轨迹不一定用于再训练整套 Policy，也可以用于更低成本的执行时 Verifier。",
+      "why_it_matters": "可将局部动作 Verifier 与全局可达性检查结合，以更少改动改善具身长程任务。",
+      "published": "2026-11-10",
+      "score": 80,
+      "topics": [
+        "training",
+        "evaluation",
+        "environments",
+        "science",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.14834"
+        }
+      ]
+    },
+    {
+      "title": "When Evaluators Disagree：LLM Judge 与真实数据库写入检查结论大幅分歧",
+      "summary": "研究在 τ²-Bench 的 2,160 条执行轨迹上比较原生评分、LLM Judge 和最小写入边界检查。LLM Judge 与原生评分仅有约 56.2% 的一致率，11 个被禁写入中有 10—11 个仍被 Judge 放过，而简单边界检查找出了全部 11 个。它说明真实工具副作用和任务是否成功应有独立程序验证。",
+      "intro": "语言模型读取执行记录给出自然语言结论，和数据库实际发生了什么是两种不同的证据。",
+      "detail": "作者记录 Airline、Retail 场景每次数据库写操作，分别用原生 Gold State、普通 LLM Judge、给定政策的 Judge 和确定性 Commit Boundary 规则评分，并组织人工复核。虽然同一 Judge 重复判断达 98.2% 的一致性，它与系统本身结果的一致率偏低；某些额外 Gate 甚至因丢掉订单状态和客户认证信息而误判。结果支持优先把可执行业务边界写成明确检测规则。",
+      "findings": "它说明真实工具副作用和任务是否成功应有独立程序验证。",
+      "why_it_matters": "可以结合真实业务事件、授权边界与动作副作用检测，构造 verifier disagreement 的训练反例。",
+      "published": "2026-11-10",
+      "score": 79,
+      "topics": [
+        "evaluation",
+        "safety",
+        "tool-use",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.14581"
+        }
+      ]
+    },
+    {
+      "title": "When Safety Becomes an Attack Surface：伪造风险警告可诱导 Agent 放弃合法任务",
+      "summary": "研究显示恶意网页或工具内容可以伪造安全风险提示，让 Agent 在面对合法任务时不必要地停止。在 51 对注入对照任务的某组测试中，强调谨慎的提示使诱导性过度拒答由 9.8% 上升到 86.3%。安全决策应先验证提示来源，既防越权执行，也避免把低可信内容当成禁止指令。",
+      "intro": "工具使用型 Agent 常接触网页、仓库和邮件中不可信的自然语言，外部文字可能冒充系统级安全要求。",
+      "detail": "作者通过对照任务在工具输出内注入虚假的风险或安全警告，并比较不同模型的拒绝率。受测者有时把提示中的低信任文本提升为行动策略，越是强调谨慎越可能被诱导放弃正常事务。论文建议 Verify-Before-Abstain，在停止前核查警告的可信来源与可验证证据，降低两类方向相反的误判。",
+      "findings": "安全决策应先验证提示来源，既防越权执行，也避免把低可信内容当成禁止指令。",
+      "why_it_matters": "建议把不当执行率与无根据拒绝率并列作为 Agent 安全 Benchmark 的关键指标。",
+      "published": "2026-11-11",
+      "score": 76,
+      "topics": [
+        "safety",
+        "evaluation",
+        "tool-use",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "论文原文",
+          "url": "https://arxiv.org/abs/2611.14864"
+        }
+      ]
+    }
+  ]
+}
