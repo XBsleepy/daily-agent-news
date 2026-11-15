@@ -1,0 +1,229 @@
+{
+  "date": "2026-11-15",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "Google Gemini × Wallet：接入真实财务数据与可编辑长期记忆",
+      "summary": "Google 让美国 Gemini 用户自愿连接 Google Wallet，并可通过 Plaid 关联银行及信用卡账户。助手可分析消费、订阅和预算，同时新增 Memory Summary，供用户查看、编辑及删除长期偏好。这使个人 Agent 同时拥有真实财务上下文和用户可校正的持续记忆。",
+      "intro": "Google 让美国 Gemini 用户自愿连接 Google Wallet，并可通过 Plaid 关联银行及信用卡账户。",
+      "detail": "Wallet 连接主要用于只读分析，不支持直接转账或投资操作。用户可以通过 @Google Wallet 查询交易及制定预算，Memory Summary 则展示兴趣、偏好、持续目标并允许直接纠正。新能力形成外部数据获取、个性化推理、用户纠错和后续记忆使用的闭环。",
+      "findings": "助手可分析消费、订阅和预算，同时新增 Memory Summary，供用户查看、编辑及删除长期偏好。",
+      "why_it_matters": "重点评测财务证据引用、撤销数据授权后状态一致性，以及用户修改记忆对后续任务的长期收益。",
+      "published": "2026-11-13",
+      "score": 100,
+      "topics": [
+        "personal",
+        "memory",
+        "tool-use",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/"
+        }
+      ]
+    },
+    {
+      "title": "Sierra Poppy 1.0：Shopify 与 Meta Muse 推进个人 Agent 授权协议",
+      "summary": "Sierra 发布 Personal Agent Protocol（Poppy）1.0，为外部个人 Agent 提供商家发现、身份与授权机制。Shopify 商店自动发布协议发现文件，Meta Muse 访问网站时优先检测 Poppy，设计伙伴增至百家以上。个人 Agent 与商家交互正从模拟网页操作走向可明确授权的标准接口。",
+      "intro": "Sierra 发布 Personal Agent Protocol（Poppy）1.0，为外部个人 Agent 提供商家发现、身份与授权机制。",
+      "detail": "Poppy 的流程包括服务发现、会话建立、OAuth 授权和受权业务操作，服务方可提供网页、MCP/OpenAPI 接口或 Business Agent。该协议与 Shopify UCP 互补：前者处理 Agent 身份和访问范围，后者处理购物和交易业务。商家仍可对特定高风险动作要求再次确认。",
+      "findings": "Shopify 商店自动发布协议发现文件，Meta Muse 访问网站时优先检测 Poppy，设计伙伴增至百家以上。",
+      "why_it_matters": "适合建立跨服务授权评测，测试权限过期、重复操作、商家不同接口及用户取消授权后的行动。",
+      "published": "2026-11-13",
+      "score": 100,
+      "topics": [
+        "personal",
+        "tool-use",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://sierra.ai/blog/releasing-poppy"
+        }
+      ]
+    },
+    {
+      "title": "AI Rudder CALL-E：让个人 Agent 真正打电话完成线下事务",
+      "summary": "AI Rudder 推出 CALL-E，让个人 Agent 把预约确认、改期和信息咨询交给电话语音执行器。系统先生成通话计划并征得用户批准，再处理打断、语音菜单和无人接听等真实通话情况。结束后会返回任务结果和对应对话证据，将电话变成可审核的 Life Agent 行动。",
+      "intro": "AI Rudder 推出 CALL-E，让个人 Agent 把预约确认、改期和信息咨询交给电话语音执行器。",
+      "detail": "执行流程为 Goal → Plan → User Approval → Voice Call → Evidence。CALL-E 旨在把没有开放 API 的服务纳入个人 Agent 工作流，通话后结构化报告是否接通、是否完成目标及相关转录。真正的任务验收仍应对照服务方实际预约或订单状态，不能只看通话文本。",
+      "findings": "系统先生成通话计划并征得用户批准，再处理打断、语音菜单和无人接听等真实通话情况。",
+      "why_it_matters": "电话执行可成为通用 Action Primitive，适合研究用户授权、意图保持和真实世界操作验证。",
+      "published": "2026-11-13",
+      "score": 99,
+      "topics": [
+        "personal",
+        "tool-use",
+        "evaluation",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://airudder.com/call-e/"
+        }
+      ]
+    },
+    {
+      "title": "AstroMemBench：2,240 个有状态航天任务评测长期记忆",
+      "summary": "AstroMemBench 从九类航天场景和 16 种记忆挑战构造 140 个模板，再生成 2,240 个可执行任务。相同当前指令在不同历史状态下需要不同动作，评测同时检查安全、资源预算和指令有效性。跨会话重启后 Mem0 比 RAG 高 12.25 分，突出历史状态恢复的重要性。",
+      "intro": "AstroMemBench 从九类航天场景和 16 种记忆挑战构造 140 个模板，再生成 2,240 个可执行任务。",
+      "detail": "Scenario–Challenge–Capability 的模板法剔除不合适的组合，每个模板生成 16 个难度不同的案例。环境包含约 30 轮历史、真实设备状态、可执行动作和确定性转移。例如某条管线已经接入和仅计划接入时，下一步必须不同。记忆系统虽能改善跨会话表现，持续状态追踪与资源约束仍是薄弱点。",
+      "findings": "相同当前指令在不同历史状态下需要不同动作，评测同时检查安全、资源预算和指令有效性。",
+      "why_it_matters": "这种历史条件化合成法可迁移至采购审批、设备管理和工作流程里的状态撤销任务。",
+      "published": "2026-11-12",
+      "score": 97,
+      "topics": [
+        "memory",
+        "data-synthesis",
+        "environments",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16590"
+        }
+      ]
+    },
+    {
+      "title": "MindMem / MemReal-Bench：关系状态驱动的主动个人记忆",
+      "summary": "MindMem 将用户状态、对话角色状态和关系变化保存为带证据的长期记忆，并推断当前对话的潜在需求。MemReal-Bench 区分事实回忆与自然情境中的记忆使用，作者报告 59.03% 情境记忆实现率及 82.58% 直接问答率。它使 Personal Memory 从检索历史片段走向状态推理与主动回应。",
+      "intro": "MindMem 将用户状态、对话角色状态和关系变化保存为带证据的长期记忆，并推断当前对话的潜在需求。",
+      "detail": "系统将互动经历异步整理为 User State、Character State 和 Relationship State，再由 Mind Reasoner 形成回应意图并选择支持该意图的原始证据。评测涵盖长期对话的直接问答和情境化使用，作者报告分别较最强对照提升 9.19 和 24.19 个百分点。后续应检查推断的需求是否合理，以及旧偏好和关系状态能否被正确更新。",
+      "findings": "MemReal-Bench 区分事实回忆与自然情境中的记忆使用，作者报告 59.03% 情境记忆实现率及 82.58% 直接问答率。",
+      "why_it_matters": "适合比较被动 RAG、结构化状态记忆和主动需求推理对真实生活任务的边际价值。",
+      "published": "2026-11-12",
+      "score": 96,
+      "topics": [
+        "memory",
+        "personal",
+        "evaluation",
+        "benchmark",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16223"
+        }
+      ]
+    },
+    {
+      "title": "LiveGeo / GeoWorld：真实世界变化后 Agent 是否主动更新证据",
+      "summary": "LiveGeo 基于 GeoWorld 构造持续变化、可回放的现实地理环境，要求 Agent 判断旧资料何时失效。评测不只检查静态地图和路线是否合理，还要求主动查询最新状态并调整计划。论文发现一些静态任务能力很强的模型在动态环境中仍会因为过期证据而做错行动。",
+      "intro": "LiveGeo 基于 GeoWorld 构造持续变化、可回放的现实地理环境，要求 Agent 判断旧资料何时失效。",
+      "detail": "GeoWorld 追踪不同时间点的地理状态和历史证据，让 Agent 面对营业状态、位置与道路等信息变化。任务包含何时重新请求外部信息、如何识别旧计划失效以及如何更新后续动作。研究结果有助于解释旅行、商家服务和持续采购任务中的状态过期错误。",
+      "findings": "评测不只检查静态地图和路线是否合理，还要求主动查询最新状态并调整计划。",
+      "why_it_matters": "可引入 Stale-Evidence Action Rate、重新验证成本和重规划收益等指标。",
+      "published": "2026-11-12",
+      "score": 91,
+      "topics": [
+        "personal",
+        "environments",
+        "evaluation",
+        "benchmark",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17267"
+        }
+      ]
+    },
+    {
+      "title": "DecArena：十万分布式工具中发现与协调其他 Agent",
+      "summary": "DecArena 使用图结构限制各 Agent 可见资源和通信伙伴，在超过十万个分布式工具中设计协作任务。实验发现强模型也会难以发现非本地资源，普通 RL 不一定稳定改善。提出的 GraphHarness 通过拓扑感知与改进的路由提升去中心化协作能力。",
+      "intro": "DecArena 使用图结构限制各 Agent 可见资源和通信伙伴，在超过十万个分布式工具中设计协作任务。",
+      "detail": "每个 Agent 只能观察局部工具，并与相邻 Agent 交流，模拟不同服务方和个人拥有独立数据权限的生态。GraphHarness 在有限通信拓扑中搜索合适的协作者并完成跨节点调用。相比中心化 Orchestrator，该机制更重视信息边界、通信路径和资源发现成本。",
+      "findings": "实验发现强模型也会难以发现非本地资源，普通 RL 不一定稳定改善。",
+      "why_it_matters": "对 Personal Agent 的价值在于测试多方合作能否完成任务，同时限制私人数据不必要的共享。",
+      "published": "2026-11-11",
+      "score": 89,
+      "topics": [
+        "personal",
+        "tool-use",
+        "evaluation",
+        "benchmark",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.15521"
+        }
+      ]
+    },
+    {
+      "title": "Memorilla：16 个可训练潜在 Token 表达查询相关历史",
+      "summary": "Memorilla 将大量历史信息压缩成 16 个查询相关的潜在记忆 Token，再交给冻结语言模型生成回答。论文报告 FactKG 准确率 84.33%，超过完整上下文基线的 80.43%；TextWorld 成功率由基线 18.6% 升至 24.2%。它提供纯文本长期上下文与 RAG 之外的一条可训练低成本记忆路线。",
+      "intro": "Memorilla 将大量历史信息压缩成 16 个查询相关的潜在记忆 Token，再交给冻结语言模型生成回答。",
+      "detail": "系统使用冻结编码器和可训练记忆模块，将历史文档映射到回答模型的潜在嵌入空间。查询相关压缩可能更省 Token，也能捕获分散于历史中的关联；不过个人化使用时还需检查时间状态更新、删除用户记忆和来源追踪。论文初版早于本周，近期获得新技术报道并值得补入长期记忆方法追踪。",
+      "findings": "论文报告 FactKG 准确率 84.33%，超过完整上下文基线的 80.43%；TextWorld 成功率由基线 18.6% 升至 24.2%。",
+      "why_it_matters": "可以比较文本、结构化和潜在记忆的真实行动收益、Token 成本以及用户纠错能力。",
+      "published": "2026-10-15",
+      "score": 85,
+      "topics": [
+        "personal",
+        "memory",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2610.21375"
+        }
+      ]
+    },
+    {
+      "title": "Aivium Desktop 0.2.17112：停止任务后终止屏幕状态采集",
+      "summary": "Aivium 的新桌面版展示工具作用域及 Skill 依赖，并修复本地历史读取与任务状态问题。用户按下 Stop 后，系统停止有关屏幕状态的后续指纹化处理，也不继续保留已关闭窗口的快照。它让长期 Computer-Use Agent 的取消语义和本地隐私处理更明确。",
+      "intro": "Aivium 的新桌面版展示工具作用域及 Skill 依赖，并修复本地历史读取与任务状态问题。",
+      "detail": "版本更新统一工具 Session Policy，修正跳过队列后读取 PC 历史的异常，并清理部分不必要的屏幕状态缓存。桌面 Agent 的 Stop 需要延伸到后台采集和工具执行，而不能仅暂停对话输出。可结合实际运行测试暂停和撤销权限后的数据保留与继续调用行为。",
+      "findings": "用户按下 Stop 后，系统停止有关屏幕状态的后续指纹化处理，也不继续保留已关闭窗口的快照。",
+      "why_it_matters": "适合研发 Stop-Semantics Benchmark，检查工具队列、截图缓存、记忆写入和子进程是否真正停止。",
+      "published": "2026-11-14",
+      "score": 84,
+      "topics": [
+        "personal",
+        "tool-use",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://aivium.app/en/changelog"
+        }
+      ]
+    },
+    {
+      "title": "Nous Hermes Agent Canary：11 月 14 日桌面预览构建",
+      "summary": "Nous Research 发布 Hermes Agent v0.23.1 的 Canary 桌面构建，覆盖 macOS Apple Silicon 和 Windows x64、ARM。官方发布记录显示基本安装与聊天启动检查通过，重点是多平台交付与运行质量。本次版本说明未新增独立的长期记忆算法，属于桌面 Agent 的小版本工程更新。",
+      "intro": "Nous Research 发布 Hermes Agent v0.23.1 的 Canary 桌面构建，覆盖 macOS Apple Silicon 和 Windows x64、ARM。",
+      "detail": "发布资产包含 macOS DMG 和 Windows MSIX，构建通过相应 Smoke Test。此前的 Hermes Desktop 与 Gateway 架构持续改进跨入口 Session 运行，但不能算作此 Canary 新功能。后续应观察后台任务、工具状态和跨系统恢复是否稳定。",
+      "findings": "官方发布记录显示基本安装与聊天启动检查通过，重点是多平台交付与运行质量。",
+      "why_it_matters": "跨平台桌面 Agent 需要可靠安装、更新、工具权限和任务恢复机制。",
+      "published": "2026-11-14",
+      "score": 83,
+      "topics": [
+        "personal",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "GitHub 官方发布",
+          "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.1%2Bcanary.20261114T064334Z"
+        }
+      ]
+    }
+  ]
+}

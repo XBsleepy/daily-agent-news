@@ -1,0 +1,301 @@
+{
+  "date": "2026-11-15",
+  "field": "field-4",
+  "items": [
+    {
+      "title": "Singularity-Bench：六类 AI 研发任务与 Breakwater 评分隔离",
+      "summary": "Singularity-Bench 让 Agent 从最小代码基础构建预训练、后训练、推理引擎、Harness 和集群编排等六类 AI 系统。作者报告 Claude Opus 5.5 + Claude Code 六项均达到指定人类工程基线，Singularity-Index 为 1.25。研究还提出 Breakwater 隔离执行与评分环境，减少 Agent 通过操纵评测过程取得虚假奖励。",
+      "intro": "Singularity-Bench 让 Agent 从最小代码基础构建预训练、后训练、推理引擎、Harness 和集群编排等六类 AI 系统。",
+      "detail": "每项任务提供固定计算预算、最小初始实现和独立验收，最终检查模型效果、吞吐、未见任务结果或集群稳定性。研究评估 11 组模型与 Harness；针对普通执行框架的权限漏洞，Breakwater 加入受限运行、不可写日志及隔离评分。这里既测量开放式 AI 工程能力，也检验可执行 Verifier 的可靠性。",
+      "findings": "作者报告 Claude Opus 5.5 + Claude Code 六项均达到指定人类工程基线，Singularity-Index 为 1.25。",
+      "why_it_matters": "可以在同等硬件和预算下比较不同代 Improver 的真实研发收益，并给评分系统增加独立对抗测试。",
+      "published": "2026-11-12",
+      "score": 98,
+      "topics": [
+        "science",
+        "coding",
+        "self-evolution",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16591"
+        }
+      ]
+    },
+    {
+      "title": "AstroMemBench：2,240 个有状态航天任务评测长期记忆",
+      "summary": "AstroMemBench 从九类航天场景和 16 种记忆挑战构造 140 个模板，再生成 2,240 个可执行任务。相同当前指令在不同历史状态下需要不同动作，评测同时检查安全、资源预算和指令有效性。跨会话重启后 Mem0 比 RAG 高 12.25 分，突出历史状态恢复的重要性。",
+      "intro": "AstroMemBench 从九类航天场景和 16 种记忆挑战构造 140 个模板，再生成 2,240 个可执行任务。",
+      "detail": "Scenario–Challenge–Capability 的模板法剔除不合适的组合，每个模板生成 16 个难度不同的案例。环境包含约 30 轮历史、真实设备状态、可执行动作和确定性转移。例如某条管线已经接入和仅计划接入时，下一步必须不同。记忆系统虽能改善跨会话表现，持续状态追踪与资源约束仍是薄弱点。",
+      "findings": "相同当前指令在不同历史状态下需要不同动作，评测同时检查安全、资源预算和指令有效性。",
+      "why_it_matters": "这种历史条件化合成法可迁移至采购审批、设备管理和工作流程里的状态撤销任务。",
+      "published": "2026-11-12",
+      "score": 97,
+      "topics": [
+        "memory",
+        "data-synthesis",
+        "environments",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16590"
+        }
+      ]
+    },
+    {
+      "title": "Mercor：隐藏在办公文件中的业务风险令企业 Agent 频繁失误",
+      "summary": "Mercor 由法律、银行和咨询专家构造 12 项企业任务，比较风险明确提示和风险隐藏在文件里的执行表现。五个前沿模型共 180 次相关执行中，风险明确时仅 2 次不安全，风险隐含时却出现 108 次不安全行为。失误既包含未读取关键证据，也包含已经提醒风险却仍继续危险操作。",
+      "intro": "Mercor 由法律、银行和咨询专家构造 12 项企业任务，比较风险明确提示和风险隐藏在文件里的执行表现。",
+      "detail": "每项任务设置 Explicit、Implicit 和 Benign 三种变体，用于分离基本工具能力和隐藏约束理解。108 次隐含风险失误中，62 次未打开关键文件，13 次打开却未识别风险，3 次识别但未提醒，30 次已经提醒仍执行危险动作。研究可直接用于合成“相同目标、不同文档约束”的训练任务，并评价发现、理解和行动三个阶段。",
+      "findings": "五个前沿模型共 180 次相关执行中，风险明确时仅 2 次不安全，风险隐含时却出现 108 次不安全行为。",
+      "why_it_matters": "企业 Agent 的关键不只是正确执行指令，也要主动查找并遵守工作空间里未被明说的义务。",
+      "published": "2026-11-13",
+      "score": 95,
+      "topics": [
+        "work",
+        "safety",
+        "evaluation",
+        "benchmark",
+        "data-synthesis"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://www.mercor.com/blog/how-frontier-models-miss-risk-in-routine-enterprise-work/"
+        }
+      ]
+    },
+    {
+      "title": "Mirendil 获 10 亿美元融资：数百个 Agent 驱动自动化 AI 研发",
+      "summary": "Mirendil 宣布完成 10 亿美元 A 轮融资，用于研发自动化基础模型和 Agent 平台。公司披露一名研究员与 Agent 在 3.5 个月内完成 Mirendil-Base 预训练，Fern 支持长上下文，Lor 可组织数百 Agent 执行代码与实验。其商业方向是以长期并行实验和知识复用提升 AI 研发效率。",
+      "intro": "Mirendil 宣布完成 10 亿美元 A 轮融资，用于研发自动化基础模型和 Agent 平台。",
+      "detail": "融资由 Kleiner Perkins 和 Clearlake Capital 领投，Google 等参与。公司介绍 Mirendil-Base 训练算力花费低于 1,000 万美元，Fern 号称支持最高 1,000 万 Token 上下文；Lor 仍在私有测试阶段。与单一自修改 Agent 不同，该平台重视实验分解、连续执行和多个研究子 Agent 的协作。",
+      "findings": "公司披露一名研究员与 Agent 在 3.5 个月内完成 Mirendil-Base 预训练，Fern 支持长上下文，Lor 可组织数百 Agent 执行代码与实验。",
+      "why_it_matters": "值得跟踪单位有效实验成本、人工介入比例与跨代研究策略改进，而不只是运行了多少子 Agent。",
+      "published": "2026-11-12",
+      "score": 94,
+      "topics": [
+        "science",
+        "self-evolution",
+        "training",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://mirendil.com/news/series-a/"
+        }
+      ]
+    },
+    {
+      "title": "guardscope：检测 Agent 工具网关之外的真实执行路径",
+      "summary": "guardscope 将 Agent 运行控制的实际覆盖率转化为可执行评测，而不是只检查网关是否配置正确。框架研究 15 种动作路径和八种部署拓扑，对照系统级记录将行动分为已检查、绕过和被阻止。对于能够修改 Harness 的自进化 Agent，性能提升后也要重新证明新执行路径仍受监督。",
+      "intro": "guardscope 将 Agent 运行控制的实际覆盖率转化为可执行评测，而不是只检查网关是否配置正确。",
+      "detail": "系统分别检查 MCP 工具调用、本地子进程、直接网络请求等行动是否真正穿过 Runtime Control，再借助内核级记录确认动作事实。它将行为结果区分为 Checked、Bypassed、Prevented，并可用于不同 Agent 框架与运行控制系统。新工具或工作流接入后，可自动重新执行覆盖率测试。",
+      "findings": "框架研究 15 种动作路径和八种部署拓扑，对照系统级记录将行动分为已检查、绕过和被阻止。",
+      "why_it_matters": "Audit Coverage 可以作为自进化 Harness 的版本准入指标，与成功率及成本一起验收。",
+      "published": "2026-11-11",
+      "score": 94,
+      "topics": [
+        "self-evolution",
+        "safety",
+        "tool-use",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.15223"
+        }
+      ]
+    },
+    {
+      "title": "NIBench：真实科研 Skill 执行与陌生工作流迁移存在差距",
+      "summary": "NIBench 把真实神经影像软件与公开医学影像数据组成 56 个工作流任务和 36 个科研判断题。模型拿到完整分析步骤时更容易执行，需自主重建流程时表现下降；从成功轨迹蒸馏的 Skill 也未必迁移到新任务。它把科研工具执行、任务规划、技能迁移和科学结论拆成不同能力。",
+      "intro": "NIBench 把真实神经影像软件与公开医学影像数据组成 56 个工作流任务和 36 个科研判断题。",
+      "detail": "受测软件包括 AFNI、ANTs、FSL、FreeSurfer 等，以固定版本容器运行。56 个执行任务涉及原子命令、多步 Pipeline、群体分析和对抗性输入，另有科学判断任务。作者将一半工作流用于 Skill 蒸馏，另一半进行未见任务测试；熟悉任务通常收益明显，但未见任务有时退化。",
+      "findings": "模型拿到完整分析步骤时更容易执行，需自主重建流程时表现下降；从成功轨迹蒸馏的 Skill 也未必迁移到新任务。",
+      "why_it_matters": "可用相同环境分别评价给定操作清单、独立选择分析步骤和跨任务复用 Skill 的能力。",
+      "published": "2026-11-11",
+      "score": 93,
+      "topics": [
+        "science",
+        "work",
+        "skills",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.15831"
+        }
+      ]
+    },
+    {
+      "title": "drydock-eval：看似提升的 Agent 优化未能通过独立复测",
+      "summary": "drydock-eval 用 Contain、Conform 和 Compare 三阶段构建隔离且可复测的 Coding Agent 评估流程。研究公开 9,660 条 Agent 执行记录，三项开发测试中领先的候选改动在独立未见测试中均未被确认。它说明自动 Harness 优化应将评分噪声与选择偏差纳入版本管理。",
+      "intro": "drydock-eval 用 Contain、Conform 和 Compare 三阶段构建隔离且可复测的 Coding Agent 评估流程。",
+      "detail": "Contain 隔离 Agent 生成代码，Conform 对齐目标评测协议，Compare 用配对统计和任务分组比较方案。作者还公开 2,494 条评分控制记录和 72 条 Serving 测量记录；未经修改的基线重复测量也可能有约 1.17 分波动。三项开发集提高约 1—6 分的候选没有获得预先冻结测试规则的独立确认。",
+      "findings": "研究公开 9,660 条 Agent 执行记录，三项开发测试中领先的候选改动在独立未见测试中均未被确认。",
+      "why_it_matters": "RSI 研究应保存失败候选、环境指纹与 held-out 测试记录，并以独立复测决定是否接受升级。",
+      "published": "2026-11-12",
+      "score": 92,
+      "topics": [
+        "coding",
+        "evaluation",
+        "self-evolution",
+        "environments",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16485"
+        }
+      ]
+    },
+    {
+      "title": "Ropedia Xperience 2：联合开放真实 3D 场景与人类操作行为",
+      "summary": "Ropedia Xperience 2 发布 1,589 个米制 3D 场景扫描及 4,230 条第一视角人类操作。数据覆盖 74 项任务、131 小时，并可转为可执行仿真环境及机器人动作轨迹。这让具身训练数据同时包含真实场景结构与行为示范，而不只是离线视频。",
+      "intro": "Ropedia Xperience 2 发布 1,589 个米制 3D 场景扫描及 4,230 条第一视角人类操作。",
+      "detail": "项目把人类第一视角视频、三维扫描与动作姿态对齐，重建有物理交互能力的模拟环境，并将人类行为重定向到机器人。研究者可以改变初始环境并重新执行任务，生成新的反事实轨迹和虚拟遥操作数据。相比仅增加示范小时数，这种联合采集提供环境多样性与动作多样性的两条 Scaling 路线。",
+      "findings": "数据覆盖 74 项任务、131 小时，并可转为可执行仿真环境及机器人动作轨迹。",
+      "why_it_matters": "值得在同一采集预算下比较增加新场景、新任务和更多重复示范对泛化能力的贡献。",
+      "published": "2026-11-12",
+      "score": 92,
+      "topics": [
+        "training",
+        "data-synthesis",
+        "environments",
+        "science",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17060"
+        }
+      ]
+    },
+    {
+      "title": "OPSD4MAS：多 Agent 通信获得 Token 级训练信用分配",
+      "summary": "OPSD4MAS 通过 On-Policy Self-Distillation 将多 Agent 的后续通信转成 Token 级奖励信号。系统筛选真正有帮助的事实并分析其影响，再与 GRPO 结合训练协作策略。作者在数学协作实验中报告 pass@4 相比 GRPO 最高提高 20 个百分点。",
+      "intro": "OPSD4MAS 通过 On-Policy Self-Distillation 将多 Agent 的后续通信转成 Token 级奖励信号。",
+      "detail": "传统多 Agent RL 往往只有最终标量奖励，难以归因哪些消息真正帮助其他 Agent。该方法借助事实选择和留一影响分析估计信息贡献，把有用内容变成更细的训练目标。它适合迁移到 Research Agent、Coding Agent 与 Verifier 的信息交接和错误纠正。",
+      "findings": "系统筛选真正有帮助的事实并分析其影响，再与 GRPO 结合训练协作策略。",
+      "why_it_matters": "未来可将通信 Token 成本、证据可信度和下游任务收益共同纳入团队奖励。",
+      "published": "2026-11-12",
+      "score": 90,
+      "topics": [
+        "training",
+        "self-evolution",
+        "skills",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16206"
+        }
+      ]
+    },
+    {
+      "title": "ArchSpace：用失败实验和 Scaling Law 复用模型架构研究",
+      "summary": "ArchSpace 建立开放架构实验记录与评审体系，不只保存成功设计，也保留失败方案及对应预算。项目提供 Qwen3.5、OLMo3 基线、可复用训练配方和小规模试验外推的大模型 Scaling Law。它为 AI Scientist 提供可机器读取的研究历史和下一轮实验决策素材。",
+      "intro": "ArchSpace 建立开放架构实验记录与评审体系，不只保存成功设计，也保留失败方案及对应预算。",
+      "detail": "该工作以记录、审查和引用架构实验为基础，关联模型结构、训练数据、硬件预算与验证效果。失败实验可帮助未来系统识别无效方向，小规模 Scaling 则用于优先排序高成本候选。研究者还需要评价外推不确定性和跨数据配方的一致性。",
+      "findings": "项目提供 Qwen3.5、OLMo3 基线、可复用训练配方和小规模试验外推的大模型 Scaling Law。",
+      "why_it_matters": "可训练 Research Agent 根据既有实验预测后续方案价值，衡量是否减少无效大规模训练。",
+      "published": "2026-11-12",
+      "score": 89,
+      "topics": [
+        "science",
+        "training",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17332"
+        }
+      ]
+    },
+    {
+      "title": "The Value of Thinking：Agent 自动选择快速判断还是完整慢推理",
+      "summary": "The Value of Thinking 让 Decision Model 在一次前向的快速判断与完整链式推理之间动态选择。轻量 Router 根据任务奖励估计额外思考的收益，在 MiniWoB 上作者报告 Token 成本降低 80.1%。这使 Agent 能把计算预算重点投入真正困难或高代价的动作。",
+      "intro": "The Value of Thinking 让 Decision Model 在一次前向的快速判断与完整链式推理之间动态选择。",
+      "detail": "Hybrid Decision Model 结合 Fast Mode、Slow Mode 和学习式 Router，通过完整任务奖励训练什么时候需要更贵的推理。作者在 JevBench 报告相近准确率但明显更低的中位延迟。实际工作流可以把不可逆操作、授权检查和失败恢复等阶段作为更高计算预算的重点。",
+      "findings": "轻量 Router 根据任务奖励估计额外思考的收益，在 MiniWoB 上作者报告 Token 成本降低 80.1%。",
+      "why_it_matters": "适合研究成功率相同时的单任务总成本，以及低风险操作节省的预算能否用于关键步骤。",
+      "published": "2026-11-12",
+      "score": 88,
+      "topics": [
+        "training",
+        "tool-use",
+        "deployment",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16961"
+        }
+      ]
+    },
+    {
+      "title": "Goal Encoding：语言模型内部子目标可被解码和干预",
+      "summary": "Goal Encoding 研究发现编程任务中的少数 Attention Head 携带可描述下一项子目标的信息。对内部表示进行因果干预会改变模型后续动作，相似子目标也能跨不同编程语言复用。它为面向 Agent 子目标选择的训练提供了新的机制分析思路。",
+      "intro": "Goal Encoding 研究发现编程任务中的少数 Attention Head 携带可描述下一项子目标的信息。",
+      "detail": "研究利用不同代码任务构造目标探针，检查模型内部注意力表示与其后动作之间的因果关系。结果提示某些高层目标信息可独立于具体代码 Token，但并不意味着模型存在万能的目标模块。下一步可将目标错误诊断与局部 Tool Agent 训练结合。",
+      "findings": "对内部表示进行因果干预会改变模型后续动作，相似子目标也能跨不同编程语言复用。",
+      "why_it_matters": "值得比较 Goal-level Supervision 与只监督最终工具动作的长期任务泛化差异。",
+      "published": "2026-11-12",
+      "score": 87,
+      "topics": [
+        "science",
+        "training",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17297"
+        }
+      ]
+    },
+    {
+      "title": "Metal Sandbox：多台 Mac 共享 GPU Coding Agent 的执行命令",
+      "summary": "Metal Sandbox 通过隔离工作目录和命令级调度，让多个 Apple Metal Kernel Coding Agent 更有效地共用 GPU。四台 Mac mini M4 的实验报告命令吞吐提升 1.68—2.05 倍，动态调度模拟中平均工具等待下降 18.8%。这解决了 Agent 在推理、修改代码和运行测试之间频繁切换造成的计算空闲。",
+      "intro": "Metal Sandbox 通过隔离工作目录和命令级调度，让多个 Apple Metal Kernel Coding Agent 更有效地共用 GPU。",
+      "detail": "系统允许不同 Agent 的编译、运行和测试命令交错执行，并在可用机器之间迁移部分工作。研究集成 Harbor 工作环境，支持记录可复现的工具运行与评分。轨迹模拟还报告 Batch 完成时间下降 22.3%。",
+      "findings": "四台 Mac mini M4 的实验报告命令吞吐提升 1.68—2.05 倍，动态调度模拟中平均工具等待下降 18.8%。",
+      "why_it_matters": "对于 Agent RL 和数据采集，端到端有效任务吞吐比单次 GPU 命令速度更重要。",
+      "published": "2026-11-12",
+      "score": 87,
+      "topics": [
+        "coding",
+        "deployment",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17294"
+        }
+      ]
+    }
+  ]
+}

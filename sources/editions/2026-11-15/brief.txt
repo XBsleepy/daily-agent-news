@@ -1,0 +1,1 @@
+11 月 15 日重点：Gemini × Wallet 让个人 Agent 读取真实消费上下文并编辑长期记忆；Sierra Poppy 1.0 和 AI Rudder CALL-E 分别拓展跨商家授权及电话执行。Singularity-Bench、AstroMemBench、MindMem、Mercor 和 guardscope 则推进 AI 研发能力、状态化记忆、隐含业务约束与可审计 Agent 的可靠评测。

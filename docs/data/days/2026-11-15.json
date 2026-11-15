@@ -1,0 +1,853 @@
+{
+  "schema_version": 1,
+  "demo": false,
+  "date": "2026-11-15",
+  "generated_at": "2026-11-15T00:39:05.334Z",
+  "fields": [
+    {
+      "id": "field-1",
+      "name": "模型训练与数据"
+    },
+    {
+      "id": "field-2",
+      "name": "Personal Agent"
+    },
+    {
+      "id": "field-3",
+      "name": "Code / Work / Life Agent"
+    },
+    {
+      "id": "field-4",
+      "name": "RSI / AI4AI / 自进化"
+    }
+  ],
+  "topic_groups": [
+    {
+      "id": "research",
+      "name": "研究主题"
+    },
+    {
+      "id": "scenario",
+      "name": "应用场景"
+    },
+    {
+      "id": "format",
+      "name": "信息类型"
+    }
+  ],
+  "topics": [
+    {
+      "id": "memory",
+      "name": "长期记忆",
+      "group": "research"
+    },
+    {
+      "id": "skills",
+      "name": "技能学习",
+      "group": "research"
+    },
+    {
+      "id": "self-evolution",
+      "name": "自我进化",
+      "group": "research"
+    },
+    {
+      "id": "continual-learning",
+      "name": "持续学习",
+      "group": "research"
+    },
+    {
+      "id": "tool-use",
+      "name": "工具使用",
+      "group": "research"
+    },
+    {
+      "id": "training",
+      "name": "训练与蒸馏",
+      "group": "research"
+    },
+    {
+      "id": "data-synthesis",
+      "name": "数据合成",
+      "group": "research"
+    },
+    {
+      "id": "environments",
+      "name": "环境构建",
+      "group": "research"
+    },
+    {
+      "id": "evaluation",
+      "name": "评测与验证",
+      "group": "research"
+    },
+    {
+      "id": "safety",
+      "name": "安全与权限",
+      "group": "research"
+    },
+    {
+      "id": "deployment",
+      "name": "运行与部署",
+      "group": "research"
+    },
+    {
+      "id": "personal",
+      "name": "个人助手",
+      "group": "scenario"
+    },
+    {
+      "id": "work",
+      "name": "办公协作",
+      "group": "scenario"
+    },
+    {
+      "id": "coding",
+      "name": "软件工程",
+      "group": "scenario"
+    },
+    {
+      "id": "science",
+      "name": "科研发现",
+      "group": "scenario"
+    },
+    {
+      "id": "benchmark",
+      "name": "评测基准",
+      "group": "format"
+    },
+    {
+      "id": "framework",
+      "name": "方法与框架",
+      "group": "format"
+    },
+    {
+      "id": "product",
+      "name": "产品与产业",
+      "group": "format"
+    }
+  ],
+  "brief": "11 月 15 日重点：Gemini × Wallet 让个人 Agent 读取真实消费上下文并编辑长期记忆；Sierra Poppy 1.0 和 AI Rudder CALL-E 分别拓展跨商家授权及电话执行。Singularity-Bench、AstroMemBench、MindMem、Mercor 和 guardscope 则推进 AI 研发能力、状态化记忆、隐含业务约束与可审计 Agent 的可靠评测。",
+  "items": [
+    {
+      "id": "news-20261115-01",
+      "title": "Google Gemini × Wallet：接入真实财务数据与可编辑长期记忆",
+      "summary": "Google 让美国 Gemini 用户自愿连接 Google Wallet，并可通过 Plaid 关联银行及信用卡账户。助手可分析消费、订阅和预算，同时新增 Memory Summary，供用户查看、编辑及删除长期偏好。这使个人 Agent 同时拥有真实财务上下文和用户可校正的持续记忆。",
+      "intro": "Google 让美国 Gemini 用户自愿连接 Google Wallet，并可通过 Plaid 关联银行及信用卡账户。",
+      "detail": "Wallet 连接主要用于只读分析，不支持直接转账或投资操作。用户可以通过 @Google Wallet 查询交易及制定预算，Memory Summary 则展示兴趣、偏好、持续目标并允许直接纠正。新能力形成外部数据获取、个性化推理、用户纠错和后续记忆使用的闭环。",
+      "findings": "助手可分析消费、订阅和预算，同时新增 Memory Summary，供用户查看、编辑及删除长期偏好。",
+      "why_it_matters": "重点评测财务证据引用、撤销数据授权后状态一致性，以及用户修改记忆对后续任务的长期收益。",
+      "published": "2026-11-13",
+      "score": 100,
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "personal",
+        "memory",
+        "tool-use",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/google-wallet-gemini-app/"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-02",
+      "title": "Sierra Poppy 1.0：Shopify 与 Meta Muse 推进个人 Agent 授权协议",
+      "summary": "Sierra 发布 Personal Agent Protocol（Poppy）1.0，为外部个人 Agent 提供商家发现、身份与授权机制。Shopify 商店自动发布协议发现文件，Meta Muse 访问网站时优先检测 Poppy，设计伙伴增至百家以上。个人 Agent 与商家交互正从模拟网页操作走向可明确授权的标准接口。",
+      "intro": "Sierra 发布 Personal Agent Protocol（Poppy）1.0，为外部个人 Agent 提供商家发现、身份与授权机制。",
+      "detail": "Poppy 的流程包括服务发现、会话建立、OAuth 授权和受权业务操作，服务方可提供网页、MCP/OpenAPI 接口或 Business Agent。该协议与 Shopify UCP 互补：前者处理 Agent 身份和访问范围，后者处理购物和交易业务。商家仍可对特定高风险动作要求再次确认。",
+      "findings": "Shopify 商店自动发布协议发现文件，Meta Muse 访问网站时优先检测 Poppy，设计伙伴增至百家以上。",
+      "why_it_matters": "适合建立跨服务授权评测，测试权限过期、重复操作、商家不同接口及用户取消授权后的行动。",
+      "published": "2026-11-13",
+      "score": 100,
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "personal",
+        "tool-use",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://sierra.ai/blog/releasing-poppy"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-03",
+      "title": "AI Rudder CALL-E：让个人 Agent 真正打电话完成线下事务",
+      "summary": "AI Rudder 推出 CALL-E，让个人 Agent 把预约确认、改期和信息咨询交给电话语音执行器。系统先生成通话计划并征得用户批准，再处理打断、语音菜单和无人接听等真实通话情况。结束后会返回任务结果和对应对话证据，将电话变成可审核的 Life Agent 行动。",
+      "intro": "AI Rudder 推出 CALL-E，让个人 Agent 把预约确认、改期和信息咨询交给电话语音执行器。",
+      "detail": "执行流程为 Goal → Plan → User Approval → Voice Call → Evidence。CALL-E 旨在把没有开放 API 的服务纳入个人 Agent 工作流，通话后结构化报告是否接通、是否完成目标及相关转录。真正的任务验收仍应对照服务方实际预约或订单状态，不能只看通话文本。",
+      "findings": "系统先生成通话计划并征得用户批准，再处理打断、语音菜单和无人接听等真实通话情况。",
+      "why_it_matters": "电话执行可成为通用 Action Primitive，适合研究用户授权、意图保持和真实世界操作验证。",
+      "published": "2026-11-13",
+      "score": 99,
+      "fields": [
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "personal",
+        "tool-use",
+        "evaluation",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://airudder.com/call-e/"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-04",
+      "title": "Singularity-Bench：六类 AI 研发任务与 Breakwater 评分隔离",
+      "summary": "Singularity-Bench 让 Agent 从最小代码基础构建预训练、后训练、推理引擎、Harness 和集群编排等六类 AI 系统。作者报告 Claude Opus 5.5 + Claude Code 六项均达到指定人类工程基线，Singularity-Index 为 1.25。研究还提出 Breakwater 隔离执行与评分环境，减少 Agent 通过操纵评测过程取得虚假奖励。",
+      "intro": "Singularity-Bench 让 Agent 从最小代码基础构建预训练、后训练、推理引擎、Harness 和集群编排等六类 AI 系统。",
+      "detail": "每项任务提供固定计算预算、最小初始实现和独立验收，最终检查模型效果、吞吐、未见任务结果或集群稳定性。研究评估 11 组模型与 Harness；针对普通执行框架的权限漏洞，Breakwater 加入受限运行、不可写日志及隔离评分。这里既测量开放式 AI 工程能力，也检验可执行 Verifier 的可靠性。",
+      "findings": "作者报告 Claude Opus 5.5 + Claude Code 六项均达到指定人类工程基线，Singularity-Index 为 1.25。",
+      "why_it_matters": "可以在同等硬件和预算下比较不同代 Improver 的真实研发收益，并给评分系统增加独立对抗测试。",
+      "published": "2026-11-12",
+      "score": 98,
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "science",
+        "coding",
+        "self-evolution",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16591"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-05",
+      "title": "AstroMemBench：2,240 个有状态航天任务评测长期记忆",
+      "summary": "AstroMemBench 从九类航天场景和 16 种记忆挑战构造 140 个模板，再生成 2,240 个可执行任务。相同当前指令在不同历史状态下需要不同动作，评测同时检查安全、资源预算和指令有效性。跨会话重启后 Mem0 比 RAG 高 12.25 分，突出历史状态恢复的重要性。",
+      "intro": "AstroMemBench 从九类航天场景和 16 种记忆挑战构造 140 个模板，再生成 2,240 个可执行任务。",
+      "detail": "Scenario–Challenge–Capability 的模板法剔除不合适的组合，每个模板生成 16 个难度不同的案例。环境包含约 30 轮历史、真实设备状态、可执行动作和确定性转移。例如某条管线已经接入和仅计划接入时，下一步必须不同。记忆系统虽能改善跨会话表现，持续状态追踪与资源约束仍是薄弱点。",
+      "findings": "相同当前指令在不同历史状态下需要不同动作，评测同时检查安全、资源预算和指令有效性。",
+      "why_it_matters": "这种历史条件化合成法可迁移至采购审批、设备管理和工作流程里的状态撤销任务。",
+      "published": "2026-11-12",
+      "score": 97,
+      "fields": [
+        "field-2",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "memory",
+        "data-synthesis",
+        "environments",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16590"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-06",
+      "title": "MindMem / MemReal-Bench：关系状态驱动的主动个人记忆",
+      "summary": "MindMem 将用户状态、对话角色状态和关系变化保存为带证据的长期记忆，并推断当前对话的潜在需求。MemReal-Bench 区分事实回忆与自然情境中的记忆使用，作者报告 59.03% 情境记忆实现率及 82.58% 直接问答率。它使 Personal Memory 从检索历史片段走向状态推理与主动回应。",
+      "intro": "MindMem 将用户状态、对话角色状态和关系变化保存为带证据的长期记忆，并推断当前对话的潜在需求。",
+      "detail": "系统将互动经历异步整理为 User State、Character State 和 Relationship State，再由 Mind Reasoner 形成回应意图并选择支持该意图的原始证据。评测涵盖长期对话的直接问答和情境化使用，作者报告分别较最强对照提升 9.19 和 24.19 个百分点。后续应检查推断的需求是否合理，以及旧偏好和关系状态能否被正确更新。",
+      "findings": "MemReal-Bench 区分事实回忆与自然情境中的记忆使用，作者报告 59.03% 情境记忆实现率及 82.58% 直接问答率。",
+      "why_it_matters": "适合比较被动 RAG、结构化状态记忆和主动需求推理对真实生活任务的边际价值。",
+      "published": "2026-11-12",
+      "score": 96,
+      "fields": [
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "memory",
+        "personal",
+        "evaluation",
+        "benchmark",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16223"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-07",
+      "title": "Mercor：隐藏在办公文件中的业务风险令企业 Agent 频繁失误",
+      "summary": "Mercor 由法律、银行和咨询专家构造 12 项企业任务，比较风险明确提示和风险隐藏在文件里的执行表现。五个前沿模型共 180 次相关执行中，风险明确时仅 2 次不安全，风险隐含时却出现 108 次不安全行为。失误既包含未读取关键证据，也包含已经提醒风险却仍继续危险操作。",
+      "intro": "Mercor 由法律、银行和咨询专家构造 12 项企业任务，比较风险明确提示和风险隐藏在文件里的执行表现。",
+      "detail": "每项任务设置 Explicit、Implicit 和 Benign 三种变体，用于分离基本工具能力和隐藏约束理解。108 次隐含风险失误中，62 次未打开关键文件，13 次打开却未识别风险，3 次识别但未提醒，30 次已经提醒仍执行危险动作。研究可直接用于合成“相同目标、不同文档约束”的训练任务，并评价发现、理解和行动三个阶段。",
+      "findings": "五个前沿模型共 180 次相关执行中，风险明确时仅 2 次不安全，风险隐含时却出现 108 次不安全行为。",
+      "why_it_matters": "企业 Agent 的关键不只是正确执行指令，也要主动查找并遵守工作空间里未被明说的义务。",
+      "published": "2026-11-13",
+      "score": 95,
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "work",
+        "safety",
+        "evaluation",
+        "benchmark",
+        "data-synthesis"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://www.mercor.com/blog/how-frontier-models-miss-risk-in-routine-enterprise-work/"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-08",
+      "title": "Mirendil 获 10 亿美元融资：数百个 Agent 驱动自动化 AI 研发",
+      "summary": "Mirendil 宣布完成 10 亿美元 A 轮融资，用于研发自动化基础模型和 Agent 平台。公司披露一名研究员与 Agent 在 3.5 个月内完成 Mirendil-Base 预训练，Fern 支持长上下文，Lor 可组织数百 Agent 执行代码与实验。其商业方向是以长期并行实验和知识复用提升 AI 研发效率。",
+      "intro": "Mirendil 宣布完成 10 亿美元 A 轮融资，用于研发自动化基础模型和 Agent 平台。",
+      "detail": "融资由 Kleiner Perkins 和 Clearlake Capital 领投，Google 等参与。公司介绍 Mirendil-Base 训练算力花费低于 1,000 万美元，Fern 号称支持最高 1,000 万 Token 上下文；Lor 仍在私有测试阶段。与单一自修改 Agent 不同，该平台重视实验分解、连续执行和多个研究子 Agent 的协作。",
+      "findings": "公司披露一名研究员与 Agent 在 3.5 个月内完成 Mirendil-Base 预训练，Fern 支持长上下文，Lor 可组织数百 Agent 执行代码与实验。",
+      "why_it_matters": "值得跟踪单位有效实验成本、人工介入比例与跨代研究策略改进，而不只是运行了多少子 Agent。",
+      "published": "2026-11-12",
+      "score": 94,
+      "fields": [
+        "field-1",
+        "field-4"
+      ],
+      "topics": [
+        "science",
+        "self-evolution",
+        "training",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://mirendil.com/news/series-a/"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-09",
+      "title": "guardscope：检测 Agent 工具网关之外的真实执行路径",
+      "summary": "guardscope 将 Agent 运行控制的实际覆盖率转化为可执行评测，而不是只检查网关是否配置正确。框架研究 15 种动作路径和八种部署拓扑，对照系统级记录将行动分为已检查、绕过和被阻止。对于能够修改 Harness 的自进化 Agent，性能提升后也要重新证明新执行路径仍受监督。",
+      "intro": "guardscope 将 Agent 运行控制的实际覆盖率转化为可执行评测，而不是只检查网关是否配置正确。",
+      "detail": "系统分别检查 MCP 工具调用、本地子进程、直接网络请求等行动是否真正穿过 Runtime Control，再借助内核级记录确认动作事实。它将行为结果区分为 Checked、Bypassed、Prevented，并可用于不同 Agent 框架与运行控制系统。新工具或工作流接入后，可自动重新执行覆盖率测试。",
+      "findings": "框架研究 15 种动作路径和八种部署拓扑，对照系统级记录将行动分为已检查、绕过和被阻止。",
+      "why_it_matters": "Audit Coverage 可以作为自进化 Harness 的版本准入指标，与成功率及成本一起验收。",
+      "published": "2026-11-11",
+      "score": 94,
+      "fields": [
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "self-evolution",
+        "safety",
+        "tool-use",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.15223"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-10",
+      "title": "NIBench：真实科研 Skill 执行与陌生工作流迁移存在差距",
+      "summary": "NIBench 把真实神经影像软件与公开医学影像数据组成 56 个工作流任务和 36 个科研判断题。模型拿到完整分析步骤时更容易执行，需自主重建流程时表现下降；从成功轨迹蒸馏的 Skill 也未必迁移到新任务。它把科研工具执行、任务规划、技能迁移和科学结论拆成不同能力。",
+      "intro": "NIBench 把真实神经影像软件与公开医学影像数据组成 56 个工作流任务和 36 个科研判断题。",
+      "detail": "受测软件包括 AFNI、ANTs、FSL、FreeSurfer 等，以固定版本容器运行。56 个执行任务涉及原子命令、多步 Pipeline、群体分析和对抗性输入，另有科学判断任务。作者将一半工作流用于 Skill 蒸馏，另一半进行未见任务测试；熟悉任务通常收益明显，但未见任务有时退化。",
+      "findings": "模型拿到完整分析步骤时更容易执行，需自主重建流程时表现下降；从成功轨迹蒸馏的 Skill 也未必迁移到新任务。",
+      "why_it_matters": "可用相同环境分别评价给定操作清单、独立选择分析步骤和跨任务复用 Skill 的能力。",
+      "published": "2026-11-11",
+      "score": 93,
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "science",
+        "work",
+        "skills",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.15831"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-11",
+      "title": "drydock-eval：看似提升的 Agent 优化未能通过独立复测",
+      "summary": "drydock-eval 用 Contain、Conform 和 Compare 三阶段构建隔离且可复测的 Coding Agent 评估流程。研究公开 9,660 条 Agent 执行记录，三项开发测试中领先的候选改动在独立未见测试中均未被确认。它说明自动 Harness 优化应将评分噪声与选择偏差纳入版本管理。",
+      "intro": "drydock-eval 用 Contain、Conform 和 Compare 三阶段构建隔离且可复测的 Coding Agent 评估流程。",
+      "detail": "Contain 隔离 Agent 生成代码，Conform 对齐目标评测协议，Compare 用配对统计和任务分组比较方案。作者还公开 2,494 条评分控制记录和 72 条 Serving 测量记录；未经修改的基线重复测量也可能有约 1.17 分波动。三项开发集提高约 1—6 分的候选没有获得预先冻结测试规则的独立确认。",
+      "findings": "研究公开 9,660 条 Agent 执行记录，三项开发测试中领先的候选改动在独立未见测试中均未被确认。",
+      "why_it_matters": "RSI 研究应保存失败候选、环境指纹与 held-out 测试记录，并以独立复测决定是否接受升级。",
+      "published": "2026-11-12",
+      "score": 92,
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "coding",
+        "evaluation",
+        "self-evolution",
+        "environments",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16485"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-12",
+      "title": "Ropedia Xperience 2：联合开放真实 3D 场景与人类操作行为",
+      "summary": "Ropedia Xperience 2 发布 1,589 个米制 3D 场景扫描及 4,230 条第一视角人类操作。数据覆盖 74 项任务、131 小时，并可转为可执行仿真环境及机器人动作轨迹。这让具身训练数据同时包含真实场景结构与行为示范，而不只是离线视频。",
+      "intro": "Ropedia Xperience 2 发布 1,589 个米制 3D 场景扫描及 4,230 条第一视角人类操作。",
+      "detail": "项目把人类第一视角视频、三维扫描与动作姿态对齐，重建有物理交互能力的模拟环境，并将人类行为重定向到机器人。研究者可以改变初始环境并重新执行任务，生成新的反事实轨迹和虚拟遥操作数据。相比仅增加示范小时数，这种联合采集提供环境多样性与动作多样性的两条 Scaling 路线。",
+      "findings": "数据覆盖 74 项任务、131 小时，并可转为可执行仿真环境及机器人动作轨迹。",
+      "why_it_matters": "值得在同一采集预算下比较增加新场景、新任务和更多重复示范对泛化能力的贡献。",
+      "published": "2026-11-12",
+      "score": 92,
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "training",
+        "data-synthesis",
+        "environments",
+        "science",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17060"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-13",
+      "title": "Open Vision Banana：开放生成式视觉感知训练与数据配方",
+      "summary": "Open Vision Banana 使用开放 4B/9B 图像生成模型和数百万样本训练语义分割等视觉感知能力。论文报告 Cityscapes 零样本分割 73.9 mIoU，高于所比较的 Vision Banana 69.9 mIoU。通过多套颜色—类别映射集成还可提升结果，显示感知能力受输出编码影响。",
+      "intro": "Open Vision Banana 使用开放 4B/9B 图像生成模型和数百万样本训练语义分割等视觉感知能力。",
+      "detail": "研究把语义分割等任务转为条件图像编辑，公开数据处理、训练代码和 Checkpoint。Legend Ensembling 通过更换类别颜色编码多次生成，再做结果融合，在若干测试中带来 8.7 至 15.0 mIoU 的提升。它提供了研究数据、输出表征与测试时多样化集成的公开实验平台。",
+      "findings": "论文报告 Cityscapes 零样本分割 73.9 mIoU，高于所比较的 Vision Banana 69.9 mIoU。",
+      "why_it_matters": "值得在视觉 Agent 中检查类别名称、颜色编码和对象顺序变化对后续决策是否产生不必要偏差。",
+      "published": "2026-11-11",
+      "score": 91,
+      "fields": [
+        "field-1"
+      ],
+      "topics": [
+        "training",
+        "data-synthesis",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.15844"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-14",
+      "title": "LiveGeo / GeoWorld：真实世界变化后 Agent 是否主动更新证据",
+      "summary": "LiveGeo 基于 GeoWorld 构造持续变化、可回放的现实地理环境，要求 Agent 判断旧资料何时失效。评测不只检查静态地图和路线是否合理，还要求主动查询最新状态并调整计划。论文发现一些静态任务能力很强的模型在动态环境中仍会因为过期证据而做错行动。",
+      "intro": "LiveGeo 基于 GeoWorld 构造持续变化、可回放的现实地理环境，要求 Agent 判断旧资料何时失效。",
+      "detail": "GeoWorld 追踪不同时间点的地理状态和历史证据，让 Agent 面对营业状态、位置与道路等信息变化。任务包含何时重新请求外部信息、如何识别旧计划失效以及如何更新后续动作。研究结果有助于解释旅行、商家服务和持续采购任务中的状态过期错误。",
+      "findings": "评测不只检查静态地图和路线是否合理，还要求主动查询最新状态并调整计划。",
+      "why_it_matters": "可引入 Stale-Evidence Action Rate、重新验证成本和重规划收益等指标。",
+      "published": "2026-11-12",
+      "score": 91,
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "personal",
+        "environments",
+        "evaluation",
+        "benchmark",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17267"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-15",
+      "title": "OPSD4MAS：多 Agent 通信获得 Token 级训练信用分配",
+      "summary": "OPSD4MAS 通过 On-Policy Self-Distillation 将多 Agent 的后续通信转成 Token 级奖励信号。系统筛选真正有帮助的事实并分析其影响，再与 GRPO 结合训练协作策略。作者在数学协作实验中报告 pass@4 相比 GRPO 最高提高 20 个百分点。",
+      "intro": "OPSD4MAS 通过 On-Policy Self-Distillation 将多 Agent 的后续通信转成 Token 级奖励信号。",
+      "detail": "传统多 Agent RL 往往只有最终标量奖励，难以归因哪些消息真正帮助其他 Agent。该方法借助事实选择和留一影响分析估计信息贡献，把有用内容变成更细的训练目标。它适合迁移到 Research Agent、Coding Agent 与 Verifier 的信息交接和错误纠正。",
+      "findings": "系统筛选真正有帮助的事实并分析其影响，再与 GRPO 结合训练协作策略。",
+      "why_it_matters": "未来可将通信 Token 成本、证据可信度和下游任务收益共同纳入团队奖励。",
+      "published": "2026-11-12",
+      "score": 90,
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "training",
+        "self-evolution",
+        "skills",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16206"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-16",
+      "title": "EgoX：让人类、机器人和仿真动作共享跨形态表示",
+      "summary": "EgoX 使用模块化跨形态 Transformer 联合学习人类、真实机器人和模拟器中的动作经验。不同输入和动作空间保留专门处理模块，共享主干通过 Embodiment Dreaming 预测未来状态。作者报告多形态实验的平均归一化任务进度从 0.63 提高到 0.80。",
+      "intro": "EgoX 使用模块化跨形态 Transformer 联合学习人类、真实机器人和模拟器中的动作经验。",
+      "detail": "模型分别设置专用观察 Tokenizer 和动作专家，共享 Transformer 表示更通用的动作结构。Embodiment Dreaming 额外训练视觉与运动状态的未来预测，使不同形态的示范获得可迁移信息。测试覆盖不同任务和机器人本体，重点是跨数据源联合训练的受益范围。",
+      "findings": "不同输入和动作空间保留专门处理模块，共享主干通过 Embodiment Dreaming 预测未来状态。",
+      "why_it_matters": "可分析共享语义与专用控制各需多少容量，以及未来状态预测能否过滤不可靠数据。",
+      "published": "2026-11-12",
+      "score": 90,
+      "fields": [
+        "field-1"
+      ],
+      "topics": [
+        "training",
+        "data-synthesis",
+        "science",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16728"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-17",
+      "title": "DecArena：十万分布式工具中发现与协调其他 Agent",
+      "summary": "DecArena 使用图结构限制各 Agent 可见资源和通信伙伴，在超过十万个分布式工具中设计协作任务。实验发现强模型也会难以发现非本地资源，普通 RL 不一定稳定改善。提出的 GraphHarness 通过拓扑感知与改进的路由提升去中心化协作能力。",
+      "intro": "DecArena 使用图结构限制各 Agent 可见资源和通信伙伴，在超过十万个分布式工具中设计协作任务。",
+      "detail": "每个 Agent 只能观察局部工具，并与相邻 Agent 交流，模拟不同服务方和个人拥有独立数据权限的生态。GraphHarness 在有限通信拓扑中搜索合适的协作者并完成跨节点调用。相比中心化 Orchestrator，该机制更重视信息边界、通信路径和资源发现成本。",
+      "findings": "实验发现强模型也会难以发现非本地资源，普通 RL 不一定稳定改善。",
+      "why_it_matters": "对 Personal Agent 的价值在于测试多方合作能否完成任务，同时限制私人数据不必要的共享。",
+      "published": "2026-11-11",
+      "score": 89,
+      "fields": [
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "personal",
+        "tool-use",
+        "evaluation",
+        "benchmark",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.15521"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-18",
+      "title": "ArchSpace：用失败实验和 Scaling Law 复用模型架构研究",
+      "summary": "ArchSpace 建立开放架构实验记录与评审体系，不只保存成功设计，也保留失败方案及对应预算。项目提供 Qwen3.5、OLMo3 基线、可复用训练配方和小规模试验外推的大模型 Scaling Law。它为 AI Scientist 提供可机器读取的研究历史和下一轮实验决策素材。",
+      "intro": "ArchSpace 建立开放架构实验记录与评审体系，不只保存成功设计，也保留失败方案及对应预算。",
+      "detail": "该工作以记录、审查和引用架构实验为基础，关联模型结构、训练数据、硬件预算与验证效果。失败实验可帮助未来系统识别无效方向，小规模 Scaling 则用于优先排序高成本候选。研究者还需要评价外推不确定性和跨数据配方的一致性。",
+      "findings": "项目提供 Qwen3.5、OLMo3 基线、可复用训练配方和小规模试验外推的大模型 Scaling Law。",
+      "why_it_matters": "可训练 Research Agent 根据既有实验预测后续方案价值，衡量是否减少无效大规模训练。",
+      "published": "2026-11-12",
+      "score": 89,
+      "fields": [
+        "field-1",
+        "field-4"
+      ],
+      "topics": [
+        "science",
+        "training",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17332"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-19",
+      "title": "The Value of Thinking：Agent 自动选择快速判断还是完整慢推理",
+      "summary": "The Value of Thinking 让 Decision Model 在一次前向的快速判断与完整链式推理之间动态选择。轻量 Router 根据任务奖励估计额外思考的收益，在 MiniWoB 上作者报告 Token 成本降低 80.1%。这使 Agent 能把计算预算重点投入真正困难或高代价的动作。",
+      "intro": "The Value of Thinking 让 Decision Model 在一次前向的快速判断与完整链式推理之间动态选择。",
+      "detail": "Hybrid Decision Model 结合 Fast Mode、Slow Mode 和学习式 Router，通过完整任务奖励训练什么时候需要更贵的推理。作者在 JevBench 报告相近准确率但明显更低的中位延迟。实际工作流可以把不可逆操作、授权检查和失败恢复等阶段作为更高计算预算的重点。",
+      "findings": "轻量 Router 根据任务奖励估计额外思考的收益，在 MiniWoB 上作者报告 Token 成本降低 80.1%。",
+      "why_it_matters": "适合研究成功率相同时的单任务总成本，以及低风险操作节省的预算能否用于关键步骤。",
+      "published": "2026-11-12",
+      "score": 88,
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4"
+      ],
+      "topics": [
+        "training",
+        "tool-use",
+        "deployment",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.16961"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-20",
+      "title": "DiVR：扩散语言模型预测成功率后选择重生成",
+      "summary": "DiVR 给扩散语言模型训练中间结果 Verifier，判断继续修改 Token 还是重新生成整个片段。作者在五项推理基准中报告正确率从 35.3% 提升到 43.4%，且比部分昂贵搜索对照更节省计算。它把局部修复决策转化为基于未来结果成功概率的控制问题。",
+      "intro": "DiVR 给扩散语言模型训练中间结果 Verifier，判断继续修改 Token 还是重新生成整个片段。",
+      "detail": "扩散模型可能在错误上下文下反复重生成同样的错误 Token。DiVR 根据当前部分输出估计能否成功，决定保留、局部重写或重做 Block。作者报告相对 Greedy 约 1.9—3.5 倍推理开销，比部分需要更多重采样的策略更经济。",
+      "findings": "作者在五项推理基准中报告正确率从 35.3% 提升到 43.4%，且比部分昂贵搜索对照更节省计算。",
+      "why_it_matters": "该思想可迁移至 Agent 的错误恢复策略，选择继续执行、回滚一步还是重新规划。",
+      "published": "2026-11-12",
+      "score": 88,
+      "fields": [
+        "field-1"
+      ],
+      "topics": [
+        "training",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17320"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-21",
+      "title": "Goal Encoding：语言模型内部子目标可被解码和干预",
+      "summary": "Goal Encoding 研究发现编程任务中的少数 Attention Head 携带可描述下一项子目标的信息。对内部表示进行因果干预会改变模型后续动作，相似子目标也能跨不同编程语言复用。它为面向 Agent 子目标选择的训练提供了新的机制分析思路。",
+      "intro": "Goal Encoding 研究发现编程任务中的少数 Attention Head 携带可描述下一项子目标的信息。",
+      "detail": "研究利用不同代码任务构造目标探针，检查模型内部注意力表示与其后动作之间的因果关系。结果提示某些高层目标信息可独立于具体代码 Token，但并不意味着模型存在万能的目标模块。下一步可将目标错误诊断与局部 Tool Agent 训练结合。",
+      "findings": "对内部表示进行因果干预会改变模型后续动作，相似子目标也能跨不同编程语言复用。",
+      "why_it_matters": "值得比较 Goal-level Supervision 与只监督最终工具动作的长期任务泛化差异。",
+      "published": "2026-11-12",
+      "score": 87,
+      "fields": [
+        "field-1",
+        "field-4"
+      ],
+      "topics": [
+        "science",
+        "training",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17297"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-22",
+      "title": "Metal Sandbox：多台 Mac 共享 GPU Coding Agent 的执行命令",
+      "summary": "Metal Sandbox 通过隔离工作目录和命令级调度，让多个 Apple Metal Kernel Coding Agent 更有效地共用 GPU。四台 Mac mini M4 的实验报告命令吞吐提升 1.68—2.05 倍，动态调度模拟中平均工具等待下降 18.8%。这解决了 Agent 在推理、修改代码和运行测试之间频繁切换造成的计算空闲。",
+      "intro": "Metal Sandbox 通过隔离工作目录和命令级调度，让多个 Apple Metal Kernel Coding Agent 更有效地共用 GPU。",
+      "detail": "系统允许不同 Agent 的编译、运行和测试命令交错执行，并在可用机器之间迁移部分工作。研究集成 Harbor 工作环境，支持记录可复现的工具运行与评分。轨迹模拟还报告 Batch 完成时间下降 22.3%。",
+      "findings": "四台 Mac mini M4 的实验报告命令吞吐提升 1.68—2.05 倍，动态调度模拟中平均工具等待下降 18.8%。",
+      "why_it_matters": "对于 Agent RL 和数据采集，端到端有效任务吞吐比单次 GPU 命令速度更重要。",
+      "published": "2026-11-12",
+      "score": 87,
+      "fields": [
+        "field-1",
+        "field-4"
+      ],
+      "topics": [
+        "coding",
+        "deployment",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17294"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-23",
+      "title": "BirdDreams：联合生成驾驶视角视频与俯视交通结构",
+      "summary": "BirdDreams 联合预测第一视角驾驶视频和俯视 BEV 视频，连接视觉外观与道路几何、车辆动态。两个 Diffusion Transformer 通过交互注意力交换信息，研究报告在驾驶数据中改善轨迹遵循和交通参与者行为。它体现世界模型需要同时学习可视外观与显式物理约束。",
+      "intro": "BirdDreams 联合预测第一视角驾驶视频和俯视 BEV 视频，连接视觉外观与道路几何、车辆动态。",
+      "detail": "第一视角生成擅长真实外观，却容易忽视几何运动的一致性；BEV 有固定尺度，可明确表达车辆及道路的空间关系。BirdDreams 联合训练两种表示，让视觉和结构约束相互补充。对于机器人和自动驾驶 Agent，这提供把生成环境与可执行状态验证结合的参考。",
+      "findings": "两个 Diffusion Transformer 通过交互注意力交换信息，研究报告在驾驶数据中改善轨迹遵循和交通参与者行为。",
+      "why_it_matters": "可检查视觉合理但空间不可执行的合成环境，并用真实轨迹约束训练世界模型。",
+      "published": "2026-11-10",
+      "score": 86,
+      "fields": [
+        "field-1"
+      ],
+      "topics": [
+        "training",
+        "data-synthesis",
+        "environments",
+        "science"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.14815"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-24",
+      "title": "Memorilla：16 个可训练潜在 Token 表达查询相关历史",
+      "summary": "Memorilla 将大量历史信息压缩成 16 个查询相关的潜在记忆 Token，再交给冻结语言模型生成回答。论文报告 FactKG 准确率 84.33%，超过完整上下文基线的 80.43%；TextWorld 成功率由基线 18.6% 升至 24.2%。它提供纯文本长期上下文与 RAG 之外的一条可训练低成本记忆路线。",
+      "intro": "Memorilla 将大量历史信息压缩成 16 个查询相关的潜在记忆 Token，再交给冻结语言模型生成回答。",
+      "detail": "系统使用冻结编码器和可训练记忆模块，将历史文档映射到回答模型的潜在嵌入空间。查询相关压缩可能更省 Token，也能捕获分散于历史中的关联；不过个人化使用时还需检查时间状态更新、删除用户记忆和来源追踪。论文初版早于本周，近期获得新技术报道并值得补入长期记忆方法追踪。",
+      "findings": "论文报告 FactKG 准确率 84.33%，超过完整上下文基线的 80.43%；TextWorld 成功率由基线 18.6% 升至 24.2%。",
+      "why_it_matters": "可以比较文本、结构化和潜在记忆的真实行动收益、Token 成本以及用户纠错能力。",
+      "published": "2026-10-15",
+      "score": 85,
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "personal",
+        "memory",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2610.21375"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-25",
+      "title": "Aivium Desktop 0.2.17112：停止任务后终止屏幕状态采集",
+      "summary": "Aivium 的新桌面版展示工具作用域及 Skill 依赖，并修复本地历史读取与任务状态问题。用户按下 Stop 后，系统停止有关屏幕状态的后续指纹化处理，也不继续保留已关闭窗口的快照。它让长期 Computer-Use Agent 的取消语义和本地隐私处理更明确。",
+      "intro": "Aivium 的新桌面版展示工具作用域及 Skill 依赖，并修复本地历史读取与任务状态问题。",
+      "detail": "版本更新统一工具 Session Policy，修正跳过队列后读取 PC 历史的异常，并清理部分不必要的屏幕状态缓存。桌面 Agent 的 Stop 需要延伸到后台采集和工具执行，而不能仅暂停对话输出。可结合实际运行测试暂停和撤销权限后的数据保留与继续调用行为。",
+      "findings": "用户按下 Stop 后，系统停止有关屏幕状态的后续指纹化处理，也不继续保留已关闭窗口的快照。",
+      "why_it_matters": "适合研发 Stop-Semantics Benchmark，检查工具队列、截图缓存、记忆写入和子进程是否真正停止。",
+      "published": "2026-11-14",
+      "score": 84,
+      "fields": [
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "personal",
+        "tool-use",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "官方公告或研究资料",
+          "url": "https://aivium.app/en/changelog"
+        }
+      ]
+    },
+    {
+      "id": "news-20261115-26",
+      "title": "Nous Hermes Agent Canary：11 月 14 日桌面预览构建",
+      "summary": "Nous Research 发布 Hermes Agent v0.23.1 的 Canary 桌面构建，覆盖 macOS Apple Silicon 和 Windows x64、ARM。官方发布记录显示基本安装与聊天启动检查通过，重点是多平台交付与运行质量。本次版本说明未新增独立的长期记忆算法，属于桌面 Agent 的小版本工程更新。",
+      "intro": "Nous Research 发布 Hermes Agent v0.23.1 的 Canary 桌面构建，覆盖 macOS Apple Silicon 和 Windows x64、ARM。",
+      "detail": "发布资产包含 macOS DMG 和 Windows MSIX，构建通过相应 Smoke Test。此前的 Hermes Desktop 与 Gateway 架构持续改进跨入口 Session 运行，但不能算作此 Canary 新功能。后续应观察后台任务、工具状态和跨系统恢复是否稳定。",
+      "findings": "官方发布记录显示基本安装与聊天启动检查通过，重点是多平台交付与运行质量。",
+      "why_it_matters": "跨平台桌面 Agent 需要可靠安装、更新、工具权限和任务恢复机制。",
+      "published": "2026-11-14",
+      "score": 83,
+      "fields": [
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "personal",
+        "deployment",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "GitHub 官方发布",
+          "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.1%2Bcanary.20261114T064334Z"
+        }
+      ]
+    }
+  ]
+}
