@@ -1,0 +1,251 @@
+{
+  "date": "2026-11-16",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "OpenClaw 2026.11.5-beta.3：长会话压缩与重启权限恢复",
+      "score": 99,
+      "published": "2026-11-15",
+      "topics": [
+        "memory",
+        "deployment",
+        "safety",
+        "personal",
+        "framework",
+        "product"
+      ],
+      "summary": "OpenClaw 新 Beta 减少大规模历史会话在索引、裁剪和压缩时的内存开销。版本还保留重启前消息队列和原有权限上限，改善冷启动、工作空间恢复及最终结果交付。长期 Personal Agent 的重点从保存更多上下文转向确保压缩与重启后仍然正确执行。",
+      "intro": "OpenClaw 新 Beta 减少大规模历史会话在索引、裁剪和压缩时的内存开销。",
+      "detail": "官方 Release Notes 列出按需流式取回历史、可配置摘要字符上限、摘要凭证脱敏和持久会话恢复。重启时会保留已接收消息、排队操作的原权限及最终 RPC 交付归属，并处理数据库冷启动和子任务收尾。研究上可以冻结同一任务状态，对比压缩、进程重启和断连前后的行动与授权是否一致。",
+      "findings": "版本还保留重启前消息队列和原有权限上限，改善冷启动、工作空间恢复及最终结果交付。",
+      "why_it_matters": "建议构建 Agent Compaction and Resume Benchmark，检查真实工具副作用、任务状态和权限保持。",
+      "sources": [
+        {
+          "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.11.5-beta.3",
+          "name": "项目官方资料"
+        }
+      ]
+    },
+    {
+      "title": "Folio：三层可恢复上下文，让 Agent 历史压缩不丢原始证据",
+      "score": 98,
+      "published": "2026-11-12",
+      "topics": [
+        "memory",
+        "deployment",
+        "framework",
+        "evaluation"
+      ],
+      "summary": "Folio 把长期执行历史拆分为轮次备注、运行时事件清单和原始工具证据三层。75 项 LOCA-bench 上，同一模型完成 66 项任务，而模型摘要压缩基线完成 54 项。它让长程 Agent 以低成本保留证据索引，必要时精确恢复原始调用信息。",
+      "intro": "Folio 把长期执行历史拆分为轮次备注、运行时事件清单和原始工具证据三层。",
+      "detail": "L1 是模型给出的简短备注，L2 是运行时自动记录的工具事件清单，L3 保存原始记录；历史折叠时只调整展示层级，不重写全部历史。Agent 可使用稳定句柄分页恢复证据并将结果积累在持久 dossier 中。论文报告每次折叠中位时间约 0.6 秒、同运行时成本约为摘要方案的 1/2.4。",
+      "findings": "75 项 LOCA-bench 上，同一模型完成 66 项任务，而模型摘要压缩基线完成 54 项。",
+      "why_it_matters": "推荐比较摘要式 Memory、事件日志和三层证据索引在连续工具任务中的恢复成功率。",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.16627",
+          "name": "原始论文"
+        }
+      ]
+    },
+    {
+      "title": "HeMeR：异构记忆只重算变化的 KV Cache",
+      "score": 95,
+      "published": "2026-11-12",
+      "topics": [
+        "memory",
+        "deployment",
+        "framework",
+        "personal"
+      ],
+      "summary": "HeMeR 显式跟踪事实、程序与工作记忆的变化，复用未受影响的 KV 状态。真实机器人任务中，成功率相对 MemRL 从 64.28% 升至 83.20%，每步推理时间从 2.94 秒降至 1.87 秒。它为长期 Personal Agent 的多类型记忆和低延迟执行提供了新的缓存管理路线。",
+      "intro": "HeMeR 显式跟踪事实、程序与工作记忆的变化，复用未受影响的 KV 状态。",
+      "detail": "Declarative、Procedural 和 Working Memory 经常只发生局部更新，但普通推理系统会重新读取整段记忆。HeMeR 使用结构化 KV Reconciliation 识别需要失效的缓存片段，保留其余兼容状态，在 ALFWorld、Habitat 以及真实机器人任务中测试。未来应关注旧缓存与当前世界状态不一致时的错误恢复，而不能只计量缓存命中率。",
+      "findings": "真实机器人任务中，成功率相对 MemRL 从 64.28% 升至 83.20%，每步推理时间从 2.94 秒降至 1.87 秒。",
+      "why_it_matters": "建议将记忆变更范围、KV 失效正确性和最终任务成功率纳入统一基准。",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.16487",
+          "name": "原始论文"
+        }
+      ]
+    },
+    {
+      "title": "Evidence-Governed Evolution：自我修改必须经过独立配对审计",
+      "score": 93,
+      "published": "2026-11-12",
+      "topics": [
+        "self-evolution",
+        "evaluation",
+        "memory",
+        "framework"
+      ],
+      "summary": "Evidence-Governed Evolution 为 Agent 修改提示词、记忆、工具和工作流设置版本准入流程。系统冻结候选更新，在新配对测试上验证收益，并检查原有重要能力没有明显退化。它把自我演化从单次分数优化转向能够审计、回滚和限制部署的持续过程。",
+      "intro": "Evidence-Governed Evolution 为 Agent 修改提示词、记忆、工具和工作流设置版本准入流程。",
+      "detail": "EGE 区分候选生成与确认性验收，要求 Fresh Paired Audit、Non-Inferiority Tests 和 Bounded Canary Deployment。作者分析重复搜索中的选择偏差、评分器误差和跨版本累积退化，并用统计置信界及 Monte Carlo 压力测试说明设计逻辑。该工作更偏版本审核的理论框架，可与已有的 TRUST、EvoAudit 和 MAPE 联合研究。",
+      "findings": "系统冻结候选更新，在新配对测试上验证收益，并检查原有重要能力没有明显退化。",
+      "why_it_matters": "为长期记忆和 Skill 更新建立冻结候选、历史回归和受控灰度发布机制。",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.16378",
+          "name": "原始论文"
+        }
+      ]
+    },
+    {
+      "title": "Claude Code Hooks 配置优先级问题：项目设置可关闭用户保护",
+      "score": 92,
+      "published": "2026-11-15",
+      "topics": [
+        "safety",
+        "coding",
+        "tool-use",
+        "product"
+      ],
+      "summary": "Claude Code Issue #110181 报告，仓库中的项目配置包含 disableAllHooks 时，可关闭用户级和插件级的保护 Hooks。报告者在 macOS v2.1.325 复现了阻断命令的 PreToolUse Hook 失效，而删除配置后拦截恢复。此例暴露了不可信项目设置与用户自身工具保护策略之间的优先级问题。",
+      "intro": "Claude Code Issue #110181 报告，仓库中的项目配置包含 disableAllHooks 时，可关闭用户级和插件级的保护 Hooks。",
+      "detail": "复现涉及 `.claude/settings.json` 的 disableAllHooks 属性；在报告条件下，它影响用户配置和命令行传入的 Hook，受管理设置例外。该 Issue 已公开提供重现步骤，适合形成低信任项目配置不可覆盖用户核心保护的回归测试。Code Agent 需要明确区分仓库自带的工具习惯与用户要求强制实施的安全边界。",
+      "findings": "报告者在 macOS v2.1.325 复现了阻断命令的 PreToolUse Hook 失效，而删除配置后拦截恢复。",
+      "why_it_matters": "建议在安装插件、读取第三方仓库和恢复会话时检查保护 Hooks 是否仍被执行。",
+      "sources": [
+        {
+          "url": "https://github.com/anthropics/claude-code/issues/110181",
+          "name": "项目官方资料"
+        }
+      ]
+    },
+    {
+      "title": "MemInStream：检验视频 Agent 是否真的依赖历史证据",
+      "score": 90,
+      "published": "2026-11-11",
+      "topics": [
+        "memory",
+        "personal",
+        "benchmark",
+        "evaluation"
+      ],
+      "summary": "MemInStream 为流式视频问题标注必要的历史证据区间，并验证只使用当前画面或语言先验时不能解答。任务覆盖事件回忆、状态更新、多证据整合和情境记忆四类能力。它能帮助智能眼镜与家庭 Agent 区分真正的持续记忆和即时视觉猜测。",
+      "intro": "MemInStream 为流式视频问题标注必要的历史证据区间，并验证只使用当前画面或语言先验时不能解答。",
+      "detail": "传统 VideoQA 的最终答案正确率无法排除当前画面和常识带来的捷径。MemInStream 通过 Evidence-Controlled Validation 检查证据存在时的可解性、删除关键历史后的难度，以及最近观察是否足以推断答案。未来可以在穿戴式 Agent 环境中加入历史删除、跨天状态变化和多段证据依赖任务。",
+      "findings": "任务覆盖事件回忆、状态更新、多证据整合和情境记忆四类能力。",
+      "why_it_matters": "长期视觉记忆基准应独立验证历史信息的必要性，而不是只看问答分数。",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.15640",
+          "name": "原始论文"
+        }
+      ]
+    },
+    {
+      "title": "CoMem：依据当前问题选择性压缩历史证据",
+      "score": 90,
+      "published": "2026-11-12",
+      "topics": [
+        "memory",
+        "training",
+        "personal",
+        "framework"
+      ],
+      "summary": "CoMem 使用 Query-Guided Selective Compression，根据当前用户问题选择需要保留的历史信息。它以同一文档的不同查询构造 Hard Negatives，并让记忆槽通过双向注意力交换证据。实验在多组长上下文任务和 4×—128× 压缩率下优于已有方案，适合按购物、旅行或日程动态构造个人记忆。",
+      "intro": "CoMem 使用 Query-Guided Selective Compression，根据当前用户问题选择需要保留的历史信息。",
+      "detail": "传统压缩器为一整段历史生成固定摘要，无法同时满足费用查询、活动回忆和状态核对等不同证据需求。CoMem 用 Contrastive Compressor Learning 强化查询相关证据，采用 Same-Context Hard Negative 提高区分力，并允许压缩 Memory Slots 间双向交互。论文报告特定 64× 设置下回答生成最高约 4.82 倍加速，该数字不包含全部压缩和检索开销。",
+      "findings": "它以同一文档的不同查询构造 Hard Negatives，并让记忆槽通过双向注意力交换证据。",
+      "why_it_matters": "建议比较固定摘要与 Task-Conditioned Memory 在真实个人任务中的边际收益。",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.16384",
+          "name": "原始论文"
+        }
+      ]
+    },
+    {
+      "title": "CapLite：从工具 Schema 与用户请求确定小模型 Agent 的写权限",
+      "score": 89,
+      "published": "2026-11-12",
+      "topics": [
+        "safety",
+        "tool-use",
+        "framework",
+        "evaluation"
+      ],
+      "summary": "CapLite 不要求小模型自己编写安全策略，而是从工具 Schema 与用户原始请求推导合法写入范围。13,935 个受攻击 AgentDojo Episode 中没有成功越权写入，受攻击时任务效用达 29.0%。它可阻止工具结果诱导 Agent 增加未被授权的收件人、金额或修改对象。",
+      "intro": "CapLite 不要求小模型自己编写安全策略，而是从工具 Schema 与用户原始请求推导合法写入范围。",
+      "detail": "很多 Prompt Injection 防护让模型生成策略代码、依赖图或约束列表，较小模型未必能正确生成这些工件。CapLite 在读取不可信返回前锁定写操作候选，并要求所有影响目的地、金额、接收人和对象的参数都来自用户请求。作者测试 15 种开源模型，报告 Token 消耗约为 CaMeL 的 18%，为小型 Work Agent 提供结构化授权路径。",
+      "findings": "13,935 个受攻击 AgentDojo Episode 中没有成功越权写入，受攻击时任务效用达 29.0%。",
+      "why_it_matters": "值得在邮件、支付和文件写入环境里验证动态澄清与授权更新的兼容性。",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.17115",
+          "name": "原始论文"
+        }
+      ]
+    },
+    {
+      "title": "Hermes Agent Canary：新增记忆与权限分级插件",
+      "score": 87,
+      "published": "2026-11-15",
+      "topics": [
+        "memory",
+        "skills",
+        "personal",
+        "deployment",
+        "product"
+      ],
+      "summary": "Hermes Agent 11 月 15 日发布 Canary 预览版，插件目录新增 Hermes Eye Memory、Luminary Memory Provider 与 Permission Tiers。版本也扩展工作区和工具组件，并完成 macOS、Windows x64 与 ARM 的安装聊天冒烟测试。个人 Agent 的记忆后端和权限机制正逐渐转向可独立组合的插件生态。",
+      "intro": "Hermes Agent 11 月 15 日发布 Canary 预览版，插件目录新增 Hermes Eye Memory、Luminary Memory Provider 与 Permission Tiers。",
+      "detail": "新插件包括 hermes-eye-memory、luminary、permission-tiers、QMD Workspaces 等，配套构建测试覆盖主要桌面发行形态。这是明确的新 Canary 构建，与前一天已发布的 Canary 属于不同版本，未在此次重新计算旧版本的新闻。研究上可以让 Agent 在接纳插件前运行能力验证、权限测试、兼容性检查和成本评估。",
+      "findings": "版本也扩展工作区和工具组件，并完成 macOS、Windows x64 与 ARM 的安装聊天冒烟测试。",
+      "why_it_matters": "插件数量增长需要同步建立可验证的安装准入与跨会话配置回归。",
+      "sources": [
+        {
+          "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.1%2Bcanary.20261115T064406Z",
+          "name": "项目官方资料"
+        }
+      ]
+    },
+    {
+      "title": "OpenClaw Context Engine：启用插件可能改变全局记忆后端",
+      "score": 86,
+      "published": "2026-11-15",
+      "topics": [
+        "memory",
+        "safety",
+        "deployment",
+        "product"
+      ],
+      "summary": "OpenClaw 新 Issue #199548 报告，启用 context-engine 类型插件可能自动更改整个 Gateway 的 Context Engine。CLI 输出没有清楚提示这一全局配置切换，源码级审查确认存在相应配置副作用。对于多 Agent 系统，启用记忆插件和实际选定全部会话的记忆后端应是可区分的两类操作。",
+      "intro": "OpenClaw 新 Issue #199548 报告，启用 context-engine 类型插件可能自动更改整个 Gateway 的 Context Engine。",
+      "detail": "报告者在 OpenClaw 2026.11.3 上执行 `plugins enable` 后观察到 `plugins.slots.contextEngine` 被改为该插件。该设置可能影响同一网关内全部会话的检索和压缩规则，而不是仅激活插件本身。适合设计 Memory Provider Selection Integrity 测试，比较启用、切换和撤销前后的状态一致性，并记录操作提示与回滚路径。",
+      "findings": "CLI 输出没有清楚提示这一全局配置切换，源码级审查确认存在相应配置副作用。",
+      "why_it_matters": "建议将记忆引擎的全局变化显式呈现并加入可审计的变更日志。",
+      "sources": [
+        {
+          "url": "https://github.com/openclaw/openclaw/issues/199548",
+          "name": "项目官方资料"
+        }
+      ]
+    },
+    {
+      "title": "Duo Reciprocal World Model：实时音视频的双向连续交互",
+      "score": 85,
+      "published": "2026-11-11",
+      "topics": [
+        "training",
+        "personal",
+        "framework",
+        "environments"
+      ],
+      "summary": "Duo v1 将持续理解环境与用户意图的 Intent 模块和生成视听行为的 Realization 模块连接到统一时间线。它以分块注意力掩码和 Dual Rollout Distillation 支持实时参与决策、用户打断与连续音视频输出。对未来个人助手的研究价值在于模型何时回应、何时等待，以及打断后如何维持任务状态。",
+      "intro": "Duo v1 将持续理解环境与用户意图的 Intent 模块和生成视听行为的 Realization 模块连接到统一时间线。",
+      "detail": "Duo 处理连续输入中的视觉、音频及文本信号，Intent 负责参与判断与推理，Realization 负责视听内容生成。同步 Token 与注意力掩码约束时间因果，双重 Rollout Distillation 让模型接触自身生成的意图和音视频历史。它面向实物互动、虚拟场景编辑和没有鼠标键盘控制的实时多模态任务。",
+      "findings": "它以分块注意力掩码和 Dual Rollout Distillation 支持实时参与决策、用户打断与连续音视频输出。",
+      "why_it_matters": "值得建立连续多模态轨迹的中断、等待和任务恢复基准。",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2611.15131",
+          "name": "原始论文"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+11 月 16 日重点：OpenAI 科学研究合作与 OpenClaw 长程会话恢复推进 Agent 实际应用；Folio、HeMeR、CoMem 强化长期记忆检索和缓存；SatisFix、CapLite 及 Verifier 研究聚焦真实任务与授权边界；UniPat 湿实验预测和 AgenticAI4HPC 进一步扩展可执行的科研评测。
