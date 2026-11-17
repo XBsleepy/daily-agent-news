@@ -22,7 +22,7 @@ $('theme').onclick = () => {
   try { localStorage.setItem('news-theme', theme); } catch { /* Storage is optional. */ }
 };
 function fieldName(id) { return state.data.fields.find((f) => f.id === id)?.name || id; }
-const shortFields = { 'field-1': '训练与数据', 'field-2': '个人助手', 'field-3': '代码与办公', 'field-4': 'RSI / AI4AI' };
+const shortFields = { 'field-1': '训练与数据', 'field-2': '个人助手', 'field-3': '代码与办公', 'field-4': 'RSI / AI4AI', 'field-5': 'Agent / 后训练' };
 function topicName(id) { return (state.data.topics || []).find((t) => t.id === id)?.name || id; }
 function syncFilterURL() {
   const p = new URLSearchParams(location.search);
@@ -107,7 +107,7 @@ function render() {
     row.onclick = (event) => { if (!event.target.closest('button, a')) openStory(); };
     $('feed').append(row);
   });
-  if (!visible.length) $('feed').append(el('p', items.length ? '没有匹配的动态，试试其他关键词或清除筛选。' : '尚未接入日报。四个领域任务的结果整合后，将在这里显示。', 'empty'));
+  if (!visible.length) $('feed').append(el('p', items.length ? '没有匹配的动态，试试其他关键词或清除筛选。' : '尚未接入日报。每日各领域任务的结果整合后，将在这里显示。', 'empty'));
   syncFilterURL();
 }
 function detailSection(label, text, className = '') {

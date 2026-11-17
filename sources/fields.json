@@ -15,6 +15,10 @@
     {
       "id": "field-4",
       "name": "RSI / AI4AI / 自进化"
+    },
+    {
+      "id": "field-5",
+      "name": "Agent / 后训练"
     }
   ],
   "topic_groups": [
@@ -124,4 +128,3 @@
     }
   ]
 }
-

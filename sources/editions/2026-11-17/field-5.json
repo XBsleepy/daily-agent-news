@@ -1,0 +1,371 @@
+{
+  "date": "2026-11-17",
+  "field": "field-5",
+  "items": [
+    {
+      "title": "MLPerf Training v6.1：Agentic RL 正式进入产业级训练基准",
+      "score": 100,
+      "published": "2026-11-16",
+      "topics": [
+        "training",
+        "evaluation",
+        "deployment",
+        "benchmark"
+      ],
+      "summary": "MLCommons 发布 MLPerf Training v6.1，首次增加 Agentic RL 后训练与序列推荐的标准负载。24 家机构提交 153 套系统、250 项测试结果，最大测试配置达到 10,240 个加速器。Agent RL 的 Rollout、奖励计算和策略更新开始有可比的系统级效率基线。",
+      "intro": "MLCommons 发布 MLPerf Training v6.1，首次增加 Agentic RL 后训练与序列推荐的标准负载。",
+      "detail": "新版本不仅对传统预训练与微调做计时，还将 Agentic Reinforcement Learning 纳入标准化测试；同时吸纳云部署及异构加速器系统。参测硬件包含 NVIDIA Rubin 和 Google TPUv7；云方案占 57 套系统。对比新系统应统一模型、任务、收敛质量和总加速器资源，而不是单看峰值性能。",
+      "findings": "大规模产业评测开始把 Agent 后训练作为独立系统负载，覆盖从在线采样到更新的关键环节。",
+      "why_it_matters": "未来 Agent RL 数据生产应记录环境采样、Verifier、权重同步及训练吞吐的分项时间和总成本。",
+      "sources": [
+        {
+          "name": "官方资料",
+          "url": "https://mlcommons.org/2026/11/mlperf-training-v6-1-results/"
+        },
+        {
+          "name": "MLPerf 官方结果",
+          "url": "https://results.mlcommons.org/"
+        }
+      ]
+    },
+    {
+      "title": "G-CAST：从真实采购 Agent 日志形成受控持续自训练循环",
+      "score": 98,
+      "published": "2026-11-13",
+      "topics": [
+        "self-evolution",
+        "continual-learning",
+        "training",
+        "data-synthesis",
+        "framework"
+      ],
+      "summary": "阿里巴巴提出 G-CAST，通过真实电商请求持续构造后训练数据，适应新增用户需求和不断升级的工具。系统联动奖励路由、熵优先数据选择、奖励版本更新和历史回归门禁，已经部署于 1688 源采 Agent。它为生产 Agent 的持续学习与旧能力保持提供端到端闭环。",
+      "intro": "阿里巴巴提出 G-CAST，通过真实电商请求持续构造后训练数据，适应新增用户需求和不断升级的工具。",
+      "detail": "框架先从生产交互和工具运行记录提取候选样本，再依据奖励类型分组并选取具有较高训练价值的不确定案例。随着工具和采购流程不断增加，奖励规则也需要单独演化；每轮新 Checkpoint 必须通过累积的既有任务与新增需求测试才可以晋级。消融结果显示数据选择与奖励演化都有贡献，因此不能仅以收集更多轨迹作为持续学习策略。",
+      "findings": "Agent 的业务能力与 Harness 同时变化时，训练数据和 Reward 也会随之过时。",
+      "why_it_matters": "适合研究真实失败轨迹到短任务的定向合成、Student-Aware 样本选择与跨版本技能回归。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.17814"
+        }
+      ]
+    },
+    {
+      "title": "V-JEPA-LM：反事实视频监督让模型真正读出速度与动态",
+      "score": 97,
+      "published": "2026-11-13",
+      "topics": [
+        "training",
+        "data-synthesis",
+        "evaluation",
+        "framework"
+      ],
+      "summary": "V-JEPA-LM 发现视频编码器虽保留运动信息，语言模型却可能仅依赖静态视觉语义回答问题。研究用镜像、时间反转和速度重采样生成 453 万个答案可检验的反事实训练样本。其 4B 模型在 11 个视频 Benchmark 的平均得分为 72.1，优于受测同规模开放模型。",
+      "intro": "V-JEPA-LM 发现视频编码器虽保留运动信息，语言模型却可能仅依赖静态视觉语义回答问题。",
+      "detail": "研究发现冻结视频编码器的线性探针能以约 87% 准确率读取速度信息，但完整视频问答模型在相应问题上接近猜测。作者控制画面主体与背景，仅改变动态属性，使对应问题的正确答案由变换程序确定；训练采用每帧 32 个视觉 Token。反事实配对直接逼迫语言解码器利用编码器的时间表征，而不是从物体类别猜测答案。",
+      "findings": "视觉特征含有信息不代表下游推理会使用，训练标签的可辨别性和反事实构造非常关键。",
+      "why_it_matters": "可迁移到机器人和实时助手，对运动方向、变化顺序、等待时机设计程序化训练样本。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.17831"
+        }
+      ]
+    },
+    {
+      "title": "Continual-ARC：长期记忆保持和未见任务技能泛化存在鸿沟",
+      "score": 96,
+      "published": "2026-11-10",
+      "topics": [
+        "continual-learning",
+        "memory",
+        "self-evolution",
+        "benchmark",
+        "training"
+      ],
+      "summary": "Continual-ARC 让 ARC-AGI 规则跨长时间间隔反复出现，统一比较 Harness Memory 与参数训练的持续学习效果。仅保存操作记忆通常没有稳定改善陌生任务泛化，有些方法还不如直接缓存示例。部分权重更新在未见任务上减少约 29% 的反馈预算，提示经验复用不等于掌握可迁移技能。",
+      "intro": "Continual-ARC 让 ARC-AGI 规则跨长时间间隔反复出现，统一比较 Harness Memory 与参数训练的持续学习效果。",
+      "detail": "Benchmark 将同一规则的新实例与从未见过的规则分别评价，每次请求示例、提交答案、重试都计入反馈预算。完成历史任务后冻结 Agent，再评价其对已知任务家族和新任务的能力。作者报告经过 DAgger 学习的 Qwen3.5-9B 在 100 个未见任务上降低约 29% 的反馈开销，意味着内部参数更新和记录具体经验的效果应分开。",
+      "findings": "真正的持续学习需同时报告已见任务效率、新规则泛化、成本及遗忘，而非仅记录记忆库增长。",
+      "why_it_matters": "值得在统一任务流中对比显式事实记忆、程序 Skill、在线权重更新和两者组合。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.14505"
+        }
+      ]
+    },
+    {
+      "title": "WeightBench：用 42 项权重空间任务测试 AI4AI 能力",
+      "score": 96,
+      "published": "2026-11-13",
+      "topics": [
+        "training",
+        "self-evolution",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "WeightBench 让前沿模型直接读取、修复、构造和压缩其他神经网络的参数，涉及 42 个测试任务。网络规模覆盖小型控制网络至 7B 参数语言模型，模型能完成部分简单权重操作却难以可靠处理大规模修复。它让 AI4AI 从编写训练脚本走向直接测量模型是否理解参数空间。",
+      "intro": "WeightBench 让前沿模型直接读取、修复、构造和压缩其他神经网络的参数，涉及 42 个测试任务。",
+      "detail": "任务涵盖五类权重操作，包括检测不可能实现的修改，以及无原始数据时压缩模型。论文在共同的 38 题子集上报告 GPT-6.1 Sol 为 0.568、Claude Opus 5.5 为 0.546；完整榜单还取决于任务覆盖及 Harness 细节。当前模型较擅长部分小型网络的行为推断，但连续编辑和多种技能的组合仍缺乏稳定性。",
+      "findings": "权重编辑不仅要检查修改目标是否达成，还应验证无关能力是否退化。",
+      "why_it_matters": "可设计连续权重编辑 Benchmark，检查可逆性、参数干扰和改进器是否真正跨代提升。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.18553"
+        }
+      ]
+    },
+    {
+      "title": "Gamer：长时程实时游戏视觉动作模型的可执行训练",
+      "score": 95,
+      "published": "2026-11-13",
+      "topics": [
+        "training",
+        "environments",
+        "skills",
+        "framework"
+      ],
+      "summary": "Gamer 研究能够持续在实时游戏中观察和行动的视觉语言动作基础模型。系统采用游戏轨迹预训练、任务指令微调和在线推理三个阶段，必须在环境不断变化时维持长程目标。它为低延迟机器人、实时 GUI Agent 和多步骤控制数据提供训练参考。",
+      "intro": "Gamer 研究能够持续在实时游戏中观察和行动的视觉语言动作基础模型。",
+      "detail": "游戏环境无法为 Agent 的长时间推理静止等待，因此观察和动作间的延迟本身会影响任务结果。模型通过轨迹学习状态演化和跨时间的行动选择，再以指令条件对齐任务目标。评测不应只关注离线动作准确率，还需要测长程操作连续性、错误恢复与不同场景迁移。",
+      "findings": "实时 Agent 同时受策略质量与计算延迟限制，训练需要覆盖状态变化期间的执行后果。",
+      "why_it_matters": "推荐研究时间预算下的行动选择与历史状态摘要，避免高频执行中的陈旧决策。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.18397"
+        }
+      ]
+    },
+    {
+      "title": "Verifiable pXRD：合成晶体结构任务变成可验证科学训练场",
+      "score": 95,
+      "published": "2026-11-12",
+      "topics": [
+        "science",
+        "self-evolution",
+        "data-synthesis",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "Verifiable pXRD 将粉末 X 射线衍射晶体结构求解变成 Agent 候选提案与物理仿真校验的搜索过程。在 200 道模拟题中，某些结构恢复率由 27% 升至 69%，积累的工具和策略还能迁移到真实实验数据。它展示了缺乏真实已解答数据时，用可验证合成任务推进科学 Agent 自我改进的方法。",
+      "intro": "Verifiable pXRD 将粉末 X 射线衍射晶体结构求解变成 Agent 候选提案与物理仿真校验的搜索过程。",
+      "detail": "系统根据候选晶体结构正向生成衍射谱，评估它与输入谱图的吻合度；合成任务知道生成结构，因此能提供严格 Gold Answer。进化器根据求解器的失败创建持久指导和可执行工具，再应用到 15 份真实多相样本。评测同时考察模拟结构恢复及真实实验谱图拟合，能够区分在合成环境中的学习与实际测量场景的迁移。",
+      "findings": "环境真值与物理模拟相结合可构成高质量训练反馈，但实际样本与模拟样本间仍存在域差异。",
+      "why_it_matters": "可开展 Simulator-Verified Task Synthesis，聚焦失败类型、工具进化及 OOD 科研任务收益。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.17539"
+        }
+      ]
+    },
+    {
+      "title": "AscendGYM：自动 Kernel 优化要同时核算加速收益与 Token 成本",
+      "score": 94,
+      "published": "2026-11-13",
+      "topics": [
+        "self-evolution",
+        "evaluation",
+        "training",
+        "coding",
+        "benchmark"
+      ],
+      "summary": "AscendGYM 提供 48 个真实 AI Kernel 优化任务，并加入 Speedup–Token Score 与 Cost-to-Gain。初期评测约 70% 的模型与 Harness 组合几何平均加速低于 1.2 倍，显示生成大量尝试不等于有效工程优化。它为 AI4AI 研究建立兼顾执行正确性、性能与探索成本的可验证实验场。",
+      "intro": "AscendGYM 提供 48 个真实 AI Kernel 优化任务，并加入 Speedup–Token Score 与 Cost-to-Gain。",
+      "detail": "任务从一个原本正确的 Kernel 出发，要求 Agent 优化实现但不能破坏数值结果；框架持续运行编译与设备 Benchmark。评价不仅有最终速度，还考虑优化过程产生的 Token、测试尝试和任务覆盖率，避免只比较成功案例上的最大提升。对于自进化系统，还可观测上一次优化策略是否改善下一次陌生 Kernel 的实验效率。",
+      "findings": "自动研发效率必须同时测性能、正确性和完整研发预算，不能单看最优候选。",
+      "why_it_matters": "适合验证 Cost-Aware Recursive Kernel Optimization，并研究跨设备的可迁移经验。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.17621"
+        }
+      ]
+    },
+    {
+      "title": "Verification Transport：长期轨迹被抽象后，Verifier 可能判错",
+      "score": 94,
+      "published": "2026-11-13",
+      "topics": [
+        "evaluation",
+        "safety",
+        "memory",
+        "benchmark",
+        "tool-use"
+      ],
+      "summary": "Verification Transport 分析 Agent 执行日志经过工具宏、子 Agent 委派和上下文摘要后，评分器是否仍能准确判断结果。相同真实行为经过抽象可能丢失关键证据，导致 Verifier 对成功、安全与授权作出不同结论。论文提醒长期 Agent 和 RL 系统需要保留原始工具轨迹的来源链。",
+      "intro": "Verification Transport 分析 Agent 执行日志经过工具宏、子 Agent 委派和上下文摘要后，评分器是否仍能准确判断结果。",
+      "detail": "研究保持任务和执行实际结果不变，仅调整评分器能够看到的轨迹表示，包括工具步骤的聚合、多个子 Agent 的归纳以及历史压缩。即使最终产物相同，审批、文件写入及关键失败过程也可能被摘要遗漏。对训练环境，必须检查抽象评分和原始证据一致性，以免把信息损失误当作 Agent 能力变化。",
+      "findings": "Verifier 的准确性依赖证据保真，抽象级别应纳入评测协议。",
+      "why_it_matters": "可以建立原始日志与摘要的配对判分测试，记录工具来源和权限检查的可追踪性。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.18471"
+        }
+      ]
+    },
+    {
+      "title": "Agentic Quantum Circuits：LLM 与物理 Verifier 协作发现容错电路",
+      "score": 91,
+      "published": "2026-11-13",
+      "topics": [
+        "science",
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "summary": "Agentic AI for Discovering Fault-Tolerant Quantum Circuits 用 LLM 提案、电路验证和进化搜索构成科研闭环。系统探索逻辑态制备、量子门设计及编码切换，并用可执行物理检查筛选候选电路。这让 AI Scientist 的研究输出从描述性建议推进到能独立验证的科学程序。",
+      "intro": "Agentic AI for Discovering Fault-Tolerant Quantum Circuits 用 LLM 提案、电路验证和进化搜索构成科研闭环。",
+      "detail": "模型提出候选量子电路或结构化变换，外部执行器根据容错、逻辑状态等要求检查是否满足任务目标，再用失败反馈修改下一次候选。强约束科学场景中，严格的正确性检查比单纯自然语言评分更有利于形成高价值训练轨迹。关键后续问题是验证器是否覆盖研究目标的全部约束，以及如何把经验迁移到不同的编码家族。",
+      "findings": "有硬验证器的科学任务能让 Agent 搜索形成可复现的优化闭环。",
+      "why_it_matters": "可以比较随机生成、失败归因和持续程序性记忆对未见科学任务的探索效率。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.18504"
+        }
+      ]
+    },
+    {
+      "title": "NeoResearch：在时间序列研究中复用文献和历史实验结果",
+      "score": 91,
+      "published": "2026-11-13",
+      "topics": [
+        "science",
+        "self-evolution",
+        "skills",
+        "framework"
+      ],
+      "summary": "NeoResearch 将文献检索、模型设计和历史实验结果接入自主时间序列研究循环。Agent 不仅生成新的预测模型，还会根据已试验结构的表现选择后续研究方向。它提供 AI Scientist 从一次性实验向持续证据驱动研究转变的系统案例。",
+      "intro": "NeoResearch 将文献检索、模型设计和历史实验结果接入自主时间序列研究循环。",
+      "detail": "时间序列任务包含趋势、周期和变量间相互作用，研究流程需要在模型结构、数据预处理和实验设置之间不断取舍。NeoResearch 将先前实验的结果写入可检索经验，减少重复探索，并结合新文献生成候选方案。评测要把在同一验证集上反复搜索的收益与跨新数据集的实际泛化分开，才能衡量研究记忆的价值。",
+      "findings": "实验历史的价值在于提高后续发现效率，而非仅让记录越来越长。",
+      "why_it_matters": "建议研究把失败原因自动归纳为可转移研究 Skills，并测试对陌生数据分布的效果。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.18235"
+        }
+      ]
+    },
+    {
+      "title": "SZZBench：用可控 Git 历史生成带真实因果标签的代码任务",
+      "score": 90,
+      "published": "2026-11-13",
+      "topics": [
+        "coding",
+        "evaluation",
+        "data-synthesis",
+        "benchmark"
+      ],
+      "summary": "SZZBench 从声明式场景生成 Git 仓库与明确的缺陷引入提交标注，评测软件历史错误归因。其 279 个场景覆盖 17 类机制，并与 26 个朴素规则基线逐题比较。它提供了让 Coding Agent 失败定位训练数据有可信 Gold Answer 的构造方法。",
+      "intro": "SZZBench 从声明式场景生成 Git 仓库与明确的缺陷引入提交标注，评测软件历史错误归因。",
+      "detail": "传统真实仓库挖掘得到的 Bug 引入标签不一定可靠，也难以确认到底是什么历史因素让算法出错。SZZBench 从设计好的提交序列和变更条件生成可运行仓库，并将明确标注作为正确答案。不同算法即使通过相同数量的场景，也可能在完全不同的失败类型上表现不同，因此应保留细粒度能力覆盖矩阵。",
+      "findings": "可执行且因果明确的合成仓库能比单纯平均正确率更好地发现工具代理的真正盲区。",
+      "why_it_matters": "适合从首次错误提交及后续修复构造短程 Debugging 与回溯验证训练。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.17669"
+        },
+        {
+          "name": "代码",
+          "url": "https://github.com/higolab/SZZBench"
+        }
+      ]
+    },
+    {
+      "title": "Soteria：在工具执行前验证整个 Agent 计划的授权边界",
+      "score": 90,
+      "published": "2026-11-13",
+      "topics": [
+        "safety",
+        "tool-use",
+        "evaluation",
+        "framework"
+      ],
+      "summary": "Soteria 在 Agent 真正执行工具调用之前，对分层行动计划进行形式化策略检查。它不只是发现单次违规请求，还考虑被阻止的步骤能否通过合法重规划继续完成业务目标。这为 Work Agent 的动态授权、不可逆写入和外部应用协作带来规划级约束。",
+      "intro": "Soteria 在 Agent 真正执行工具调用之前，对分层行动计划进行形式化策略检查。",
+      "detail": "长程 Agent 常通过逐个工具调用推进任务，但某一局部操作即使合法也可能让后续步骤必须越权。Soteria 试图在更高的任务计划层检查策略可行性，再将检查结果返回给规划模块调整方案。针对真实业务仍需解决审批随时间变化、组织规则冲突及用户授权更新的问题。",
+      "findings": "授权应成为任务规划的输入，而非等执行到危险动作才临时拒绝。",
+      "why_it_matters": "建议构造仅改变权限状态的配对环境，检验计划再生成与后续可行性。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.17880"
+        }
+      ]
+    },
+    {
+      "title": "ARCHER：分层强化学习让小模型推理与工具执行耦合",
+      "score": 90,
+      "published": "2026-11-13",
+      "topics": [
+        "training",
+        "evaluation",
+        "framework",
+        "tool-use"
+      ],
+      "summary": "ARCHER 研究通过分层强化学习提升小模型的数学推理和工具执行能力。相比仅模仿完整解释文本，训练重点转向分解子目标并用可执行反馈决定下一步。其方法对小模型 Agent 后训练的价值是让任务进度与真实行动结果绑定。",
+      "intro": "ARCHER 研究通过分层强化学习提升小模型的数学推理和工具执行能力。",
+      "detail": "单纯蒸馏强模型的推理文本可能让学生学会流畅表达，但遇到工具错误或中间状态变化时缺乏应对能力。分层方法将高层决策与低层实际操作分别处理，再通过任务结果反馈训练。后续应在预算相同的条件下比较单层 RL、轨迹模仿与分层 RL 的成功率及可恢复性。",
+      "findings": "工具落地的正确性需要独立验证，推理文本相似并不能替代任务执行证据。",
+      "why_it_matters": "适合从学生真实失败位置生成局部修复任务和动作后果预测数据。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.18494"
+        }
+      ]
+    },
+    {
+      "title": "More Agents, More Samples, or More Thinking：多 Agent 的真实增益需扣除额外计算",
+      "score": 89,
+      "published": "2026-11-13",
+      "topics": [
+        "self-evolution",
+        "evaluation",
+        "framework",
+        "benchmark"
+      ],
+      "summary": "研究汇集九项实证研究的 516 种多 Agent 配置，重新分析协作是否真正提高任务正确率。匹配采样量和推理资源后，多 Agent 平均准确率差约为 -0.042，74% 的可比对照没有超过单 Agent。系统收益需要由独立知识、错误互补或外部验证证明，而不是只把更多模型调用归功于协作。",
+      "intro": "研究汇集九项实证研究的 516 种多 Agent 配置，重新分析协作是否真正提高任务正确率。",
+      "detail": "常见对比给多 Agent 团队更多 Token、独立样本或搜索机会，但只让单 Agent 做一次尝试，造成性能归因失真。作者整理既有实验，对齐计算预算与候选次数后分析多 Agent 的增量。对自进化 Harness，应设置单 Agent 同预算多次独立采样并择优的强基线，才能判断角色协调是否真的有价值。",
+      "findings": "多 Agent 结构不应默认为更优，实证比较需要明确相同总计算预算。",
+      "why_it_matters": "建议在长程工作和 AI Scientist 任务中测量合作带来的额外可靠性而非表面成功率。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.17610"
+        }
+      ]
+    },
+    {
+      "title": "MineralExp：以真实地球化学信息测量科研实验规划能力",
+      "score": 89,
+      "published": "2026-11-13",
+      "topics": [
+        "science",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "summary": "MineralExp 把矿产勘探的地球化学信息与实际领域约束转换为 Agent 实验设计任务。Agent 必须从现有证据提出下一步采样或验证方案，而不是只复述矿床知识。这为科学 Agent 的实验预算、证据利用和专业方案验收提供新的评测方向。",
+      "intro": "MineralExp 把矿产勘探的地球化学信息与实际领域约束转换为 Agent 实验设计任务。",
+      "detail": "矿产资源勘探涉及已有采样点、化学指标、地理先验及后续测量代价。方法让 Agent 将这些异构证据变成可审查的实验选择，支持专家判断方案是否合理及信息收益是否值得。后续可加入标准化仿真器，使每项采样策略能获得一致的结果反馈与成本判定。",
+      "findings": "科学规划的关键在于有限预算下选择能够最大化新证据的下一步实验。",
+      "why_it_matters": "值得研究以真实领域约束合成多步骤实验任务及主动澄清缺失数据的策略。",
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.17931"
+        }
+      ]
+    }
+  ]
+}

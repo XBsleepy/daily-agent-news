@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Merge four domain task exports into a dated, static daily news edition."""
+"""Merge domain task exports into a dated, static daily news edition."""
 import argparse
 from datetime import date, datetime
 import hashlib
@@ -62,8 +62,8 @@ def aggregate(input_dir, output_dir, fields_path, day, brief=''):
             raise ValueError('topic ids must be unique slugs with a known group')
         topic_ids.add(tid)
         text(topic['name'], 'topic name', 80)
-    if len(fields) != 4:
-        raise ValueError('exactly four fields are required')
+    if not fields:
+        raise ValueError('at least one field is required')
     ids = set()
     for f in fields:
         fid = text(f['id'], 'field id', 80)

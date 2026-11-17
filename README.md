@@ -1,6 +1,6 @@
 # Daily Agent News
 
-四个领域的每日信号，一份新闻榜单。
+五个领域的每日信号，一份新闻榜单。
 
 > 姊妹项目 / Sister project: **[Daily Agent Benchmarks](https://xbsleepy.github.io/daily-agent-benchmarks/)** ([GitHub](https://github.com/XBsleepy/daily-agent-benchmarks))：每日 arXiv Agent Benchmark 论文索引。News 看「发生了什么」，Benchmarks 看「怎么评」。默认浏览一句话摘要，点击查看完整说明、关注原因和原始来源。
 
@@ -78,7 +78,7 @@ python3 tests/browser_smoke.py --browser /usr/bin/chromium
 ```text
 docs/                 静态站点，可部署到 GitHub Pages
 docs/data/            正式索引、日期归档及独立演示数据
-sources/fields.json   四个领域配置
+sources/fields.json   五个领域配置
 sources/examples/     任务输出格式示例
 sources/inbox/        本地任务导出（已忽略，不提交）
 sources/editions/     已发布期次的公开领域导出、导读及来源说明

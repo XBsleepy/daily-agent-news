@@ -1,0 +1,1 @@
+11 月 17 日：MLPerf Training v6.1 首次覆盖 Agentic RL；OpenAI 发布医疗 Computer-Use Agent 的跨系统执行成果。WebArena-Pro、OutfitterBench、Unfinished-Bench 推进可复现环境、长程承诺和授权边界评测，G-CAST 展示持续自训练，V-JEPA-LM 和 WeightBench 扩展后训练与 AI4AI 的技术方向。
