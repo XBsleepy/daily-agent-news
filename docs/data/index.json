@@ -170,8 +170,7 @@
       "published": "2026-11-17",
       "fields": [
         "field-2",
-        "field-3",
-        "field-5"
+        "field-3"
       ],
       "topics": [
         "personal",
@@ -199,8 +198,7 @@
       "published": "2026-11-17",
       "fields": [
         "field-2",
-        "field-3",
-        "field-5"
+        "field-3"
       ],
       "topics": [
         "personal",
@@ -229,8 +227,7 @@
       "fields": [
         "field-1",
         "field-3",
-        "field-4",
-        "field-5"
+        "field-4"
       ],
       "topics": [
         "coding",
@@ -258,8 +255,7 @@
       "published": "2026-11-16",
       "fields": [
         "field-3",
-        "field-4",
-        "field-5"
+        "field-4"
       ],
       "topics": [
         "self-evolution",
@@ -286,8 +282,7 @@
       "published": "2026-11-15",
       "fields": [
         "field-2",
-        "field-3",
-        "field-5"
+        "field-3"
       ],
       "topics": [
         "memory",
@@ -314,8 +309,7 @@
       "score": 97,
       "published": "2026-11-17",
       "fields": [
-        "field-1",
-        "field-5"
+        "field-1"
       ],
       "topics": [
         "training",
@@ -342,8 +336,7 @@
       "published": "2026-11-17",
       "fields": [
         "field-3",
-        "field-4",
-        "field-5"
+        "field-4"
       ],
       "topics": [
         "coding",
@@ -371,8 +364,7 @@
       "published": "2026-11-13",
       "fields": [
         "field-3",
-        "field-4",
-        "field-5"
+        "field-4"
       ],
       "topics": [
         "evaluation",
@@ -400,8 +392,7 @@
       "published": "2026-11-16",
       "fields": [
         "field-1",
-        "field-4",
-        "field-5"
+        "field-4"
       ],
       "topics": [
         "training",
@@ -429,8 +420,7 @@
       "published": "2026-11-16",
       "fields": [
         "field-3",
-        "field-4",
-        "field-5"
+        "field-4"
       ],
       "topics": [
         "evaluation",
@@ -487,8 +477,7 @@
       "score": 95,
       "published": "2026-11-16",
       "fields": [
-        "field-2",
-        "field-5"
+        "field-2"
       ],
       "topics": [
         "memory",
@@ -514,8 +503,7 @@
       "score": 95,
       "published": "2026-11-16",
       "fields": [
-        "field-4",
-        "field-5"
+        "field-4"
       ],
       "topics": [
         "self-evolution",
@@ -541,8 +529,7 @@
       "published": "2026-11-13",
       "fields": [
         "field-1",
-        "field-4",
-        "field-5"
+        "field-4"
       ],
       "topics": [
         "training",
@@ -595,8 +582,7 @@
       "score": 94,
       "published": "2026-11-16",
       "fields": [
-        "field-1",
-        "field-5"
+        "field-1"
       ],
       "topics": [
         "training",
@@ -622,8 +608,7 @@
       "published": "2026-11-16",
       "fields": [
         "field-1",
-        "field-3",
-        "field-5"
+        "field-3"
       ],
       "topics": [
         "training",
@@ -649,8 +634,7 @@
       "score": 94,
       "published": "2026-11-16",
       "fields": [
-        "field-3",
-        "field-5"
+        "field-3"
       ],
       "topics": [
         "evaluation",
@@ -705,8 +689,7 @@
       "published": "2026-11-16",
       "fields": [
         "field-3",
-        "field-4",
-        "field-5"
+        "field-4"
       ],
       "topics": [
         "safety",
@@ -733,8 +716,7 @@
       "score": 93,
       "published": "2026-11-16",
       "fields": [
-        "field-1",
-        "field-5"
+        "field-1"
       ],
       "topics": [
         "training",
@@ -759,8 +741,7 @@
       "score": 92,
       "published": "2026-11-17",
       "fields": [
-        "field-2",
-        "field-5"
+        "field-2"
       ],
       "topics": [
         "personal",
@@ -786,8 +767,7 @@
       "score": 92,
       "published": "2026-11-17",
       "fields": [
-        "field-2",
-        "field-5"
+        "field-2"
       ],
       "topics": [
         "personal",
@@ -923,8 +903,7 @@
       "published": "2026-11-17",
       "fields": [
         "field-1",
-        "field-2",
-        "field-5"
+        "field-2"
       ],
       "topics": [
         "training",
@@ -1032,8 +1011,7 @@
       "score": 88,
       "published": "2026-11-14",
       "fields": [
-        "field-3",
-        "field-5"
+        "field-3"
       ],
       "topics": [
         "environments",
@@ -1059,8 +1037,7 @@
       "score": 87,
       "published": "2026-11-16",
       "fields": [
-        "field-1",
-        "field-5"
+        "field-1"
       ],
       "topics": [
         "science",
