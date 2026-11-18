@@ -19,7 +19,7 @@ class AggregateTests(unittest.TestCase):
         self.outputs = self.root / 'data'
         self.day = '2026-10-28'
         self.fields = ROOT / 'sources/fields.json'
-        for i in range(1, 5):
+        for i in range(1, 6):
             self.export(i, [self.item(i)])
 
     def item(self, i):
@@ -36,9 +36,9 @@ class AggregateTests(unittest.TestCase):
     def run_merge(self, day=None):
         return module.aggregate(self.inputs, self.outputs, self.fields, day or self.day)
 
-    def test_four_fields_sorted_and_repeatable(self):
+    def test_five_fields_sorted_and_repeatable(self):
         data = self.run_merge()
-        self.assertEqual([n['score'] for n in data['items']], [99, 98, 97, 96])
+        self.assertEqual([n['score'] for n in data['items']], [99, 98, 97, 96, 95])
         first = [n['id'] for n in data['items']]
         self.assertEqual(first, [n['id'] for n in self.run_merge()['items']])
         self.assertFalse(data['demo'])
@@ -50,7 +50,7 @@ class AggregateTests(unittest.TestCase):
         item['sources'][0]['url'] += '?utm_source=task#ref'
         self.export(2, [item])
         data = self.run_merge()
-        self.assertEqual(len(data['items']), 3)
+        self.assertEqual(len(data['items']), 4)
         self.assertEqual(data['items'][0]['fields'], ['field-1', 'field-2'])
         self.assertEqual(data['items'][0]['score'], 99)
 
