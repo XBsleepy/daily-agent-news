@@ -98,14 +98,14 @@ class AggregateTests(unittest.TestCase):
     def test_backfill_keeps_latest_edition(self):
         self.run_merge()
         older = '2026-10-27'
-        for i in range(1, 5):
+        for i in range(1, 6):
             self.export(i, [], older)
         self.run_merge(older)
         self.assertEqual(json.loads((self.outputs / 'index.json').read_text())['date'], self.day)
         self.assertEqual(json.loads((self.outputs / 'days.json').read_text())['days'], [self.day, older])
 
     def test_zero_news_is_a_valid_complete_day(self):
-        for i in range(1, 5):
+        for i in range(1, 6):
             self.export(i, [])
         self.assertEqual(self.run_merge()['items'], [])
 
