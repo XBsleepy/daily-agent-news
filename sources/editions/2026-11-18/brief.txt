@@ -1,0 +1,1 @@
+11 月 18 日：GPT-6.2 Astra/Sol、Gemini Tasks 六国免费开放、Microsoft Copilot Autopilot 引领复杂工作与持续型个人代理。SWE-CoWork、HEAMS、ELITE、Benchmark Factory 与 GitHub Copilot Evals 聚焦长程交付、记忆治理和 Harness 的可验证自我改进；Scale Robot Data Diversity、K2-Horizon、SWE-OPD 与 ScaleVLA 则推进训练数据和真实轨迹后训练。

@@ -1,0 +1,343 @@
+{
+  "date": "2026-11-18",
+  "field": "field-4",
+  "items": [
+    {
+      "title": "OpenAI GPT-6.2 Astra / Sol：专业工作与 AI 自改进能力升级",
+      "score": 100,
+      "published": "2026-11-17",
+      "topics": [
+        "training",
+        "coding",
+        "science",
+        "self-evolution",
+        "product"
+      ],
+      "summary": "OpenAI 发布 GPT-6.2 Astra 和 Sol，分别面向复杂专业工作与高效日常 Agent 执行。Astra 在 Agents’ Last Exam 比旧 Astra 高 5.2 分，相关测试成本不足三分之一，并达到 AI Self-improvement High 阈值。模型进步正同时体现在科学、电脑操作、代码工程和单位任务成本上。",
+      "intro": "OpenAI 发布 GPT-6.2 Astra 和 Sol，分别面向复杂专业工作与高效日常 Agent 执行。",
+      "detail": "Astra 在 Terminal-Bench-Science 0.1 比上一代高 9 个百分点，Sol 在 LifeVal 上以更低成本超过旧 Astra。Astra API 每百万输入/输出 Token 为 8/40 美元，Sol 为 2/10 美元。两者在处理工具、复杂文件及 CAD 设计方面取得改善，部分模拟工作流仍出现未报告障碍的情况。自我改进 High 是辅助 AI 研发能力的评估阈值，适合与固定预算下的实际科研产出一起观察",
+      "findings": "Astra 在 Agents’ Last Exam 比旧 Astra 高 5.2 分，相关测试成本不足三分之一，并达到 AI Self-improvement High 阈值。模型进步正同时体现在科学、电脑操作、代码工程和单位任务成本上。",
+      "why_it_matters": "对比固定 Harness 与推理预算下的完整工作成果、成本及自改进效率。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+        }
+      ]
+    },
+    {
+      "title": "SWE-CoWork：软件 Agent 局部成功与真实交付之间的鸿沟",
+      "score": 98,
+      "published": "2026-11-15",
+      "topics": [
+        "coding",
+        "work",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "summary": "SWE-CoWork 在 101 个真实仓库、11 种语言和模拟组织环境中评估完整软件工程交付。最佳 Agent 的新增行为测试通过率约 63%，完整任务成功率却不足 8%，31% 声称已完成的需求未通过测试。研究把需求获取、实现、验证和交付明确拆成不同的长程失败边界。",
+      "intro": "SWE-CoWork 在 101 个真实仓库、11 种语言和模拟组织环境中评估完整软件工程交付。",
+      "detail": "每项任务从简短交接开始，Agent 需向 26 位不同职责的同事询问、查询工作记录并实现代码。需求由隐藏可执行测试检查，即使预先直接提供所有需求，局部 F2P 通过率提高约 16 个百分点，完整任务成功率仍未改善。作者分析了遗漏追问、没有落实已知需求以及完成声明不准确等情况。这种组织式环境非常适合将多阶段失败合成为可验证的短程任务",
+      "findings": "最佳 Agent 的新增行为测试通过率约 63%，完整任务成功率却不足 8%，31% 声称已完成的需求未通过测试。研究把需求获取、实现、验证和交付明确拆成不同的长程失败边界。",
+      "why_it_matters": "评测应逐一检查需求覆盖、真实代码状态、测试结果与交付声明。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20218"
+        }
+      ]
+    },
+    {
+      "title": "ELITE：无需逐个下游评测的 Coding Agent 自我改进",
+      "score": 98,
+      "published": "2026-11-16",
+      "topics": [
+        "self-evolution",
+        "coding",
+        "framework",
+        "training"
+      ],
+      "summary": "ELITE 提出 Explore-then-Integrate，先从同一父代并行探索多种 Agent 修改再进行兼容整合。它减少每个新候选都要运行完整下游 Benchmark 的依赖，降低 Harness 自进化搜索成本。研究把优化器的改进效率和模块级融合能力作为 RSI 的新目标。",
+      "intro": "ELITE 提出 Explore-then-Integrate，先从同一父代并行探索多种 Agent 修改再进行兼容整合。",
+      "detail": "传统 evaluate-and-select 每次都执行多个子代，在慢速工具环境中成本很高。ELITE 的探索分支可分别改动工具调用、策略或执行结构，再通过兼容性检查组合到新 Agent 中。重点不是增加单轮反思次数，而是避免同一评测集反复决定每一个局部变更。后续仍需独立任务测试和历史回归门禁，以判断组合版本的真实价值",
+      "findings": "它减少每个新候选都要运行完整下游 Benchmark 的依赖，降低 Harness 自进化搜索成本。研究把优化器的改进效率和模块级融合能力作为 RSI 的新目标。",
+      "why_it_matters": "研究 Harness 模块依赖、增益相容性预测和跨任务的稳定改进。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21056"
+        }
+      ]
+    },
+    {
+      "title": "GitHub Copilot Evals 公测：Agent 与 Skills 的可重复回归评测",
+      "score": 97,
+      "published": "2026-11-17",
+      "topics": [
+        "coding",
+        "evaluation",
+        "skills",
+        "framework",
+        "product"
+      ],
+      "summary": "GitHub 发布 Copilot Evals 公测，支持对自定义 Agent、Prompt、Skill 和 MCP 工具建立重复测试。用户可以用自然语言或 /eval 描述真实任务和成功条件，并在配置修改后重跑检查。Agent 开发流程开始将可靠评测直接集成到工具和日常迭代中。",
+      "intro": "GitHub 发布 Copilot Evals 公测，支持对自定义 Agent、Prompt、Skill 和 MCP 工具建立重复测试。",
+      "detail": "评测关注最终结果，也允许考察 Agent 怎样调用工具、应用技能和执行计划。改变模型、系统提示词或 MCP 配置后，可以与已保存任务的表现比较，定位回归或无效优化。相比只在标准排行榜比较模型，它测量真实使用者自己的 Harness。适合连接 CI、工具权限检查与持续技能版本管理",
+      "findings": "用户可以用自然语言或 /eval 描述真实任务和成功条件，并在配置修改后重跑检查。Agent 开发流程开始将可靠评测直接集成到工具和日常迭代中。",
+      "why_it_matters": "建立团队内部的 Agent 版本、工具版本与任务结果联合回归基线。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://github.blog/changelog/2026-11-17-github-copilot-evals-is-now-in-public-preview/"
+        }
+      ]
+    },
+    {
+      "title": "Benchmark Factory：自动构造与修复企业代码 Benchmark",
+      "score": 96,
+      "published": "2026-11-13",
+      "topics": [
+        "evaluation",
+        "data-synthesis",
+        "coding",
+        "self-evolution",
+        "benchmark"
+      ],
+      "summary": "Benchmark Factory 利用真实已合并代码变更自动生成 Coding Agent 任务，并通过元 Agent 修改筛选和评分机制。它使用模型已知能力顺序、负控制等无逐题标签质量锚点检验任务与 Grader。研究展示了可在减少人工标注的同时构建具区分度的内部 Agent 基准。",
+      "intro": "Benchmark Factory 利用真实已合并代码变更自动生成 Coding Agent 任务，并通过元 Agent 修改筛选和评分机制。",
+      "detail": "系统让 LLM 编写代码变更筛选查询，运行参考模型诊断题目与评分器的问题，再迭代调整。团队在五类开发者群体中使用，人工抽查的任务与评分质量在三分量表上分别得到 2.3、2.6。未参与生成的配置仍显示高低推理强度与模型版本的明确通过率差异。对任务合成研究最重要的是生成环节和独立验收、评分器安全同样不可缺少",
+      "findings": "它使用模型已知能力顺序、负控制等无逐题标签质量锚点检验任务与 Grader。研究展示了可在减少人工标注的同时构建具区分度的内部 Agent 基准。",
+      "why_it_matters": "将任务来源、自动过滤、负样本、独立 Verifier 与跨模型区分力纳入一条流水线。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.18890"
+        }
+      ]
+    },
+    {
+      "title": "K2-Horizon：约十万亿合成 Token 与完整开放训练轨迹",
+      "score": 96,
+      "published": "2026-11-16",
+      "topics": [
+        "training",
+        "data-synthesis",
+        "coding",
+        "framework",
+        "product"
+      ],
+      "summary": "K2-Horizon 发布从 0.9B 到 375B-A23B MoE 的六个开放模型，覆盖推理、Coding 和 Agent 工作。项目不仅公开权重，还提供预训练数据、构建流水线、训练日志、中间 Checkpoint 与 RL 系统。约 10T 合成预训练 Token 的生产流程使数据配方与模型能力归因更易复现。",
+      "intro": "K2-Horizon 发布从 0.9B 到 375B-A23B MoE 的六个开放模型，覆盖推理、Coding 和 Agent 工作。",
+      "detail": "该项目包括 xLLM 训练框架、RL360 后训练系统及每个阶段的开发历史。研究探索 Mixture-of-Value Attention、Softplus Gating 和 Uno 解码适配器，并让四种模型共享相同 22T Token 训练配方。公开资料可支持研究不同参数规模、稀疏架构和训练数据构成的因果效果。它提供了比只有最终开源权重更完整的模型研究对象",
+      "findings": "项目不仅公开权重，还提供预训练数据、构建流水线、训练日志、中间 Checkpoint 与 RL 系统。约 10T 合成预训练 Token 的生产流程使数据配方与模型能力归因更易复现。",
+      "why_it_matters": "适合做合成数据归因、训练阶段消融及 Agent 任务成本的再现性研究。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21003"
+        }
+      ]
+    },
+    {
+      "title": "AgentFaultBench：真实 GitLab 工具故障与状态恢复基准",
+      "score": 96,
+      "published": "2026-11-16",
+      "topics": [
+        "evaluation",
+        "tool-use",
+        "environments",
+        "safety",
+        "benchmark"
+      ],
+      "summary": "AgentFaultBench 在真实 GitLab 工作流注入限流、服务异常和权限撤销，检查故障后最终系统状态。它区分等待可恢复错误、停止越权操作和真正完成任务，不把漂亮的解释当作成功。研究表明改善提示词与提升自主故障恢复能力需要分别测量。",
+      "intro": "AgentFaultBench 在真实 GitLab 工作流注入限流、服务异常和权限撤销，检查故障后最终系统状态。",
+      "detail": "任务可遇到 HTTP 429、503 和 403 等故障，分别要求合法重试、等待服务恢复或尊重已撤销权限。独立状态 Verifier 检查实际 GitLab 资源变化，而非采信 Agent 最终声明。引导性反馈在一项 192 次计划运行的相关测试中将正确终态从 142 提高到 161，但不能替代对故障模型的训练。适合基于真实工具构造可控 Failure Boundary 环境",
+      "findings": "它区分等待可恢复错误、停止越权操作和真正完成任务，不把漂亮的解释当作成功。研究表明改善提示词与提升自主故障恢复能力需要分别测量。",
+      "why_it_matters": "训练状态化重试、授权有效性判断及失败后结果核验。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20711"
+        }
+      ]
+    },
+    {
+      "title": "Accelerate Bench：完整科学程序优化的真实执行评测",
+      "score": 95,
+      "published": "2026-11-16",
+      "topics": [
+        "coding",
+        "science",
+        "evaluation",
+        "benchmark",
+        "training"
+      ],
+      "summary": "Accelerate Bench 提供 32 项科学应用级 CPU 优化任务，要求 Agent 同时保持计算正确性和提升性能。任务涵盖构建、运行时设置和跨函数依赖，不再只考察单个 Kernel 的加速。它为 AI4AI 代码优化和科学 Coding Agent 提供完整应用层的独立 Verifier。",
+      "intro": "Accelerate Bench 提供 32 项科学应用级 CPU 优化任务，要求 Agent 同时保持计算正确性和提升性能。",
+      "detail": "研究从科学计算程序与超算工作负载抽取真实优化目标，提供可执行环境和性能基准。一个局部循环变快，可能同时导致全程序其他部分回退或数值条件失效，因此任务奖励需要完整运行成功和端到端加速。相比静态代码生成测试，它更能暴露诊断、修复、复测的长程组合能力。可与 Terminal-Bench-Science 和 Benchmark Factory 结合生成细粒度失败任务",
+      "findings": "任务涵盖构建、运行时设置和跨函数依赖，不再只考察单个 Kernel 的加速。它为 AI4AI 代码优化和科学 Coding Agent 提供完整应用层的独立 Verifier。",
+      "why_it_matters": "为优化 Agent 区分性能诊断、代码修改、数值验证和全局性能回归。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20882"
+        }
+      ]
+    },
+    {
+      "title": "ConvRSI：潜空间卷积降低多 Agent 自优化的串行开销",
+      "score": 95,
+      "published": "2026-11-16",
+      "topics": [
+        "self-evolution",
+        "framework",
+        "training"
+      ],
+      "summary": "ConvRSI 将传统多 Agent 逐个对话修改，转为单 Agent 内部和协作图上的潜在状态卷积。作者在 MATH-500 设置中报告性能增加 5.04%、推理成本降低 17.27%、延迟下降 45.11%。它尝试解决多 Agent 自我改进中的通信与串行执行瓶颈。",
+      "intro": "ConvRSI 将传统多 Agent 逐个对话修改，转为单 Agent 内部和协作图上的潜在状态卷积。",
+      "detail": "Intra-Agent Convolution 融合同一 Agent 的相关特征，Inter-Agent Graph Convolution 将协作图节点信息一起更新。此方案减少反复生成文本、传递文本、重新编码文本的开销，重点优化组织机制而非增加 Agent 数量。当前结果集中在结构明确的数学任务，尚可延伸至真正需要工具和异步实验的研究代理。推荐在等 Token 及等时间预算下与普通多 Agent、自反思和独立采样对照",
+      "findings": "作者在 MATH-500 设置中报告性能增加 5.04%、推理成本降低 17.27%、延迟下降 45.11%。它尝试解决多 Agent 自我改进中的通信与串行执行瓶颈。",
+      "why_it_matters": "研究潜空间协同的可解释性、长程任务效果及不同模型间的信息交换。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20891"
+        }
+      ]
+    },
+    {
+      "title": "PaperCritic：23K 专家评审数据训练科研可信度判定器",
+      "score": 95,
+      "published": "2026-11-13",
+      "topics": [
+        "training",
+        "science",
+        "evaluation",
+        "data-synthesis"
+      ],
+      "summary": "PaperCritic 基于约一千篇 ICLR 论文和两万三千条评审意见，训练专门识别科研论证实质错误的 Reviewer。训练奖励聚焦问题指出的 Precision 和 Recall，而不是混合新颖性、清晰度与正确性。可信 AI Scientist 需要会验证研究质量的专业奖励机制。",
+      "intro": "PaperCritic 基于约一千篇 ICLR 论文和两万三千条评审意见，训练专门识别科研论证实质错误的 Reviewer。",
+      "detail": "PaperSound-23K 对人工和模型评审意见质量进行比较与标注。PaperCritic 使用重要问题的 F1 信号训练评审模型，并观察到对其他学科和代码、法律审查的部分迁移。模型指出问题不应止于给出主观意见，重要错误需要由实验数据、程序计算或原文证据进一步核查。它可成为 AI4AI 研究过程的独立审稿 Agent，而不是纯文本格式打分器",
+      "findings": "训练奖励聚焦问题指出的 Precision 和 Recall，而不是混合新颖性、清晰度与正确性。可信 AI Scientist 需要会验证研究质量的专业奖励机制。",
+      "why_it_matters": "把论文 Soundness 的奖励与原始实验、代码复现和引用核查联系起来。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17834"
+        }
+      ]
+    },
+    {
+      "title": "Self-Improvement Memory：保存为什么修改 Harness 的改进经验",
+      "score": 94,
+      "published": "2026-11-13",
+      "topics": [
+        "memory",
+        "self-evolution",
+        "continual-learning",
+        "framework"
+      ],
+      "summary": "Self-Improvement Memory 区分任务解法历史与优化器自己的修改实验历史。系统保存改进理由、预期收益、实际反馈和测试条件，在跨任务或跨模型切换时复用。十次独立 Coding 配对延续测试中，保留改进记忆比仅继承 Harness 平均高 2.36 分。",
+      "intro": "Self-Improvement Memory 区分任务解法历史与优化器自己的修改实验历史。",
+      "detail": "SIM 不只保存最终 Prompt 和代码，而是对发生的 Harness 缺陷、修改措施及可迁移条件进行聚类。改进器可以根据历史原因决定哪些方案值得重用，避免反复尝试相同失败配置。长期研究还需要检查模型升级后的策略是否失效，以及跨科研、Coding 和生活任务是否仍有收益。真正的优化记忆应具备实验版本、性能回归及因果信息",
+      "findings": "系统保存改进理由、预期收益、实际反馈和测试条件，在跨任务或跨模型切换时复用。十次独立 Coding 配对延续测试中，保留改进记忆比仅继承 Harness 平均高 2.36 分。",
+      "why_it_matters": "评估从 Task Memory 到 Meta-Improvement Memory 的增量收益和迁移边界。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.18856"
+        }
+      ]
+    },
+    {
+      "title": "SilentGuard：在 Harness 层阻止科研 API 的静默错误",
+      "score": 93,
+      "published": "2026-11-16",
+      "topics": [
+        "safety",
+        "tool-use",
+        "evaluation",
+        "science",
+        "framework"
+      ],
+      "summary": "SilentGuard 发现科研 API 即使返回 HTTP 200，也可能悄悄忽略错误参数并产生无效结果。它将关键不变量检查移到 Harness 层，显著降低 Agent 接受错误数据的比例。可信科研 Agent 应在工具结果进入后续推理前进行独立状态和数据契约验证。",
+      "intro": "SilentGuard 发现科研 API 即使返回 HTTP 200，也可能悄悄忽略错误参数并产生无效结果。",
+      "detail": "作者在十五个科研 API 中发现十一个存在测试的静默故障模式，有的错误导致计数膨胀数百倍。在目标故障实验中，开放模型错误回答率从约 74% 降到 1.7%，前沿模型从约 70.2% 降到 0.5%。收益主要来自拒绝错误数据，不代表工具错误已经被自动修复。该机制可扩展为 Agent 自动接入新工具时的前置结果契约",
+      "findings": "它将关键不变量检查移到 Harness 层，显著降低 Agent 接受错误数据的比例。可信科研 Agent 应在工具结果进入后续推理前进行独立状态和数据契约验证。",
+      "why_it_matters": "把数据有效性、正确拒绝与异常修复率分开进行可执行评测。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20595"
+        }
+      ]
+    },
+    {
+      "title": "CompCert4Lean：多 Coding Agent 参与大型形式化工程迁移",
+      "score": 92,
+      "published": "2026-11-16",
+      "topics": [
+        "coding",
+        "science",
+        "evaluation",
+        "self-evolution"
+      ],
+      "summary": "CompCert4Lean 利用并行 Coding Agents 将已验证 C 编译器 CompCert 从 Rocq 迁移到 Lean。项目历时约六周，涉及大量相互依赖的代码和形式化证明。它将长程多 Agent 协作的成果交给机器可执行的形式化检查，而不是主观文本打分。",
+      "intro": "CompCert4Lean 利用并行 Coding Agents 将已验证 C 编译器 CompCert 从 Rocq 迁移到 Lean。",
+      "detail": "与单一补丁任务不同，真实编译器迁移必须保留模块接口、语义定义及复杂证明依赖。多 Agent 需要将大型证明系统拆分为并行任务，再合并修改并修复类型和证明失败。Lean 的构建及证明器提供非常明确的验证信号，也凸显跨模块集成状态管理的重要性。此类任务可用于研究协作结构、历史修复记录与验证成本",
+      "findings": "项目历时约六周，涉及大量相互依赖的代码和形式化证明。它将长程多 Agent 协作的成果交给机器可执行的形式化检查，而不是主观文本打分。",
+      "why_it_matters": "以证明义务和构建回归作为多 Agent 科研编程的硬性终局评估。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21084"
+        }
+      ]
+    },
+    {
+      "title": "SciResearch-Eval：测试自主实验 Agent 的证据和置信校准",
+      "score": 91,
+      "published": "2026-11-16",
+      "topics": [
+        "science",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "summary": "SciResearch-Eval 构建交互式科学研究任务，关注 Agent 的实验选择、证据理解与不确定性。材料发现等任务需要 Agent 判断何时继续实验、何时证据已足够。科学 Agent 评测正在从终局答案迁移到可持续研究过程中的决策质量。",
+      "intro": "SciResearch-Eval 构建交互式科学研究任务，关注 Agent 的实验选择、证据理解与不确定性。",
+      "detail": "研究环境让 Agent 在有限预算下选择进一步操作并依据新证据修正假设。除结果准确性，评价还需要考虑实验序列、证据强度与置信度是否匹配。这样能够识别那些偶然猜对结论但采取低质量研究程序的系统。与真实科学工具接口结合后可进一步检查成本、恢复与泛化",
+      "findings": "材料发现等任务需要 Agent 判断何时继续实验、何时证据已足够。科学 Agent 评测正在从终局答案迁移到可持续研究过程中的决策质量。",
+      "why_it_matters": "将实验行动、证据质量和校准误差纳入 AI Scientist 的执行奖励。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21541"
+        }
+      ]
+    },
+    {
+      "title": "One Run Is Not Enough：重复运行暴露 Agent 记忆收益的波动",
+      "score": 89,
+      "published": "2026-11-13",
+      "topics": [
+        "memory",
+        "evaluation",
+        "coding",
+        "continual-learning"
+      ],
+      "summary": "One Run Is Not Enough 研究九十八组前后关联的 Coding 任务，检查给 Agent 提醒上次发现是否改善下一次执行。研究并未观察到明确收益，且相同配置重复运行有约 19% 的任务结果发生翻转。Agent Memory 和后训练研究必须考虑运行噪声，而不能把单次成功当作方法增益。",
+      "intro": "One Run Is Not Enough 研究九十八组前后关联的 Coding 任务，检查给 Agent 提醒上次发现是否改善下一次执行。",
+      "detail": "论文设置配对任务与历史提醒实验，比较没有历史信息、给出上次发现的后续表现。重复同样条件产生的大量任务通过状态变化表明，单次例子不能支持记忆改进结论。使用配对种子、多个执行回合及置信区间，可以区分真实提升与采样波动。相关结论也适用于 Harness 自改进和技能复用的评测",
+      "findings": "研究并未观察到明确收益，且相同配置重复运行有约 19% 的任务结果发生翻转。Agent Memory 和后训练研究必须考虑运行噪声，而不能把单次成功当作方法增益。",
+      "why_it_matters": "为长期 Agent 训练引入多次运行、配对任务和稳定性门禁。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.19359"
+        }
+      ]
+    }
+  ]
+}

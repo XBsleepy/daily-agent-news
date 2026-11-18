@@ -1,0 +1,228 @@
+{
+  "date": "2026-11-18",
+  "field": "field-2",
+  "items": [
+    {
+      "title": "Google Tasks in Gemini：个人 Agent 向六国免费开放",
+      "score": 99,
+      "published": "2026-11-17",
+      "topics": [
+        "personal",
+        "work",
+        "tool-use",
+        "deployment",
+        "product"
+      ],
+      "summary": "Google 将 Spark 演进为 Tasks in Gemini，向六国符合条件的用户免费开放后台多步骤 Agent。其 Gemini 4 Hydrogen 系统可处理邮件、短信、日历与跨应用事务，美国用户还能委托商家电话及 Google Pay 购物。跨渠道执行、用户批准和持续任务状态正在成为消费级 Personal Agent 的标准能力。",
+      "intro": "Google 将 Spark 演进为 Tasks in Gemini，向六国符合条件的用户免费开放后台多步骤 Agent。",
+      "detail": "支持用户在后台执行时继续发送指令，以短信和转发邮件直接启动任务。美国购物流程要求用户审阅商品明细并作最终付款确认，电话可按预先批准计划联系多家商店并返回记录。每个任务运行于隔离云环境，连接应用和关键操作受用户权限控制。可以从渠道一致性、长期状态恢复及支付审批三方面构建评测",
+      "findings": "其 Gemini 4 Hydrogen 系统可处理邮件、短信、日历与跨应用事务，美国用户还能委托商家电话及 Google Pay 购物。跨渠道执行、用户批准和持续任务状态正在成为消费级 Personal Agent 的标准能力。",
+      "why_it_matters": "研究短信、App、邮件和网页之间的任务状态同步与授权延续。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://gemini.google/sc/release-notes/?hl=en-GB"
+        }
+      ]
+    },
+    {
+      "title": "Microsoft Copilot Autopilot：独立身份、记忆和职责的长期企业 Agent",
+      "score": 99,
+      "published": "2026-11-17",
+      "topics": [
+        "personal",
+        "work",
+        "memory",
+        "deployment",
+        "product"
+      ],
+      "summary": "Microsoft Ignite 宣布 Copilot Autopilot 向 Frontier 客户开始推出。Autopilot 具有自己的 Entra Agent ID、记忆、工具与指定管理者，可主动跟进邮件、Teams 频道和长期项目。企业 Agent 正从单次对话转向有责任归属、权限边界与可审计执行的常驻协作角色。",
+      "intro": "Microsoft Ignite 宣布 Copilot Autopilot 向 Frontier 客户开始推出。",
+      "detail": "Autopilot 可在 Teams、Outlook、文档和频道中被 @提及，也能主动完成周期性工作与供应商审查流程。管理员能限制或停用独立身份，登录和操作记录都以 Agent 名义留存。同期推出 Copilot Workspaces、Auto Model Routing 与 Work IQ，使多 Agent 状态共享与企业知识检索进入同一工作层。该系统最值得研究的是长周期任务能否持续遵守动态授权和组织责任",
+      "findings": "Autopilot 具有自己的 Entra Agent ID、记忆、工具与指定管理者，可主动跟进邮件、Teams 频道和长期项目。企业 Agent 正从单次对话转向有责任归属、权限边界与可审计执行的常驻协作角色。",
+      "why_it_matters": "可围绕持续任务、权限撤销、跨周状态和人工接管构建企业 Benchmark。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+        }
+      ]
+    },
+    {
+      "title": "HEAMS：将个人记忆的删除、编辑、隐私和安全一同纳入评测",
+      "score": 98,
+      "published": "2026-11-15",
+      "topics": [
+        "memory",
+        "personal",
+        "safety",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "HEAMS 同时评测 Agent Memory 的性能、效率、隐私、用户主权与安全。受控评测中最佳删除成功率为 47%，最高编辑成功率仅 3.66%，显示现有记忆系统的用户控制仍有明显不足。它把保存期限、更正、删除与污染抵抗纳入长期个人 Agent 的核心质量指标。",
+      "intro": "HEAMS 同时评测 Agent Memory 的性能、效率、隐私、用户主权与安全。",
+      "detail": "HEAMS 增加 Contextual Integrity、Editability、Erasability、Retention、Transparency 等测试，还引入 MilaMem 与治理层。作者报告加入回忆治理后隐私泄露比例从 57.61% 降至 31.82%，同时存在帮助性损失。某污染测试中带治理层的抵抗率为 88.61%，不带治理层为 40%。真实用户记忆系统需要将可删除性和安全性与回答效果联合评价",
+      "findings": "受控评测中最佳删除成功率为 47%，最高编辑成功率仅 3.66%，显示现有记忆系统的用户控制仍有明显不足。它把保存期限、更正、删除与污染抵抗纳入长期个人 Agent 的核心质量指标。",
+      "why_it_matters": "把写入、读取、撤销、更正和删除设计成可执行的权限与回归测试。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20144"
+        }
+      ]
+    },
+    {
+      "title": "CLAM：无梯度参数巩固与可追溯 Episode 的长期记忆",
+      "score": 95,
+      "published": "2026-11-16",
+      "topics": [
+        "memory",
+        "personal",
+        "framework",
+        "continual-learning"
+      ],
+      "summary": "CLAM 使用 Hypernetwork 在单次前向传播中把跨会话历史形成 LoRA 式长期潜在记忆。它将固定大小的 Latent Adapter 与保存原始证据的 Episodic Buffer 结合。个人记忆系统开始探索外部文本检索与快速权重空间更新的混合架构。",
+      "intro": "CLAM 使用 Hypernetwork 在单次前向传播中把跨会话历史形成 LoRA 式长期潜在记忆。",
+      "detail": "传统个人记忆通过提取事实、写数据库及检索历史片段恢复上下文，存在高频更新开销。CLAM 的 Carried Latent Adapter Memory 不需要每次交互后额外反向传播，就能更新隐含用户状态。原始事件缓冲区保留精确事实，以补充低维潜在状态不能复述具体时间细节的问题。未来应测量遗忘、编辑、删除、迁移以及对真实 Agent 操作的边际帮助",
+      "findings": "它将固定大小的 Latent Adapter 与保存原始证据的 Episodic Buffer 结合。个人记忆系统开始探索外部文本检索与快速权重空间更新的混合架构。",
+      "why_it_matters": "结合 HEAMS 检验这种压缩记忆是否可被用户审计和纠错。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20759"
+        }
+      ]
+    },
+    {
+      "title": "MemEmo：跨会话情绪状态的记忆更新与冲突检测",
+      "score": 94,
+      "published": "2026-11-16",
+      "topics": [
+        "memory",
+        "personal",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "MemEmo 构建情绪长期记忆测试，覆盖对话情绪提取、状态更新、历史问答和冲突识别。它强调用户在生活事件中的心态不断变化，不能把过去的情绪标签当作永久事实。这一方向补充了传统个人事实与偏好 QA 无法覆盖的长期状态演化。",
+      "intro": "MemEmo 构建情绪长期记忆测试，覆盖对话情绪提取、状态更新、历史问答和冲突识别。",
+      "detail": "测试区分 Emotional Information Extraction、Emotional Memory Updating、Emotional QA 和 Contradiction Detection。Agent 需要将不同时点的表达关联到相应事件和情绪变化，而非机械地复用最早记录。类似机制也适用于计划变更、风险承受能力、照护需求和长期目标。建议保存具体证据、时间范围及当前状态置信度",
+      "findings": "它强调用户在生活事件中的心态不断变化，不能把过去的情绪标签当作永久事实。这一方向补充了传统个人事实与偏好 QA 无法覆盖的长期状态演化。",
+      "why_it_matters": "为动态 Personal Memory 设置时间状态更新、旧信息覆盖和情绪证据追踪测试。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20733"
+        }
+      ]
+    },
+    {
+      "title": "Self-Improvement Memory：保存为什么修改 Harness 的改进经验",
+      "score": 94,
+      "published": "2026-11-13",
+      "topics": [
+        "memory",
+        "self-evolution",
+        "continual-learning",
+        "framework"
+      ],
+      "summary": "Self-Improvement Memory 区分任务解法历史与优化器自己的修改实验历史。系统保存改进理由、预期收益、实际反馈和测试条件，在跨任务或跨模型切换时复用。十次独立 Coding 配对延续测试中，保留改进记忆比仅继承 Harness 平均高 2.36 分。",
+      "intro": "Self-Improvement Memory 区分任务解法历史与优化器自己的修改实验历史。",
+      "detail": "SIM 不只保存最终 Prompt 和代码，而是对发生的 Harness 缺陷、修改措施及可迁移条件进行聚类。改进器可以根据历史原因决定哪些方案值得重用，避免反复尝试相同失败配置。长期研究还需要检查模型升级后的策略是否失效，以及跨科研、Coding 和生活任务是否仍有收益。真正的优化记忆应具备实验版本、性能回归及因果信息",
+      "findings": "系统保存改进理由、预期收益、实际反馈和测试条件，在跨任务或跨模型切换时复用。十次独立 Coding 配对延续测试中，保留改进记忆比仅继承 Harness 平均高 2.36 分。",
+      "why_it_matters": "评估从 Task Memory 到 Meta-Improvement Memory 的增量收益和迁移边界。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.18856"
+        }
+      ]
+    },
+    {
+      "title": "Daydream Agent：从穿搭推荐走向长期监控和批准代购",
+      "score": 92,
+      "published": "2026-11-17",
+      "topics": [
+        "personal",
+        "memory",
+        "tool-use",
+        "product"
+      ],
+      "summary": "Daydream 上线 iOS 和短信购物 Agent，记住风格、尺寸及预算，并持续追踪目标商品。Agent 可在一万多个品牌中规划穿搭、虚拟试穿，并经用户批准完成购买。消费级个人 Agent 正逐渐形成偏好记忆、持续监控、推荐和交易的完整工作流。",
+      "intro": "Daydream 上线 iOS 和短信购物 Agent，记住风格、尺寸及预算，并持续追踪目标商品。",
+      "detail": "用户可发送场合描述或灵感照片，让系统组合可购物服装清单，并以自身照片虚拟试穿。Agent 会保留购物候选清单、追踪降价及新品，并可发送周期性时尚简报。购买仅在参与商家和获得授权时完成，因而不仅是自动购买，还包含对用户购物决定的长期支持。适合评估记忆是否真正提升商品匹配与购物完成率",
+      "findings": "Agent 可在一万多个品牌中规划穿搭、虚拟试穿，并经用户批准完成购买。消费级个人 Agent 正逐渐形成偏好记忆、持续监控、推荐和交易的完整工作流。",
+      "why_it_matters": "关注个性化偏好准确性、持续任务状态与最终结账成功率。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://www.prnewswire.com/news-releases/daydream-launches-first-ever-autonomous-agent-for-fashion-shopping-styling-and-checkout-302941544.html"
+        }
+      ]
+    },
+    {
+      "title": "Meta Muse 澳大利亚上线：本地生活 Connector 扩展",
+      "score": 92,
+      "published": "2026-11-17",
+      "topics": [
+        "personal",
+        "deployment",
+        "tool-use",
+        "product"
+      ],
+      "summary": "Meta 将 Muse Personal Agent 扩展到澳大利亚，逐步接入购物、房产、健身、创作和票务服务。用户可连接 Gmail、Calendar、Instagram 和 OpenTable 等平台，跨应用委托长期生活任务。Agent 的真实服务覆盖逐渐取决于地区连接器、授权及可执行交易链路。",
+      "intro": "Meta 将 Muse Personal Agent 扩展到澳大利亚，逐步接入购物、房产、健身、创作和票务服务。",
+      "detail": "本地合作方包括 Canva、Domain、Kogan、MECCA、Officeworks、realestate.com.au、SWEAT、ShopBack 和 Ticketek。并非全部本地连接器在上线当天就可用，相关功能会逐步推出。产品通过独立云执行环境处理服务连接，由用户批准敏感操作。此举属于既有 Muse 产品的市场和生态扩张，并非发布新的基座模型",
+      "findings": "用户可连接 Gmail、Calendar、Instagram 和 OpenTable 等平台，跨应用委托长期生活任务。Agent 的真实服务覆盖逐渐取决于地区连接器、授权及可执行交易链路。",
+      "why_it_matters": "比较不同地区同一 Life Agent 任务的工具可达性和连接器稳定性。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://about.fb.com/news/2026/11/muse-is-now-available-in-australia/"
+        }
+      ]
+    },
+    {
+      "title": "Jetriever：从语义相关度转向行动效用的记忆检索",
+      "score": 91,
+      "published": "2026-11-16",
+      "topics": [
+        "memory",
+        "tool-use",
+        "framework"
+      ],
+      "summary": "Jetriever 按记忆对后续行动的帮助程度重新排序长期历史，而不仅按向量相似度检索。系统从完整记忆池中选择对当前决策最有用的经验。它让 Memory Benchmark 进一步靠近真实工具执行收益和长期任务成功率。",
+      "intro": "Jetriever 按记忆对后续行动的帮助程度重新排序长期历史，而不仅按向量相似度检索。",
+      "detail": "传统 Top-K 嵌入搜索常返回词面相近但决策价值很低的段落，并占用宝贵上下文。Jetriever 对候选记忆进行效用排序，试图优先选择能改善 Agent 当前行动策略的片段。它与固定槽位记忆、CLAM 和优化器经验记忆互补。要验证这种优势应在等 Token 预算下观察工具轨迹和终局状态，而非只比较文本检索指标",
+      "findings": "系统从完整记忆池中选择对当前决策最有用的经验。它让 Memory Benchmark 进一步靠近真实工具执行收益和长期任务成功率。",
+      "why_it_matters": "建立记忆边际效用、工具行动改善与任务成功率的联合评估。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21478"
+        }
+      ]
+    },
+    {
+      "title": "Google EmbeddingGemma 2 技术报告：文本与音视频统一向量空间",
+      "score": 90,
+      "published": "2026-11-17",
+      "topics": [
+        "training",
+        "memory",
+        "deployment",
+        "framework"
+      ],
+      "summary": "Google 发布 EmbeddingGemma 2 的完整技术报告，说明如何将文本、图像、音频与视频映射到统一嵌入空间。训练配方利用 Gemma 4 和 Gemini Embedding 2 的技术，并压缩底座以适配轻量部署。多模态检索技术为个人记忆跨照片、录音、文件和视频进行证据搜索提供基础。",
+      "intro": "Google 发布 EmbeddingGemma 2 的完整技术报告，说明如何将文本、图像、音频与视频映射到统一嵌入空间。",
+      "detail": "EmbeddingGemma 2 模型本身先前已发布，本次新动态是训练和评测资料公开。报告讨论不同模态如何共享语义表示，以及压缩后如何维持检索效果。对长期 Agent Memory，该技术可降低多索引系统复杂度，但统一相似度仍不能直接解决身份、时序与用户授权。建议与 HEAMS 的治理评测及 CLAM 的状态存储互补比较",
+      "findings": "训练配方利用 Gemma 4 和 Gemini Embedding 2 的技术，并压缩底座以适配轻量部署。多模态检索技术为个人记忆跨照片、录音、文件和视频进行证据搜索提供基础。",
+      "why_it_matters": "检验跨模态记忆检索的时间一致性、信息来源与权限约束。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2-technical-report/"
+        }
+      ]
+    }
+  ]
+}

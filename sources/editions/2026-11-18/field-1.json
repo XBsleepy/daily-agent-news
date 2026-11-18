@@ -1,0 +1,293 @@
+{
+  "date": "2026-11-18",
+  "field": "field-1",
+  "items": [
+    {
+      "title": "OpenAI GPT-6.2 Astra / Sol：专业工作与 AI 自改进能力升级",
+      "score": 100,
+      "published": "2026-11-17",
+      "topics": [
+        "training",
+        "coding",
+        "science",
+        "self-evolution",
+        "product"
+      ],
+      "summary": "OpenAI 发布 GPT-6.2 Astra 和 Sol，分别面向复杂专业工作与高效日常 Agent 执行。Astra 在 Agents’ Last Exam 比旧 Astra 高 5.2 分，相关测试成本不足三分之一，并达到 AI Self-improvement High 阈值。模型进步正同时体现在科学、电脑操作、代码工程和单位任务成本上。",
+      "intro": "OpenAI 发布 GPT-6.2 Astra 和 Sol，分别面向复杂专业工作与高效日常 Agent 执行。",
+      "detail": "Astra 在 Terminal-Bench-Science 0.1 比上一代高 9 个百分点，Sol 在 LifeVal 上以更低成本超过旧 Astra。Astra API 每百万输入/输出 Token 为 8/40 美元，Sol 为 2/10 美元。两者在处理工具、复杂文件及 CAD 设计方面取得改善，部分模拟工作流仍出现未报告障碍的情况。自我改进 High 是辅助 AI 研发能力的评估阈值，适合与固定预算下的实际科研产出一起观察",
+      "findings": "Astra 在 Agents’ Last Exam 比旧 Astra 高 5.2 分，相关测试成本不足三分之一，并达到 AI Self-improvement High 阈值。模型进步正同时体现在科学、电脑操作、代码工程和单位任务成本上。",
+      "why_it_matters": "对比固定 Harness 与推理预算下的完整工作成果、成本及自改进效率。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+        }
+      ]
+    },
+    {
+      "title": "SWE-CoWork：软件 Agent 局部成功与真实交付之间的鸿沟",
+      "score": 98,
+      "published": "2026-11-15",
+      "topics": [
+        "coding",
+        "work",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "summary": "SWE-CoWork 在 101 个真实仓库、11 种语言和模拟组织环境中评估完整软件工程交付。最佳 Agent 的新增行为测试通过率约 63%，完整任务成功率却不足 8%，31% 声称已完成的需求未通过测试。研究把需求获取、实现、验证和交付明确拆成不同的长程失败边界。",
+      "intro": "SWE-CoWork 在 101 个真实仓库、11 种语言和模拟组织环境中评估完整软件工程交付。",
+      "detail": "每项任务从简短交接开始，Agent 需向 26 位不同职责的同事询问、查询工作记录并实现代码。需求由隐藏可执行测试检查，即使预先直接提供所有需求，局部 F2P 通过率提高约 16 个百分点，完整任务成功率仍未改善。作者分析了遗漏追问、没有落实已知需求以及完成声明不准确等情况。这种组织式环境非常适合将多阶段失败合成为可验证的短程任务",
+      "findings": "最佳 Agent 的新增行为测试通过率约 63%，完整任务成功率却不足 8%，31% 声称已完成的需求未通过测试。研究把需求获取、实现、验证和交付明确拆成不同的长程失败边界。",
+      "why_it_matters": "评测应逐一检查需求覆盖、真实代码状态、测试结果与交付声明。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20218"
+        }
+      ]
+    },
+    {
+      "title": "Scale AI Robot Data Diversity：两万小时数据揭示动作与场景偏差",
+      "score": 97,
+      "published": "2026-11-17",
+      "topics": [
+        "training",
+        "data-synthesis",
+        "science",
+        "evaluation"
+      ],
+      "summary": "Scale AI 分析两万小时机器人遥操作数据，分别统计任务、动作、物品和环境多样性。数据含 797 类任务、231 个地点及近千万子任务，视觉编码器通常更重视场景而非动作。具身训练数据的有效价值不能仅以总时长衡量，还需看长尾动作和跨场景覆盖。",
+      "intro": "Scale AI 分析两万小时机器人遥操作数据，分别统计任务、动作、物品和环境多样性。",
+      "detail": "研究包含 344,625 段录制和 9,924,297 个子任务，覆盖 11 类场景。名义动作动词有 86 类，但按频率计算的有效种类数仅 17；物体标签 3,696 类而有效数为 162。世界模型、图像特征和多模态表征各自擅长识别位置、物体或动词，表明可分辨性对样本价值至关重要。未来训练应主动覆盖未见物体与动作组合",
+      "findings": "数据含 797 类任务、231 个地点及近千万子任务，视觉编码器通常更重视场景而非动作。具身训练数据的有效价值不能仅以总时长衡量，还需看长尾动作和跨场景覆盖。",
+      "why_it_matters": "按任务、动词、物体、地点与模型 embedding 共同评估数据采购价值。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://labs.scale.com/blog/measuring-robot-data-diversity"
+        }
+      ]
+    },
+    {
+      "title": "K2-Horizon：约十万亿合成 Token 与完整开放训练轨迹",
+      "score": 96,
+      "published": "2026-11-16",
+      "topics": [
+        "training",
+        "data-synthesis",
+        "coding",
+        "framework",
+        "product"
+      ],
+      "summary": "K2-Horizon 发布从 0.9B 到 375B-A23B MoE 的六个开放模型，覆盖推理、Coding 和 Agent 工作。项目不仅公开权重，还提供预训练数据、构建流水线、训练日志、中间 Checkpoint 与 RL 系统。约 10T 合成预训练 Token 的生产流程使数据配方与模型能力归因更易复现。",
+      "intro": "K2-Horizon 发布从 0.9B 到 375B-A23B MoE 的六个开放模型，覆盖推理、Coding 和 Agent 工作。",
+      "detail": "该项目包括 xLLM 训练框架、RL360 后训练系统及每个阶段的开发历史。研究探索 Mixture-of-Value Attention、Softplus Gating 和 Uno 解码适配器，并让四种模型共享相同 22T Token 训练配方。公开资料可支持研究不同参数规模、稀疏架构和训练数据构成的因果效果。它提供了比只有最终开源权重更完整的模型研究对象",
+      "findings": "项目不仅公开权重，还提供预训练数据、构建流水线、训练日志、中间 Checkpoint 与 RL 系统。约 10T 合成预训练 Token 的生产流程使数据配方与模型能力归因更易复现。",
+      "why_it_matters": "适合做合成数据归因、训练阶段消融及 Agent 任务成本的再现性研究。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21003"
+        }
+      ]
+    },
+    {
+      "title": "Accelerate Bench：完整科学程序优化的真实执行评测",
+      "score": 95,
+      "published": "2026-11-16",
+      "topics": [
+        "coding",
+        "science",
+        "evaluation",
+        "benchmark",
+        "training"
+      ],
+      "summary": "Accelerate Bench 提供 32 项科学应用级 CPU 优化任务，要求 Agent 同时保持计算正确性和提升性能。任务涵盖构建、运行时设置和跨函数依赖，不再只考察单个 Kernel 的加速。它为 AI4AI 代码优化和科学 Coding Agent 提供完整应用层的独立 Verifier。",
+      "intro": "Accelerate Bench 提供 32 项科学应用级 CPU 优化任务，要求 Agent 同时保持计算正确性和提升性能。",
+      "detail": "研究从科学计算程序与超算工作负载抽取真实优化目标，提供可执行环境和性能基准。一个局部循环变快，可能同时导致全程序其他部分回退或数值条件失效，因此任务奖励需要完整运行成功和端到端加速。相比静态代码生成测试，它更能暴露诊断、修复、复测的长程组合能力。可与 Terminal-Bench-Science 和 Benchmark Factory 结合生成细粒度失败任务",
+      "findings": "任务涵盖构建、运行时设置和跨函数依赖，不再只考察单个 Kernel 的加速。它为 AI4AI 代码优化和科学 Coding Agent 提供完整应用层的独立 Verifier。",
+      "why_it_matters": "为优化 Agent 区分性能诊断、代码修改、数值验证和全局性能回归。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20882"
+        }
+      ]
+    },
+    {
+      "title": "PaperCritic：23K 专家评审数据训练科研可信度判定器",
+      "score": 95,
+      "published": "2026-11-13",
+      "topics": [
+        "training",
+        "science",
+        "evaluation",
+        "data-synthesis"
+      ],
+      "summary": "PaperCritic 基于约一千篇 ICLR 论文和两万三千条评审意见，训练专门识别科研论证实质错误的 Reviewer。训练奖励聚焦问题指出的 Precision 和 Recall，而不是混合新颖性、清晰度与正确性。可信 AI Scientist 需要会验证研究质量的专业奖励机制。",
+      "intro": "PaperCritic 基于约一千篇 ICLR 论文和两万三千条评审意见，训练专门识别科研论证实质错误的 Reviewer。",
+      "detail": "PaperSound-23K 对人工和模型评审意见质量进行比较与标注。PaperCritic 使用重要问题的 F1 信号训练评审模型，并观察到对其他学科和代码、法律审查的部分迁移。模型指出问题不应止于给出主观意见，重要错误需要由实验数据、程序计算或原文证据进一步核查。它可成为 AI4AI 研究过程的独立审稿 Agent，而不是纯文本格式打分器",
+      "findings": "训练奖励聚焦问题指出的 Precision 和 Recall，而不是混合新颖性、清晰度与正确性。可信 AI Scientist 需要会验证研究质量的专业奖励机制。",
+      "why_it_matters": "把论文 Soundness 的奖励与原始实验、代码复现和引用核查联系起来。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17834"
+        }
+      ]
+    },
+    {
+      "title": "ScaleVLA：552B 底座提高机器人少样本操作效果",
+      "score": 94,
+      "published": "2026-11-16",
+      "topics": [
+        "training",
+        "science",
+        "evaluation"
+      ],
+      "summary": "ScaleVLA 将 552B 视觉语言大模型接入可训练动作生成头，和 2B 至 32B 底座做受控比较。十次示范的成功率达到 87.8%，超过小底座用五十次示范的 85.6%，实机充电器插接从 4/10 提升到 9/10。模型大规模预训练的表征正在转化为机器人精细操作的样本效率。",
+      "intro": "ScaleVLA 将 552B 视觉语言大模型接入可训练动作生成头，和 2B 至 32B 底座做受控比较。",
+      "detail": "方法冻结 DeepSeek-V4.1-Flash 底座，利用特征驱动单独训练的动作 DiT，避免全模型昂贵后训练。LIBERO-PRO 测试成功率为 45.1%，小底座最高 31.3%，每动作块中位延迟约 216ms。报告也展示分布外充电器插接仍不容易，说明大模型规模不能替代机器人环境覆盖和物理反馈。与 Scale Robot Data Diversity 可以联合分析训练数据与底座规模的互补关系",
+      "findings": "十次示范的成功率达到 87.8%，超过小底座用五十次示范的 85.6%，实机充电器插接从 4/10 提升到 9/10。模型大规模预训练的表征正在转化为机器人精细操作的样本效率。",
+      "why_it_matters": "评估冻结大模型特征是否降低真实机器人示范数量和总训练成本。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21607"
+        }
+      ]
+    },
+    {
+      "title": "SWE-OPD：学生真实 Coding 轨迹上的 On-policy 蒸馏",
+      "score": 94,
+      "published": "2026-11-16",
+      "topics": [
+        "training",
+        "coding",
+        "continual-learning",
+        "framework"
+      ],
+      "summary": "SWE-OPD 让学生 Agent 在真实仓库运行，再由大型教师对学生实际访问的执行状态提供监督。一组测试中 Qwen3.5-9B 的 SWE-bench Pro 解决率由 35.9% 升到 39.4%，缓存教师分数可节约 59.4%—72.6% GPU 小时。研究显示 Agent 蒸馏能够兼顾真实长程轨迹和可控计算成本。",
+      "intro": "SWE-OPD 让学生 Agent 在真实仓库运行，再由大型教师对学生实际访问的执行状态提供监督。",
+      "detail": "论文实验覆盖三组教师—学生、两类数据源和多个 SWE 基准，包含跨 tokenizer 蒸馏。离线缓存教师评分减少不断刷新的 Rollout 成本，但不同设置效果仍有差异。部分反向 KL 训练即使 Loss 降低，也可能引起重复生成或实际任务退化，说明优化目标需要执行级评价。可把学生失败中间状态提取为单独的恢复训练样本",
+      "findings": "一组测试中 Qwen3.5-9B 的 SWE-bench Pro 解决率由 35.9% 升到 39.4%，缓存教师分数可节约 59.4%—72.6% GPU 小时。研究显示 Agent 蒸馏能够兼顾真实长程轨迹和可控计算成本。",
+      "why_it_matters": "应采用终局任务成功与失败边界指标，而非只监控训练 Loss。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21020"
+        }
+      ]
+    },
+    {
+      "title": "Latent Feedback：用隐藏状态反馈提高稀缺训练数据利用率",
+      "score": 93,
+      "published": "2026-11-16",
+      "topics": [
+        "training",
+        "continual-learning",
+        "framework"
+      ],
+      "summary": "Latent Feedback 将前一个 Token 的隐藏状态反馈给后续计算，以提升模型重复数据时的学习效率。作者在受控小模型实验中报告最多节省 48% 计算量或 47% 独立训练数据量。它提供不同于单纯扩充合成语料的数据效率研究路径。",
+      "intro": "Latent Feedback 将前一个 Token 的隐藏状态反馈给后续计算，以提升模型重复数据时的学习效率。",
+      "detail": "实验比较不同模型规模、独立数据量与训练 Epoch，在 60M—271M 参数模型上进行主要验证，并用 778M 模型校验 Scaling Law 趋势。隐藏状态反馈保留更多中间计算信息，使相同独立 Token 带来的预测损失收益增加。它在超大模型或多模态 Agent 上仍需要实证，可以先研究高质量数学和普通文本不同重复率下的效果。与 K2-Horizon 的大规模合成数据路线形成补充",
+      "findings": "作者在受控小模型实验中报告最多节省 48% 计算量或 47% 独立训练数据量。它提供不同于单纯扩充合成语料的数据效率研究路径。",
+      "why_it_matters": "比较相同 FLOPs 预算下的数据重复度、模型架构和任务泛化变化。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20404"
+        }
+      ]
+    },
+    {
+      "title": "ViRA：跨输入对比奖励强化高清视觉 Agent 的证据阅读",
+      "score": 91,
+      "published": "2026-11-16",
+      "topics": [
+        "training",
+        "tool-use",
+        "evaluation"
+      ],
+      "summary": "ViRA 提出 Cross-Input Relative Policy Optimization，让同一场景的多种视觉输入组成对比集合。这种相对奖励针对视觉 Agent 凭上下文猜测小目标、细字和细节的倾向。它把真正查看像素证据而非猜对答案变成后训练需要优化的能力。",
+      "intro": "ViRA 提出 Cross-Input Relative Policy Optimization，让同一场景的多种视觉输入组成对比集合。",
+      "detail": "超高分辨率图像中，小区域信息往往决定工具下一步选择，而普通奖励可能无法区分观察和猜测。ViRA 利用对比输入与相对成功信号训练视觉行为，使模型更依赖具体细节。对屏幕操作和文档代理，可结合裁剪、放大和二次查看任务来评估。也可与 EVIDENT 联合检查最终答案是否有可观察证据",
+      "findings": "这种相对奖励针对视觉 Agent 凭上下文猜测小目标、细字和细节的倾向。它把真正查看像素证据而非猜对答案变成后训练需要优化的能力。",
+      "why_it_matters": "研究视觉证据不足时的主动查看、放大和合理停止决策。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21605"
+        }
+      ]
+    },
+    {
+      "title": "Google EmbeddingGemma 2 技术报告：文本与音视频统一向量空间",
+      "score": 90,
+      "published": "2026-11-17",
+      "topics": [
+        "training",
+        "memory",
+        "deployment",
+        "framework"
+      ],
+      "summary": "Google 发布 EmbeddingGemma 2 的完整技术报告，说明如何将文本、图像、音频与视频映射到统一嵌入空间。训练配方利用 Gemma 4 和 Gemini Embedding 2 的技术，并压缩底座以适配轻量部署。多模态检索技术为个人记忆跨照片、录音、文件和视频进行证据搜索提供基础。",
+      "intro": "Google 发布 EmbeddingGemma 2 的完整技术报告，说明如何将文本、图像、音频与视频映射到统一嵌入空间。",
+      "detail": "EmbeddingGemma 2 模型本身先前已发布，本次新动态是训练和评测资料公开。报告讨论不同模态如何共享语义表示，以及压缩后如何维持检索效果。对长期 Agent Memory，该技术可降低多索引系统复杂度，但统一相似度仍不能直接解决身份、时序与用户授权。建议与 HEAMS 的治理评测及 CLAM 的状态存储互补比较",
+      "findings": "训练配方利用 Gemma 4 和 Gemini Embedding 2 的技术，并压缩底座以适配轻量部署。多模态检索技术为个人记忆跨照片、录音、文件和视频进行证据搜索提供基础。",
+      "why_it_matters": "检验跨模态记忆检索的时间一致性、信息来源与权限约束。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2-technical-report/"
+        }
+      ]
+    },
+    {
+      "title": "Sage S2.1 Flash：科学多模态模型与专业工具后训练",
+      "score": 90,
+      "published": "2026-11-16",
+      "topics": [
+        "training",
+        "science",
+        "tool-use",
+        "framework"
+      ],
+      "summary": "Sage S2.1 Flash 技术报告介绍面向科学研究的多模态 MoE 模型。研究尝试在统一工作流中处理序列、谱图、屏幕、代码和文本，并通过专业工具后训练强化任务能力。科研 Agent 的底座训练正在与可验证工具执行环节更紧密结合。",
+      "intro": "Sage S2.1 Flash 技术报告介绍面向科学研究的多模态 MoE 模型。",
+      "detail": "科学工作流需要同时读取不同实验模态与执行脚本，单纯文本问答不能完整覆盖。报告关注大规模科学多模态表征以及针对专业任务的训练和评价，强调把模型输出接到专业软件与真实计算结果。实践中还需测量每种模态对完整实验任务成功率的增益，避免只有静态科学问答分数。可与 SciResearch-Eval、FEM 科研编程任务共同考察",
+      "findings": "研究尝试在统一工作流中处理序列、谱图、屏幕、代码和文本，并通过专业工具后训练强化任务能力。科研 Agent 的底座训练正在与可验证工具执行环节更紧密结合。",
+      "why_it_matters": "比较专业模型和通用模型在完整实验链上的成功率、成本及证据完整性。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21072"
+        }
+      ]
+    },
+    {
+      "title": "NVIDIA Nemotron for Science：化学开放数据与专业 Agent 后训练",
+      "score": 87,
+      "published": "2026-11-16",
+      "topics": [
+        "science",
+        "training",
+        "data-synthesis",
+        "product"
+      ],
+      "summary": "NVIDIA Nemotron for Science 整合 Nemotron 3.5 Super VL、开放化学数据及科研 Agent 后训练方法。LitmusBench v0.2 提供近五万道化学推理问题，用于模型适配和专业评测。该套件把领域数据、开放模型和科学工具部署联结起来。",
+      "intro": "NVIDIA Nemotron for Science 整合 Nemotron 3.5 Super VL、开放化学数据及科研 Agent 后训练方法。",
+      "detail": "发布重点是专业科学模型能够读取领域资料并调用研究工具，而不是只在通用问答中记忆知识。方案包含新化学数据、评测任务及后训练配方，可运行在研究机构自有计算资源上。原始发布于 11 月 16 日，本期作为与最新科学 Agent 和训练数据工作相互补充的研究基础设施。建议测量专业模型对真实实验产出的帮助",
+      "findings": "LitmusBench v0.2 提供近五万道化学推理问题，用于模型适配和专业评测。该套件把领域数据、开放模型和科学工具部署联结起来。",
+      "why_it_matters": "研究领域后训练对实验设计、工具调用和科学证据可靠性的影响。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Introduces-Nemotron-for-Science-to-Accelerate-Discoveries-With-Agents/default.aspx"
+        }
+      ]
+    }
+  ]
+}

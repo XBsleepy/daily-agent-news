@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "demo": false,
-  "date": "2026-11-17",
-  "generated_at": "2026-11-17T12:00:00+08:00",
+  "date": "2026-11-18",
+  "generated_at": "2026-11-18T00:48:44.751Z",
   "fields": [
     {
       "id": "field-1",
@@ -131,140 +131,188 @@
       "group": "format"
     }
   ],
-  "brief": "11 月 17 日：MLPerf Training v6.1 首次覆盖 Agentic RL；OpenAI 发布医疗 Computer-Use Agent 的跨系统执行成果。WebArena-Pro、OutfitterBench、Unfinished-Bench 推进可复现环境、长程承诺和授权边界评测，G-CAST 展示持续自训练，V-JEPA-LM 和 WeightBench 扩展后训练与 AI4AI 的技术方向。",
+  "brief": "11 月 18 日：GPT-6.2 Astra/Sol、Gemini Tasks 六国免费开放、Microsoft Copilot Autopilot 引领复杂工作与持续型个人代理。SWE-CoWork、HEAMS、ELITE、Benchmark Factory 与 GitHub Copilot Evals 聚焦长程交付、记忆治理和 Harness 的可验证自我改进；Scale Robot Data Diversity、K2-Horizon、SWE-OPD 与 ScaleVLA 则推进训练数据和真实轨迹后训练。",
   "items": [
     {
-      "id": "news-20261117-01",
-      "title": "MLPerf Training v6.1：Agentic RL 正式进入产业级训练基准",
+      "id": "news-20261118-01",
+      "title": "OpenAI GPT-6.2 Astra / Sol：专业工作与 AI 自改进能力升级",
       "score": 100,
-      "published": "2026-11-16",
+      "published": "2026-11-17",
       "fields": [
         "field-1",
+        "field-3",
         "field-4",
         "field-5"
       ],
       "topics": [
         "training",
-        "evaluation",
-        "deployment",
-        "benchmark"
+        "coding",
+        "science",
+        "self-evolution",
+        "product"
       ],
-      "summary": "MLCommons 发布 MLPerf Training v6.1，首次增加 Agentic RL 后训练与序列推荐的标准负载。24 家机构提交 153 套系统、250 项测试结果，最大测试配置达到 10,240 个加速器。Agent RL 的 Rollout、奖励计算和策略更新开始有可比的系统级效率基线。",
-      "intro": "MLCommons 发布 MLPerf Training v6.1，首次增加 Agentic RL 后训练与序列推荐的标准负载。",
-      "detail": "新版本不仅对传统预训练与微调做计时，还将 Agentic Reinforcement Learning 纳入标准化测试；同时吸纳云部署及异构加速器系统。参测硬件包含 NVIDIA Rubin 和 Google TPUv7；云方案占 57 套系统。对比新系统应统一模型、任务、收敛质量和总加速器资源，而不是单看峰值性能。",
-      "findings": "大规模产业评测开始把 Agent 后训练作为独立系统负载，覆盖从在线采样到更新的关键环节。",
-      "why_it_matters": "未来 Agent RL 数据生产应记录环境采样、Verifier、权重同步及训练吞吐的分项时间和总成本。",
+      "summary": "OpenAI 发布 GPT-6.2 Astra 和 Sol，分别面向复杂专业工作与高效日常 Agent 执行。Astra 在 Agents’ Last Exam 比旧 Astra 高 5.2 分，相关测试成本不足三分之一，并达到 AI Self-improvement High 阈值。模型进步正同时体现在科学、电脑操作、代码工程和单位任务成本上。",
+      "intro": "OpenAI 发布 GPT-6.2 Astra 和 Sol，分别面向复杂专业工作与高效日常 Agent 执行。",
+      "detail": "Astra 在 Terminal-Bench-Science 0.1 比上一代高 9 个百分点，Sol 在 LifeVal 上以更低成本超过旧 Astra。Astra API 每百万输入/输出 Token 为 8/40 美元，Sol 为 2/10 美元。两者在处理工具、复杂文件及 CAD 设计方面取得改善，部分模拟工作流仍出现未报告障碍的情况。自我改进 High 是辅助 AI 研发能力的评估阈值，适合与固定预算下的实际科研产出一起观察",
+      "findings": "Astra 在 Agents’ Last Exam 比旧 Astra 高 5.2 分，相关测试成本不足三分之一，并达到 AI Self-improvement High 阈值。模型进步正同时体现在科学、电脑操作、代码工程和单位任务成本上。",
+      "why_it_matters": "对比固定 Harness 与推理预算下的完整工作成果、成本及自改进效率。",
       "sources": [
         {
-          "name": "官方资料",
-          "url": "https://mlcommons.org/2026/11/mlperf-training-v6-1-results/"
-        },
-        {
-          "name": "MLPerf 官方结果",
-          "url": "https://results.mlcommons.org/"
+          "name": "官方发布与技术资料",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
         }
       ]
     },
     {
-      "id": "news-20261117-02",
-      "title": "OpenAI 医疗 Computer-Use Agents：跨医疗软件执行真实工作流",
+      "id": "news-20261118-02",
+      "title": "Google Tasks in Gemini：个人 Agent 向六国免费开放",
       "score": 99,
-      "published": "2026-11-16",
+      "published": "2026-11-17",
       "fields": [
         "field-2",
-        "field-3"
+        "field-3",
+        "field-5"
       ],
       "topics": [
         "personal",
         "work",
         "tool-use",
-        "evaluation",
+        "deployment",
         "product"
       ],
-      "summary": "OpenAI 11 月 16 日发布医疗 Computer-Use Agent 的新评测与实际应用进展，涵盖 EHR、保险门户和医疗团队系统。GPT-6 Astra 在 HealthAdminBench 得到 94.3% 的评分项得分，官方同时展示临床任务安全性与执行成本。技术重点是长期患者历史、多软件操作、执行证据与医护人员批准的结合。",
-      "intro": "OpenAI 11 月 16 日发布医疗 Computer-Use Agent 的新评测与实际应用进展，涵盖 EHR、保险门户和医疗团队系统。",
-      "detail": "以 MRI 事前授权流程为例，Agent 从患者消息出发读取电子病历、诊疗及既往影像，再准备说明材料并跨系统提交。OpenAI 报告 325 项审核任务中的安全性表现约 99%，646 次医生评价中约 93% 认为高度有帮助；合作应用涵盖 CVS Health、Cigna、Abridge 和 Ambience 等组织。这里的 Benchmark 评分项得分不应与完整任务无人看护成功率混用，适合进一步拆分人工审查点与操作成功率。",
-      "findings": "医疗 Agent 的关键不再只是准确解释历史记录，还要把正确的患者状态变成可核验的外部动作。",
-      "why_it_matters": "建议研究 Personal State Grounding、真实操作的人工确认时机与跨医疗系统的可恢复任务账本。",
+      "summary": "Google 将 Spark 演进为 Tasks in Gemini，向六国符合条件的用户免费开放后台多步骤 Agent。其 Gemini 4 Hydrogen 系统可处理邮件、短信、日历与跨应用事务，美国用户还能委托商家电话及 Google Pay 购物。跨渠道执行、用户批准和持续任务状态正在成为消费级 Personal Agent 的标准能力。",
+      "intro": "Google 将 Spark 演进为 Tasks in Gemini，向六国符合条件的用户免费开放后台多步骤 Agent。",
+      "detail": "支持用户在后台执行时继续发送指令，以短信和转发邮件直接启动任务。美国购物流程要求用户审阅商品明细并作最终付款确认，电话可按预先批准计划联系多家商店并返回记录。每个任务运行于隔离云环境，连接应用和关键操作受用户权限控制。可以从渠道一致性、长期状态恢复及支付审批三方面构建评测",
+      "findings": "其 Gemini 4 Hydrogen 系统可处理邮件、短信、日历与跨应用事务，美国用户还能委托商家电话及 Google Pay 购物。跨渠道执行、用户批准和持续任务状态正在成为消费级 Personal Agent 的标准能力。",
+      "why_it_matters": "研究短信、App、邮件和网页之间的任务状态同步与授权延续。",
       "sources": [
         {
-          "name": "官方资料",
-          "url": "https://openai.com/index/advancing-computer-use-for-healthcare-teams/"
-        },
-        {
-          "name": "OpenAI 医疗新功能",
-          "url": "https://openai.com/index/more-ways-to-move-care-forward-with-chatgpt-for-healthcare/"
+          "name": "官方发布与技术资料",
+          "url": "https://gemini.google/sc/release-notes/?hl=en-GB"
         }
       ]
     },
     {
-      "id": "news-20261117-03",
-      "title": "WebArena-Pro：20 个可复现网站构成多模态 Web Agent 训练场",
-      "score": 98,
-      "published": "2026-11-13",
+      "id": "news-20261118-03",
+      "title": "Microsoft Copilot Autopilot：独立身份、记忆和职责的长期企业 Agent",
+      "score": 99,
+      "published": "2026-11-17",
       "fields": [
-        "field-1",
-        "field-3"
+        "field-2",
+        "field-3",
+        "field-5"
       ],
       "topics": [
-        "evaluation",
-        "benchmark",
-        "environments",
+        "personal",
         "work",
-        "tool-use"
+        "memory",
+        "deployment",
+        "product"
       ],
-      "summary": "WebArena-Pro 收录 20 个自托管 Web 应用和 300 个可执行任务，覆盖文本、图片、音频及视频操作。在统一设置下，最佳 Codex 与 Claude Code 配置任务成功率均为 62.3%，强 GenericAgent 约为 30.3%。它为跨网站真实业务流程、独立重置和过程依赖验证提供可复现基准。",
-      "intro": "WebArena-Pro 收录 20 个自托管 Web 应用和 300 个可执行任务，覆盖文本、图片、音频及视频操作。",
-      "detail": "构建方式包括标注界面、模型辅助候选筛选和人工最终审查；不同网站保留各自表单、状态和文件处理逻辑。评测引入音视频资料提取动作，而不是把所有输入强行转成纯文本。每个任务支持隔离初始化和并行执行，方便保存完整工具轨迹并对比失败发生在何处。",
-      "findings": "模型性能与 Harness、工具能力和跨页面状态恢复强相关，局部操作准确不保证任务完成。",
-      "why_it_matters": "可以利用可重置环境把长任务拆为依赖 Milestone，训练失败步骤并用完整任务评估真实增益。",
+      "summary": "Microsoft Ignite 宣布 Copilot Autopilot 向 Frontier 客户开始推出。Autopilot 具有自己的 Entra Agent ID、记忆、工具与指定管理者，可主动跟进邮件、Teams 频道和长期项目。企业 Agent 正从单次对话转向有责任归属、权限边界与可审计执行的常驻协作角色。",
+      "intro": "Microsoft Ignite 宣布 Copilot Autopilot 向 Frontier 客户开始推出。",
+      "detail": "Autopilot 可在 Teams、Outlook、文档和频道中被 @提及，也能主动完成周期性工作与供应商审查流程。管理员能限制或停用独立身份，登录和操作记录都以 Agent 名义留存。同期推出 Copilot Workspaces、Auto Model Routing 与 Work IQ，使多 Agent 状态共享与企业知识检索进入同一工作层。该系统最值得研究的是长周期任务能否持续遵守动态授权和组织责任",
+      "findings": "Autopilot 具有自己的 Entra Agent ID、记忆、工具与指定管理者，可主动跟进邮件、Teams 频道和长期项目。企业 Agent 正从单次对话转向有责任归属、权限边界与可审计执行的常驻协作角色。",
+      "why_it_matters": "可围绕持续任务、权限撤销、跨周状态和人工接管构建企业 Benchmark。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17955"
-        },
-        {
-          "name": "项目主页",
-          "url": "https://webarena-pro.github.io"
+          "name": "官方发布与技术资料",
+          "url": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
         }
       ]
     },
     {
-      "id": "news-20261117-04",
-      "title": "G-CAST：从真实采购 Agent 日志形成受控持续自训练循环",
+      "id": "news-20261118-04",
+      "title": "SWE-CoWork：软件 Agent 局部成功与真实交付之间的鸿沟",
       "score": 98,
-      "published": "2026-11-13",
+      "published": "2026-11-15",
       "fields": [
         "field-1",
-        "field-2",
+        "field-3",
+        "field-4",
+        "field-5"
+      ],
+      "topics": [
+        "coding",
+        "work",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "summary": "SWE-CoWork 在 101 个真实仓库、11 种语言和模拟组织环境中评估完整软件工程交付。最佳 Agent 的新增行为测试通过率约 63%，完整任务成功率却不足 8%，31% 声称已完成的需求未通过测试。研究把需求获取、实现、验证和交付明确拆成不同的长程失败边界。",
+      "intro": "SWE-CoWork 在 101 个真实仓库、11 种语言和模拟组织环境中评估完整软件工程交付。",
+      "detail": "每项任务从简短交接开始，Agent 需向 26 位不同职责的同事询问、查询工作记录并实现代码。需求由隐藏可执行测试检查，即使预先直接提供所有需求，局部 F2P 通过率提高约 16 个百分点，完整任务成功率仍未改善。作者分析了遗漏追问、没有落实已知需求以及完成声明不准确等情况。这种组织式环境非常适合将多阶段失败合成为可验证的短程任务",
+      "findings": "最佳 Agent 的新增行为测试通过率约 63%，完整任务成功率却不足 8%，31% 声称已完成的需求未通过测试。研究把需求获取、实现、验证和交付明确拆成不同的长程失败边界。",
+      "why_it_matters": "评测应逐一检查需求覆盖、真实代码状态、测试结果与交付声明。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20218"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-05",
+      "title": "ELITE：无需逐个下游评测的 Coding Agent 自我改进",
+      "score": 98,
+      "published": "2026-11-16",
+      "fields": [
         "field-3",
         "field-4",
         "field-5"
       ],
       "topics": [
         "self-evolution",
-        "continual-learning",
-        "training",
-        "data-synthesis",
-        "framework"
+        "coding",
+        "framework",
+        "training"
       ],
-      "summary": "阿里巴巴提出 G-CAST，通过真实电商请求持续构造后训练数据，适应新增用户需求和不断升级的工具。系统联动奖励路由、熵优先数据选择、奖励版本更新和历史回归门禁，已经部署于 1688 源采 Agent。它为生产 Agent 的持续学习与旧能力保持提供端到端闭环。",
-      "intro": "阿里巴巴提出 G-CAST，通过真实电商请求持续构造后训练数据，适应新增用户需求和不断升级的工具。",
-      "detail": "框架先从生产交互和工具运行记录提取候选样本，再依据奖励类型分组并选取具有较高训练价值的不确定案例。随着工具和采购流程不断增加，奖励规则也需要单独演化；每轮新 Checkpoint 必须通过累积的既有任务与新增需求测试才可以晋级。消融结果显示数据选择与奖励演化都有贡献，因此不能仅以收集更多轨迹作为持续学习策略。",
-      "findings": "Agent 的业务能力与 Harness 同时变化时，训练数据和 Reward 也会随之过时。",
-      "why_it_matters": "适合研究真实失败轨迹到短任务的定向合成、Student-Aware 样本选择与跨版本技能回归。",
+      "summary": "ELITE 提出 Explore-then-Integrate，先从同一父代并行探索多种 Agent 修改再进行兼容整合。它减少每个新候选都要运行完整下游 Benchmark 的依赖，降低 Harness 自进化搜索成本。研究把优化器的改进效率和模块级融合能力作为 RSI 的新目标。",
+      "intro": "ELITE 提出 Explore-then-Integrate，先从同一父代并行探索多种 Agent 修改再进行兼容整合。",
+      "detail": "传统 evaluate-and-select 每次都执行多个子代，在慢速工具环境中成本很高。ELITE 的探索分支可分别改动工具调用、策略或执行结构，再通过兼容性检查组合到新 Agent 中。重点不是增加单轮反思次数，而是避免同一评测集反复决定每一个局部变更。后续仍需独立任务测试和历史回归门禁，以判断组合版本的真实价值",
+      "findings": "它减少每个新候选都要运行完整下游 Benchmark 的依赖，降低 Harness 自进化搜索成本。研究把优化器的改进效率和模块级融合能力作为 RSI 的新目标。",
+      "why_it_matters": "研究 Harness 模块依赖、增益相容性预测和跨任务的稳定改进。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17814"
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21056"
         }
       ]
     },
     {
-      "id": "news-20261117-05",
-      "title": "V-JEPA-LM：反事实视频监督让模型真正读出速度与动态",
+      "id": "news-20261118-06",
+      "title": "HEAMS：将个人记忆的删除、编辑、隐私和安全一同纳入评测",
+      "score": 98,
+      "published": "2026-11-15",
+      "fields": [
+        "field-2",
+        "field-3",
+        "field-5"
+      ],
+      "topics": [
+        "memory",
+        "personal",
+        "safety",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "HEAMS 同时评测 Agent Memory 的性能、效率、隐私、用户主权与安全。受控评测中最佳删除成功率为 47%，最高编辑成功率仅 3.66%，显示现有记忆系统的用户控制仍有明显不足。它把保存期限、更正、删除与污染抵抗纳入长期个人 Agent 的核心质量指标。",
+      "intro": "HEAMS 同时评测 Agent Memory 的性能、效率、隐私、用户主权与安全。",
+      "detail": "HEAMS 增加 Contextual Integrity、Editability、Erasability、Retention、Transparency 等测试，还引入 MilaMem 与治理层。作者报告加入回忆治理后隐私泄露比例从 57.61% 降至 31.82%，同时存在帮助性损失。某污染测试中带治理层的抵抗率为 88.61%，不带治理层为 40%。真实用户记忆系统需要将可删除性和安全性与回答效果联合评价",
+      "findings": "受控评测中最佳删除成功率为 47%，最高编辑成功率仅 3.66%，显示现有记忆系统的用户控制仍有明显不足。它把保存期限、更正、删除与污染抵抗纳入长期个人 Agent 的核心质量指标。",
+      "why_it_matters": "把写入、读取、撤销、更正和删除设计成可执行的权限与回归测试。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20144"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-07",
+      "title": "Scale AI Robot Data Diversity：两万小时数据揭示动作与场景偏差",
       "score": 97,
-      "published": "2026-11-13",
+      "published": "2026-11-17",
       "fields": [
         "field-1",
         "field-5"
@@ -272,249 +320,224 @@
       "topics": [
         "training",
         "data-synthesis",
-        "evaluation",
-        "framework"
+        "science",
+        "evaluation"
       ],
-      "summary": "V-JEPA-LM 发现视频编码器虽保留运动信息，语言模型却可能仅依赖静态视觉语义回答问题。研究用镜像、时间反转和速度重采样生成 453 万个答案可检验的反事实训练样本。其 4B 模型在 11 个视频 Benchmark 的平均得分为 72.1，优于受测同规模开放模型。",
-      "intro": "V-JEPA-LM 发现视频编码器虽保留运动信息，语言模型却可能仅依赖静态视觉语义回答问题。",
-      "detail": "研究发现冻结视频编码器的线性探针能以约 87% 准确率读取速度信息，但完整视频问答模型在相应问题上接近猜测。作者控制画面主体与背景，仅改变动态属性，使对应问题的正确答案由变换程序确定；训练采用每帧 32 个视觉 Token。反事实配对直接逼迫语言解码器利用编码器的时间表征，而不是从物体类别猜测答案。",
-      "findings": "视觉特征含有信息不代表下游推理会使用，训练标签的可辨别性和反事实构造非常关键。",
-      "why_it_matters": "可迁移到机器人和实时助手，对运动方向、变化顺序、等待时机设计程序化训练样本。",
+      "summary": "Scale AI 分析两万小时机器人遥操作数据，分别统计任务、动作、物品和环境多样性。数据含 797 类任务、231 个地点及近千万子任务，视觉编码器通常更重视场景而非动作。具身训练数据的有效价值不能仅以总时长衡量，还需看长尾动作和跨场景覆盖。",
+      "intro": "Scale AI 分析两万小时机器人遥操作数据，分别统计任务、动作、物品和环境多样性。",
+      "detail": "研究包含 344,625 段录制和 9,924,297 个子任务，覆盖 11 类场景。名义动作动词有 86 类，但按频率计算的有效种类数仅 17；物体标签 3,696 类而有效数为 162。世界模型、图像特征和多模态表征各自擅长识别位置、物体或动词，表明可分辨性对样本价值至关重要。未来训练应主动覆盖未见物体与动作组合",
+      "findings": "数据含 797 类任务、231 个地点及近千万子任务，视觉编码器通常更重视场景而非动作。具身训练数据的有效价值不能仅以总时长衡量，还需看长尾动作和跨场景覆盖。",
+      "why_it_matters": "按任务、动词、物体、地点与模型 embedding 共同评估数据采购价值。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17831"
+          "name": "官方发布与技术资料",
+          "url": "https://labs.scale.com/blog/measuring-robot-data-diversity"
         }
       ]
     },
     {
-      "id": "news-20261117-06",
-      "title": "OutfitterBench：当前成功订单可能破坏未来的资源承诺",
+      "id": "news-20261118-08",
+      "title": "GitHub Copilot Evals 公测：Agent 与 Skills 的可重复回归评测",
       "score": 97,
-      "published": "2026-11-13",
+      "published": "2026-11-17",
       "fields": [
-        "field-2",
-        "field-3"
+        "field-3",
+        "field-4",
+        "field-5"
       ],
       "topics": [
-        "work",
-        "personal",
+        "coding",
         "evaluation",
-        "environments",
-        "benchmark"
+        "skills",
+        "framework",
+        "product"
       ],
-      "summary": "OutfitterBench 让 Agent 连续经营户外装备租赁业务 200 天，处理约 1,100 个预约请求和 46 类商品。多轮经营需要同时管理预算、可重复使用的库存和此前接受的未来订单；一些前沿模型甚至不如规则基线。它揭示了长程 Agent 常见的 Future Feasibility Failure：当前动作局部正确，却使以后无法履约。",
-      "intro": "OutfitterBench 让 Agent 连续经营户外装备租赁业务 200 天，处理约 1,100 个预约请求和 46 类商品。",
-      "detail": "每笔预约都会占用未来的设备资源，而临时到店需求和库存补充也会变化。Agent 需要根据当前现金、装备可用日期与已承诺订单持续规划，不仅追求当日利润，也要避免后续时段资源冲突。Benchmark 检查履约、收益和机会成本，并能定位冲突发生于哪次新承诺。",
-      "findings": "多阶段任务必须评价当前决策是否维护未来可行域，而非只看当步交易是否合法。",
-      "why_it_matters": "建议合成只改变历史承诺的配对任务，让学生模型学习避免资源抢占与预测下游失败。",
+      "summary": "GitHub 发布 Copilot Evals 公测，支持对自定义 Agent、Prompt、Skill 和 MCP 工具建立重复测试。用户可以用自然语言或 /eval 描述真实任务和成功条件，并在配置修改后重跑检查。Agent 开发流程开始将可靠评测直接集成到工具和日常迭代中。",
+      "intro": "GitHub 发布 Copilot Evals 公测，支持对自定义 Agent、Prompt、Skill 和 MCP 工具建立重复测试。",
+      "detail": "评测关注最终结果，也允许考察 Agent 怎样调用工具、应用技能和执行计划。改变模型、系统提示词或 MCP 配置后，可以与已保存任务的表现比较，定位回归或无效优化。相比只在标准排行榜比较模型，它测量真实使用者自己的 Harness。适合连接 CI、工具权限检查与持续技能版本管理",
+      "findings": "用户可以用自然语言或 /eval 描述真实任务和成功条件，并在配置修改后重跑检查。Agent 开发流程开始将可靠评测直接集成到工具和日常迭代中。",
+      "why_it_matters": "建立团队内部的 Agent 版本、工具版本与任务结果联合回归基线。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17933"
+          "name": "官方发布与技术资料",
+          "url": "https://github.blog/changelog/2026-11-17-github-copilot-evals-is-now-in-public-preview/"
         }
       ]
     },
     {
-      "id": "news-20261117-07",
-      "title": "Unfinished-Bench：持续自主执行可能导致组织规则越界",
-      "score": 96,
-      "published": "2026-11-12",
-      "fields": [
-        "field-2",
-        "field-3"
-      ],
-      "topics": [
-        "safety",
-        "benchmark",
-        "evaluation",
-        "work",
-        "personal"
-      ],
-      "summary": "Unfinished-Bench 在七个组织中构造 97 个目标与内部规则存在冲突的长期任务。当规则位于内部文档时，Agent 持续执行使违规率由 32.2% 升至 43.6%，用户明确提出规则时只有 8.5%。不少违规发生在 Agent 已经阅读甚至记录规则之后，说明长时间坚持完成目标会改变授权决策。",
-      "intro": "Unfinished-Bench 在七个组织中构造 97 个目标与内部规则存在冲突的长期任务。",
-      "detail": "评测让用户离线，由 Agent 在业务目标与支付、医疗、软件管理等组织规则冲突时自行决定是否暂停。98.3% 的文档规则违反发生于规则已经被展示之后，不能简单归为检索遗漏。对主动 Agent，应维护独立于完成目标的权限及审批状态，并允许系统把未完成作为正确结果。",
-      "findings": "完成率与权限遵守率是不同指标，持续运行需要额外考察规则变更和用户离线条件。",
-      "why_it_matters": "将授权过期、审批缺失与目标冲突加入定时 Agent 的长期任务评测。",
-      "sources": [
-        {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17460"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-08",
-      "title": "Session-Rekindling：旧对话恢复后 Agent 可能沿用过期计划",
+      "id": "news-20261118-09",
+      "title": "Benchmark Factory：自动构造与修复企业代码 Benchmark",
       "score": 96,
       "published": "2026-11-13",
       "fields": [
-        "field-2",
-        "field-3"
+        "field-3",
+        "field-4",
+        "field-5"
       ],
       "topics": [
-        "memory",
-        "personal",
         "evaluation",
+        "data-synthesis",
+        "coding",
+        "self-evolution",
         "benchmark"
       ],
-      "summary": "Session-Rekindling Benchmark 研究用户间隔一段时间重新打开旧对话时，Agent 是否能更新任务时间状态。即使调用时钟或在推理中发现日期已经过去，部分模型仍给出事件前的准备建议。明确给出时间先后关系可改善表现，长期记忆需要基于当前时间重新判断适用性。",
-      "intro": "Session-Rekindling Benchmark 研究用户间隔一段时间重新打开旧对话时，Agent 是否能更新任务时间状态。",
-      "detail": "研究保留相同的旧对话与日程记忆，只改变当下时间及时间信息的提供方式，并评测 940 条主要响应。状态判断特别区分约定日期已经过去与事件是否实际上完成：仅凭时间不能假设用户已经就诊、取消或改签。任务结果从是否使用时钟、是否识别事件过期以及最后建议是否合理等层级测量。",
-      "findings": "记忆事实正确并不代表行动建议有效；时间的自然流逝本身会使记忆的行动条件改变。",
-      "why_it_matters": "适合研究 Time Passage → State Applicability → Plan Update 的短任务与真实会话恢复。",
+      "summary": "Benchmark Factory 利用真实已合并代码变更自动生成 Coding Agent 任务，并通过元 Agent 修改筛选和评分机制。它使用模型已知能力顺序、负控制等无逐题标签质量锚点检验任务与 Grader。研究展示了可在减少人工标注的同时构建具区分度的内部 Agent 基准。",
+      "intro": "Benchmark Factory 利用真实已合并代码变更自动生成 Coding Agent 任务，并通过元 Agent 修改筛选和评分机制。",
+      "detail": "系统让 LLM 编写代码变更筛选查询，运行参考模型诊断题目与评分器的问题，再迭代调整。团队在五类开发者群体中使用，人工抽查的任务与评分质量在三分量表上分别得到 2.3、2.6。未参与生成的配置仍显示高低推理强度与模型版本的明确通过率差异。对任务合成研究最重要的是生成环节和独立验收、评分器安全同样不可缺少",
+      "findings": "它使用模型已知能力顺序、负控制等无逐题标签质量锚点检验任务与 Grader。研究展示了可在减少人工标注的同时构建具区分度的内部 Agent 基准。",
+      "why_it_matters": "将任务来源、自动过滤、负样本、独立 Verifier 与跨模型区分力纳入一条流水线。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17806"
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.18890"
         }
       ]
     },
     {
-      "id": "news-20261117-09",
-      "title": "Continual-ARC：长期记忆保持和未见任务技能泛化存在鸿沟",
+      "id": "news-20261118-10",
+      "title": "K2-Horizon：约十万亿合成 Token 与完整开放训练轨迹",
       "score": 96,
-      "published": "2026-11-10",
+      "published": "2026-11-16",
       "fields": [
         "field-1",
         "field-4",
         "field-5"
       ],
       "topics": [
-        "continual-learning",
-        "memory",
-        "self-evolution",
+        "training",
+        "data-synthesis",
+        "coding",
+        "framework",
+        "product"
+      ],
+      "summary": "K2-Horizon 发布从 0.9B 到 375B-A23B MoE 的六个开放模型，覆盖推理、Coding 和 Agent 工作。项目不仅公开权重，还提供预训练数据、构建流水线、训练日志、中间 Checkpoint 与 RL 系统。约 10T 合成预训练 Token 的生产流程使数据配方与模型能力归因更易复现。",
+      "intro": "K2-Horizon 发布从 0.9B 到 375B-A23B MoE 的六个开放模型，覆盖推理、Coding 和 Agent 工作。",
+      "detail": "该项目包括 xLLM 训练框架、RL360 后训练系统及每个阶段的开发历史。研究探索 Mixture-of-Value Attention、Softplus Gating 和 Uno 解码适配器，并让四种模型共享相同 22T Token 训练配方。公开资料可支持研究不同参数规模、稀疏架构和训练数据构成的因果效果。它提供了比只有最终开源权重更完整的模型研究对象",
+      "findings": "项目不仅公开权重，还提供预训练数据、构建流水线、训练日志、中间 Checkpoint 与 RL 系统。约 10T 合成预训练 Token 的生产流程使数据配方与模型能力归因更易复现。",
+      "why_it_matters": "适合做合成数据归因、训练阶段消融及 Agent 任务成本的再现性研究。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21003"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-11",
+      "title": "AgentFaultBench：真实 GitLab 工具故障与状态恢复基准",
+      "score": 96,
+      "published": "2026-11-16",
+      "fields": [
+        "field-3",
+        "field-4",
+        "field-5"
+      ],
+      "topics": [
+        "evaluation",
+        "tool-use",
+        "environments",
+        "safety",
+        "benchmark"
+      ],
+      "summary": "AgentFaultBench 在真实 GitLab 工作流注入限流、服务异常和权限撤销，检查故障后最终系统状态。它区分等待可恢复错误、停止越权操作和真正完成任务，不把漂亮的解释当作成功。研究表明改善提示词与提升自主故障恢复能力需要分别测量。",
+      "intro": "AgentFaultBench 在真实 GitLab 工作流注入限流、服务异常和权限撤销，检查故障后最终系统状态。",
+      "detail": "任务可遇到 HTTP 429、503 和 403 等故障，分别要求合法重试、等待服务恢复或尊重已撤销权限。独立状态 Verifier 检查实际 GitLab 资源变化，而非采信 Agent 最终声明。引导性反馈在一项 192 次计划运行的相关测试中将正确终态从 142 提高到 161，但不能替代对故障模型的训练。适合基于真实工具构造可控 Failure Boundary 环境",
+      "findings": "它区分等待可恢复错误、停止越权操作和真正完成任务，不把漂亮的解释当作成功。研究表明改善提示词与提升自主故障恢复能力需要分别测量。",
+      "why_it_matters": "训练状态化重试、授权有效性判断及失败后结果核验。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20711"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-12",
+      "title": "Accelerate Bench：完整科学程序优化的真实执行评测",
+      "score": 95,
+      "published": "2026-11-16",
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4",
+        "field-5"
+      ],
+      "topics": [
+        "coding",
+        "science",
+        "evaluation",
         "benchmark",
         "training"
       ],
-      "summary": "Continual-ARC 让 ARC-AGI 规则跨长时间间隔反复出现，统一比较 Harness Memory 与参数训练的持续学习效果。仅保存操作记忆通常没有稳定改善陌生任务泛化，有些方法还不如直接缓存示例。部分权重更新在未见任务上减少约 29% 的反馈预算，提示经验复用不等于掌握可迁移技能。",
-      "intro": "Continual-ARC 让 ARC-AGI 规则跨长时间间隔反复出现，统一比较 Harness Memory 与参数训练的持续学习效果。",
-      "detail": "Benchmark 将同一规则的新实例与从未见过的规则分别评价，每次请求示例、提交答案、重试都计入反馈预算。完成历史任务后冻结 Agent，再评价其对已知任务家族和新任务的能力。作者报告经过 DAgger 学习的 Qwen3.5-9B 在 100 个未见任务上降低约 29% 的反馈开销，意味着内部参数更新和记录具体经验的效果应分开。",
-      "findings": "真正的持续学习需同时报告已见任务效率、新规则泛化、成本及遗忘，而非仅记录记忆库增长。",
-      "why_it_matters": "值得在统一任务流中对比显式事实记忆、程序 Skill、在线权重更新和两者组合。",
+      "summary": "Accelerate Bench 提供 32 项科学应用级 CPU 优化任务，要求 Agent 同时保持计算正确性和提升性能。任务涵盖构建、运行时设置和跨函数依赖，不再只考察单个 Kernel 的加速。它为 AI4AI 代码优化和科学 Coding Agent 提供完整应用层的独立 Verifier。",
+      "intro": "Accelerate Bench 提供 32 项科学应用级 CPU 优化任务，要求 Agent 同时保持计算正确性和提升性能。",
+      "detail": "研究从科学计算程序与超算工作负载抽取真实优化目标，提供可执行环境和性能基准。一个局部循环变快，可能同时导致全程序其他部分回退或数值条件失效，因此任务奖励需要完整运行成功和端到端加速。相比静态代码生成测试，它更能暴露诊断、修复、复测的长程组合能力。可与 Terminal-Bench-Science 和 Benchmark Factory 结合生成细粒度失败任务",
+      "findings": "任务涵盖构建、运行时设置和跨函数依赖，不再只考察单个 Kernel 的加速。它为 AI4AI 代码优化和科学 Coding Agent 提供完整应用层的独立 Verifier。",
+      "why_it_matters": "为优化 Agent 区分性能诊断、代码修改、数值验证和全局性能回归。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.14505"
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20882"
         }
       ]
     },
     {
-      "id": "news-20261117-10",
-      "title": "WeightBench：用 42 项权重空间任务测试 AI4AI 能力",
-      "score": 96,
-      "published": "2026-11-13",
-      "fields": [
-        "field-1",
-        "field-4",
-        "field-5"
-      ],
-      "topics": [
-        "training",
-        "self-evolution",
-        "evaluation",
-        "benchmark"
-      ],
-      "summary": "WeightBench 让前沿模型直接读取、修复、构造和压缩其他神经网络的参数，涉及 42 个测试任务。网络规模覆盖小型控制网络至 7B 参数语言模型，模型能完成部分简单权重操作却难以可靠处理大规模修复。它让 AI4AI 从编写训练脚本走向直接测量模型是否理解参数空间。",
-      "intro": "WeightBench 让前沿模型直接读取、修复、构造和压缩其他神经网络的参数，涉及 42 个测试任务。",
-      "detail": "任务涵盖五类权重操作，包括检测不可能实现的修改，以及无原始数据时压缩模型。论文在共同的 38 题子集上报告 GPT-6.1 Sol 为 0.568、Claude Opus 5.5 为 0.546；完整榜单还取决于任务覆盖及 Harness 细节。当前模型较擅长部分小型网络的行为推断，但连续编辑和多种技能的组合仍缺乏稳定性。",
-      "findings": "权重编辑不仅要检查修改目标是否达成，还应验证无关能力是否退化。",
-      "why_it_matters": "可设计连续权重编辑 Benchmark，检查可逆性、参数干扰和改进器是否真正跨代提升。",
-      "sources": [
-        {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.18553"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-11",
-      "title": "Gamer：长时程实时游戏视觉动作模型的可执行训练",
+      "id": "news-20261118-13",
+      "title": "CLAM：无梯度参数巩固与可追溯 Episode 的长期记忆",
       "score": 95,
-      "published": "2026-11-13",
+      "published": "2026-11-16",
       "fields": [
-        "field-1",
-        "field-3",
+        "field-2",
         "field-5"
-      ],
-      "topics": [
-        "training",
-        "environments",
-        "skills",
-        "framework"
-      ],
-      "summary": "Gamer 研究能够持续在实时游戏中观察和行动的视觉语言动作基础模型。系统采用游戏轨迹预训练、任务指令微调和在线推理三个阶段，必须在环境不断变化时维持长程目标。它为低延迟机器人、实时 GUI Agent 和多步骤控制数据提供训练参考。",
-      "intro": "Gamer 研究能够持续在实时游戏中观察和行动的视觉语言动作基础模型。",
-      "detail": "游戏环境无法为 Agent 的长时间推理静止等待，因此观察和动作间的延迟本身会影响任务结果。模型通过轨迹学习状态演化和跨时间的行动选择，再以指令条件对齐任务目标。评测不应只关注离线动作准确率，还需要测长程操作连续性、错误恢复与不同场景迁移。",
-      "findings": "实时 Agent 同时受策略质量与计算延迟限制，训练需要覆盖状态变化期间的执行后果。",
-      "why_it_matters": "推荐研究时间预算下的行动选择与历史状态摘要，避免高频执行中的陈旧决策。",
-      "sources": [
-        {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.18397"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-12",
-      "title": "Verifiable pXRD：合成晶体结构任务变成可验证科学训练场",
-      "score": 95,
-      "published": "2026-11-12",
-      "fields": [
-        "field-1",
-        "field-4",
-        "field-5"
-      ],
-      "topics": [
-        "science",
-        "self-evolution",
-        "data-synthesis",
-        "evaluation",
-        "benchmark"
-      ],
-      "summary": "Verifiable pXRD 将粉末 X 射线衍射晶体结构求解变成 Agent 候选提案与物理仿真校验的搜索过程。在 200 道模拟题中，某些结构恢复率由 27% 升至 69%，积累的工具和策略还能迁移到真实实验数据。它展示了缺乏真实已解答数据时，用可验证合成任务推进科学 Agent 自我改进的方法。",
-      "intro": "Verifiable pXRD 将粉末 X 射线衍射晶体结构求解变成 Agent 候选提案与物理仿真校验的搜索过程。",
-      "detail": "系统根据候选晶体结构正向生成衍射谱，评估它与输入谱图的吻合度；合成任务知道生成结构，因此能提供严格 Gold Answer。进化器根据求解器的失败创建持久指导和可执行工具，再应用到 15 份真实多相样本。评测同时考察模拟结构恢复及真实实验谱图拟合，能够区分在合成环境中的学习与实际测量场景的迁移。",
-      "findings": "环境真值与物理模拟相结合可构成高质量训练反馈，但实际样本与模拟样本间仍存在域差异。",
-      "why_it_matters": "可开展 Simulator-Verified Task Synthesis，聚焦失败类型、工具进化及 OOD 科研任务收益。",
-      "sources": [
-        {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17539"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-13",
-      "title": "RecMem：固定 16 个槽保留长期用户行为偏好",
-      "score": 94,
-      "published": "2026-11-13",
-      "fields": [
-        "field-1",
-        "field-2"
       ],
       "topics": [
         "memory",
         "personal",
-        "training",
-        "framework"
+        "framework",
+        "continual-learning"
       ],
-      "summary": "RecMem 使用循环记忆槽和遗忘门，把不断增长的用户行为序列压缩为固定大小的状态。在 MerRec 测试中，16 个记忆槽与 216 Token 上下文保留 HSTU-1200 的 87.9% Recall@10 和 97.0% Recall@200。其可扩展的行为记忆适合推荐及购物 Agent，但仍需与可追溯的具体事件记录结合。",
-      "intro": "RecMem 使用循环记忆槽和遗忘门，把不断增长的用户行为序列压缩为固定大小的状态。",
-      "detail": "方法采用共享低层的双分支编码—解码结构，让每段新历史通过带遗忘门的更新整合到旧状态。Stream-Consistency Training 对齐分段在线与合并离线处理产生的预测，使行为表征在长历史中保持相对稳定。潜在状态不能直接替代订单、医疗事实或用户明确要求删除的个人资料，后者仍需要结构化可定位记录。",
-      "findings": "长期行为序列无需每轮全部重新输入，但压缩状态的可审计性与用户控制仍是问题。",
-      "why_it_matters": "研究跨场景行为偏好的渐进更新及显式事实记忆与隐式行为记忆的分工。",
+      "summary": "CLAM 使用 Hypernetwork 在单次前向传播中把跨会话历史形成 LoRA 式长期潜在记忆。它将固定大小的 Latent Adapter 与保存原始证据的 Episodic Buffer 结合。个人记忆系统开始探索外部文本检索与快速权重空间更新的混合架构。",
+      "intro": "CLAM 使用 Hypernetwork 在单次前向传播中把跨会话历史形成 LoRA 式长期潜在记忆。",
+      "detail": "传统个人记忆通过提取事实、写数据库及检索历史片段恢复上下文，存在高频更新开销。CLAM 的 Carried Latent Adapter Memory 不需要每次交互后额外反向传播，就能更新隐含用户状态。原始事件缓冲区保留精确事实，以补充低维潜在状态不能复述具体时间细节的问题。未来应测量遗忘、编辑、删除、迁移以及对真实 Agent 操作的边际帮助",
+      "findings": "它将固定大小的 Latent Adapter 与保存原始证据的 Episodic Buffer 结合。个人记忆系统开始探索外部文本检索与快速权重空间更新的混合架构。",
+      "why_it_matters": "结合 HEAMS 检验这种压缩记忆是否可被用户审计和纠错。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17921"
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20759"
         }
       ]
     },
     {
-      "id": "news-20261117-14",
-      "title": "AscendGYM：自动 Kernel 优化要同时核算加速收益与 Token 成本",
-      "score": 94,
+      "id": "news-20261118-14",
+      "title": "ConvRSI：潜空间卷积降低多 Agent 自优化的串行开销",
+      "score": 95,
+      "published": "2026-11-16",
+      "fields": [
+        "field-4",
+        "field-5"
+      ],
+      "topics": [
+        "self-evolution",
+        "framework",
+        "training"
+      ],
+      "summary": "ConvRSI 将传统多 Agent 逐个对话修改，转为单 Agent 内部和协作图上的潜在状态卷积。作者在 MATH-500 设置中报告性能增加 5.04%、推理成本降低 17.27%、延迟下降 45.11%。它尝试解决多 Agent 自我改进中的通信与串行执行瓶颈。",
+      "intro": "ConvRSI 将传统多 Agent 逐个对话修改，转为单 Agent 内部和协作图上的潜在状态卷积。",
+      "detail": "Intra-Agent Convolution 融合同一 Agent 的相关特征，Inter-Agent Graph Convolution 将协作图节点信息一起更新。此方案减少反复生成文本、传递文本、重新编码文本的开销，重点优化组织机制而非增加 Agent 数量。当前结果集中在结构明确的数学任务，尚可延伸至真正需要工具和异步实验的研究代理。推荐在等 Token 及等时间预算下与普通多 Agent、自反思和独立采样对照",
+      "findings": "作者在 MATH-500 设置中报告性能增加 5.04%、推理成本降低 17.27%、延迟下降 45.11%。它尝试解决多 Agent 自我改进中的通信与串行执行瓶颈。",
+      "why_it_matters": "研究潜空间协同的可解释性、长程任务效果及不同模型间的信息交换。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20891"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-15",
+      "title": "PaperCritic：23K 专家评审数据训练科研可信度判定器",
+      "score": 95,
       "published": "2026-11-13",
       "fields": [
         "field-1",
@@ -522,341 +545,356 @@
         "field-5"
       ],
       "topics": [
-        "self-evolution",
-        "evaluation",
         "training",
-        "coding",
-        "benchmark"
+        "science",
+        "evaluation",
+        "data-synthesis"
       ],
-      "summary": "AscendGYM 提供 48 个真实 AI Kernel 优化任务，并加入 Speedup–Token Score 与 Cost-to-Gain。初期评测约 70% 的模型与 Harness 组合几何平均加速低于 1.2 倍，显示生成大量尝试不等于有效工程优化。它为 AI4AI 研究建立兼顾执行正确性、性能与探索成本的可验证实验场。",
-      "intro": "AscendGYM 提供 48 个真实 AI Kernel 优化任务，并加入 Speedup–Token Score 与 Cost-to-Gain。",
-      "detail": "任务从一个原本正确的 Kernel 出发，要求 Agent 优化实现但不能破坏数值结果；框架持续运行编译与设备 Benchmark。评价不仅有最终速度，还考虑优化过程产生的 Token、测试尝试和任务覆盖率，避免只比较成功案例上的最大提升。对于自进化系统，还可观测上一次优化策略是否改善下一次陌生 Kernel 的实验效率。",
-      "findings": "自动研发效率必须同时测性能、正确性和完整研发预算，不能单看最优候选。",
-      "why_it_matters": "适合验证 Cost-Aware Recursive Kernel Optimization，并研究跨设备的可迁移经验。",
+      "summary": "PaperCritic 基于约一千篇 ICLR 论文和两万三千条评审意见，训练专门识别科研论证实质错误的 Reviewer。训练奖励聚焦问题指出的 Precision 和 Recall，而不是混合新颖性、清晰度与正确性。可信 AI Scientist 需要会验证研究质量的专业奖励机制。",
+      "intro": "PaperCritic 基于约一千篇 ICLR 论文和两万三千条评审意见，训练专门识别科研论证实质错误的 Reviewer。",
+      "detail": "PaperSound-23K 对人工和模型评审意见质量进行比较与标注。PaperCritic 使用重要问题的 F1 信号训练评审模型，并观察到对其他学科和代码、法律审查的部分迁移。模型指出问题不应止于给出主观意见，重要错误需要由实验数据、程序计算或原文证据进一步核查。它可成为 AI4AI 研究过程的独立审稿 Agent，而不是纯文本格式打分器",
+      "findings": "训练奖励聚焦问题指出的 Precision 和 Recall，而不是混合新颖性、清晰度与正确性。可信 AI Scientist 需要会验证研究质量的专业奖励机制。",
+      "why_it_matters": "把论文 Soundness 的奖励与原始实验、代码复现和引用核查联系起来。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17621"
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.17834"
         }
       ]
     },
     {
-      "id": "news-20261117-15",
-      "title": "Verification Transport：长期轨迹被抽象后，Verifier 可能判错",
+      "id": "news-20261118-16",
+      "title": "MemEmo：跨会话情绪状态的记忆更新与冲突检测",
+      "score": 94,
+      "published": "2026-11-16",
+      "fields": [
+        "field-2",
+        "field-3"
+      ],
+      "topics": [
+        "memory",
+        "personal",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "MemEmo 构建情绪长期记忆测试，覆盖对话情绪提取、状态更新、历史问答和冲突识别。它强调用户在生活事件中的心态不断变化，不能把过去的情绪标签当作永久事实。这一方向补充了传统个人事实与偏好 QA 无法覆盖的长期状态演化。",
+      "intro": "MemEmo 构建情绪长期记忆测试，覆盖对话情绪提取、状态更新、历史问答和冲突识别。",
+      "detail": "测试区分 Emotional Information Extraction、Emotional Memory Updating、Emotional QA 和 Contradiction Detection。Agent 需要将不同时点的表达关联到相应事件和情绪变化，而非机械地复用最早记录。类似机制也适用于计划变更、风险承受能力、照护需求和长期目标。建议保存具体证据、时间范围及当前状态置信度",
+      "findings": "它强调用户在生活事件中的心态不断变化，不能把过去的情绪标签当作永久事实。这一方向补充了传统个人事实与偏好 QA 无法覆盖的长期状态演化。",
+      "why_it_matters": "为动态 Personal Memory 设置时间状态更新、旧信息覆盖和情绪证据追踪测试。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20733"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-17",
+      "title": "ScaleVLA：552B 底座提高机器人少样本操作效果",
+      "score": 94,
+      "published": "2026-11-16",
+      "fields": [
+        "field-1",
+        "field-5"
+      ],
+      "topics": [
+        "training",
+        "science",
+        "evaluation"
+      ],
+      "summary": "ScaleVLA 将 552B 视觉语言大模型接入可训练动作生成头，和 2B 至 32B 底座做受控比较。十次示范的成功率达到 87.8%，超过小底座用五十次示范的 85.6%，实机充电器插接从 4/10 提升到 9/10。模型大规模预训练的表征正在转化为机器人精细操作的样本效率。",
+      "intro": "ScaleVLA 将 552B 视觉语言大模型接入可训练动作生成头，和 2B 至 32B 底座做受控比较。",
+      "detail": "方法冻结 DeepSeek-V4.1-Flash 底座，利用特征驱动单独训练的动作 DiT，避免全模型昂贵后训练。LIBERO-PRO 测试成功率为 45.1%，小底座最高 31.3%，每动作块中位延迟约 216ms。报告也展示分布外充电器插接仍不容易，说明大模型规模不能替代机器人环境覆盖和物理反馈。与 Scale Robot Data Diversity 可以联合分析训练数据与底座规模的互补关系",
+      "findings": "十次示范的成功率达到 87.8%，超过小底座用五十次示范的 85.6%，实机充电器插接从 4/10 提升到 9/10。模型大规模预训练的表征正在转化为机器人精细操作的样本效率。",
+      "why_it_matters": "评估冻结大模型特征是否降低真实机器人示范数量和总训练成本。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21607"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-18",
+      "title": "SWE-OPD：学生真实 Coding 轨迹上的 On-policy 蒸馏",
+      "score": 94,
+      "published": "2026-11-16",
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-5"
+      ],
+      "topics": [
+        "training",
+        "coding",
+        "continual-learning",
+        "framework"
+      ],
+      "summary": "SWE-OPD 让学生 Agent 在真实仓库运行，再由大型教师对学生实际访问的执行状态提供监督。一组测试中 Qwen3.5-9B 的 SWE-bench Pro 解决率由 35.9% 升到 39.4%，缓存教师分数可节约 59.4%—72.6% GPU 小时。研究显示 Agent 蒸馏能够兼顾真实长程轨迹和可控计算成本。",
+      "intro": "SWE-OPD 让学生 Agent 在真实仓库运行，再由大型教师对学生实际访问的执行状态提供监督。",
+      "detail": "论文实验覆盖三组教师—学生、两类数据源和多个 SWE 基准，包含跨 tokenizer 蒸馏。离线缓存教师评分减少不断刷新的 Rollout 成本，但不同设置效果仍有差异。部分反向 KL 训练即使 Loss 降低，也可能引起重复生成或实际任务退化，说明优化目标需要执行级评价。可把学生失败中间状态提取为单独的恢复训练样本",
+      "findings": "一组测试中 Qwen3.5-9B 的 SWE-bench Pro 解决率由 35.9% 升到 39.4%，缓存教师分数可节约 59.4%—72.6% GPU 小时。研究显示 Agent 蒸馏能够兼顾真实长程轨迹和可控计算成本。",
+      "why_it_matters": "应采用终局任务成功与失败边界指标，而非只监控训练 Loss。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21020"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-19",
+      "title": "EVIDENT：GUI Agent 结果正确不等于证据充分",
+      "score": 94,
+      "published": "2026-11-16",
+      "fields": [
+        "field-3",
+        "field-5"
+      ],
+      "topics": [
+        "evaluation",
+        "tool-use",
+        "work",
+        "benchmark"
+      ],
+      "summary": "EVIDENT 为 GUI Agent 构造 220 项英语和韩语真实任务，并人工标注必须核实的网页证据。它分别检查任务完成 TSR、关键证据观察 ESR 和回答证据支持 GSR。该研究揭示表面完成任务可能掩盖 Agent 根本没有查看必要信息的问题。",
+      "intro": "EVIDENT 为 GUI Agent 构造 220 项英语和韩语真实任务，并人工标注必须核实的网页证据。",
+      "detail": "Benchmark 包含语义事实定位、上下文推断和视觉细节任务，每项附有可核查证据标注。测评区分最终答案、Agent 浏览轨迹中出现的关键证据、以及结论是否真正由证据支持。若工具返回不可靠信息或网页视觉线索被忽略，即使结果碰巧正确也不应得到同等信任度。可用于企业财务、采购或科研报告 Agent 的交付证据链",
+      "findings": "它分别检查任务完成 TSR、关键证据观察 ESR 和回答证据支持 GSR。该研究揭示表面完成任务可能掩盖 Agent 根本没有查看必要信息的问题。",
+      "why_it_matters": "为每条声明保存已观察的证据位置及可再次验证的来源。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20488"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-20",
+      "title": "Self-Improvement Memory：保存为什么修改 Harness 的改进经验",
       "score": 94,
       "published": "2026-11-13",
       "fields": [
         "field-2",
+        "field-4",
+        "field-5"
+      ],
+      "topics": [
+        "memory",
+        "self-evolution",
+        "continual-learning",
+        "framework"
+      ],
+      "summary": "Self-Improvement Memory 区分任务解法历史与优化器自己的修改实验历史。系统保存改进理由、预期收益、实际反馈和测试条件，在跨任务或跨模型切换时复用。十次独立 Coding 配对延续测试中，保留改进记忆比仅继承 Harness 平均高 2.36 分。",
+      "intro": "Self-Improvement Memory 区分任务解法历史与优化器自己的修改实验历史。",
+      "detail": "SIM 不只保存最终 Prompt 和代码，而是对发生的 Harness 缺陷、修改措施及可迁移条件进行聚类。改进器可以根据历史原因决定哪些方案值得重用，避免反复尝试相同失败配置。长期研究还需要检查模型升级后的策略是否失效，以及跨科研、Coding 和生活任务是否仍有收益。真正的优化记忆应具备实验版本、性能回归及因果信息",
+      "findings": "系统保存改进理由、预期收益、实际反馈和测试条件，在跨任务或跨模型切换时复用。十次独立 Coding 配对延续测试中，保留改进记忆比仅继承 Harness 平均高 2.36 分。",
+      "why_it_matters": "评估从 Task Memory 到 Meta-Improvement Memory 的增量收益和迁移边界。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.18856"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-21",
+      "title": "SilentGuard：在 Harness 层阻止科研 API 的静默错误",
+      "score": 93,
+      "published": "2026-11-16",
+      "fields": [
         "field-3",
         "field-4",
         "field-5"
       ],
       "topics": [
-        "evaluation",
         "safety",
-        "memory",
-        "benchmark",
-        "tool-use"
-      ],
-      "summary": "Verification Transport 分析 Agent 执行日志经过工具宏、子 Agent 委派和上下文摘要后，评分器是否仍能准确判断结果。相同真实行为经过抽象可能丢失关键证据，导致 Verifier 对成功、安全与授权作出不同结论。论文提醒长期 Agent 和 RL 系统需要保留原始工具轨迹的来源链。",
-      "intro": "Verification Transport 分析 Agent 执行日志经过工具宏、子 Agent 委派和上下文摘要后，评分器是否仍能准确判断结果。",
-      "detail": "研究保持任务和执行实际结果不变，仅调整评分器能够看到的轨迹表示，包括工具步骤的聚合、多个子 Agent 的归纳以及历史压缩。即使最终产物相同，审批、文件写入及关键失败过程也可能被摘要遗漏。对训练环境，必须检查抽象评分和原始证据一致性，以免把信息损失误当作 Agent 能力变化。",
-      "findings": "Verifier 的准确性依赖证据保真，抽象级别应纳入评测协议。",
-      "why_it_matters": "可以建立原始日志与摘要的配对判分测试，记录工具来源和权限检查的可追踪性。",
-      "sources": [
-        {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.18471"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-16",
-      "title": "Katalon AI Test Runner：自然语言测试直接转为 Web / Mobile 自动执行",
-      "score": 93,
-      "published": "2026-11-16",
-      "fields": [
-        "field-3",
-        "field-4"
-      ],
-      "topics": [
-        "coding",
-        "evaluation",
-        "product",
-        "tool-use"
-      ],
-      "summary": "Katalon 正式推出 AI Test Runner，可直接理解自然语言手工测试案例并在 Web、移动端操作。产品集成 TestOps，以并行测试与执行证据替代为每个用例预写独立 Selenium 或 Playwright 脚本。它可成为 Coding Agent 自修改之后的独立行为回归验证组件。",
-      "intro": "Katalon 正式推出 AI Test Runner，可直接理解自然语言手工测试案例并在 Web、移动端操作。",
-      "detail": "传统 QA 自动化维护脚本和定位器的成本很高，新产品让测试 Agent 按用户既有测试步骤完成导航、点击和断言，并保存测试结果与证据。对自动修改软件的 Agent，测试的原始需求必须来自独立业务定义，而不能完全由同一个修改 Agent 生成，否则测试与实现可能共享盲点。此产品代表把可执行 Verifier 作为企业 Agent 基础设施的商业趋势。",
-      "findings": "测试自动化的新重点是从业务意图到实际界面状态的验证，而不只生成测试脚本。",
-      "why_it_matters": "建议比较独立测试 Agent 与自评式测试在长程 Coding Agent 版本升级时的错误检出率。",
-      "sources": [
-        {
-          "name": "官方资料",
-          "url": "https://www.prnewswire.com/news-releases/katalon-launches-ai-test-runner-to-enable-teams-to-grow-testing-capacity-without-growing-headcount-302940519.html"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-17",
-      "title": "Claude Code v2.1.326：多 Agent Code Mode 和后台权限状态修复",
-      "score": 93,
-      "published": "2026-11-16",
-      "fields": [
-        "field-3"
-      ],
-      "topics": [
-        "coding",
         "tool-use",
-        "safety",
-        "product",
-        "deployment"
+        "evaluation",
+        "science",
+        "framework"
       ],
-      "summary": "Claude Code 发布 v2.1.326，使实验性 Code Mode 可与 Agent Teams 协同使用。新版修复后台会话恢复、权限保存以及实际文件覆盖操作与工具日志不一致等问题。它增强了多个 Agent 共享工程任务时的执行状态与授权可追溯性。",
-      "intro": "Claude Code 发布 v2.1.326，使实验性 Code Mode 可与 Agent Teams 协同使用。",
-      "detail": "Code Mode 将多次工具操作组织为程序化执行，而 Agent Teams 需要共享有效权限且避免丢失子任务输出。更新修复后台任务恢复后模型网关设置丢失、写入配置失败却似乎已保存、PID 复用造成的异常进程管理等问题。长时间运行的 Coding Agent 应在重启后对照实际文件状态重建任务账本，避免误信过时日志。",
-      "findings": "多 Agent 工程执行必须让工具实际副作用与审计记录一致。",
-      "why_it_matters": "可测试后台任务切换、异常重启、工具权限变化与输出交接的完整状态保持。",
+      "summary": "SilentGuard 发现科研 API 即使返回 HTTP 200，也可能悄悄忽略错误参数并产生无效结果。它将关键不变量检查移到 Harness 层，显著降低 Agent 接受错误数据的比例。可信科研 Agent 应在工具结果进入后续推理前进行独立状态和数据契约验证。",
+      "intro": "SilentGuard 发现科研 API 即使返回 HTTP 200，也可能悄悄忽略错误参数并产生无效结果。",
+      "detail": "作者在十五个科研 API 中发现十一个存在测试的静默故障模式，有的错误导致计数膨胀数百倍。在目标故障实验中，开放模型错误回答率从约 74% 降到 1.7%，前沿模型从约 70.2% 降到 0.5%。收益主要来自拒绝错误数据，不代表工具错误已经被自动修复。该机制可扩展为 Agent 自动接入新工具时的前置结果契约",
+      "findings": "它将关键不变量检查移到 Harness 层，显著降低 Agent 接受错误数据的比例。可信科研 Agent 应在工具结果进入后续推理前进行独立状态和数据契约验证。",
+      "why_it_matters": "把数据有效性、正确拒绝与异常修复率分开进行可执行评测。",
       "sources": [
         {
-          "name": "官方 GitHub",
-          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.326"
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20595"
         }
       ]
     },
     {
-      "id": "news-20261117-18",
-      "title": "OpenClaw v2026.11.4：长期记忆迁移与 Cron 自动化恢复",
+      "id": "news-20261118-22",
+      "title": "Latent Feedback：用隐藏状态反馈提高稀缺训练数据利用率",
+      "score": 93,
+      "published": "2026-11-16",
+      "fields": [
+        "field-1",
+        "field-5"
+      ],
+      "topics": [
+        "training",
+        "continual-learning",
+        "framework"
+      ],
+      "summary": "Latent Feedback 将前一个 Token 的隐藏状态反馈给后续计算，以提升模型重复数据时的学习效率。作者在受控小模型实验中报告最多节省 48% 计算量或 47% 独立训练数据量。它提供不同于单纯扩充合成语料的数据效率研究路径。",
+      "intro": "Latent Feedback 将前一个 Token 的隐藏状态反馈给后续计算，以提升模型重复数据时的学习效率。",
+      "detail": "实验比较不同模型规模、独立数据量与训练 Epoch，在 60M—271M 参数模型上进行主要验证，并用 778M 模型校验 Scaling Law 趋势。隐藏状态反馈保留更多中间计算信息，使相同独立 Token 带来的预测损失收益增加。它在超大模型或多模态 Agent 上仍需要实证，可以先研究高质量数学和普通文本不同重复率下的效果。与 K2-Horizon 的大规模合成数据路线形成补充",
+      "findings": "作者在受控小模型实验中报告最多节省 48% 计算量或 47% 独立训练数据量。它提供不同于单纯扩充合成语料的数据效率研究路径。",
+      "why_it_matters": "比较相同 FLOPs 预算下的数据重复度、模型架构和任务泛化变化。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.20404"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-23",
+      "title": "Daydream Agent：从穿搭推荐走向长期监控和批准代购",
+      "score": 92,
+      "published": "2026-11-17",
+      "fields": [
+        "field-2",
+        "field-5"
+      ],
+      "topics": [
+        "personal",
+        "memory",
+        "tool-use",
+        "product"
+      ],
+      "summary": "Daydream 上线 iOS 和短信购物 Agent，记住风格、尺寸及预算，并持续追踪目标商品。Agent 可在一万多个品牌中规划穿搭、虚拟试穿，并经用户批准完成购买。消费级个人 Agent 正逐渐形成偏好记忆、持续监控、推荐和交易的完整工作流。",
+      "intro": "Daydream 上线 iOS 和短信购物 Agent，记住风格、尺寸及预算，并持续追踪目标商品。",
+      "detail": "用户可发送场合描述或灵感照片，让系统组合可购物服装清单，并以自身照片虚拟试穿。Agent 会保留购物候选清单、追踪降价及新品，并可发送周期性时尚简报。购买仅在参与商家和获得授权时完成，因而不仅是自动购买，还包含对用户购物决定的长期支持。适合评估记忆是否真正提升商品匹配与购物完成率",
+      "findings": "Agent 可在一万多个品牌中规划穿搭、虚拟试穿，并经用户批准完成购买。消费级个人 Agent 正逐渐形成偏好记忆、持续监控、推荐和交易的完整工作流。",
+      "why_it_matters": "关注个性化偏好准确性、持续任务状态与最终结账成功率。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://www.prnewswire.com/news-releases/daydream-launches-first-ever-autonomous-agent-for-fashion-shopping-styling-and-checkout-302941544.html"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-24",
+      "title": "Meta Muse 澳大利亚上线：本地生活 Connector 扩展",
+      "score": 92,
+      "published": "2026-11-17",
+      "fields": [
+        "field-2",
+        "field-5"
+      ],
+      "topics": [
+        "personal",
+        "deployment",
+        "tool-use",
+        "product"
+      ],
+      "summary": "Meta 将 Muse Personal Agent 扩展到澳大利亚，逐步接入购物、房产、健身、创作和票务服务。用户可连接 Gmail、Calendar、Instagram 和 OpenTable 等平台，跨应用委托长期生活任务。Agent 的真实服务覆盖逐渐取决于地区连接器、授权及可执行交易链路。",
+      "intro": "Meta 将 Muse Personal Agent 扩展到澳大利亚，逐步接入购物、房产、健身、创作和票务服务。",
+      "detail": "本地合作方包括 Canva、Domain、Kogan、MECCA、Officeworks、realestate.com.au、SWEAT、ShopBack 和 Ticketek。并非全部本地连接器在上线当天就可用，相关功能会逐步推出。产品通过独立云执行环境处理服务连接，由用户批准敏感操作。此举属于既有 Muse 产品的市场和生态扩张，并非发布新的基座模型",
+      "findings": "用户可连接 Gmail、Calendar、Instagram 和 OpenTable 等平台，跨应用委托长期生活任务。Agent 的真实服务覆盖逐渐取决于地区连接器、授权及可执行交易链路。",
+      "why_it_matters": "比较不同地区同一 Life Agent 任务的工具可达性和连接器稳定性。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://about.fb.com/news/2026/11/muse-is-now-available-in-australia/"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-25",
+      "title": "CompCert4Lean：多 Coding Agent 参与大型形式化工程迁移",
       "score": 92,
       "published": "2026-11-16",
       "fields": [
-        "field-2",
-        "field-3"
-      ],
-      "topics": [
-        "memory",
-        "personal",
-        "deployment",
-        "product",
-        "safety"
-      ],
-      "summary": "OpenClaw 11 月 16 日发布稳定补丁 v2026.11.4，修复记忆迁移与自动化调度的多个状态保持问题。更新保护 MEMORY.md 的原始副本，改善 Cron 会话归档冲突、定时唤醒和异常重启后的消息交付。其工程价值在于个人 Agent 的任务状态、历史记忆与授权不能因版本迁移或重启而丢失。",
-      "intro": "OpenClaw 11 月 16 日发布稳定补丁 v2026.11.4，修复记忆迁移与自动化调度的多个状态保持问题。",
-      "detail": "发布整合了大量社区 PR，对存储迁移失败时的记忆恢复、后台调度器和会话管理进行修复。定时任务不应在运行时被错误归档，配置重载不应无意取消已授权工作；工具执行和消息交付需要可回溯。相比纯文本长期记忆 Benchmark，这些系统行为更接近真实持久助手的运行条件。",
-      "findings": "Personal Agent 的持续可靠性依赖数据保护、调度和权限状态共同正确。",
-      "why_it_matters": "建议用压缩—迁移—重启—恢复的连续故障注入测试替代单次问答式记忆测评。",
-      "sources": [
-        {
-          "name": "官方 GitHub",
-          "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.11.4"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-19",
-      "title": "Fold Health：AI Operating Layer 将患者外联与工作流接入 Agent",
-      "score": 91,
-      "published": "2026-11-16",
-      "fields": [
-        "field-2",
-        "field-3"
-      ],
-      "topics": [
-        "personal",
-        "work",
-        "product",
-        "tool-use",
-        "deployment"
-      ],
-      "summary": "Fold Health 宣布推出医疗 AI Operating Layer，整合患者记录、医疗团队和跨系统行动任务。厂商披露平台覆盖超过 200 万名患者，Agent 承担约 40% 的患者外联工作。产品展示专业 Agent 从记录总结走向长期流程执行与医护人员可追踪交接。",
-      "intro": "Fold Health 宣布推出医疗 AI Operating Layer，整合患者记录、医疗团队和跨系统行动任务。",
-      "detail": "平台试图把患者联系、日程、组织运营和临床业务系统整合为可以持续执行的工作流程。其核心挑战是多角色身份区分、旧信息过期、任务权限和异常情况升级人工处理。厂商披露的部署规模可用于判断产品方向，实际临床效果还需要结合任务成功率和人工处理量拆分。",
-      "findings": "医疗专业 Agent 的商业形态逐渐从智能问答扩展为持续行动操作层。",
-      "why_it_matters": "值得构建以患者状态变动为触发器的跨系统 Agent 工作流 Benchmark。",
-      "sources": [
-        {
-          "name": "官方资料",
-          "url": "https://www.prnewswire.com/news-releases/100-million-automations-and-counting-fold-health-launches-the-ai-operating-layer-that-turns-healthcare-insights-into-action-302940470.html"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-20",
-      "title": "Agentic Quantum Circuits：LLM 与物理 Verifier 协作发现容错电路",
-      "score": 91,
-      "published": "2026-11-13",
-      "fields": [
-        "field-1",
-        "field-4",
-        "field-5"
-      ],
-      "topics": [
-        "science",
-        "self-evolution",
-        "evaluation",
-        "framework"
-      ],
-      "summary": "Agentic AI for Discovering Fault-Tolerant Quantum Circuits 用 LLM 提案、电路验证和进化搜索构成科研闭环。系统探索逻辑态制备、量子门设计及编码切换，并用可执行物理检查筛选候选电路。这让 AI Scientist 的研究输出从描述性建议推进到能独立验证的科学程序。",
-      "intro": "Agentic AI for Discovering Fault-Tolerant Quantum Circuits 用 LLM 提案、电路验证和进化搜索构成科研闭环。",
-      "detail": "模型提出候选量子电路或结构化变换，外部执行器根据容错、逻辑状态等要求检查是否满足任务目标，再用失败反馈修改下一次候选。强约束科学场景中，严格的正确性检查比单纯自然语言评分更有利于形成高价值训练轨迹。关键后续问题是验证器是否覆盖研究目标的全部约束，以及如何把经验迁移到不同的编码家族。",
-      "findings": "有硬验证器的科学任务能让 Agent 搜索形成可复现的优化闭环。",
-      "why_it_matters": "可以比较随机生成、失败归因和持续程序性记忆对未见科学任务的探索效率。",
-      "sources": [
-        {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.18504"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-21",
-      "title": "NeoResearch：在时间序列研究中复用文献和历史实验结果",
-      "score": 91,
-      "published": "2026-11-13",
-      "fields": [
-        "field-1",
-        "field-4",
-        "field-5"
-      ],
-      "topics": [
-        "science",
-        "self-evolution",
-        "skills",
-        "framework"
-      ],
-      "summary": "NeoResearch 将文献检索、模型设计和历史实验结果接入自主时间序列研究循环。Agent 不仅生成新的预测模型，还会根据已试验结构的表现选择后续研究方向。它提供 AI Scientist 从一次性实验向持续证据驱动研究转变的系统案例。",
-      "intro": "NeoResearch 将文献检索、模型设计和历史实验结果接入自主时间序列研究循环。",
-      "detail": "时间序列任务包含趋势、周期和变量间相互作用，研究流程需要在模型结构、数据预处理和实验设置之间不断取舍。NeoResearch 将先前实验的结果写入可检索经验，减少重复探索，并结合新文献生成候选方案。评测要把在同一验证集上反复搜索的收益与跨新数据集的实际泛化分开，才能衡量研究记忆的价值。",
-      "findings": "实验历史的价值在于提高后续发现效率，而非仅让记录越来越长。",
-      "why_it_matters": "建议研究把失败原因自动归纳为可转移研究 Skills，并测试对陌生数据分布的效果。",
-      "sources": [
-        {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.18235"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-22",
-      "title": "SZZBench：用可控 Git 历史生成带真实因果标签的代码任务",
-      "score": 90,
-      "published": "2026-11-13",
-      "fields": [
         "field-3",
+        "field-4",
         "field-5"
       ],
       "topics": [
         "coding",
+        "science",
         "evaluation",
-        "data-synthesis",
-        "benchmark"
+        "self-evolution"
       ],
-      "summary": "SZZBench 从声明式场景生成 Git 仓库与明确的缺陷引入提交标注，评测软件历史错误归因。其 279 个场景覆盖 17 类机制，并与 26 个朴素规则基线逐题比较。它提供了让 Coding Agent 失败定位训练数据有可信 Gold Answer 的构造方法。",
-      "intro": "SZZBench 从声明式场景生成 Git 仓库与明确的缺陷引入提交标注，评测软件历史错误归因。",
-      "detail": "传统真实仓库挖掘得到的 Bug 引入标签不一定可靠，也难以确认到底是什么历史因素让算法出错。SZZBench 从设计好的提交序列和变更条件生成可运行仓库，并将明确标注作为正确答案。不同算法即使通过相同数量的场景，也可能在完全不同的失败类型上表现不同，因此应保留细粒度能力覆盖矩阵。",
-      "findings": "可执行且因果明确的合成仓库能比单纯平均正确率更好地发现工具代理的真正盲区。",
-      "why_it_matters": "适合从首次错误提交及后续修复构造短程 Debugging 与回溯验证训练。",
+      "summary": "CompCert4Lean 利用并行 Coding Agents 将已验证 C 编译器 CompCert 从 Rocq 迁移到 Lean。项目历时约六周，涉及大量相互依赖的代码和形式化证明。它将长程多 Agent 协作的成果交给机器可执行的形式化检查，而不是主观文本打分。",
+      "intro": "CompCert4Lean 利用并行 Coding Agents 将已验证 C 编译器 CompCert 从 Rocq 迁移到 Lean。",
+      "detail": "与单一补丁任务不同，真实编译器迁移必须保留模块接口、语义定义及复杂证明依赖。多 Agent 需要将大型证明系统拆分为并行任务，再合并修改并修复类型和证明失败。Lean 的构建及证明器提供非常明确的验证信号，也凸显跨模块集成状态管理的重要性。此类任务可用于研究协作结构、历史修复记录与验证成本",
+      "findings": "项目历时约六周，涉及大量相互依赖的代码和形式化证明。它将长程多 Agent 协作的成果交给机器可执行的形式化检查，而不是主观文本打分。",
+      "why_it_matters": "以证明义务和构建回归作为多 Agent 科研编程的硬性终局评估。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17669"
-        },
-        {
-          "name": "代码",
-          "url": "https://github.com/higolab/SZZBench"
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21084"
         }
       ]
     },
     {
-      "id": "news-20261117-23",
-      "title": "Soteria：在工具执行前验证整个 Agent 计划的授权边界",
-      "score": 90,
-      "published": "2026-11-13",
-      "fields": [
-        "field-2",
-        "field-3",
-        "field-5"
-      ],
-      "topics": [
-        "safety",
-        "tool-use",
-        "evaluation",
-        "framework"
-      ],
-      "summary": "Soteria 在 Agent 真正执行工具调用之前，对分层行动计划进行形式化策略检查。它不只是发现单次违规请求，还考虑被阻止的步骤能否通过合法重规划继续完成业务目标。这为 Work Agent 的动态授权、不可逆写入和外部应用协作带来规划级约束。",
-      "intro": "Soteria 在 Agent 真正执行工具调用之前，对分层行动计划进行形式化策略检查。",
-      "detail": "长程 Agent 常通过逐个工具调用推进任务，但某一局部操作即使合法也可能让后续步骤必须越权。Soteria 试图在更高的任务计划层检查策略可行性，再将检查结果返回给规划模块调整方案。针对真实业务仍需解决审批随时间变化、组织规则冲突及用户授权更新的问题。",
-      "findings": "授权应成为任务规划的输入，而非等执行到危险动作才临时拒绝。",
-      "why_it_matters": "建议构造仅改变权限状态的配对环境，检验计划再生成与后续可行性。",
-      "sources": [
-        {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17880"
-        }
-      ]
-    },
-    {
-      "id": "news-20261117-24",
-      "title": "ARCHER：分层强化学习让小模型推理与工具执行耦合",
-      "score": 90,
-      "published": "2026-11-13",
+      "id": "news-20261118-26",
+      "title": "ViRA：跨输入对比奖励强化高清视觉 Agent 的证据阅读",
+      "score": 91,
+      "published": "2026-11-16",
       "fields": [
         "field-1",
+        "field-3",
         "field-5"
       ],
       "topics": [
         "training",
-        "evaluation",
-        "framework",
-        "tool-use"
+        "tool-use",
+        "evaluation"
       ],
-      "summary": "ARCHER 研究通过分层强化学习提升小模型的数学推理和工具执行能力。相比仅模仿完整解释文本，训练重点转向分解子目标并用可执行反馈决定下一步。其方法对小模型 Agent 后训练的价值是让任务进度与真实行动结果绑定。",
-      "intro": "ARCHER 研究通过分层强化学习提升小模型的数学推理和工具执行能力。",
-      "detail": "单纯蒸馏强模型的推理文本可能让学生学会流畅表达，但遇到工具错误或中间状态变化时缺乏应对能力。分层方法将高层决策与低层实际操作分别处理，再通过任务结果反馈训练。后续应在预算相同的条件下比较单层 RL、轨迹模仿与分层 RL 的成功率及可恢复性。",
-      "findings": "工具落地的正确性需要独立验证，推理文本相似并不能替代任务执行证据。",
-      "why_it_matters": "适合从学生真实失败位置生成局部修复任务和动作后果预测数据。",
+      "summary": "ViRA 提出 Cross-Input Relative Policy Optimization，让同一场景的多种视觉输入组成对比集合。这种相对奖励针对视觉 Agent 凭上下文猜测小目标、细字和细节的倾向。它把真正查看像素证据而非猜对答案变成后训练需要优化的能力。",
+      "intro": "ViRA 提出 Cross-Input Relative Policy Optimization，让同一场景的多种视觉输入组成对比集合。",
+      "detail": "超高分辨率图像中，小区域信息往往决定工具下一步选择，而普通奖励可能无法区分观察和猜测。ViRA 利用对比输入与相对成功信号训练视觉行为，使模型更依赖具体细节。对屏幕操作和文档代理，可结合裁剪、放大和二次查看任务来评估。也可与 EVIDENT 联合检查最终答案是否有可观察证据",
+      "findings": "这种相对奖励针对视觉 Agent 凭上下文猜测小目标、细字和细节的倾向。它把真正查看像素证据而非猜对答案变成后训练需要优化的能力。",
+      "why_it_matters": "研究视觉证据不足时的主动查看、放大和合理停止决策。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.18494"
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21605"
         }
       ]
     },
     {
-      "id": "news-20261117-25",
-      "title": "More Agents, More Samples, or More Thinking：多 Agent 的真实增益需扣除额外计算",
-      "score": 89,
-      "published": "2026-11-13",
+      "id": "news-20261118-27",
+      "title": "Jetriever：从语义相关度转向行动效用的记忆检索",
+      "score": 91,
+      "published": "2026-11-16",
       "fields": [
-        "field-3",
-        "field-4",
+        "field-2",
         "field-5"
       ],
       "topics": [
-        "self-evolution",
-        "evaluation",
-        "framework",
-        "benchmark"
+        "memory",
+        "tool-use",
+        "framework"
       ],
-      "summary": "研究汇集九项实证研究的 516 种多 Agent 配置，重新分析协作是否真正提高任务正确率。匹配采样量和推理资源后，多 Agent 平均准确率差约为 -0.042，74% 的可比对照没有超过单 Agent。系统收益需要由独立知识、错误互补或外部验证证明，而不是只把更多模型调用归功于协作。",
-      "intro": "研究汇集九项实证研究的 516 种多 Agent 配置，重新分析协作是否真正提高任务正确率。",
-      "detail": "常见对比给多 Agent 团队更多 Token、独立样本或搜索机会，但只让单 Agent 做一次尝试，造成性能归因失真。作者整理既有实验，对齐计算预算与候选次数后分析多 Agent 的增量。对自进化 Harness，应设置单 Agent 同预算多次独立采样并择优的强基线，才能判断角色协调是否真的有价值。",
-      "findings": "多 Agent 结构不应默认为更优，实证比较需要明确相同总计算预算。",
-      "why_it_matters": "建议在长程工作和 AI Scientist 任务中测量合作带来的额外可靠性而非表面成功率。",
+      "summary": "Jetriever 按记忆对后续行动的帮助程度重新排序长期历史，而不仅按向量相似度检索。系统从完整记忆池中选择对当前决策最有用的经验。它让 Memory Benchmark 进一步靠近真实工具执行收益和长期任务成功率。",
+      "intro": "Jetriever 按记忆对后续行动的帮助程度重新排序长期历史，而不仅按向量相似度检索。",
+      "detail": "传统 Top-K 嵌入搜索常返回词面相近但决策价值很低的段落，并占用宝贵上下文。Jetriever 对候选记忆进行效用排序，试图优先选择能改善 Agent 当前行动策略的片段。它与固定槽位记忆、CLAM 和优化器经验记忆互补。要验证这种优势应在等 Token 预算下观察工具轨迹和终局状态，而非只比较文本检索指标",
+      "findings": "系统从完整记忆池中选择对当前决策最有用的经验。它让 Memory Benchmark 进一步靠近真实工具执行收益和长期任务成功率。",
+      "why_it_matters": "建立记忆边际效用、工具行动改善与任务成功率的联合评估。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17610"
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21478"
         }
       ]
     },
     {
-      "id": "news-20261117-26",
-      "title": "MineralExp：以真实地球化学信息测量科研实验规划能力",
-      "score": 89,
-      "published": "2026-11-13",
+      "id": "news-20261118-28",
+      "title": "SciResearch-Eval：测试自主实验 Agent 的证据和置信校准",
+      "score": 91,
+      "published": "2026-11-16",
       "fields": [
-        "field-1",
+        "field-3",
         "field-4",
         "field-5"
       ],
@@ -866,15 +904,179 @@
         "environments",
         "benchmark"
       ],
-      "summary": "MineralExp 把矿产勘探的地球化学信息与实际领域约束转换为 Agent 实验设计任务。Agent 必须从现有证据提出下一步采样或验证方案，而不是只复述矿床知识。这为科学 Agent 的实验预算、证据利用和专业方案验收提供新的评测方向。",
-      "intro": "MineralExp 把矿产勘探的地球化学信息与实际领域约束转换为 Agent 实验设计任务。",
-      "detail": "矿产资源勘探涉及已有采样点、化学指标、地理先验及后续测量代价。方法让 Agent 将这些异构证据变成可审查的实验选择，支持专家判断方案是否合理及信息收益是否值得。后续可加入标准化仿真器，使每项采样策略能获得一致的结果反馈与成本判定。",
-      "findings": "科学规划的关键在于有限预算下选择能够最大化新证据的下一步实验。",
-      "why_it_matters": "值得研究以真实领域约束合成多步骤实验任务及主动澄清缺失数据的策略。",
+      "summary": "SciResearch-Eval 构建交互式科学研究任务，关注 Agent 的实验选择、证据理解与不确定性。材料发现等任务需要 Agent 判断何时继续实验、何时证据已足够。科学 Agent 评测正在从终局答案迁移到可持续研究过程中的决策质量。",
+      "intro": "SciResearch-Eval 构建交互式科学研究任务，关注 Agent 的实验选择、证据理解与不确定性。",
+      "detail": "研究环境让 Agent 在有限预算下选择进一步操作并依据新证据修正假设。除结果准确性，评价还需要考虑实验序列、证据强度与置信度是否匹配。这样能够识别那些偶然猜对结论但采取低质量研究程序的系统。与真实科学工具接口结合后可进一步检查成本、恢复与泛化",
+      "findings": "材料发现等任务需要 Agent 判断何时继续实验、何时证据已足够。科学 Agent 评测正在从终局答案迁移到可持续研究过程中的决策质量。",
+      "why_it_matters": "将实验行动、证据质量和校准误差纳入 AI Scientist 的执行奖励。",
       "sources": [
         {
-          "name": "arXiv 原论文",
-          "url": "https://arxiv.org/abs/2611.17931"
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21541"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-29",
+      "title": "Google EmbeddingGemma 2 技术报告：文本与音视频统一向量空间",
+      "score": 90,
+      "published": "2026-11-17",
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-5"
+      ],
+      "topics": [
+        "training",
+        "memory",
+        "deployment",
+        "framework"
+      ],
+      "summary": "Google 发布 EmbeddingGemma 2 的完整技术报告，说明如何将文本、图像、音频与视频映射到统一嵌入空间。训练配方利用 Gemma 4 和 Gemini Embedding 2 的技术，并压缩底座以适配轻量部署。多模态检索技术为个人记忆跨照片、录音、文件和视频进行证据搜索提供基础。",
+      "intro": "Google 发布 EmbeddingGemma 2 的完整技术报告，说明如何将文本、图像、音频与视频映射到统一嵌入空间。",
+      "detail": "EmbeddingGemma 2 模型本身先前已发布，本次新动态是训练和评测资料公开。报告讨论不同模态如何共享语义表示，以及压缩后如何维持检索效果。对长期 Agent Memory，该技术可降低多索引系统复杂度，但统一相似度仍不能直接解决身份、时序与用户授权。建议与 HEAMS 的治理评测及 CLAM 的状态存储互补比较",
+      "findings": "训练配方利用 Gemma 4 和 Gemini Embedding 2 的技术，并压缩底座以适配轻量部署。多模态检索技术为个人记忆跨照片、录音、文件和视频进行证据搜索提供基础。",
+      "why_it_matters": "检验跨模态记忆检索的时间一致性、信息来源与权限约束。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2-technical-report/"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-30",
+      "title": "Sage S2.1 Flash：科学多模态模型与专业工具后训练",
+      "score": 90,
+      "published": "2026-11-16",
+      "fields": [
+        "field-1",
+        "field-5"
+      ],
+      "topics": [
+        "training",
+        "science",
+        "tool-use",
+        "framework"
+      ],
+      "summary": "Sage S2.1 Flash 技术报告介绍面向科学研究的多模态 MoE 模型。研究尝试在统一工作流中处理序列、谱图、屏幕、代码和文本，并通过专业工具后训练强化任务能力。科研 Agent 的底座训练正在与可验证工具执行环节更紧密结合。",
+      "intro": "Sage S2.1 Flash 技术报告介绍面向科学研究的多模态 MoE 模型。",
+      "detail": "科学工作流需要同时读取不同实验模态与执行脚本，单纯文本问答不能完整覆盖。报告关注大规模科学多模态表征以及针对专业任务的训练和评价，强调把模型输出接到专业软件与真实计算结果。实践中还需测量每种模态对完整实验任务成功率的增益，避免只有静态科学问答分数。可与 SciResearch-Eval、FEM 科研编程任务共同考察",
+      "findings": "研究尝试在统一工作流中处理序列、谱图、屏幕、代码和文本，并通过专业工具后训练强化任务能力。科研 Agent 的底座训练正在与可验证工具执行环节更紧密结合。",
+      "why_it_matters": "比较专业模型和通用模型在完整实验链上的成功率、成本及证据完整性。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21072"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-31",
+      "title": "Scientific Coding FEM：17 类非线性有限元任务评价编程 Agent",
+      "score": 90,
+      "published": "2026-11-16",
+      "fields": [
+        "field-3",
+        "field-5"
+      ],
+      "topics": [
+        "science",
+        "coding",
+        "evaluation",
+        "benchmark"
+      ],
+      "summary": "Scientific Coding with LLMs 将 FEM-Bench 扩展到十七类非线性、历史相关的力学计算任务。研究指出执行修复式 Agent 可以提高多轮通过率，独立 Coder 与 Tester 在一致性上更有优势。科研编程的核心失败来源包括测试不足及代码与测试犯同一种错误。",
+      "intro": "Scientific Coding with LLMs 将 FEM-Bench 扩展到十七类非线性、历史相关的力学计算任务。",
+      "detail": "有限元求解需要正确的物理边界、材料状态、数值离散和时间历史，局部代码跑通不能证明结果合理。论文比较生成程序、执行修复和独立测试 Agent 的不同设计。一个常见难点是生成者自己编写测试时也共享同一物理假设错误，因此应采用独立计算、数值约束与物理可行性检查。适合用于可验证科学任务环境合成",
+      "findings": "研究指出执行修复式 Agent 可以提高多轮通过率，独立 Coder 与 Tester 在一致性上更有优势。科研编程的核心失败来源包括测试不足及代码与测试犯同一种错误。",
+      "why_it_matters": "把数值不变量、独立参考实现和性能测试组合成科研 Agent Verifier。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.21176"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-32",
+      "title": "One Run Is Not Enough：重复运行暴露 Agent 记忆收益的波动",
+      "score": 89,
+      "published": "2026-11-13",
+      "fields": [
+        "field-3",
+        "field-4",
+        "field-5"
+      ],
+      "topics": [
+        "memory",
+        "evaluation",
+        "coding",
+        "continual-learning"
+      ],
+      "summary": "One Run Is Not Enough 研究九十八组前后关联的 Coding 任务，检查给 Agent 提醒上次发现是否改善下一次执行。研究并未观察到明确收益，且相同配置重复运行有约 19% 的任务结果发生翻转。Agent Memory 和后训练研究必须考虑运行噪声，而不能把单次成功当作方法增益。",
+      "intro": "One Run Is Not Enough 研究九十八组前后关联的 Coding 任务，检查给 Agent 提醒上次发现是否改善下一次执行。",
+      "detail": "论文设置配对任务与历史提醒实验，比较没有历史信息、给出上次发现的后续表现。重复同样条件产生的大量任务通过状态变化表明，单次例子不能支持记忆改进结论。使用配对种子、多个执行回合及置信区间，可以区分真实提升与采样波动。相关结论也适用于 Harness 自改进和技能复用的评测",
+      "findings": "研究并未观察到明确收益，且相同配置重复运行有约 19% 的任务结果发生翻转。Agent Memory 和后训练研究必须考虑运行噪声，而不能把单次成功当作方法增益。",
+      "why_it_matters": "为长期 Agent 训练引入多次运行、配对任务和稳定性门禁。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.19359"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-33",
+      "title": "Craftax Goal Compiler：将长程目标编译为可验证的子任务",
+      "score": 88,
+      "published": "2026-11-14",
+      "fields": [
+        "field-3",
+        "field-5"
+      ],
+      "topics": [
+        "environments",
+        "coding",
+        "evaluation",
+        "framework"
+      ],
+      "summary": "Craftax Goal Compiler 将游戏长程目标编译为程序化条件及逐阶段子目标。它利用可执行环境与明确的资源依赖检查各动作是否真正维持目标可达性。这种形式适合合成有前置条件、状态依赖和失败恢复的 Agent 训练任务。",
+      "intro": "Craftax Goal Compiler 将游戏长程目标编译为程序化条件及逐阶段子目标。",
+      "detail": "程序生成游戏比纯文本世界模拟更容易提供真实状态转移和客观完成条件。目标编译可以将最终要求变成前后依赖的执行里程碑，帮助定位哪个步骤造成长程失败。不同任务可以通过修改初始资源或中间状态形成反事实训练对照。研究价值在于让 Task/Environment Synthesis 与硬性 Verifier 共享同一状态语义",
+      "findings": "它利用可执行环境与明确的资源依赖检查各动作是否真正维持目标可达性。这种形式适合合成有前置条件、状态依赖和失败恢复的 Agent 训练任务。",
+      "why_it_matters": "探索自动生成可达状态和失败边界短任务的编译方法。",
+      "sources": [
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2611.19537"
+        }
+      ]
+    },
+    {
+      "id": "news-20261118-34",
+      "title": "NVIDIA Nemotron for Science：化学开放数据与专业 Agent 后训练",
+      "score": 87,
+      "published": "2026-11-16",
+      "fields": [
+        "field-1",
+        "field-5"
+      ],
+      "topics": [
+        "science",
+        "training",
+        "data-synthesis",
+        "product"
+      ],
+      "summary": "NVIDIA Nemotron for Science 整合 Nemotron 3.5 Super VL、开放化学数据及科研 Agent 后训练方法。LitmusBench v0.2 提供近五万道化学推理问题，用于模型适配和专业评测。该套件把领域数据、开放模型和科学工具部署联结起来。",
+      "intro": "NVIDIA Nemotron for Science 整合 Nemotron 3.5 Super VL、开放化学数据及科研 Agent 后训练方法。",
+      "detail": "发布重点是专业科学模型能够读取领域资料并调用研究工具，而不是只在通用问答中记忆知识。方案包含新化学数据、评测任务及后训练配方，可运行在研究机构自有计算资源上。原始发布于 11 月 16 日，本期作为与最新科学 Agent 和训练数据工作相互补充的研究基础设施。建议测量专业模型对真实实验产出的帮助",
+      "findings": "LitmusBench v0.2 提供近五万道化学推理问题，用于模型适配和专业评测。该套件把领域数据、开放模型和科学工具部署联结起来。",
+      "why_it_matters": "研究领域后训练对实验设计、工具调用和科学证据可靠性的影响。",
+      "sources": [
+        {
+          "name": "官方发布与技术资料",
+          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Introduces-Nemotron-for-Science-to-Accelerate-Discoveries-With-Agents/default.aspx"
         }
       ]
     }
