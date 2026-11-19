@@ -1,0 +1,144 @@
+{
+  "field": "field-2",
+  "date": "2026-11-19",
+  "items": [
+    {
+      "title": "Google Gemini 4 Neon：高性能与低成本兼顾的复杂 Agent 模型",
+      "summary": "Google 发布 Gemini 4 Neon，定位在 Carbon 的深度能力与 Hydrogen 的执行效率之间，面向复杂编程、办公与科学任务。其 Terminal-Bench 4.1 为 65.2%，Agent Arena 排名第二，标准 API 输入和输出分别为每百万 Token 3 与 15 美元。Neon 已接入 Gemini API、Antigravity 和 Gemini 应用，并可用于 Tasks in Gemini 的后台任务。",
+      "intro": "Gemini 4 Neon 于 11 月 18 日发布，提供四档 Thinking Level 和百万 Token 上下文，在更严格的任务预算下强化模型可控性。",
+      "detail": "官方报告其在 Vals Index 得分 70.9%、AutomationBench 56.3%、Chartography 73.5%，在 Antigravity Harness 上 SWE-sweep 达到 39.0%，高于 mini-SWE 单独运行的 12.8%。工程侧强调中途用户修正时的稳定规划、上下文压缩、子 Agent 调度和精确文件修改。官方还比较了固定评测设置中的单位任务成本，指出高推理强度不一定是经济上最优的默认选择。Neon 是 Google 4 系列新模型发布，而非将 11 月 17 日 Tasks in Gemini 的开放再次重复计为新品。",
+      "findings": "高能力模型与 Harness、推理强度和任务成本构成联合优化问题，基模分数不能直接替代真实任务交付率。",
+      "why_it_matters": "在同等预算和成功率下比较 Neon、Carbon 与 Hydrogen 的路由策略，特别测量用户中途修正、长任务恢复和子 Agent 状态交接。",
+      "published": "2026-11-18",
+      "score": 100,
+      "topics": [
+        "coding",
+        "personal",
+        "product",
+        "tool-use",
+        "training",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "Google 官方发布",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+        }
+      ]
+    },
+    {
+      "title": "Google Genie 4 在 Project Genie 开放：Agent 实时编排可交互世界",
+      "summary": "Google 将已在 10 月发布研究预览的 Genie 4 向符合条件的 AI Ultra 用户开放，并推出 Project Genie Agent。用户可用自然语言实时编辑环境、生成原生音频、与 Agent 共同构造事件，并在社区画廊分享和 Remix 世界。此次关键增量是产品开放和可交互编排，而非再次将 Genie 4 算作首次模型发布。",
+      "intro": "Project Genie 是交互式世界生成实验平台，11 月 18 日更新将 Genie 4、Genie 3 扩展能力与新的构建助手整合。",
+      "detail": "新 Agent 可依据用户描述生成场景风格与音乐，根据当前画面通过 Gemini 给予建议或触发事件；Genie 4 支持运行中修改环境、地形、天气和人物动作。Genie 3 可选更长的三分钟会话、连续世界与全景图输入。世界模型还可能出现物体持续性漂移和多智能体交互不稳定，因此基于它训练工具 Agent 时应增加可验证的状态检查。产品将语言模型编排与动态世界反馈连接，适合原型试验生成式模拟环境的任务价值。",
+      "findings": "交互世界与 Agent 编排融合后，可以探索从自然语言需求生成可观测的训练环境。",
+      "why_it_matters": "研究世界生成物理一致性、可控重置、状态回放和真实任务迁移收益，特别评估多环境状态漂移。",
+      "published": "2026-11-18",
+      "score": 97,
+      "topics": [
+        "environments",
+        "framework",
+        "personal",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Google 官方更新",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/"
+        }
+      ]
+    },
+    {
+      "title": "When Agent Skills Go Stale：只修复环境变化导致的失效 Skill",
+      "summary": "When Agent Skills Go Stale 测试已成功运行的 Agent Skill 在 API、文件和表单环境变化后是否仍有效。论文显示过期 Skill 可使任务成功率降低超过 10 个百分点，或让执行成本增加近 40%；选择性维护最多恢复 67 个百分点准确率。其方案通过重放环境检查，定位并修复失效内容，而不是每次整体重写 Skill。",
+      "intro": "长期 Personal/Work Agent 的技能往往保存了可复用的执行步骤，也可能夹带过期路径、字段与服务参数。",
+      "detail": "研究在 Terminal-Bench 2、税表、AppWorld 和 ScienceWorld 四类任务环境中比较静态 Skill 复用、无 Skill 与维护后复用的表现。系统在原成功轨迹里保存小型环境探针，任务运行前先在新环境执行探针，识别与原状态不符的信息，再局部修订相关 Skill 字段并验证。若修复不可行则触发重建，不需要提前知道环境究竟变化了什么。评估除任务是否成功，还跟踪 Skill 在推理步骤和总成本上的复用价值。",
+      "findings": "技能库需要持续环境感知和局部维护机制，否则长期复用可能从收益转变为风险。",
+      "why_it_matters": "可以结合 Skill Regression Suite，建立变化检测、受影响依赖定位、局部修复和回滚的自动流水线。",
+      "published": "2026-11-17",
+      "score": 95,
+      "topics": [
+        "continual-learning",
+        "evaluation",
+        "framework",
+        "skills",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.22525"
+        }
+      ]
+    },
+    {
+      "title": "SEAM：600 个电脑操作任务测试跨屏幕组合危险",
+      "summary": "SEAM 构建 600 个 OSWorld 任务，重点测试单个页面看似正常、跨页面组合后却造成问题的 Computer-Use Agent 行为。论文区分能否识别危险关系与是否真正停止组合行动，揭示视觉代理存在从理解到执行的落差。对家庭和企业个人代理，跨应用操作的累计影响需要被纳入结果验证。",
+      "intro": "传统安全评测可能只检查某个操作本身，但现实中读取信息、复制内容和发送出去等动作组合才产生风险。",
+      "detail": "研究基于 OSWorld 的有状态桌面任务，将多个页面中相互关联的操作串成执行轨迹。Agent 需要一边完成合法目标，一边判断不同应用的权限、数据敏感性及前后置条件。分析揭示系统可能描述正确的安全顾虑，却仍执行产生不良后果的后续行动。对 Personal Agent 可构造跨邮件、浏览器与日历的数据转移任务，使用最终外部状态而不是语言承诺判断结果。",
+      "findings": "跨屏幕安全需要跟踪组合状态和工具副作用，不能只检查单步文本输出。",
+      "why_it_matters": "建议建立跨应用 Action Effect Ledger，提前预测敏感数据的去向和不可逆操作。",
+      "published": "2026-11-17",
+      "score": 92,
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "personal",
+        "safety",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "SEAM 原论文",
+          "url": "https://arxiv.org/abs/2611.22971"
+        }
+      ]
+    },
+    {
+      "title": "EvoDisco：从动态经验中演化长程 Agent 的记忆使用策略",
+      "summary": "EvoDisco 关注 Agent 随任务经历增长而动态调整经验检索和记忆更新机制。与单纯把运行轨迹追加到向量库不同，它尝试从已有执行经验中发现更有效的记忆组织策略。该框架适合长期个人和办公 Agent，核心是判断哪些经验能提高下一次行动，而不是最大化记忆条数。",
+      "intro": "长期使用的 Agent 面对重复与变化任务，历史经验既有潜在价值，也可能因为过时或任务差异带来错误。",
+      "detail": "研究把任务执行历史作为经验 Seed，尝试通过反馈调整如何保留、检索和重用经验，并验证策略对之后任务的影响。与昨日的 Self-Improvement Memory 不同，EvoDisco 关注终端 Agent 的动态经验策略，而非仅保存优化 Harness 的决策日志。技术上应区分记忆内容质量、召回成本、被使用的时机和最终结果增量。适合结合 Skill Maintenance 的环境变化检查，避免检索到陈旧经验后错误复用。",
+      "findings": "记忆的任务效用与历史覆盖面不同，经验管理需要随真实执行反馈持续演化。",
+      "why_it_matters": "为 Memory Policy 设计有状态离线回放，并比较动态管理与静态 Top-k 检索的长程任务增益。",
+      "published": "2026-11-17",
+      "score": 90,
+      "topics": [
+        "continual-learning",
+        "framework",
+        "memory",
+        "self-evolution",
+        "skills"
+      ],
+      "sources": [
+        {
+          "name": "EvoDisco 原论文",
+          "url": "https://arxiv.org/abs/2611.22102"
+        }
+      ]
+    },
+    {
+      "title": "Agent Trust Infrastructure：跨企业 Agent 的身份、信任和责任追踪",
+      "summary": "Agent Trust Infrastructure 提出跨组织多 Agent 交互所需的联邦身份、证明和责任追踪结构。重点是让不同服务中的 Agent 可以证明其身份、执行权限和行为来源，而不是把权限完全隐藏在自然语言里。它对未来 Personal Agent 代表用户调用多家平台服务具有系统架构参考价值。",
+      "intro": "跨组织代理一旦具备长期职责，授权范围、代理身份和审计日志不能只保存在单个应用内部。",
+      "detail": "论文提出将 Agent 身份和授权断言关联到可检查凭证，结合远程证明、跨域信任和行动归属机制处理多个服务互操作。系统需要区分委托者、执行者、第三方工具、请求内容和最后副作用，允许服务验证权限链的有效性。此类架构为授权漂移研究提供工程补充：不仅测模型是否越权，也让真实系统拥有拒绝不合规调用的能力。可与 Google Tasks 和微软 Autopilot 的持续身份机制一起观察。",
+      "findings": "多平台 Agent 的可信执行需要贯穿身份、权限和结果的可验证链条。",
+      "why_it_matters": "研究具备时效性的委托凭证、用户撤权后的缓存失效和跨工具行动审计。",
+      "published": "2026-11-17",
+      "score": 86,
+      "topics": [
+        "framework",
+        "personal",
+        "safety",
+        "tool-use",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "Agent Trust Infrastructure 原论文",
+          "url": "https://arxiv.org/abs/2611.23202"
+        }
+      ]
+    }
+  ]
+}

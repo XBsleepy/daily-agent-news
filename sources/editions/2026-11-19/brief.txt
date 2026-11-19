@@ -1,0 +1,1 @@
+11 月 19 日重点：Google Gemini 4 Neon、OpenAI 芯片设计研究、Surge DAYJOB: Law 与 NVIDIA Cosmos Data Factory 推进高效 Agent、真实工程和专业任务评测；CrossEnv、RepoFactory、ATLAS-Finance 加速可验证跨环境训练；The Resolution Hypothesis、M3OPD、Skill Staleness 与 LangSmith Coding ROI 聚焦高可靠自我改进、蒸馏和交付效益。

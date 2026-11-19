@@ -1,0 +1,637 @@
+{
+  "field": "field-5",
+  "date": "2026-11-19",
+  "items": [
+    {
+      "title": "Google Gemini 4 Neon：高性能与低成本兼顾的复杂 Agent 模型",
+      "summary": "Google 发布 Gemini 4 Neon，定位在 Carbon 的深度能力与 Hydrogen 的执行效率之间，面向复杂编程、办公与科学任务。其 Terminal-Bench 4.1 为 65.2%，Agent Arena 排名第二，标准 API 输入和输出分别为每百万 Token 3 与 15 美元。Neon 已接入 Gemini API、Antigravity 和 Gemini 应用，并可用于 Tasks in Gemini 的后台任务。",
+      "intro": "Gemini 4 Neon 于 11 月 18 日发布，提供四档 Thinking Level 和百万 Token 上下文，在更严格的任务预算下强化模型可控性。",
+      "detail": "官方报告其在 Vals Index 得分 70.9%、AutomationBench 56.3%、Chartography 73.5%，在 Antigravity Harness 上 SWE-sweep 达到 39.0%，高于 mini-SWE 单独运行的 12.8%。工程侧强调中途用户修正时的稳定规划、上下文压缩、子 Agent 调度和精确文件修改。官方还比较了固定评测设置中的单位任务成本，指出高推理强度不一定是经济上最优的默认选择。Neon 是 Google 4 系列新模型发布，而非将 11 月 17 日 Tasks in Gemini 的开放再次重复计为新品。",
+      "findings": "高能力模型与 Harness、推理强度和任务成本构成联合优化问题，基模分数不能直接替代真实任务交付率。",
+      "why_it_matters": "在同等预算和成功率下比较 Neon、Carbon 与 Hydrogen 的路由策略，特别测量用户中途修正、长任务恢复和子 Agent 状态交接。",
+      "published": "2026-11-18",
+      "score": 100,
+      "topics": [
+        "coding",
+        "personal",
+        "product",
+        "tool-use",
+        "training",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "Google 官方发布",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 芯片设计研究：GPT 与 EDA 工具协同优化真实硬件",
+      "summary": "OpenAI 公开了模型参与 Jalapeño 自研推理芯片计算模块及第三方处理器设计的新实验。研究用实际电路、面积与性能结果评估 RTL 优化，并与 Synopsys 合作引入可验证的芯片设计工具流程。AI4AI 的价值在于让模型提出优化、工程工具验证、实际硬件性能反馈组成可信闭环。",
+      "intro": "11 月 18 日的新研究对此前 AI 辅助 Jalapeño 芯片项目给出更细粒度的设计优化证据，并涉及 AMD 芯片合作及开放 RISC-V 核心评测。",
+      "detail": "OpenAI 在多个现实处理器与电路设计环节使用模型生成 RTL 方案，再运行芯片设计工具检查面积、时序、功耗和逻辑正确性。论文比较了 PicoRV32 与 Ibex 等开放核心中规格到 RTL、RTL 优化任务，不把一次代码生成视为芯片设计任务的完成。与 Synopsys 的合作意在把强模型推理和可信 EDA 分析器结合，让生成候选接受硬约束与物理指标的重复验证。研究者可将电路工件作为可执行训练环境，而非只依据语言模型打分。",
+      "findings": "真实 EDA 结果能为自动科学工程优化提供比人工偏好或静态编译更强的可验证奖励。",
+      "why_it_matters": "研究 Hardware-in-the-Loop 自我改进，评估候选生成次数、独立 Verifier 质量、实际 PPA 收益与设计回归成本。",
+      "published": "2026-11-18",
+      "score": 99,
+      "topics": [
+        "coding",
+        "evaluation",
+        "product",
+        "science",
+        "self-evolution"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方研究",
+          "url": "https://openai.com/index/advancing-chip-design-with-our-models/"
+        }
+      ]
+    },
+    {
+      "title": "Surge DAYJOB: Law：71 项真实法律工作挑战 Agent 专业判断",
+      "summary": "Surge AI 发布 DAYJOB: Law，包含 71 个法律工作任务和 2,638 个混合格式文件，要求 Agent 自主调查冲突证据并形成专业结论。即使是最强模型，在要求达到 95% Rubric 质量的标准下，尝试通过率仍低于 40%。该评测把信息搜集、事实认定和专业审慎判断区分开，是 Work Agent 真实交付的重要对照。",
+      "intro": "DAYJOB: Law 模拟尽职调查、合同审阅、遗产、股权及争议处理，不将法律工作简化为标准问答。",
+      "detail": "任务工作空间包含合同、邮件、PDF、诉讼文件、手写材料和有意保留的过期资料，有的任务多达 160 份文件。Agent 需要分辨事实与推测，例如股权表与正式股东名册出现冲突时，不应仅按单个表格算出融资份额。测试使用专业 Rubric 衡量事实调查、法律结论和交付判断，结论正确不能通过单纯检索命中文件来替代。这与昨日 SWE-CoWork 对完整交付的评价具有跨领域可比性，但属于独立的法律基准。",
+      "findings": "专业任务失败常发生于对证据权重、遗漏条件与推论边界的判断，而非找不到信息。",
+      "why_it_matters": "构造 Evidence-to-Decision 训练任务，分别考察证据冲突发现、缺失证据识别和专业结论成立条件。",
+      "published": "2026-11-18",
+      "score": 99,
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "science",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "Surge AI 原始发布",
+          "url": "https://surgehq.ai/blog/dayjob-law"
+        }
+      ]
+    },
+    {
+      "title": "CrossEnv：从 MCP 与 Skill 文档合成跨环境可验证 Agent 任务",
+      "summary": "CrossEnv 以 MCP 服务和 Skill 文档为 Seed，利用实体—工具关系图自动连接不同工具环境并构造可执行任务。它把跨服务状态依赖、环境内数据一致性和独立结果验证纳入同一生成流程，再通过单环境到跨环境的 Curriculum 训练 Agent。在四项外部基准上，研究报告更少样本即可取得有竞争力的长程工具执行表现。",
+      "intro": "真实用户的长任务通常在邮箱、文档、支付、数据库和日历等系统间移动，不适合只在单一工具沙箱生成训练题。",
+      "detail": "研究筛选 801 个 MCP 服务 Seed 与 682 份 Skill 文档，通过 Entity-Tool Graph 识别跨系统可连接的对象、工具、状态边和依赖路径。在形成任务后会根据任务条件为环境插入一致的具体数据，并为终态编写 Verifier，避免仅依靠自然语言评价。CrossEnv-Curriculum 先训练单环境行为，再增加环境、业务域与用户交互复杂度。研究重点是可执行性、跨环境状态流和未见环境组合迁移，而不只是把不同 API 拼成更长动作序列。",
+      "findings": "跨环境数据一致性与可验证状态转移，是合成真实长期 Agent 训练数据的核心难点。",
+      "why_it_matters": "可在跨系统 C→D 失败边界上训练，并分别控制环境连接数、状态依赖深度与用户确认节点。",
+      "published": "2026-11-17",
+      "score": 98,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "evaluation",
+        "framework",
+        "tool-use",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "CrossEnv 原论文",
+          "url": "https://arxiv.org/abs/2611.22777"
+        }
+      ]
+    },
+    {
+      "title": "RepoFactory：从真实仓库构建 10,159 个可演化 Coding 环境",
+      "summary": "RepoFactory 将真实 Git 项目还原为从需求重新实现完整工程的可验证 Coding Agent 环境，共生成 10,159 个任务环境。Environment Evolution Loop 使用有效性、结构耦合和实现范围的廉价代理指标持续优化环境；训练 RepoHorizen 后，NL2Repo-Bench 从 23.8% 提升到 46.4%。这是从静态任务采集走向训练价值导向环境生成的重要案例。",
+      "intro": "过去多数 Coding Agent 数据生产侧重修复一个具体 Issue，而 RepoFactory 更强调跨文件、跨模块和完整项目实现。",
+      "detail": "生成器从真实代码仓库抽取语言规格、实现关联和可检查测试，重构为完整可运行任务。Environment Evolution Loop 不需要每轮都训练完整模型，而是用静态分析和代理反馈估计任务是否有效、是否存在结构依赖和足够的实现范围。其 10,159 个环境分属 17 类软件领域，伴随约 10,947 条 SFT 轨迹；Qwen3.5-35B-A3B 训练后的 RepoHorizen 在五项外部评测平均从 45.1 提高到 53.5。去掉环境演化时，NL2Repo 约 41.3%，为持续调整数据环境提供额外收益证据。",
+      "findings": "构建高价值训练环境可以依赖代理指标先筛选，但最终仍需测量真实 OOD 成功增益。",
+      "why_it_matters": "比较代理环境难度、学生实际失败分布与下游训练收益，探索 Training-Value-Aware Environment Selection。",
+      "published": "2026-11-16",
+      "score": 98,
+      "topics": [
+        "coding",
+        "data-synthesis",
+        "environments",
+        "framework",
+        "self-evolution",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "RepoFactory 原论文",
+          "url": "https://arxiv.org/abs/2611.21152"
+        }
+      ]
+    },
+    {
+      "title": "ATLAS-Finance：跨企业系统完成复杂银行交付的 Agent 评测",
+      "summary": "ATLAS-Finance 包含 100 个投行专业任务和 13 个模拟企业 Workspace，要求 Agent 读取多系统资料并交付真实财务模型。其专家 Rubric 达 14,280 条，最佳模型的平均 Rubric 得分为 71.7%，但 Pass@1 只有 10.7%。它揭示专业长任务中局部计算正确与最终可交付之间的显著差距。",
+      "intro": "ATLAS-Finance 的任务源于资深金融人员设计的真实工作情境，而非随机构造金融问答。",
+      "detail": "每个企业 Workspace 提供类似 Outlook、Slack、Google Drive、Calendar、OneNote 与 Linux 的工具接口，以及历史交易、财务文件和动态更新消息。任务目标可能要求自己发现新邮件中的估值假设、跨文件重建完整 Excel 模型、检查税务及融资约束，最后按用户要求实际交付。细粒度 Rubric 会检查数值、前提、结构、格式和交付条件，关键条目不满足时相应部分得分归零。高分模型的严格终局完成率很低，说明真实专业 Agent 需要独立的业务语义 Verifier。",
+      "findings": "真正专业 Work Agent 必须同步满足数据版本、业务假设、公式一致性与交付条件，不能以部分高分代表完成。",
+      "why_it_matters": "适合抽取财务模型 C→D 失败点，生成跨文档依赖校验、财务公式重算和最终交付验证子任务。",
+      "published": "2026-11-17",
+      "score": 97,
+      "topics": [
+        "benchmark",
+        "environments",
+        "evaluation",
+        "tool-use",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "ATLAS-Finance 原论文",
+          "url": "https://arxiv.org/abs/2611.22085"
+        }
+      ]
+    },
+    {
+      "title": "NVIDIA Cosmos Data Factory：Agent 用两段指令编排训练数据生产",
+      "summary": "NVIDIA 公布 Cosmos Data Factory 的五套云端蓝图和六种可组合 Skill，让 Coding Agent 自动组织数据检索、增强、生成、标注及评价。它覆盖自动驾驶场景、视频天气变化、稀有事件和工业缺陷数据，官方报告在特定配置下数据装配最快提升 60 倍。其重要性在于把合成数据制作从孤立脚本升级为带检查和成本核算的 Agent 工作流。",
+      "intro": "Cosmos Data Factory 于 11 月 18 日发布新技术文章，展示由 Agent 通过 Setup 与执行两个提示完成可配置数据生成管线。",
+      "detail": "蓝图共享 Orchestration Skill，可在集群完成预检、部署和多阶段执行；Auto Labeling、AnomalyGen、Augmentation、Curation、Simulation 等 Skills 可单独复用。流水线对视频伪影、目标属性及物理合理性使用评价器，并为缺陷图像保存原始数据、Mask、生成设置及标注 Manifest。NVIDIA 在八张 RTX PRO 6000 Blackwell 服务器的成本口径下报告自动驾驶场景生成 GPU 计算费约每段 2.66 美元，而相关人工采集对比值约为每段 125 美元。完整数据成本还涉及准备、储存与人工复核；这不影响它对 Data Factory 自动化流程的工程价值。",
+      "findings": "生成、筛选和溯源成为可组合的 Agent Skill，有望缩短物理 AI 长尾数据覆盖成本。",
+      "why_it_matters": "在固定真实验证集下对比原始、合成、带物理筛查的合成数据，量化每美元下游成功增益。",
+      "published": "2026-11-18",
+      "score": 97,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "product",
+        "science",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "NVIDIA 技术博客",
+          "url": "https://developer.nvidia.com/blog/build-training-ready-physical-ai-datasets-with-two-prompts-in-nvidia-cosmos/"
+        }
+      ]
+    },
+    {
+      "title": "Google Genie 4 在 Project Genie 开放：Agent 实时编排可交互世界",
+      "summary": "Google 将已在 10 月发布研究预览的 Genie 4 向符合条件的 AI Ultra 用户开放，并推出 Project Genie Agent。用户可用自然语言实时编辑环境、生成原生音频、与 Agent 共同构造事件，并在社区画廊分享和 Remix 世界。此次关键增量是产品开放和可交互编排，而非再次将 Genie 4 算作首次模型发布。",
+      "intro": "Project Genie 是交互式世界生成实验平台，11 月 18 日更新将 Genie 4、Genie 3 扩展能力与新的构建助手整合。",
+      "detail": "新 Agent 可依据用户描述生成场景风格与音乐，根据当前画面通过 Gemini 给予建议或触发事件；Genie 4 支持运行中修改环境、地形、天气和人物动作。Genie 3 可选更长的三分钟会话、连续世界与全景图输入。世界模型还可能出现物体持续性漂移和多智能体交互不稳定，因此基于它训练工具 Agent 时应增加可验证的状态检查。产品将语言模型编排与动态世界反馈连接，适合原型试验生成式模拟环境的任务价值。",
+      "findings": "交互世界与 Agent 编排融合后，可以探索从自然语言需求生成可观测的训练环境。",
+      "why_it_matters": "研究世界生成物理一致性、可控重置、状态回放和真实任务迁移收益，特别评估多环境状态漂移。",
+      "published": "2026-11-18",
+      "score": 97,
+      "topics": [
+        "environments",
+        "framework",
+        "personal",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Google 官方更新",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/"
+        }
+      ]
+    },
+    {
+      "title": "M3OPD-Reasoner：多教师 On-policy 蒸馏与 RL 串联的开放配方",
+      "summary": "M3OPD-Reasoner 公开从 Qwen3.5-9B 出发，在图像 STEM、视觉感知和视频三个领域进行多教师蒸馏的完整后训练配方。项目提供 135 万条 SFT 数据、19.3 万条 RL 数据，以及不同训练阶段的权重和代码。实验发现领域教师的 On-policy Distillation 可以先合并专长，再在相同数据上继续 RL，超过简单混合训练基线。",
+      "intro": "多模态推理的不同任务域目标差异很大，直接混合训练经常导致能力竞争和数据效率问题。",
+      "detail": "作者先分别训练三个特定领域的教师模型，使用 GSPO 生成学生 On-policy 训练信号，再蒸馏进统一学生。研究控制初始模型与提示集合，比较 MixSFT、MixRL、单领域教师、蒸馏及蒸馏后再 RL 的组合，并在 21 项图像、视频基准上做去污染评估。M3OPD 说明蒸馏与 RL 不必是两条互斥训练路径，教师合并后的学生仍可在同样数据上进一步学习。建议额外观察工具调用行为与跨域隐性退化，不能只评平均视觉 Benchmark 分数。",
+      "findings": "多教师能力合并与后续 RL 可以顺序互补，为低成本多模态 Agent 学生训练提供可复现路线。",
+      "why_it_matters": "比较多教师参数/轨迹混合配比、跨域遗忘与追加 RL 训练收益，寻找最有效的模态后训练顺序。",
+      "published": "2026-11-17",
+      "score": 96,
+      "topics": [
+        "continual-learning",
+        "data-synthesis",
+        "framework",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "M3OPD 原论文",
+          "url": "https://arxiv.org/abs/2611.23034"
+        }
+      ]
+    },
+    {
+      "title": "The Resolution Hypothesis：1,030 次实验揭示 Agent 自改进的评测噪声问题",
+      "summary": "The Resolution Hypothesis 通过 1,030 次 Agent Evolution 运行研究 Prompt、Memory、Skill 和 Harness 的自我改进是否真实有效。论文发现很多候选微调的性能差异小于评测随机波动，导致优化器错误保留偶然高分方案。其核心贡献是把评测分辨率作为自进化系统的基础变量，而不是只增加尝试次数。",
+      "intro": "自改进 Agent 通常通过短期 Benchmark 反馈选择下一版 Harness，但真实增量可能比任务重复采样的方差更小。",
+      "detail": "论文跨多种优化对象、训练策略和评测环境收集上千次运行，分析验证集采样数量、不同候选间差异、复测不确定性以及最终泛化。低分辨率反馈会诱导系统追逐随机性，频繁修改甚至可能造成回退。比较器应增加成对测试、重复采样与可信阈值，并将评测预算优先分配到分数接近的候选。其问题与此前 EvoAudit 的能力遗忘互补：一个关注单次判断是否可靠，另一个关注跨代能力是否保持。",
+      "findings": "Agent Evolution 的反馈质量直接决定改进方向是否可信，筛选器本身必须接受校准。",
+      "why_it_matters": "设计具有统计功效约束的 Harness 候选门禁，把测试方差、收益幅度和总成本纳入升级决策。",
+      "published": "2026-11-17",
+      "score": 96,
+      "topics": [
+        "evaluation",
+        "framework",
+        "self-evolution",
+        "skills"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.23068"
+        }
+      ]
+    },
+    {
+      "title": "LangSmith for Coding Agents：把 Token 成本归因到真实 PR 交付",
+      "summary": "LangChain 发布 LangSmith for Coding Agents 公测，自动关联 Agent 轨迹与 GitHub PR、GitLab MR。看板可比较合并代码的成本、无 PR 会话开支、不同模型的使用情况和 Skill 调用模式。它把 Coding Agent 优化指标从单次 Token 消耗推进到实际交付与成本的联合衡量。",
+      "intro": "原有可观测平台通常展示单条 trace 的费用与延迟，很难把长期软件代理的支出与最终代码结果关联。",
+      "detail": "新版按照 Coding Agent 类型聚合日志，将一个 PR 的多条 Thread、一个 Thread 的多个 PR 进行对应，同时展示 PR 是否开放、关闭或合并。支持 Claude Code、Codex、Cursor、GitHub Copilot 和 Deep Agents，并可追踪长线程费用增长与 Skill 使用。不能产生 PR 的代码审查和调查也可按无归因成本单独分析。该产品为基于 Outcome 的 Harness 改进提供生产可观测信号，并与昨天 Copilot Evals 的回归测量形成互补。",
+      "findings": "真正的 Agent 成本优化应关联交付工件、审查状态、回归质量与过程开销，而非只看每次调用价格。",
+      "why_it_matters": "以每条通过回归测试且最终合并的 PR 为指标，评测路由模型、压缩策略与 Skill 改进。",
+      "published": "2026-11-18",
+      "score": 95,
+      "topics": [
+        "coding",
+        "deployment",
+        "evaluation",
+        "product",
+        "self-evolution"
+      ],
+      "sources": [
+        {
+          "name": "LangChain 官方公告",
+          "url": "https://www.langchain.com/blog/langsmith-coding-agents-roi"
+        }
+      ]
+    },
+    {
+      "title": "micro1 Flow：每份训练任务自动检查公开基准污染与跨任务重复",
+      "summary": "micro1 发布 Flow 数据质量新能力，在训练和评测任务进入流水线时，自动与公开 Benchmark 及已有 Flow 任务比对。系统覆盖文本、代码、图表、音频和视频，并把匹配证据交给人工复核后再决定是否放行。这个更新把训练数据去重、Benchmark 污染防范和数据生产质检结合到了任务提交阶段。",
+      "intro": "11 月 18 日新博客聚焦数据污染与重复检测，和 micro1 10 月 13 日介绍的 Flow QC 专家错误检查属于不同功能。",
+      "detail": "新任务提交时，系统对持续更新的公开 Benchmark 索引和跨项目历史任务执行多模态相似性检索。发现可能泄漏题目的匹配后，不是立即删除，而是保留匹配片段并进入审查；其余任务可以继续流转。公司称检测在内部引擎上数秒内完成，并且默认覆盖所有生产流水线。对真实 Agent Benchmark 的意义是：训练新数据、公开评测和同类任务合成应采用统一的近重复检查，避免微小换词泄漏 Gold。",
+      "findings": "训练数据质量流程需要覆盖跨模态近重复、公开 Benchmark 对照和可审计人工裁决。",
+      "why_it_matters": "建议用不同程度的任务语义改写与多模态换壳测试检测器召回，跟踪误杀与真实污染率。",
+      "published": "2026-11-18",
+      "score": 95,
+      "topics": [
+        "data-synthesis",
+        "evaluation",
+        "product",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "micro1 官方新文章",
+          "url": "https://www.micro1.ai/blog/every-task-checked-against-every-public-benchmark"
+        }
+      ]
+    },
+    {
+      "title": "When Agent Skills Go Stale：只修复环境变化导致的失效 Skill",
+      "summary": "When Agent Skills Go Stale 测试已成功运行的 Agent Skill 在 API、文件和表单环境变化后是否仍有效。论文显示过期 Skill 可使任务成功率降低超过 10 个百分点，或让执行成本增加近 40%；选择性维护最多恢复 67 个百分点准确率。其方案通过重放环境检查，定位并修复失效内容，而不是每次整体重写 Skill。",
+      "intro": "长期 Personal/Work Agent 的技能往往保存了可复用的执行步骤，也可能夹带过期路径、字段与服务参数。",
+      "detail": "研究在 Terminal-Bench 2、税表、AppWorld 和 ScienceWorld 四类任务环境中比较静态 Skill 复用、无 Skill 与维护后复用的表现。系统在原成功轨迹里保存小型环境探针，任务运行前先在新环境执行探针，识别与原状态不符的信息，再局部修订相关 Skill 字段并验证。若修复不可行则触发重建，不需要提前知道环境究竟变化了什么。评估除任务是否成功，还跟踪 Skill 在推理步骤和总成本上的复用价值。",
+      "findings": "技能库需要持续环境感知和局部维护机制，否则长期复用可能从收益转变为风险。",
+      "why_it_matters": "可以结合 Skill Regression Suite，建立变化检测、受影响依赖定位、局部修复和回滚的自动流水线。",
+      "published": "2026-11-17",
+      "score": 95,
+      "topics": [
+        "continual-learning",
+        "evaluation",
+        "framework",
+        "skills",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.22525"
+        }
+      ]
+    },
+    {
+      "title": "AuXSpec：用可执行后置条件训练程序规格自动形式化",
+      "summary": "AuXSpec 将自然语言程序需求转成 Lean 形式化规格，并让声明式后置条件关联可执行版本。系统用执行检查验证规格是否覆盖预期行为，减少每条任务都需要独立人工证明或完整参考实现的成本。它为自动 Coding、AI4AI 软件验证和可扩展程序化奖励提供新的规格生成路线。",
+      "intro": "自动编写形式化规格的难点不只是生成合法 Lean，而是确保自动规格表达了正确的真实任务意图。",
+      "detail": "框架将声明式规格与可以通过类型类解析或额外等价证明得到的执行式检查绑定。模型生成候选规格后，通过实际运行与对照测试检验它是否排除了错误实现，并在失败时获取更细粒度的修正反馈。研究将规格真实性的检查从纯文本或单一证明任务迁移到可执行约束，适合作为合成 Coding Agent 任务 Verifier 的构件。最终需要比较规格判别性、误放过错误程序的比例和验证计算成本。",
+      "findings": "可执行形式化规格提供更可扩展的程序任务监督，能减少只追逐编译成功的虚假奖励。",
+      "why_it_matters": "将 AuXSpec 与 RepoFactory 联合，研究自动生成规格与隐藏行为测试如何共同改善完整工程任务验证。",
+      "published": "2026-11-16",
+      "score": 94,
+      "topics": [
+        "coding",
+        "evaluation",
+        "framework",
+        "science",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "AuXSpec 原论文",
+          "url": "https://arxiv.org/abs/2611.21421"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 训练到部署的 Agent 风险管理：隔离、监控和快速停止",
+      "summary": "OpenAI 公布贯穿模型研究、内部使用和公开部署的分层 Agent 风险管理流程。方法结合离线训练集群、虚拟机沙箱、实时行为监控、跨边界动作审查和统一 Control Room 停止机制。对高自治科研 Agent 而言，允许长任务执行的同时保留可审计中断能力，正在成为系统设计的重要组成部分。",
+      "intro": "11 月 18 日的新技术说明整合了 OpenAI 训练基础设施和不同部署阶段的 Agent 安全工程实践。",
+      "detail": "研究阶段采用不直接访问公网的训练集群、VM 和网络隔离，并用强模型进行边界红队测试。内部使用阶段增加动作审查与推理监控，外部部署阶段结合分类器、自动调查与人工升级机制。Control Room 目标是在收到停止指令后 35 秒内终止模型输出，且控制点位于共享推理基础设施，而非依赖单个任务脚本实现。可将这些措施用于测试新 Harness 在工具越权、任务恢复与后台自主执行中的可观察性。",
+      "findings": "长期自进化 Agent 的可靠性除了最终能力，还包含系统级权限隔离、可观测性和可中断性。",
+      "why_it_matters": "将自动中断、授权变更、动作审计与回放纳入 Harness 自进化的必须通过门禁。",
+      "published": "2026-11-18",
+      "score": 94,
+      "topics": [
+        "evaluation",
+        "framework",
+        "product",
+        "safety",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方技术文章",
+          "url": "https://openai.com/index/managing-frontier-ai-risk/"
+        }
+      ]
+    },
+    {
+      "title": "HubEgo-100K v1.0：一万小时真实劳动第一人称视频训练资源",
+      "summary": "HubEgo-100K 发布 v1.0，整理约 10,124 小时真实劳动第一人称视频并同步 IMU 数据。数据覆盖 12,227 位参与者、15,548 个环境和 56 类任务，约 83% 的视频时长来自专业工作场景。相比普通生活视频，它更直接补充机器人从人类工作方式学习技能所缺少的多职业、多场景素材。",
+      "intro": "HubEgo-100K 名称来自项目面向十万小时的目标；当前开放版本为约一万小时，而非已发布完整十万小时。",
+      "detail": "视频来自头戴手机摄像头，提供 1080p 画面与 100 Hz 惯性信号，并自动抽取动作、语言标注和工作片段。研究报告 v1.0 含 72,754 个操作片段、35 类动作，支持 LeRobot 和 MCAP 格式。高维人类视频不能直接等同机器人可执行动作，因此真实 Robot Policy 的迁移质量仍需通过操作成功率、视角对齐与接触状态来衡量。它可与 Cosmos Data Factory 的合成增强能力构成采集、扩增、验证闭环。",
+      "findings": "真实劳动视频扩展机器人数据的技能覆盖，但动作对齐与标注精度决定其训练价值。",
+      "why_it_matters": "建议固定下游机器人测试，在添加 IMU、职业类别和合成场景增强前后比较跨环境成功增益。",
+      "published": "2026-11-16",
+      "score": 94,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "science",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "HubEgo-100K 论文",
+          "url": "https://arxiv.org/abs/2611.21938"
+        }
+      ]
+    },
+    {
+      "title": "Agentic OPD：领域蒸馏可能破坏其他任务的工具交互策略",
+      "summary": "Agentic OPD 研究数学、ALFWorld 和零售服务代理中的 On-policy 蒸馏负迁移。论文发现 ALFWorld 训练可使 τ²-bench 准确率由 41.5% 降至 6.6%，同时出现不符合用户信息依赖的工具调用。其结果说明提升单领域能力也可能改变 ReAct 的行动习惯，跨域后训练必须单独审查行为回归。",
+      "intro": "On-policy Distillation 通常关注学生是否学到教师专业能力，但 Agent 的工具使用还依赖何时观察、何时行动与何时询问。",
+      "detail": "研究记录 Action、Observation 与 Reasoning 的占比变化，发现一些领域蒸馏使模型更早动用工具，却忽视前置用户条件。一般推理监督可减少数学工具调用并提高数学准确率，代码解释器监督也可能改善家庭操作与零售查询。作者尝试根据 RL 前后教师偏好变化选择性保留位置，改善负迁移，但与源领域学习之间存在取舍。适合将工具调用轨迹、越权动作和用户信息依赖加入 Agent 蒸馏的多域回归测试。",
+      "findings": "Agent 行为策略是独立于最终答案的能力维度，多教师合并可能带来隐性行动偏差。",
+      "why_it_matters": "在蒸馏损失中显式约束工具调用时机、无效操作率和跨域用户权限前提。",
+      "published": "2026-11-14",
+      "score": 93,
+      "topics": [
+        "continual-learning",
+        "evaluation",
+        "tool-use",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "Agentic OPD 原论文",
+          "url": "https://arxiv.org/abs/2611.19244"
+        }
+      ]
+    },
+    {
+      "title": "Ambient LLMs：用冻结基模约束小样本 SFT 的过拟合与遗忘",
+      "summary": "Ambient LLMs 提出 Ambient SFT，在微调时同时匹配一个冻结预训练基模的高温输出分布。方法试图保留预训练知识的背景分布，减少小规模领域监督对模型通用能力的挤压。对于需要持续加入新工具和新知识的 Agent，这提供了一种不必收集全部旧数据的轻量防遗忘思路。",
+      "intro": "在长期 Agent 迭代中，新任务样本数量有限而更新频繁，普通 SFT 可能过度拟合新领域。",
+      "detail": "Ambient SFT 通过额外的分布保持目标，让学生在学习目标标注的同时保持与冻结模型在非目标输出上的接近。高温分布使更多低概率候选参与约束，类似一种从基础模型提取平滑先验的蒸馏机制。方法是否能真正保留动作策略，需要单独在多领域工具调用与长程任务中验证，而不只比较静态语言能力。适合与参数高效微调、LoRA 合并和经验重放进行同预算对照。",
+      "findings": "持续后训练需要兼顾新技能学习与历史能力保存，冻结预训练分布可提供低成本参考。",
+      "why_it_matters": "在代码、客服和机器人动作领域进行顺序微调，记录遗忘率、策略漂移与领域适应成本。",
+      "published": "2026-11-17",
+      "score": 93,
+      "topics": [
+        "continual-learning",
+        "framework",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "Ambient LLMs 原论文",
+          "url": "https://arxiv.org/abs/2611.23229"
+        }
+      ]
+    },
+    {
+      "title": "SEAM：600 个电脑操作任务测试跨屏幕组合危险",
+      "summary": "SEAM 构建 600 个 OSWorld 任务，重点测试单个页面看似正常、跨页面组合后却造成问题的 Computer-Use Agent 行为。论文区分能否识别危险关系与是否真正停止组合行动，揭示视觉代理存在从理解到执行的落差。对家庭和企业个人代理，跨应用操作的累计影响需要被纳入结果验证。",
+      "intro": "传统安全评测可能只检查某个操作本身，但现实中读取信息、复制内容和发送出去等动作组合才产生风险。",
+      "detail": "研究基于 OSWorld 的有状态桌面任务，将多个页面中相互关联的操作串成执行轨迹。Agent 需要一边完成合法目标，一边判断不同应用的权限、数据敏感性及前后置条件。分析揭示系统可能描述正确的安全顾虑，却仍执行产生不良后果的后续行动。对 Personal Agent 可构造跨邮件、浏览器与日历的数据转移任务，使用最终外部状态而不是语言承诺判断结果。",
+      "findings": "跨屏幕安全需要跟踪组合状态和工具副作用，不能只检查单步文本输出。",
+      "why_it_matters": "建议建立跨应用 Action Effect Ledger，提前预测敏感数据的去向和不可逆操作。",
+      "published": "2026-11-17",
+      "score": 92,
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "personal",
+        "safety",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "SEAM 原论文",
+          "url": "https://arxiv.org/abs/2611.22971"
+        }
+      ]
+    },
+    {
+      "title": "ForceHarness：将机器人力觉转换成冻结模型可使用的物理反馈",
+      "summary": "ForceHarness 在不修改基础模型权重的情况下，将机器人力传感信息转成可理解的物理量和可执行动作原语。论文报告 GPT-6 Astra 在无腕部力传感器真实机械臂设置中的零样本成功率由 3.3% 提升到 90.0%。这说明适合环境的工具接口与反馈语义，可能比单纯增强模型本身更能改善真实执行。",
+      "intro": "通用多模态模型通常缺少力觉经验，不容易将原始扭矩读数映射成安全接触与操作策略。",
+      "detail": "ForceHarness 根据手腕传感器或关节扭矩估计接触力，提供可以自行终止的力控制原语，并将传感轨迹翻译成含不确定性的物理状态。研究同步构造 HiddenPhys 七任务 MuJoCo Benchmark，要求 Agent 在隐藏质量与摩擦等物理变量下行动。实验在公开 ForceBench 和 HiddenPhys 上分别提高 17.5 与 34.3 个百分点，并比较专家控制器和模仿学习策略。研究方向是把物理状态封装为 Agent 易推理的 Tool Result，而不是让模型从原始噪声推断全部力学。",
+      "findings": "正确抽象的工具反馈能显著缩短从通用模型到物理执行的能力差距。",
+      "why_it_matters": "可研究语义化力觉、误差估计与动作后果预测，结合真实环境复核提升机器人 Agent 安全和效率。",
+      "published": "2026-11-16",
+      "score": 92,
+      "topics": [
+        "environments",
+        "evaluation",
+        "framework",
+        "science",
+        "tool-use"
+      ],
+      "sources": [
+        {
+          "name": "ForceHarness 原论文",
+          "url": "https://arxiv.org/abs/2611.21099"
+        }
+      ]
+    },
+    {
+      "title": "自主 Self-improvement：不提供学习算法，Agent 能否自己设计改进循环",
+      "summary": "Do LLM Agents Still Need to Be Told How to Self-Improve? 测试在只提供工具、预算和目标时，Agent 是否会自己设计学习程序。部分强模型能够自主形成试验、记录经验、改进策略的循环，并在游戏与三维导航等新任务间迁移经验。其意义是区分按人类给定算法执行优化，与 Agent 自行发现可行改进机制的能力。",
+      "intro": "许多 Self-Evolving Agent 工作其实将优化算法写死，再让模型负责修改提示词或文件；该研究刻意减少这一先验。",
+      "detail": "设置不要求模型使用指定 Reflexion、进化搜索或记忆框架，而是让它自行决定如何试验、判断失败与保存经验。作者比较不同冻结权重前沿模型在游戏、导航和工具任务中的自我组织行为，观察其学习程序是否随反馈稳定迭代。实验强调成本限制与迁移测试，避免把更多试错预算直接当成更强 RSI。研究可以进一步测试模型自己构造的循环在未见任务中，是否比人工设计程序具有更高单位预算收益。",
+      "findings": "自主发现改进策略是高阶能力，应从收益、成本、迁移和自身程序复杂度分开衡量。",
+      "why_it_matters": "为自动学习程序建立公共工具预算和隐藏测试，比较自发现、人工指定与自适应混合策略。",
+      "published": "2026-11-17",
+      "score": 91,
+      "topics": [
+        "continual-learning",
+        "framework",
+        "self-evolution",
+        "skills"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.23219"
+        }
+      ]
+    },
+    {
+      "title": "Values Shape：价值指令影响自进化 Coding Agent 最终构建内容",
+      "summary": "Values Shape What Self-Improving Coding Agents Build 研究价值导向指令如何影响能够反复改进自身方法的 Coding Agent。研究把行为规范作为优化目标输入，考察不同偏好对最终软件工件、执行轨迹与质量的影响。它提醒 Harness 优化不仅会改变任务成功率，也可能改变系统选择实现什么以及牺牲哪些目标。",
+      "intro": "自改进 Coding Agent 往往以测试通过或得分最高为唯一准则，但项目产物还需要考虑隐私、可维护性和用户的真实价值偏好。",
+      "detail": "论文通过改变 Agent 接收的价值表述与执行目标，分析自我改进时对候选方案、工具策略与最终产物的影响。与简单的末端拒绝不同，价值约束在候选生成和自评阶段介入，可以影响搜索到的实现路径。长期研究应将用户可编辑价值偏好、历史权限和执行环境状态共同纳入优化目标。该研究可与 Authorization Drift 和 NormGym 对照，区分明文目标、隐藏规范与实际执行结果。",
+      "findings": "进化中的优化目标决定了最终产物分布，不能把价值与权限视作部署后才加的一层文字约束。",
+      "why_it_matters": "比较目标约束不同的 Agent 在同样回归测试下如何权衡结果可靠性、隐私和执行成本。",
+      "published": "2026-11-17",
+      "score": 91,
+      "topics": [
+        "coding",
+        "evaluation",
+        "framework",
+        "self-evolution"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.23067"
+        }
+      ]
+    },
+    {
+      "title": "VisualArtifactSpec：211 项真实视觉交付物任务与双层质量评测",
+      "summary": "VisualArtifactSpec 收集 211 项演示文稿、网页、设计、动画和视频交付任务，分别评估任务是否完成与成品质量。九组模型—Harness 配置综合得分介于 42.12 与 70.52，作者发现成品质量解释了多数头尾配置差距。它为办公 Agent 从生成文件走向真正专业交付提供了独立测量标准。",
+      "intro": "许多 Work Agent 测试只看有没有生成 PPT 或页面，却忽略内容组织、版式、视觉信息与可用性。",
+      "detail": "任务覆盖创建和编辑多种视觉工件，包括演示、静态设计、网页与视频。评价器将 Task Fulfillment 和 Artifact Performance 拆开，分别考虑要求遵守、内容与组织、视觉清晰度以及交付体验。作者报告成品质量对最高与最低配置差异的解释比例约 73.4%，提示一张通过功能检查的页面不一定是可交付成果。后续可以组合自动化截图与人工审美判断，测量可复现的质量提升。",
+      "findings": "Agent 交付质量需要同时包含功能正确、信息准确和呈现层面的专业可用性。",
+      "why_it_matters": "研究包含视觉约束和可执行验收的 Artifact Verifier，衡量其对完整 Work Agent 交付成功率的影响。",
+      "published": "2026-11-16",
+      "score": 90,
+      "topics": [
+        "benchmark",
+        "coding",
+        "evaluation",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "VisualArtifactSpec 原论文",
+          "url": "https://arxiv.org/abs/2611.21382"
+        }
+      ]
+    },
+    {
+      "title": "Apple FastFrames：交互视频模型将生成延迟压到实时级别",
+      "summary": "Apple FastFrames 通过优化视频生成系统中的 VAE 解码与 KV Cache 更新，减少交互世界模型的系统开销。论文报告 1.3B 模型在一张 B200 上达到约 36 毫秒每帧，14B 模型在八张 B200 上约 45 毫秒每帧。它表明实时仿真训练环境不仅取决于模型质量，也取决于缓存、解码和并行调度。",
+      "intro": "世界模型生成环境用于 Agent 训练时，物理合理性之外还需要足够低的动作到反馈延迟。",
+      "detail": "FastFrames 分析模型推理中经常被当成固定代价的 VAE 解码、KV 更新及批处理路径，对重复执行的组件进行工程优化。官方设置中 1.3B 约达 28 帧每秒、14B 约达 22 帧每秒，满足部分交互应用的实时需求。现实训练环境还需评估长时一致性、物体持续性与因果稳定性，速度提升本身不等于模拟可信。该研究与 Genie 4 的实时互动产品形成互补。",
+      "findings": "把交互式仿真用作 Agent 训练环境，需要将生成延迟与长期状态质量共同评价。",
+      "why_it_matters": "建议测量世界模型动作交互的端到端延迟、状态漂移和训练下游成功率之间的关系。",
+      "published": "2026-11-16",
+      "score": 89,
+      "topics": [
+        "deployment",
+        "environments",
+        "framework",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "FastFrames 原论文",
+          "url": "https://arxiv.org/abs/2611.23226"
+        }
+      ]
+    },
+    {
+      "title": "AI 科研审计实验：前沿模型与人类能否发现研究流程中的破坏",
+      "summary": "关于科研审计能力的新论文让人类和前沿模型审查完整 AI 安全研究 Transcript，寻找被模拟植入的破坏行为。研究重点从单条回答是否有害，转向多步骤科研过程中是否存在被隐藏的错误、误导证据或异常行动。对 AI4AI 而言，这直接关系到自主优化器是否能在没有即时人工监督时可靠审核自身研究。",
+      "intro": "当 Agent 能自主修改训练系统和评测程序时，问题可能隐藏在数百个命令、实验日志和结果文件之间。",
+      "detail": "研究设置模拟的研究破坏活动，让审阅者检查较长的研究轨迹，并比较人类与模型对异常行为的检出能力。有效的科研过程审计不仅要发现最后结果错误，还应定位错误发生的时间、相关工具证据和可能的修复方法。该方向与 OpenAI 同日公开的内部监控与停止机制相呼应，但关注的是研究历史的事后审查能力。后续需要将模型输出可追溯性与独立执行证据相连。",
+      "findings": "更强自主科研能力需要相匹配的过程审计，而非仅依赖末端 Benchmark 或自评。",
+      "why_it_matters": "建立 Audit Trail Benchmark，让多个审计 Agent 检查历史修改、隐性目标变化和 Verifier 被改写等场景。",
+      "published": "2026-11-17",
+      "score": 88,
+      "topics": [
+        "evaluation",
+        "safety",
+        "science",
+        "self-evolution"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.21832"
+        }
+      ]
+    },
+    {
+      "title": "Amazon Mind the Gap：让文档维护 Agent 从客服信号持续更新知识",
+      "summary": "Amazon 的 Mind the Gap 介绍已部署的多 Agent 文档维护系统，用持续收集的用户支持信号发现文档内容与产品行为之间的漂移。系统把问题识别、证据聚合、修订建议和文档更新组成持续工作流。它展示了企业 Agent 从一次性生成文章走向长期维护知识资产的实际应用。",
+      "intro": "技术文档会随 API、产品流程和用户真实问题不断变化，静态文档生成 Agent 很难长期保持准确。",
+      "detail": "研究使用客服和文档反馈信号定位说明错误、缺失步骤或旧接口信息，由不同职责 Agent 执行调查、草拟修改与验证。它关注文档维护的持续循环：新问题出现、证据积累、确定是否真正失效、修订并观察之后的反馈。此类系统与 Skill Staleness 研究互补，后者针对 Agent 自身技能，这里针对用户可见的知识材料。可靠部署时应保存信息来源、变更原因与回滚能力。",
+      "findings": "生产系统中的持续 Agent 可以把用户反馈转成维护行动，关键在于证据确认和可回归更新。",
+      "why_it_matters": "比较不同更新频率、误报率和人工复核策略对文档纠错时延及知识可信度的影响。",
+      "published": "2026-11-17",
+      "score": 87,
+      "topics": [
+        "continual-learning",
+        "framework",
+        "skills",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "Amazon Mind the Gap 原论文",
+          "url": "https://arxiv.org/abs/2611.23142"
+        }
+      ]
+    },
+    {
+      "title": "Agent Trust Infrastructure：跨企业 Agent 的身份、信任和责任追踪",
+      "summary": "Agent Trust Infrastructure 提出跨组织多 Agent 交互所需的联邦身份、证明和责任追踪结构。重点是让不同服务中的 Agent 可以证明其身份、执行权限和行为来源，而不是把权限完全隐藏在自然语言里。它对未来 Personal Agent 代表用户调用多家平台服务具有系统架构参考价值。",
+      "intro": "跨组织代理一旦具备长期职责，授权范围、代理身份和审计日志不能只保存在单个应用内部。",
+      "detail": "论文提出将 Agent 身份和授权断言关联到可检查凭证，结合远程证明、跨域信任和行动归属机制处理多个服务互操作。系统需要区分委托者、执行者、第三方工具、请求内容和最后副作用，允许服务验证权限链的有效性。此类架构为授权漂移研究提供工程补充：不仅测模型是否越权，也让真实系统拥有拒绝不合规调用的能力。可与 Google Tasks 和微软 Autopilot 的持续身份机制一起观察。",
+      "findings": "多平台 Agent 的可信执行需要贯穿身份、权限和结果的可验证链条。",
+      "why_it_matters": "研究具备时效性的委托凭证、用户撤权后的缓存失效和跨工具行动审计。",
+      "published": "2026-11-17",
+      "score": 86,
+      "topics": [
+        "framework",
+        "personal",
+        "safety",
+        "tool-use",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "Agent Trust Infrastructure 原论文",
+          "url": "https://arxiv.org/abs/2611.23202"
+        }
+      ]
+    },
+    {
+      "title": "Post-selection Inference：修正 Coding Agent 多轮选优产生的研究偏差",
+      "summary": "Inference after Coding Agents 研究 Coding Agent 反复生成、实验并只汇报最好一次结果时产生的选择偏差。论文将统计推断的 Post-selection 校正引入 Agent 输出，避免把大量尝试中的偶然高分误报为可靠改进。它对 AI Scientist、自动模型优化和科学代码任务的结果报告有直接方法意义。",
+      "intro": "自动实验 Agent 可能执行许多候选、重试及数据分析，却只展示最显著的指标，这会造成选择性推断失真。",
+      "detail": "研究把模型自主生成和筛选程序视作带有复杂选择机制的统计过程，尝试在最终推断时考虑这一选择。与 The Resolution Hypothesis 不同，前者关注选中的科学结论是否仍然有效，后者关注训练时能否可靠判断候选方案差异。两者可以组合为一套自动化科研验证规范：前端候选复测、后端对选出的结论进行统计校正。适用于不断优化模型参数、硬件设计和算法超参数的 Agent。",
+      "findings": "自动化试验次数增加会放大选择偏差，需要让科研 Agent 在报告阶段校正显著性和可信区间。",
+      "why_it_matters": "把研究轨迹、选择过程和最终对照实验一起存档，建立防虚假阳性的 AI4AI 结果验证流程。",
+      "published": "2026-11-17",
+      "score": 85,
+      "topics": [
+        "coding",
+        "evaluation",
+        "framework",
+        "science"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原论文",
+          "url": "https://arxiv.org/abs/2611.23174"
+        }
+      ]
+    }
+  ]
+}
