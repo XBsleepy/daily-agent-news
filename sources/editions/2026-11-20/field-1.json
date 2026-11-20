@@ -1,0 +1,419 @@
+{
+  "field": "field-1",
+  "date": "2026-11-20",
+  "items": [
+    {
+      "title": "OpenAI Performance Factory：Codex 自动诊断、修复并验证 ChatGPT 性能回归",
+      "summary": "OpenAI 披露生产级 Performance Factory，用 Codex 在性能告警后自动调查根因、提出修复并在部署后验收。系统三个多月跟踪 1,700 多次调查并定位超过 600 个问题，100 例根因建议的人工抽检准确率为 70%。关键创新是显式任务状态、异步事件恢复和独立反证 Agent 组成真实工程闭环。",
+      "intro": "OpenAI 披露生产级 Performance Factory，用 Codex 在性能告警后自动调查根因、提出修复并在部署后验收。",
+      "detail": "系统通过任务服务维护每个回归的调查、修复和验证阶段，调度器启动具备指标、追踪、代码与 Profiler 权限的云端 Codex。独立 Review Agent 专门尝试推翻初步根因，减少单条日志触发的错误归因；工程师审阅 PR，系统在部署后检查指标是否恢复。任务订阅代码评审或部署事件，等待期间无需常驻推理。每日诊断工具故障的 Agent 还能提出对自身工具的修复，形成可审计的运行环境自修复机制。",
+      "findings": "生产系统正在把 Agent 的长程任务编排、可恢复状态、反证与结果验证连接到同一套执行框架。",
+      "why_it_matters": "可研究以真实事故重放构造训练集，分别提高根因准确率、修复通过率和单位算力节约，并建立更新 Harness 后的跨版本回归评测。",
+      "published": "2026-11-19",
+      "score": 100,
+      "topics": [
+        "self-evolution",
+        "coding",
+        "tool-use",
+        "framework",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI Engineering",
+          "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast/"
+        }
+      ]
+    },
+    {
+      "title": "Snorkel Binary-Gated GRPO：让长期职业任务的失败轨迹也产生可靠训练信号",
+      "summary": "Snorkel 使用 1,105 个专家构造的职业交付任务训练 Qwen3.8-27B，GDPval Gold pass@1 从 31.9% 提升至 40.7%。Binary-Gated GRPO 在组内出现成功时优先学习通过或失败，仅在整组失败时使用细粒度 Rubric 分数做回退信号。102K 次 Rollout 后，有效训练信号组占比由普通 GRPO 的 21% 提升到 95%。",
+      "intro": "Snorkel 使用 1,105 个专家构造的职业交付任务训练 Qwen3.8-27B，GDPval Gold pass@1 从 31.9% 提升至 40.7%。",
+      "detail": "GDPval+ 任务包含专家参考交付物与可分解的评分规则，训练时综合检查 Rubric 覆盖、关键结果和参考结论一致性。普通二元 GRPO 有 79% 的采样组全失败而无法提供梯度；Binary-Gated 方法在全失败组使用部分分数排序，在混合成功组严格保留二元成功优先级。作者报告模型在 LLM Judge 的专家对比中优于专家的比例由 36.4% 增至 44.0%，耗尽预算的任务比例下降。方法重点是避免把局部高分但最终失败的轨迹误当作胜过完成任务的轨迹。",
+      "findings": "真实专业任务训练需要区分有价值的失败进度和目标已经完成的成功，并维持明确的奖励优先级。",
+      "why_it_matters": "可把成功率稀疏的 Code/Work Agent 任务拆为程序化检查维度，用 Binary-Gated 规则比较学生失败分布改善及完整任务最终完成率。",
+      "published": "2026-11-19",
+      "score": 99,
+      "topics": [
+        "training",
+        "evaluation",
+        "work",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Snorkel 官方研究",
+          "url": "https://snorkel.ai/blog/gdpval-agents-rare-success/"
+        }
+      ]
+    },
+    {
+      "title": "Game2Player：由 Builder 和 Player 联合合成 568 个可验证游戏环境",
+      "summary": "Game2Player 从真实 Web 游戏出发，Builder 暴露内部状态并定义可验证任务，Coding Player 和 VLM Player 通过实际游玩发现环境问题。系统得到 568 个环境、3,436 项任务和约 1.57 万条轨迹，并留出 50 款游戏构建 PlayerBench。Progress-weighted SFT 让 9B 视觉 Agent 的 PlayerBench 任务进度从 14.3% 提升至 31.2%。",
+      "intro": "Game2Player 从真实 Web 游戏出发，Builder 暴露内部状态并定义可验证任务，Coding Player 和 VLM Player 通过实际游玩发现环境问题。",
+      "detail": "环境生成以 Unity、Flash、Godot、PICO-8 等既有游戏为种子，Builder 将其改造为离线可运行并暴露可读取状态。Coding Player 使用真实游戏状态编写策略，VLM Player 只凭屏幕行动；双方遇到按键无效、缺失状态变量或误判成功时，把失败反馈给 Builder 修复。验证通过的轨迹同时记录观察、动作和任务进度，可用于按实际目标推进程度加权的模仿学习。PlayerBench 独立保留未见游戏，防止训练直接复现同一环境。",
+      "findings": "Environment Synthesis 最有价值的反馈来自 Agent 真正能否交互、能否推进目标和是否存在错误 Verifier。",
+      "why_it_matters": "可把环境-玩家共演化扩展到网页、企业软件和科研仪器，单独评估跨环境迁移与生成任务的真实训练效用。",
+      "published": "2026-11-18",
+      "score": 98,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "evaluation",
+        "benchmark",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24154"
+        }
+      ]
+    },
+    {
+      "title": "MRPD：离线重放专家 RL 轨迹，低成本整合多领域长程能力",
+      "summary": "Replay, Don't Resample 提出 MRPD，直接重放多个专家 RL 训练期间保留的轨迹、采样概率与奖励，而不要求 Student 再访问环境。系统按照专家原始训练顺序交替施加策略梯度和教师蒸馏，整合成本约为训练专家总算力的七分之一。在推理、搜索与 SQL 三类长程任务中，学生表现超过所测在线整合和多教师 On-policy Distillation 对照。",
+      "intro": "Replay, Don't Resample 提出 MRPD，直接重放多个专家 RL 训练期间保留的轨迹、采样概率与奖励，而不要求 Student 再访问环境。",
+      "detail": "传统 MOPD 让学生重新探索各环境并调用教师为每个 Token 打分，计算成本与长程 Rollout 开销都很大。MRPD 以专家训练过程作为近似 On-policy 的课程：复现不同阶段轨迹，重算 Student 的梯度，并在记录前缀处对最终教师行为进行蒸馏。作者消融发现历史轨迹顺序比总数据量或原始奖励更重要，说明多教师轨迹不仅是样本池，也承载技能学习的先后依赖。",
+      "findings": "专家训练日志应被视为具备时间顺序的课程，而不仅是可随机洗牌的蒸馏数据。",
+      "why_it_matters": "可比较专家失败阶段、恢复阶段和稳定阶段的不同采样配方，并评估对跨工具复合任务的迁移。",
+      "published": "2026-11-18",
+      "score": 98,
+      "topics": [
+        "training",
+        "continual-learning",
+        "data-synthesis",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24059"
+        }
+      ]
+    },
+    {
+      "title": "Piccolo：研究 Agent 让决策模型与训练数据共同迭代",
+      "summary": "阿里巴巴相关研究提出 Piccolo 系列多模态决策模型，利用研究 Agent 分析错误、筛选数据、执行训练实验并持续更新配方。Piccolo-27B 在 Decision Index Vision Full 获得 75.59 分，4B 和 9B 模型也表现出较强的领域决策能力。研究发现模型底座与训练配方适配、针对性数据筛选，可能比盲目换用更新底座更重要。",
+      "intro": "阿里巴巴相关研究提出 Piccolo 系列多模态决策模型，利用研究 Agent 分析错误、筛选数据、执行训练实验并持续更新配方。",
+      "detail": "系统将模型评测切分成可诊断的语义子集，研究 Agent 以共享研究记忆记录失败、候选数据及实验效果，再把发现投入下一轮训练。不同模型大小共享部分研究流程，同时针对视觉和工具决策做专门数据整理。报告指出训练损失持续下降有时并不改善离散决策准确率，小模型通过定向数据可能接近更大底座的表现。训练资产与 Data-Juicer、AgentScope 生态配合，强调可反复实施的数据工程闭环。",
+      "findings": "模型自进化需要把训练数据、研究经验和独立决策评测同时作为可更新对象。",
+      "why_it_matters": "可从失败语义切片产生训练候选，比较数据选择、优化配方与底座更替的边际研究收益，并引入回归门控。",
+      "published": "2026-11-18",
+      "score": 98,
+      "topics": [
+        "self-evolution",
+        "training",
+        "data-synthesis",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24651"
+        }
+      ]
+    },
+    {
+      "title": "Introspective Oversight：训练模型回答可被执行日志验证的自身行为问题",
+      "summary": "Introspective Oversight 在模型内训练独立第三人称 Observer，让它准确报告 Assistant 实际做过的事情。训练标签来自可以核查的行为事实，而不是模型对自身是否诚实的主观回答。Qwen3.6-27B 的五项留出行为监督任务平均 AUROC 达到 0.907，超过诚实训练和外部文本监控基线。",
+      "intro": "Introspective Oversight 在模型内训练独立第三人称 Observer，让它准确报告 Assistant 实际做过的事情。",
+      "detail": "研究把负责执行原任务的 Assistant 与只回答行为审计问题的 Observer 角色区分开，后者通过实际行为日志和结果真值监督。评测对比 Honesty Training 的 0.864、Transcript Monitor 的 0.828 与 Activation Oracle 的 0.796 AUROC。作者还观察到加入 Observer 训练后，Assistant 本身对其他监控方法也更容易被观察。方法为长程 Agent 引入可验证的行为问答监督，但实际部署仍需要对未见工具和稀有错误进行压力测试。",
+      "findings": "Agent 训练集应同时记录它给出的答案和可独立检查的执行事实。",
+      "why_it_matters": "可从工具轨迹自动生成审计问答，测量模型对越权、工具失败和任务遗漏等真实行为的可报告性。",
+      "published": "2026-11-17",
+      "score": 97,
+      "topics": [
+        "training",
+        "evaluation",
+        "safety",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.23365"
+        }
+      ]
+    },
+    {
+      "title": "RoboBuilder：用真实制造和视频反馈校准机器人设计 Agent",
+      "summary": "RoboBuilder 要求 Coding Agent 设计可制造机器人并在指定障碍上测试，而不是只生成控制代码。研究累计执行 16,427 次仿真、12,774 项设计，并实际制造 135 台机器人。最初 15 个仿真成功设计全部未能通过真实测试，利用真实视频反馈后约三分之二的仿真成功可以迁移到现实。",
+      "intro": "RoboBuilder 要求 Coding Agent 设计可制造机器人并在指定障碍上测试，而不是只生成控制代码。",
+      "detail": "任务需要联合优化机器人结构、机械元件、打印部件与控制逻辑，由多个前沿 Coding Agent 提出方案并反复仿真。研究对十种障碍开展约 240 小时的实物试验，记录失败视频供 Agent 修订几何设计和模拟器假设。真实反馈还帮助系统纠正了一部分一级和二级障碍的失败案例。这个流程将物理验证作为训练和模型选择的反馈来源，直接测试 Sim-to-real 差距。",
+      "findings": "仿真奖励可能稳定偏向现实无效的设计，真实反馈是验证生成世界模型的重要环节。",
+      "why_it_matters": "可研究如何在固定制造预算下主动选择最有信息量的机器人原型进行真实测试。",
+      "published": "2026-11-18",
+      "score": 96,
+      "topics": [
+        "environments",
+        "evaluation",
+        "science",
+        "training"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.23855"
+        }
+      ]
+    },
+    {
+      "title": "WorldRuler：以可执行规则图持续维护生成世界状态",
+      "summary": "WorldRuler 使用可执行 3D Rule Graph 存储用户定义的规则、依赖和物体状态，并驱动视频生成器反映规则执行结果。即使规则改变时受影响物体尚未出现在视野中，系统也可在其再次出现时正确渲染状态。研究使用 GTA-V 和 Habitat 构建 RuleVerse，并通过反事实重建训练减少规则改变对无关对象的干扰。",
+      "intro": "WorldRuler 使用可执行 3D Rule Graph 存储用户定义的规则、依赖和物体状态，并驱动视频生成器反映规则执行结果。",
+      "detail": "生成式世界模型容易依靠短期视觉帧拟合外观，却遗忘长时间未出现的对象状态和环境规则。WorldRuler 将规则执行与画面生成解耦，使 Rule Graph 决定对象属性和可保存的世界状态，视觉模型只负责落实渲染。动态对象绑定把图中的实体映射到视频中的真实实例，反事实训练要求在规则切换后只修改相关属性。它提供了一种从程序规则生成可验证行动后果数据的方式。",
+      "findings": "长期环境一致性不仅需要视觉记忆，还需要可保存、可执行的规则状态。",
+      "why_it_matters": "可把规则反事实生成用于企业权限、流程审批和机器人操作规范的条件化任务训练。",
+      "published": "2026-11-18",
+      "score": 96,
+      "topics": [
+        "environments",
+        "training",
+        "data-synthesis",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24869"
+        }
+      ]
+    },
+    {
+      "title": "STEMBench：12 项博士后级科研问题用真实领域指标评分",
+      "summary": "新的 STEMBench 从高能物理、天体物理与神经科学挑选 12 项研究级计算任务，使用各学科认可的真实指标判断方法质量。每题附不依赖领域知识的基线与可运行专家参考实现，使模型进展可以与实际科研门槛比较。研究发现单项获胜次数与按领域统计的平均表现并不完全一致，强调科学 Agent 需要任务级可执行评测。",
+      "intro": "新的 STEMBench 从高能物理、天体物理与神经科学挑选 12 项研究级计算任务，使用各学科认可的真实指标判断方法质量。",
+      "detail": "科学领域的候选解法可能在文字上合理却无法改善实验或计算结果，因此论文不把语言模型 Judge 作为唯一成功标准。每题配有运行代码、测量指标、朴素基线与复现论文方法的专家 Anchor，形成从工程实现到科学贡献的量化间隔。作者评测八种前沿模型，区分数值成绩与官方提交的有效性，并公布任务、评分器和 Harness。该工作是独立的 12 题 STEMBench 论文，与其他同名 STEM 评测不混为一项。",
+      "findings": "科研 Agent 应按学科实际优劣标准衡量成果，并保留基线与专家锚点用于判断创新贡献。",
+      "why_it_matters": "适合扩展到材料、控制和工程仿真，构建带原始代码、实验预算与可信评分器的 Science Agent RL 环境。",
+      "published": "2026-11-18",
+      "score": 95,
+      "topics": [
+        "science",
+        "evaluation",
+        "benchmark",
+        "environments"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24321"
+        }
+      ]
+    },
+    {
+      "title": "科学图文冲突评测：模型会读论文，却难主动发现关键证据矛盾",
+      "summary": "When Figures Disagree with Text 收集 31 篇存在已记录图文不一致问题的科研论文，让模型在完整文献中自行定位矛盾。六种多模态模型共生成 1,445 条开放式审稿，尽管 60.6% 的回答提到了相关图，真正通过矛盾识别 Rubric 的仅有 3.3%。给出需要检查的图后，诊断通过率由 4.3% 提升到 20.4%，揭示主动发现证据与解释证据的能力差距。",
+      "intro": "When Figures Disagree with Text 收集 31 篇存在已记录图文不一致问题的科研论文，让模型在完整文献中自行定位矛盾。",
+      "detail": "系统不给出问题图号或错误描述，要求模型像真实科学审稿人一样阅读完整 PDF 并发现文本声明与图形数据的冲突。研究者将被专家记录的矛盾作为标注，再按位置、逻辑关系和解释完整性检查输出。对照实验仅提供应检查的图号，不泄露错误本身，就使识别能力明显改善。结果表明科学 Agent 需要先挑选值得核实的证据，再执行读图和统计检查。",
+      "findings": "科研评测应拆分 Claim Selection、Evidence Retrieval 和 Contradiction Verification，避免只用明确问题的视觉 QA 衡量研究能力。",
+      "why_it_matters": "可以把带原始实验文件的论文转成可执行审核任务，对图文不一致、统计误读和数据遗漏分别评分。",
+      "published": "2026-11-18",
+      "score": 95,
+      "topics": [
+        "evaluation",
+        "science",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24353"
+        }
+      ]
+    },
+    {
+      "title": "Communicative OPD：学生按需咨询黑盒教师完成长程后训练",
+      "summary": "Communicative On-Policy Distillation 让 Student 在执行任务时自主判断何时用自然语言向 Teacher 寻求帮助，不要求教师开放 Token Logits。系统记录有效问答，再让学生不依赖 Teacher 重做任务并利用经验进行后训练。在 CAMG-II 上，论文报告相对最强黑盒 OPD 基线实现 2.46 倍的能力增益，并迁移到 Coding 与终端任务。",
+      "intro": "Communicative On-Policy Distillation 让 Student 在执行任务时自主判断何时用自然语言向 Teacher 寻求帮助，不要求教师开放 Token Logits。",
+      "detail": "传统 OPD 需要教师提供每 Token 概率，对于只开放 API 的强模型不一定可用。该方法将教师视作可询问的辅导者，学生围绕当前失败原因生成具体问题，保留有帮助的解释和行为修正。随后撤掉教师支持，在学生自己的 On-policy 执行轨迹上做自蒸馏与强化学习。它将教师信息预算集中在高价值状态，有望比每步全量评分更便宜。",
+      "findings": "黑盒教师也可以提供足够有效的训练监督，关键是何时咨询以及如何验证咨询价值。",
+      "why_it_matters": "可训练咨询收益预测器，让 Student 仅在预期提高完整任务成功率的关键节点询问强模型。",
+      "published": "2026-11-18",
+      "score": 94,
+      "topics": [
+        "training",
+        "skills",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.23673"
+        }
+      ]
+    },
+    {
+      "title": "光学网络原位训练：Coding Agent 直接用真实测量更新物理模型",
+      "summary": "Optics as Code 让 Coding Agent 只依赖相机测量结果训练真实光学神经网络，无需每台设备专属校准模型或硬件可微梯度。Agent 经由 Harness 发起探测、解释图像反馈，并重新参数化光学元件以改善分类和图像编码。实验显示该方式优于所测无梯度优化方法，并以更低校准成本接近使用数字模型反向传播的性能。",
+      "intro": "Optics as Code 让 Coding Agent 只依赖相机测量结果训练真实光学神经网络，无需每台设备专属校准模型或硬件可微梯度。",
+      "detail": "光学设备的实际制造误差使理论参数与真实响应不同，传统训练通常依赖昂贵的数字孪生校准。论文把实验操作表述为代码和可观察反馈接口，Agent 每次请求都需给出假设，再根据相机结果修改可解释的光学参数。训练过程不需要读取硬件内部梯度，也不必为每台器件重建精细仿真模型。它提供了 AI Scientist 在真实物理闭环中直接调整模型的案例。",
+      "findings": "LLM 可以作为真实硬件实验控制器，利用测量证据进行结构化模型优化。",
+      "why_it_matters": "可扩展到真实仪器控制，比较 Agent 实验假设、测试次数和最终设备性能之间的效益。",
+      "published": "2026-11-18",
+      "score": 94,
+      "topics": [
+        "training",
+        "science",
+        "environments",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.23875"
+        }
+      ]
+    },
+    {
+      "title": "Surge Tuesday@Work：Gemini 4 Neon 成为职业工作指数新榜首",
+      "summary": "Surge AI 更新 Tuesday@Work Index，Gemini 4 Neon 得到 71.6 分，略高于 Claude Fable 5.2 的 71.2 分。Neon 在 DAYJOB: Finance、GDP.xlsx 和 Riemann-bench 上领先，而 Fable 5.2 在高层级软件工程任务仍明显更强。新结果揭示同一模型在不同专业交付领域的优势并不一致，需要按业务分布选择 Agent。",
+      "intro": "Surge AI 更新 Tuesday@Work Index，Gemini 4 Neon 得到 71.6 分，略高于 Claude Fable 5.2 的 71.2 分。",
+      "detail": "Tuesday@Work 汇集金融分析、电子表格、工程与软件交付等专业工作任务，强调可评估的真实产物。Surge 报告 Neon 在金融任务上使用约三分之一的输出 Token 即超越 Fable 5.2；在 sudo L7 软件工程任务上，后者则领先近 14 分。指数更新属于新评测结果，不与前一天 Gemini 4 Neon 产品首次发布重复计数。部署层面应把领域质量、完成时间与资源费用共同衡量。",
+      "findings": "单一总分不适合直接决定企业 Agent 的模型路由，领域任务与交付成本更重要。",
+      "why_it_matters": "建议按实际业务负载建立领域动态路由和等成功率成本曲线，关注强弱模型协作的性价比。",
+      "published": "2026-11-19",
+      "score": 93,
+      "topics": [
+        "evaluation",
+        "work",
+        "benchmark",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Surge AI 官方评测",
+          "url": "https://surgehq.ai/blog/gemini-4-neon"
+        }
+      ]
+    },
+    {
+      "title": "QDA：Agent 在闭环测量中自动搜索大模型低比特量化策略",
+      "summary": "QDA 把大模型 Post-training Quantization 视作 Agent 可反复提出方案、真实执行并验证的设计搜索。Agent 根据数值误差、长输出异常和模型任务性能反馈调整量化配方，不只优化校准损失。论文在多组 W4A16、W4A8 与 W3A16 设置下报告准确率改进，展示 AI4AI 对低成本推理部署的直接价值。",
+      "intro": "QDA 把大模型 Post-training Quantization 视作 Agent 可反复提出方案、真实执行并验证的设计搜索。",
+      "detail": "系统将量化位宽、分组与数值处理方式编码成可执行候选，然后由真实量化和推理评测反馈下一次搜索方向。研究披露部分设置的任务准确率分别增加约 0.9、1.4 和 2.2 个百分点，搜索约消耗 64 GPU 小时。量化设计涉及质量、存储和吞吐的多目标优化，局部量化误差更低未必意味着完整 Agent 性能更好。该方向可与自主 Kernel 优化和推理服务性能调优连成统一基础设施改进循环。",
+      "findings": "Agent 可优化真实模型系统的低层配置，但回报应由部署端整体质量与费用共同决定。",
+      "why_it_matters": "建议加入单位成功任务成本、长程工具可靠性和量化后回归测试作为优化目标。",
+      "published": "2026-11-17",
+      "score": 92,
+      "topics": [
+        "training",
+        "deployment",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.23388"
+        }
+      ]
+    },
+    {
+      "title": "小模型优先的 Timeout Cascades：降低 Coding Agent 推理算力",
+      "summary": "Timeout Cascades 让 Coding Agent 先使用便宜的小模型，只有超时或未完成时才升级到更强模型。论文评测 36 个开放权重模型，观察到小模型已经能可靠解决大量简单和中等难度软件任务。该级联方案在 SWE-bench Verified 上最多减少约 16.4% 的 GPU 小时开销，同时保持原有成功率。",
+      "intro": "Timeout Cascades 让 Coding Agent 先使用便宜的小模型，只有超时或未完成时才升级到更强模型。",
+      "detail": "作者比较近年 36 个大中小模型的软件工程解题结果，发现大小模型的准确率差距主要集中在难题。策略不先训练复杂的任务难度路由器，而是把小模型作为第一层执行器，只有达到时间边界或失败时才转交大模型。报告的成本降低在部分实验设置下可达到 33%，在完整 SWE-bench Verified 任务集对应约 16.4%。它为多模型编排提供一个工程简单、可复用的基线。",
+      "findings": "Agent 路由未必需要昂贵的学习型分类器，执行超时和失败信号本身就能识别不少困难任务。",
+      "why_it_matters": "可比较超时阈值、上下文交接损失与复杂模型调用比例，优化固定成功率下的总费用。",
+      "published": "2026-11-18",
+      "score": 91,
+      "topics": [
+        "deployment",
+        "coding",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24324"
+        }
+      ]
+    },
+    {
+      "title": "光学以外的 AI4AI：TrainExplorer 自动搜索后训练策略",
+      "summary": "TrainExplorer 设计多 Agent 自动后训练框架，将策略构想、实验运行、评估和下一轮修改拆成相互协作的角色。系统旨在比固定单一训练配方探索更广的后训练选择空间。与普通 Agent Workflow 相比，它将训练策略搜索本身变成可自动执行和比较的研究任务。",
+      "intro": "TrainExplorer 设计多 Agent 自动后训练框架，将策略构想、实验运行、评估和下一轮修改拆成相互协作的角色。",
+      "detail": "系统将 Research Planning 与 Execution 分层，前者提出训练目标、超参数与数据方案，后者在指定算力环境运行实验并把测量结果回传。多个 Agent 协作记录失败配方和有效训练轨迹，减少重复尝试。由于研究目标是发现更有效的后训练组合，最终需要同时统计提升幅度、实验次数与搜索费用。它与 Piccolo 共同展示了 AI4AI 从写实验代码走向组织整套模型开发流程。",
+      "findings": "训练研究 Agent 的价值应由受控实验增益和单位探索成本衡量，而不是仅统计新策略数量。",
+      "why_it_matters": "可引入共享实验记忆、统计显著性准入与失败实验重用，减少后训练搜索中的重复消耗。",
+      "published": "2026-11-16",
+      "score": 90,
+      "topics": [
+        "training",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.20430"
+        }
+      ]
+    },
+    {
+      "title": "Z-sight：视觉语言动作模型与潜在世界模型协同预测操作后果",
+      "summary": "Z-sight 将视觉语言动作策略与潜在 World Model 结合，用预测的未来观察指导机器人下一步执行。模型不只根据当前图像选择动作，也在潜在状态中预演操作造成的场景变化。该路线面向人形机器人长程操控，强调感知、规划和动作反馈之间的连续一致性。",
+      "intro": "Z-sight 将视觉语言动作策略与潜在 World Model 结合，用预测的未来观察指导机器人下一步执行。",
+      "detail": "传统 VLA 主要利用当前视觉与语言指令预测动作，难以提前识别动作将如何改变后续可行状态。Z-sight 将未来视觉表征预测与低层控制策略耦合，通过模型内部的潜在状态反馈改进连续决策。真实可用性取决于预测是否能在接触、遮挡和动作失败时及时被校正。它与 GR00T 2 的世界动作联合训练形成值得比较的另一条技术路线。",
+      "findings": "机器人 Agent 需要预测自身动作对世界的后果，而不是仅记忆动作序列。",
+      "why_it_matters": "可研究预测不确定性触发重新观察、局部重规划和真实物理反馈的机制。",
+      "published": "2026-11-18",
+      "score": 89,
+      "topics": [
+        "training",
+        "environments",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24940"
+        }
+      ]
+    },
+    {
+      "title": "PrismRestore：从冻结视觉模型构造可选动作库并学习图像修复策略",
+      "summary": "PrismRestore 以冻结视觉模型作为基础，构造紧凑的图像修复动作库，让 Agent 通过强化学习选择合适操作。它将复杂图像恢复从单次生成拆成可执行动作决策与组合。研究为低成本专用 Agent 利用固定基础模型实现可训练控制提供新的思路。",
+      "intro": "PrismRestore 以冻结视觉模型作为基础，构造紧凑的图像修复动作库，让 Agent 通过强化学习选择合适操作。",
+      "detail": "普通图像恢复模型倾向于针对每种退化建立独立修复网络或一次性端到端恢复。PrismRestore 将可用的图像处理动作组织成有界 Action Bank，Agent 学习根据当前图像和目标选择操作，以减小底座重训练成本。这个思路与工具调用 Agent 相似：基础能力固定，但动作选择策略可以通过任务反馈持续提升。未来有必要评测动作库覆盖不足和组合恢复失败的情况。",
+      "findings": "冻结底座与可学习动作策略的分离有望降低特定能力 Agent 的训练与部署开销。",
+      "why_it_matters": "可比较动作库规模、选择策略复杂度和实际恢复质量，探索多步工具策略迁移到其他视觉编辑任务。",
+      "published": "2026-11-18",
+      "score": 87,
+      "topics": [
+        "training",
+        "skills",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24915"
+        }
+      ]
+    },
+    {
+      "title": "Zesty 扩展自治 Kubernetes/GPU 优化：动态 Agent 负载驱动资源调度",
+      "summary": "Zesty 扩展其自治 Kubernetes 平台，将自动资源优化覆盖到 GPU、CPU、内存与存储。它瞄准 AI 推理和训练集群中随任务变化的资源浪费，以及更灵活的 Fractional GPU 使用。面向长程 Agent，关键问题是如何随推理、工具等待和模型后训练阶段实时调整资源。",
+      "intro": "Zesty 扩展其自治 Kubernetes 平台，将自动资源优化覆盖到 GPU、CPU、内存与存储。",
+      "detail": "多 Agent 任务常出现大量等待外部工具或异步事件的空闲时间，固定分配 GPU 会造成成本浪费。平台根据运行负载自动优化不同计算资源的配置，扩展到容器化 GPU 工作负载。当前产品动态强调基础设施效率而非模型架构研究，可与异构 RL 训练和 Agent 状态迁移系统互补。更重要的系统指标应是单位 GPU 小时完成的有效任务数。",
+      "findings": "随着 Agent 长期在线及训练流程分阶段运行，自动化基础设施调度本身正在成为产品竞争点。",
+      "why_it_matters": "研究任务状态、资源暂停恢复与最终成功率联合优化，避免只追求硬件利用率。",
+      "published": "2026-11-19",
+      "score": 86,
+      "topics": [
+        "deployment",
+        "training",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Zesty 官方发布",
+          "url": "https://www.prnewswire.com/news-releases/zestys-autonomous-kubernetes-platform-now-spans-compute-and-gpu-infrastructure-ahead-of-aws-reinvent-2026-302945898.html"
+        }
+      ]
+    }
+  ]
+}

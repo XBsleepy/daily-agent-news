@@ -1,0 +1,1 @@
+11 月 20 日重点：OpenAI Performance Factory 把 Codex 接入真实生产性能修复；Snorkel Binary-Gated GRPO、Piccolo、AHE-Beta 与 GRAFT 推进可验证训练和 Agent 自我改进；Game2Player、WorldRuler、StatePortal 让可执行环境更丰富；Google Tool Retrieval、ARISE 与 OpenKAGE 分别推动高效工具发现、企业记忆进化和跨 Agent 经验共享。

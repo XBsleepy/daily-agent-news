@@ -1,0 +1,160 @@
+{
+  "field": "field-2",
+  "date": "2026-11-20",
+  "items": [
+    {
+      "title": "Google Gemini API Tool Retrieval：按需加载工具 Schema 降低长程 Agent 上下文成本",
+      "summary": "Google 在 Gemini Interactions API 预览推出 Tool Retrieval，Agent 无需在每轮请求中携带全部工具参数定义。开发者可以声明 Tool Search 并延迟加载详细 Schema，让模型先定位相关工具再获取参数。该方式减少大型工具库的上下文占用，也降低过多无关工具干扰调用选择的问题。",
+      "intro": "Google 在 Gemini Interactions API 预览推出 Tool Retrieval，Agent 无需在每轮请求中携带全部工具参数定义。",
+      "detail": "实际企业 Agent 往往连接上百个内部 API、MCP 及生活服务 Connector，把完整工具目录放在 Prompt 中会产生高额重复 Token 成本。Tool Retrieval 将工具发现与详情加载分为两步：先从简洁的工具能力描述检索候选，再在需要执行时加载相应参数 Schema。Google 提供 defer_loading 的配置入口，开发者可以保留原有工具定义并调整搜索和加载逻辑。还需要在真实多步任务中比较工具发现漏召回、错路由和完整执行的总成本。",
+      "findings": "工具发现和工具执行可以分层，而不必每次把全部 API 定义交给模型。",
+      "why_it_matters": "建议研究跨任务工具使用记忆、最小权限检索与工具 Schema 演化后的版本一致性。",
+      "published": "2026-11-19",
+      "score": 97,
+      "topics": [
+        "tool-use",
+        "deployment",
+        "work",
+        "personal",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Google 官方开发者博客",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/"
+        }
+      ]
+    },
+    {
+      "title": "ARISE：企业 Agent 从失败中自动提炼微记忆和宏规则",
+      "summary": "ARISE 不修改模型权重或工具，而是让企业 Agent 从真实失败归因生成可检索微记忆，再合并成适用范围更广的宏规则。更新前用留出任务检查收益，避免把偶发修复错误固化为长期经验。教师辅助版本在 SOP-Bench 和 τ²-bench 上分别提升 10.9 和 5.8 个百分点，并减少模型调用与输出 Token。",
+      "intro": "ARISE 不修改模型权重或工具，而是让企业 Agent 从真实失败归因生成可检索微记忆，再合并成适用范围更广的宏规则。",
+      "detail": "系统首先用当前模型或更强教师分析失败的具体成因，形成可附加证据和适用条件的 Micro Memory。随后将多条同类经验压缩成可执行策略规则，并对未参与更新的任务进行测试，仅保留能够提升整体准确率的更新。作者在 14 个企业任务域和五个模型上测试，ARISE-Self 在 SOP-Bench 也提高 10.0 个百分点。该框架把低成本记忆进化与独立回归验证结合起来，适用于长期工作流。",
+      "findings": "企业 Agent 的持续改进可以先落在可审核的记忆规则层，而不是每次重新后训练模型。",
+      "why_it_matters": "研究规则更新的时间有效性、不同用户权限隔离和出现环境变化时的选择性废弃。",
+      "published": "2026-11-17",
+      "score": 95,
+      "topics": [
+        "memory",
+        "self-evolution",
+        "work",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.23588"
+        }
+      ]
+    },
+    {
+      "title": "OpenKAGE：多 Agent 共享记忆和技能实现开放世界终身学习",
+      "summary": "OpenKAGE 在 Minecraft 开放环境中建立 Agent 群体的终身学习循环，每个 Agent 都能积累经历和可迁移技能。框架将具体交互记忆与附带适用条件的抽象经验分层存储，并把共享文本知识组织成动态知识图谱。积累的知识可以转移给使用不同基础模型的新 Agent 群体，提高探索效率和生存表现。",
+      "intro": "OpenKAGE 在 Minecraft 开放环境中建立 Agent 群体的终身学习循环，每个 Agent 都能积累经历和可迁移技能。",
+      "detail": "系统允许多个 Agent 主动探索开放世界，并把资源获取、工具制造和高级技术里程碑作为长期发展目标。经历层保存情境化事件和失败证据，经验层提炼跨任务可用的流程，保留技能何时适用的条件；可执行技能共享时直接复用原程序，文本经验则通过语义合并进入知识图。作者用新初始化的 Agent 群体验证经验迁移，不要求所有成员共享模型权重。相比普通聊天记忆，该方法更接近多主体持续技能库。",
+      "findings": "多 Agent 经验共享必须同时保存环境上下文和可复用技能的执行边界。",
+      "why_it_matters": "可用异构模型和变动环境测试 Skill 迁移，测量跨群体知识复用收益及失效后的自动纠错。",
+      "published": "2026-11-18",
+      "score": 95,
+      "topics": [
+        "memory",
+        "skills",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24302"
+        }
+      ]
+    },
+    {
+      "title": "Semantic Context Handoff：短上下文任务状态与可追溯原始证据分离",
+      "summary": "Semantic Context Handoff 让长程 Agent 当前窗口只保留紧凑进展摘要，而把历史工具结果和原始证据单独存储、按需检索。在 150 项 SWE-bench 测试中，证据恢复使 Pass@1 从 80.0% 提升至 86.9%。完整系统在保持 86.9% 的测试成功率下，将 Token 使用和执行时间分别减少 43% 和 41%。",
+      "intro": "Semantic Context Handoff 让长程 Agent 当前窗口只保留紧凑进展摘要，而把历史工具结果和原始证据单独存储、按需检索。",
+      "detail": "普通上下文压缩容易留存结论却删除证明这些结论的工具观察，后续出现新信息时模型无法再次复查。该方法将 Working State、Evidence Archive 和 Retrieval Policy 分离，在需要时取回原始日志、文件和证据片段。实验比较有无可恢复证据的压缩策略，在相同任务和评分设置下检验完成率与时间成本。其贡献不在于单纯缩短上下文，而是保障摘要中的关键依据仍可重新核实。",
+      "findings": "长期记忆的价值来自证据可恢复和任务状态连续，而不只是 Token 压缩率。",
+      "why_it_matters": "可研究哪些关键事件需要保留原始证据、何时主动重查以及回查是否真正减少错误行动。",
+      "published": "2026-11-18",
+      "score": 95,
+      "topics": [
+        "memory",
+        "coding",
+        "deployment",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.24357"
+        }
+      ]
+    },
+    {
+      "title": "Asking but Missing：模型擅长回答澄清，却不善于发现必须澄清的条件",
+      "summary": "Asking but Missing 研究开放式工作任务中的需求不完整问题，指出模型回答已明确澄清的问题往往比主动识别缺失条件容易。论文以 Underspecified Decision Completion 任务检验模型能否发现多个合理解释会导致不同执行结果。对 Personal 和 Work Agent，这意味着在关键约束缺失时主动提问应该成为独立训练目标。",
+      "intro": "Asking but Missing 研究开放式工作任务中的需求不完整问题，指出模型回答已明确澄清的问题往往比主动识别缺失条件容易。",
+      "detail": "用户常给出含糊的业务目标，但执行所需的时间范围、预算、身份或风险偏好并未明确说出。Benchmark 区分识别未披露前提、判断它是否真的改变决策、提出最有价值的澄清问题以及获得信息后完成任务。只有能正确回答直接问题并不足以说明模型知道何时需要向用户提问。训练数据可从隐含条件与行动结果之间的反事实差异生成。",
+      "findings": "主动澄清应依据缺失条件是否会改变真实行动，而不是为了显得谨慎而泛泛提问。",
+      "why_it_matters": "建议构造缺失需求的配对任务，分别测量澄清命中、提问成本和最终可执行成功率。",
+      "published": "2026-11-18",
+      "score": 94,
+      "topics": [
+        "evaluation",
+        "personal",
+        "work",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "原始论文 / 官方发布",
+          "url": "https://arxiv.org/abs/2611.23864"
+        }
+      ]
+    },
+    {
+      "title": "Mitiga AI Agent Security：跨身份、云服务与数据访问监控真实 Agent 行为",
+      "summary": "Mitiga 发布 AI Agent Security，将运行时安全检测扩展到自动化 Agent 的身份、数据访问和跨云 SaaS 行动。系统强调关联实际执行轨迹与授权目标，并可对异常行为实施限制或隔离。随着 Agent 获得付款、账户操作和自主工具更新能力，运行时治理正在成为独立产品层。",
+      "intro": "Mitiga 发布 AI Agent Security，将运行时安全检测扩展到自动化 Agent 的身份、数据访问和跨云 SaaS 行动。",
+      "detail": "安全平台把 Agent 行动映射到实际调用的身份、权限、云 API 及数据资源，而不仅审核聊天输出。面向跨 SaaS 的企业工作流，系统尝试发现身份滥用、异常访问和超出委托范围的执行路径，并借助既有安全控制策略介入。这一产品发布与近期 Authorization Drift Benchmark 所识别的自主越权问题形成对应。研究应衡量阻断真正违规行动时对合法任务完成率与用户体验的影响。",
+      "findings": "Agent 执行风险需要从文本判断扩展到实际权限、工具及跨应用行为的连续监控。",
+      "why_it_matters": "适合研究授权事件日志、最小权限动态收缩和自修改 Skill 的执行审计。",
+      "published": "2026-11-19",
+      "score": 93,
+      "topics": [
+        "safety",
+        "deployment",
+        "personal",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Mitiga 官方发布",
+          "url": "https://www.prnewswire.com/news-releases/mitiga-launches-ai-agent-security-to-stop-rogue-or-malicious-agents-at-machine-speed-302944640.html"
+        }
+      ]
+    },
+    {
+      "title": "Natural Accept：让 Agent 在电话、网页和链接中接收真实银行卡付款",
+      "summary": "Natural 推出 Accept，使企业 Agent 可在电话、网站、应用或支付链接中接收银行卡付款，资金进入 Natural 钱包体系。相比只提出购物推荐，这类产品把 Agent 能力推进到真实商业交易环节。对 Personal Agent 而言，支付权限、确认流程和任务状态的跨渠道一致性将变得更加重要。",
+      "intro": "Natural 推出 Accept，使企业 Agent 可在电话、网站、应用或支付链接中接收银行卡付款，资金进入 Natural 钱包体系。",
+      "detail": "Accept 主要解决商家或 Agent 如何接收付款的问题，与用户自己的银行账户主动代付并不完全相同。系统通过统一支付收款接口连接多种互动渠道，让电话 Agent 或自动化销售 Agent 可以把已确认的交易继续推进。需要区分付款授权、商家身份核验和支付完成后的账务状态，避免一次授权被多个工作流错误复用。该产品与已有个人购物 Agent 和企业销售助手形成基础设施互补。",
+      "findings": "Agentic Commerce 正从推荐与下单扩展为可交付的资金收付和订单执行。",
+      "why_it_matters": "可研究跨渠道支付状态机、最小授权与失败退款等可执行商业 Agent Benchmark。",
+      "published": "2026-11-19",
+      "score": 88,
+      "topics": [
+        "personal",
+        "safety",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Natural 官方产品发布",
+          "url": "https://www.prnewswire.com/news-releases/natural-launches-accept-to-allow-ai-agents-to-take-card-payments-302945809.html"
+        }
+      ]
+    }
+  ]
+}
