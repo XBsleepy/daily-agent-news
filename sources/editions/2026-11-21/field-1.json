@@ -1,0 +1,287 @@
+{
+  "field": "field-1",
+  "date": "2026-11-21",
+  "items": [
+    {
+      "title": "TwinLab-Bench：52 个真实实验室数字孪生任务评测 AI 自主设计实验",
+      "summary": "TwinLab-Bench 以 52 项真实实验室任务评估 AI Scientist 能否自主选择实验并解释结果，而不只是回答给定问题。每项任务由受实验记录和计算器约束的数字孪生环境返回实验读数，覆盖超过 100 种实验动作。测试的 13 种 Agent 中最佳平均分为 45.0/100，显示科学实验决策与证据解释仍是核心短板。",
+      "intro": "TwinLab-Bench 以 52 项真实实验室任务评估 AI Scientist 能否自主选择实验并解释结果，而不只是回答给定问题。",
+      "detail": "基准覆盖物理科学、生命科学与工程领域，要求模型在预算内自主设计实验、请求新读数并提交结论。环境端基于研究记录和经记录校准的计算器执行请求，未有可靠依据时明确标示模拟限制，终局 Rubric 同时核查结论与实验支持程度。作者还设计修改隐藏实验状态的反事实测试和无工具记忆探针，区分真正依据证据推理与已有答案记忆。主要失败包括在排除竞争机制前过早下结论，以及完成实验却误读结果。",
+      "findings": "对 AI Scientist 的关键评测单位是主动获取证据的实验决策，而不只是最后答案。",
+      "why_it_matters": "可将实验信息增益、实验成本和证据充分性共同纳入可执行 Scientific Agent RL 奖励。",
+      "published": "2026-11-19",
+      "score": 100,
+      "topics": [
+        "science",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26248"
+        }
+      ]
+    },
+    {
+      "title": "SimAudit：183 个边界测试揭出机器人评测器 61 项独立缺陷",
+      "summary": "SimAudit 发现可执行成功检查器可能把未完成任务误判为成功，也可能把有效替代动作判为失败。研究在 RoboTwin 2.0、RoboCasa365 和 RoboDojo 构造 183 个测试状态，去重核实出 49 个任务中的 61 项缺陷。其方法结合任务文字、Checker 代码的 LLM 分析、模拟器复现与多视角视觉核查。",
+      "intro": "SimAudit 发现可执行成功检查器可能把未完成任务误判为成功，也可能把有效替代动作判为失败。",
+      "detail": "研究先分析自然语言指令和手写 Checker 的潜在语义不一致，再自动构造接近成功边界的场景。原 Checker 在模拟器中给出判定，多角度渲染帮助确认执行是否真正满足任务。61 项缺陷包括 40 例 Phantom Success 和 21 例 Silent Failure；前者会给未完成执行提供正奖励，后者会错罚有效但不沿专家路径的行为。作者强调同时验证接近成功的反例和不同于示范的有效正例。",
+      "findings": "可执行奖励的存在不等于奖励可信，评测器本身需要反例测试。",
+      "why_it_matters": "应为环境和训练数据的成功判定增加自动化边界审计与回归用例。",
+      "published": "2026-11-18",
+      "score": 99,
+      "topics": [
+        "evaluation",
+        "environments",
+        "safety",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25179"
+        }
+      ]
+    },
+    {
+      "title": "AppSci-Bench：让模型自己构建、测量并改进企业 Agent",
+      "summary": "AppSci-Bench 要求 AI 像应用科学家一样，与业务方澄清需求、理解内部系统、开发 Agent 并设计独立评测。七类企业场景拥有隐藏评测集，最佳测试模型在三次构建尝试中的 mean-minimum 得分为 59.1%。研究发现模型经常把自建评测刷满分，却无法迁移到隐藏任务，暴露 Harness 自改进的过拟合风险。",
+      "intro": "AppSci-Bench 要求 AI 像应用科学家一样，与业务方澄清需求、理解内部系统、开发 Agent 并设计独立评测。",
+      "detail": "场景包括幻灯片制作、订单到收款、合规审查、客户电话洞察、CRM 洞察，以及航空和银行服务。Agent 必须与模拟利益相关方交互，调查业务基础设施，再通过内部实验更新目标系统。作者对七种前沿模型测试发现，最优模型的需求获取完成度只有约 65%，且内部评测过拟合普遍存在。该基准特别强调把构建过程与盲测结果分开。",
+      "findings": "Agent 研发 Agent 的关键不只是生成代码，还要会构造能够预测上线表现的评测。",
+      "why_it_matters": "可研究需求澄清、内部测试集设计与跨任务回归联合驱动的 Harness 演化。",
+      "published": "2026-11-19",
+      "score": 98,
+      "topics": [
+        "self-evolution",
+        "work",
+        "evaluation",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25360"
+        }
+      ]
+    },
+    {
+      "title": "AutoMaster：通过技能引导的教师轨迹改善模型后训练",
+      "summary": "AutoMaster 让研究 Agent 分析教师轨迹，自动编写自然语言 Skill 来抑制不良习惯并诱导有效行为。它在固定教师、训练样本量与 SFT 配方条件下生成更高质量的示范数据，用于训练 4B 和 9B 学生模型。Terminal、Search 与软件工程测试中，相对普通成功轨迹 SFT 的平均增益为 1.42—8.99 个百分点。",
+      "intro": "AutoMaster 让研究 Agent 分析教师轨迹，自动编写自然语言 Skill 来抑制不良习惯并诱导有效行为。",
+      "detail": "系统将失败归因、技能设计、数据筛选和学生模型评测组织为可反复运行的闭环。Skill-FT 不必更换教师模型，而是在采集 Teacher Rollout 时给出适当行为约束，让示范具备更好的验证习惯和问题解决方式。训练阶段保留引导 Skill 文本的版本总体优于删除指令的版本，即使评测时学生不再见到这些指令。结果说明示范轨迹的行为形态也能成为可优化的训练变量。",
+      "findings": "后训练不只依赖更强教师或更多 Token，也可通过教师行为塑形改进固定预算的示范质量。",
+      "why_it_matters": "适合自动搜索可迁移的 Skill Prompt，并用留出任务判断 Skill 是否真实改进学生策略。",
+      "published": "2026-11-19",
+      "score": 98,
+      "topics": [
+        "training",
+        "skills",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26510"
+        }
+      ]
+    },
+    {
+      "title": "Mind2Act World：会推理和会操作，不代表机器人能完成闭环任务",
+      "summary": "Mind2Act World 以 30 项机器人操作任务形成 180 种配置，分别测量记忆推理、动作执行与闭环组合能力。被测系统在 Mind、Act 单项的最高成功率分别达到 52.7% 与 39.0%，但综合 Mind2Act 仅 12.0%。这揭示长程状态理解与精确物理控制之间存在显著的能力组合鸿沟。",
+      "intro": "Mind2Act World 以 30 项机器人操作任务形成 180 种配置，分别测量记忆推理、动作执行与闭环组合能力。",
+      "detail": "基准覆盖五种应用领域，每项任务设定三档难度及 Clean、Random 两种场景。Mind 测试历史信息驱动的判断，Act 测试接触动作的准确和时序，Mind2Act 要求根据真实动作后果修改下一步决策。诊断 Harness 可将失败归因到认知、控制或组合环节，比较多模态 Agent、VLA 与世界动作模型。研究观察到有的模型会保持任务状态却不擅长持续接触控制，而端到端策略通常反过来。",
+      "findings": "模型分项能力强并不能保证组合闭环成功，动作反馈后的重新规划是关键。",
+      "why_it_matters": "可将预期状态、真实状态与偏差诊断编码为训练轨迹，为 GUI 与机器人 Agent 同时提供闭环监督。",
+      "published": "2026-11-19",
+      "score": 97,
+      "topics": [
+        "evaluation",
+        "environments",
+        "benchmark",
+        "continual-learning"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26444"
+        }
+      ]
+    },
+    {
+      "title": "PlayCraft：由视觉玩家经验反向推动游戏任务与环境进化",
+      "summary": "PlayCraft 让视觉 Agent 反复玩游戏、记录策略和失败，再让创作 Agent 根据这些经验修改关卡与机制。框架围绕玩家掌握技能的进展优化环境，而不只检查游戏是否可运行。与初版及对照方法相比，修订后的游戏在多数实验中呈现更高的学习增益与更陡的学习曲线。",
+      "intro": "PlayCraft 让视觉 Agent 反复玩游戏、记录策略和失败，再让创作 Agent 根据这些经验修改关卡与机制。",
+      "detail": "系统在 Play 阶段让 Agent 仅观察屏幕并使用实际操作接口，在跨回合记忆中积累达成目标的路径和失败反思。Craft 阶段分析玩家现有熟练度、在不同能力水平下的预期表现以及目标学习曲线，然后针对差距调整游戏。新版本通过独立玩家测试学习增益和学习斜率。其思路可以由游戏内容生成迁移到可执行 Agent Curriculum 设计。",
+      "findings": "环境自动进化可直接利用 Agent 的真实学习过程作为反馈。",
+      "why_it_matters": "可构建从失败模式出发的任务难度调节器，评价生成环境能否提升模型在未见任务上的泛化。",
+      "published": "2026-11-19",
+      "score": 96,
+      "topics": [
+        "environments",
+        "data-synthesis",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26624"
+        }
+      ]
+    },
+    {
+      "title": "Posterior Matching Distillation：扩散模型少步蒸馏兼顾质量与模式覆盖",
+      "summary": "Posterior Matching Distillation 提出匹配教师后验的训练约束，缓解少步生成蒸馏中的 Mode Seeking 问题。方法通过重加权的条件均值与偏移输入上的教师评估，逼近完整后验而不是单一预测均值。作者在 SDXL 与 FLUX.2 klein 4B 上报告了有竞争力的四步生成质量与分布覆盖。",
+      "intro": "Posterior Matching Distillation 提出匹配教师后验的训练约束，缓解少步生成蒸馏中的 Mode Seeking 问题。",
+      "detail": "传统基于反向 KL 的蒸馏目标可能把学生推向少数常见生成模式，损害输出多样性。PMD 在给定高斯噪声模型下，从一组指数重加权条件均值约束推导后验识别条件，并据此设计训练目标。论文在不同采样预算下比较质量、推理效率及 Prompt 对齐，不依赖额外训练 Student Score Network。其方法为低成本合成训练数据的多样性与质量平衡提供新的切入点。",
+      "findings": "生成模型蒸馏不仅要降低推理步数，还需保存有用的分布覆盖能力。",
+      "why_it_matters": "可用固定合成数据预算比较 PMD 与传统 Student 训练下游模型后的 OOD 泛化和样本效率。",
+      "published": "2026-11-19",
+      "score": 95,
+      "topics": [
+        "training",
+        "data-synthesis",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26629"
+        }
+      ]
+    },
+    {
+      "title": "RL 后训练与 Activation Steering：扩散 Transformer 的可控改进新解释",
+      "summary": "研究指出扩散 Transformer 的 RL 后训练效果可以从激活方向调控的角度理解。该视角把部分后训练带来的行为变化与模型内部表示移动联系起来，为轻量干预和奖励信号解释提供新工具。它提示某些推理时控制目标可能无需完整重训权重也能被近似实现。",
+      "intro": "研究指出扩散 Transformer 的 RL 后训练效果可以从激活方向调控的角度理解。",
+      "detail": "论文分析扩散生成器在 RL 更新前后的内部激活和生成行为，研究奖励优化如何对应到特定方向上的激活变化。与只比较训练前后样本质量不同，这一分析试图明确奖励引导的内部机制。对训练与可控生成研究而言，可进一步比较显式 Steering 与参数更新在生成质量、稳定性和泛化范围上的差别。该项主要贡献是机制解释，不能直接把所有 RL 改进等同于免训练的 Steering。",
+      "findings": "理解 RL 改善背后的内部表征机制，有助于设计低成本可控生成方案。",
+      "why_it_matters": "可把奖励方向与激活方向对应起来，检验跨 Prompt、任务和模型版本的稳定性。",
+      "published": "2026-11-19",
+      "score": 95,
+      "topics": [
+        "training",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26627"
+        }
+      ]
+    },
+    {
+      "title": "GLiDE：把推理教师蒸馏成单步且经过校准的决策模型",
+      "summary": "GLiDE 利用多教师软标签与阶段性后训练，将复杂推理能力压缩到一次前向传播的候选答案评分。模型取消部分注意力层的因果遮罩，让问题、上下文和候选项双向交互。27B 配置的隐藏集得分达到 71.52、预期校准误差为 2.0%，单 GPU 延迟中位数约 92.9 毫秒。",
+      "intro": "GLiDE 利用多教师软标签与阶段性后训练，将复杂推理能力压缩到一次前向传播的候选答案评分。",
+      "detail": "该模型面向需要高速、可信置信度的选择问题，不生成完整思维链再决策。训练组合多个教师的软目标、不同任务上的渐进后训练，以及可选的无新参数循环深度增加测试时计算。研究覆盖 0.4B 至 27B 的模型并比较同等规模决策基线，进一步的参数平均与循环深度配置把 27B 得分提升到 73.37。作为 Agent 子模块，它可承担工具候选筛选、路由和高吞吐判别。",
+      "findings": "推理能力可以通过蒸馏进入低延迟的校准型决策层。",
+      "why_it_matters": "可在多工具 Agent 中比较选择器延迟、置信度阈值与端到端任务成功率的关系。",
+      "published": "2026-11-19",
+      "score": 94,
+      "topics": [
+        "training",
+        "tool-use",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26509"
+        }
+      ]
+    },
+    {
+      "title": "CompoundingKernel：超千 Agent 并行搜索 GPU Kernel，瓶颈转向可靠测量",
+      "summary": "CompoundingKernel 使用多 Agent 并行搜索 GPU Kernel，以外部正确性测试和历史方案谱系引导改进。论文报告 235 个问题均有经站点验证正确的 Kernel，209 个公开榜单问题平均较参考基线快 4.40 倍。团队发现扩展到上千并发 Agent 后，最关键的限制因素是测试吞吐而不只是生成速度。",
+      "intro": "CompoundingKernel 使用多 Agent 并行搜索 GPU Kernel，以外部正确性测试和历史方案谱系引导改进。",
+      "detail": "系统以每题的 PyTorch 定义作为初始种子，不提供参考 Kernel 或官方得分。外部档案保存每个通过验证的候选及其谱系，LLM 控制器从中选择父方案，给并发子 Agent 分配不同的搜索方向。研究在相同墙钟时间下比编码的 UCB 搜索在 38 题中的 35 题更优，并通过修复热重启问题把测量率提升 3.6 倍。该论文 11 月 14 日首发，本期补充其自改进系统意义。",
+      "findings": "自进化搜索系统的扩展瓶颈可能是高质量评测反馈和调度效率，而不是 Agent 数量。",
+      "why_it_matters": "可设计按评测可信度和测试代价动态分配计算的并行 Agent 算法。",
+      "published": "2026-11-14",
+      "score": 94,
+      "topics": [
+        "self-evolution",
+        "coding",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.19230"
+        }
+      ]
+    },
+    {
+      "title": "AgentRoboCritic：从实际机器人控制评测前沿 Agent 的执行判断",
+      "summary": "AgentRoboCritic 将前沿 Agent 评估从静态图像问答转向机器人控制任务中的连续操作。它强调指令理解、实际动作选择和执行反馈应放在同一条评测轨迹中观察。对具身 Agent 来说，能正确描述操作不等于能稳定完成任务。",
+      "intro": "AgentRoboCritic 将前沿 Agent 评估从静态图像问答转向机器人控制任务中的连续操作。",
+      "detail": "研究以机器人可执行控制接口承接模型决策，关注步骤之间的误差传递与执行安全。评测思路不仅看最终文本，还需要记录动作序列和环境反馈，以区分理解失败与控制失败。对比静态 VQA，机器人任务包含时序、接触和状态不可完全观察的问题。可与 Mind2Act World 的能力分拆视角联合阅读。",
+      "findings": "机器人 Agent 的评价必须包含真实动作后果，不能用描述能力替代执行能力。",
+      "why_it_matters": "可把控制轨迹中的中间状态作为可验证训练目标，并区分策略失败与执行器故障。",
+      "published": "2026-11-19",
+      "score": 93,
+      "topics": [
+        "evaluation",
+        "science",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26315"
+        }
+      ]
+    },
+    {
+      "title": "Auditing Learned Dynamics：用稀疏特征审计天气世界模型",
+      "summary": "Auditing Learned Dynamics 研究如何审计并调控天气预测模型内部学到的动力学表示。方法使用稀疏自编码器解析中间特征，并尝试通过 Steering 改善对极端天气变化的刻画。它提供了一条把机制可解释性用于科学模型校验与修正的研究路径。",
+      "intro": "Auditing Learned Dynamics 研究如何审计并调控天气预测模型内部学到的动力学表示。",
+      "detail": "科学世界模型常能做出统计上正确的预测，但内部机制未必与物理现象一致。作者分析模型中具有可解释意义的稀疏激活，再测试干预这些特征后输出是否按预期变化。与仅在测试集上比较预测误差不同，这种审计强调内部表征是否捕捉到重要的物理信号。要应用到真实系统，还需用独立天气数据确认干预不会损害其他场景的稳定性。",
+      "findings": "模型可解释性可以从诊断工具升级为模型改进和科学校验工具。",
+      "why_it_matters": "可研究稀疏特征干预后的多目标回归测试和训练数据定向补充。",
+      "published": "2026-11-19",
+      "score": 91,
+      "topics": [
+        "science",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25119"
+        }
+      ]
+    },
+    {
+      "title": "HapBO：把专家语言知识注入贝叶斯实验优化",
+      "summary": "HapBO 通过稳健信念函数把专家自然语言先验转成贝叶斯优化可用的搜索偏好。方法让 LLM 表达的领域经验参与候选实验排序，而不完全依赖已有数值观测。对 AI Scientist 而言，这提供了从语言知识到实验资源分配的可执行接口。",
+      "intro": "HapBO 通过稳健信念函数把专家自然语言先验转成贝叶斯优化可用的搜索偏好。",
+      "detail": "贝叶斯优化可高效使用有限实验预算，但冷启动时常缺乏足够观测。HapBO 将专家描述的趋势和约束映射为相对稳健的信念表示，并与实验反馈共同更新候选选择。关键在于语言先验可能错误或相互矛盾，因此应允许后续真实观测纠正其影响。该方法可以与可执行实验室数字孪生环境结合测量实际信息增益。",
+      "findings": "领域知识应该作为可更新的实验先验，而不是不可推翻的答案。",
+      "why_it_matters": "可比较语言先验的可信度估计、错误先验纠正速度和实验预算收益。",
+      "published": "2026-11-19",
+      "score": 91,
+      "topics": [
+        "science",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25100"
+        }
+      ]
+    }
+  ]
+}

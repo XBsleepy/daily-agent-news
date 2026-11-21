@@ -1,0 +1,28 @@
+{
+  "field": "field-2",
+  "date": "2026-11-21",
+  "items": [
+    {
+      "title": "How Much Should an Agent Remember：长期记忆的最佳规模取决于使用它的模型",
+      "summary": "IBM 相关研究把历史执行轨迹提炼为短 Lesson，再合并成长期 Guideline，已用于 CUGA 与 watsonx Orchestrate。实验显示强模型能够持续从更多规则中受益，而较弱模型更适合检索少量高相关规则。gpt-oss-120b 在 AppWorld 上使用约 29 条选取的规则达到 55.4% 任务完成率，高于使用 199 条全量规则的 51.2%。",
+      "intro": "IBM 相关研究把历史执行轨迹提炼为短 Lesson，再合并成长期 Guideline，已用于 CUGA 与 watsonx Orchestrate。",
+      "detail": "方法对每段历史轨迹先抽取一至三条 Lesson，再依据共性与证据支持度归并为较少 Guideline。推理时可注入全量指南或依据任务选择少量指南，评估涵盖不同基线强度的模型。DeepSeek-V3.2 使用 191 条规则的全量配置取得任务完成率 +9.5 个百分点和情景完成率 +16.1 个百分点的增益。作者还报告了规则反噬、归并时证据来源丢失和错误日志伪装成功等真实部署问题。",
+      "findings": "经验库并非越大越好，记忆选择必须匹配模型处理能力且保留来源证据。",
+      "why_it_matters": "个人与工作 Agent 可按模型能力自适应选择规则，并对高频记忆增加来源追踪、冲突检测与退役机制。",
+      "published": "2026-11-19",
+      "score": 97,
+      "topics": [
+        "memory",
+        "continual-learning",
+        "personal",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26361"
+        }
+      ]
+    }
+  ]
+}

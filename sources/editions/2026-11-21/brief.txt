@@ -1,0 +1,1 @@
+11 月 21 日重点：TwinLab-Bench 与 JARVIS 将科研 Agent 推向自主实验设计与真实硬件验证；SimAudit 揭示可执行奖励的系统性缺陷；AppSci-Bench 和 AutoMaster 分别测试与优化 Agent 自建能力；IBM 长期记忆研究与 Held While Waiting 关注长期智能体的记忆选择和运行成本。
