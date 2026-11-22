@@ -1,0 +1,1 @@
+11 月 22 日重点：Lean/Mathlib 正式核验 Claude 辅助的黎曼猜想形式化证明；Beam 披露超亿条 Rollout 的 Agent RL 工程细节；SkillPlumber、AutoRAGBench 与实验室自主决策研究推进可验证执行；专家决策轨迹、长期记忆折叠和推理效率也有新的研究素材。

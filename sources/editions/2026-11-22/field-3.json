@@ -1,0 +1,136 @@
+{
+  "field": "field-3",
+  "date": "2026-11-22",
+  "items": [
+    {
+      "title": "SkillPlumber：用指令级 Coverage 驱动 Agent Skill 自我改进",
+      "summary": "SkillPlumber 把 Skill 执行中的指令分成已遵循、未遵循和必要行为未覆盖三类，帮助区分规则错误与执行错误。系统用持续的根因分析 Agent 和经验维护 Agent 修订 Skill。在三个基准及三类执行器中，任务解决率达到 64.7%—70.5%，较原始 Skill 提升 25.6—30.4 个百分点。",
+      "detail": "现有 Skill 自进化常只观察整条轨迹成败，容易把指令写错与 Agent 没有照做混为一谈。SkillPlumber 针对每条规则增加 Follow、Not-follow 和 Not-covered 标记，再将具体标签交给根因分析 Agent。维护 Agent 进一步将跨任务的发现整理为可复用策略。论文报告相较最强基线高 8.7—14.0 个百分点，消除 Coverage 反馈会减少可恢复的失败案例。后续应将指令是否得到执行与真实工具状态和任务结局关联，避免 Skill 改进过拟合主观评判。",
+      "findings": "Skill 自我进化可以从对整条轨迹打分升级为针对单条规则的可定位修复。",
+      "why_it_matters": "适合研究 Instruction Coverage、可执行证据与留出任务回归共同驱动的 Skill 版本管理。",
+      "published": "2026-11-19",
+      "score": 98,
+      "topics": [
+        "skills",
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25429"
+        }
+      ]
+    },
+    {
+      "title": "AutoRAGBench：完整 RAG 系统研发成为可执行 Agent Benchmark",
+      "summary": "AutoRAGBench 包含九项从零开发 RAG 系统的任务，Agent 必须自己分析数据、实现索引与检索流程并反复实验。每个任务提供一张 H800 GPU 和六小时预算，但不提供起始代码。论文报告 GPT-6.1 Sol 加 Codex CLI 平均获得 56.1 分，高于其定义的组合人类最佳基线 44.4 分。",
+      "detail": "该基准不再只要求 Agent 解答检索问答，而是要求它交付完整可运行的 RAG 系统。Agent 需要选择数据处理、向量模型、索引、召回与生成策略，并使用实验反馈继续优化。在九个任务中的最优配置报告平均得分 56.1，而组合式 Human-SOTA 参考基线为 44.4。研究还观察到同一 Agent 在七个已有系统任务上进一步优化，可平均提高 16.6 分。它为研究完整 ML Engineering 工作流的训练数据、预算分配和隐藏任务泛化提供了新工具。",
+      "findings": "系统级软件交付可以作为比孤立编码题更丰富的 Agent 能力评价。",
+      "why_it_matters": "实验日志和最终系统得分可组成用于训练工程决策 Agent 的可验证轨迹。",
+      "published": "2026-11-19",
+      "score": 97,
+      "topics": [
+        "work",
+        "coding",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25582"
+        }
+      ]
+    },
+    {
+      "title": "Arcfront：将专家决策修订过程转化为 RL 环境和评测数据",
+      "summary": "Arcfront 近期公开 Decision Arc Data 路线，重点记录专业人员从情境判断到证据修订、实际结果的完整工作过程。其目标是将真实软件工程、SRE、安全、医疗、法律与金融工作转成训练数据和可交互评测。公司披露已有 300 多家企业合作伙伴及 1,000 多个 RL 环境，值得跟踪其真实任务覆盖与泛化效果。",
+      "detail": "Arcfront 认为专业工作能力不能只靠静态正确答案学习，还要保留失败、修订判断和最终结果之间的关系。Decision Arc Data 以连续的工作状态和决策轨迹为单位，计划支持软件工程、SRE、网络安全和协作办公 RL 环境，以及医疗金融法律评测。公司在 11 月 20—21 日前后亮相，公开介绍了企业合作伙伴、RL 环境与前沿实验室合作情况。现阶段披露较多的是产业规模与产品定位，公开可重复的训练消融细节仍有限。最值得开展的研究是比较最终答案、成功轨迹与包含失败修订的专家完整决策记录对 Student 学习的价值。",
+      "findings": "专家在真实证据下不断修改决策的轨迹，为长程 Agent 训练提供了更丰富的数据结构。",
+      "why_it_matters": "值得关注现实业务任务如何形成可验证的状态、评分器和跨企业泛化能力。",
+      "published": "2026-11-21",
+      "score": 95,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "work",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Arcfront 官网",
+          "url": "https://arcfront.ai/"
+        },
+        {
+          "name": "公开亮相报道",
+          "url": "https://nvdium.com/en/articles/637484822"
+        }
+      ]
+    },
+    {
+      "title": "MemFolder：结构化折叠 Agent Memory 同时降低记录数与上下文长度",
+      "summary": "MemFolder 采用两阶段记忆压缩，先利用实体、语义和时间关系合并历史记录，再用事实恢复反馈缩短每条上下文。它针对的是长期记忆条目越来越多、合并后文本仍然过长的双重成本。LoCoMo、PersonaMem 与 LongMemEval 上，Mem0 采用 RecordFolder 后减少约 50% 记录，同时保留 99.0% 的原始平均表现。",
+      "detail": "MemFolder 将记忆管理划分为 RecordFolder 与 ContextFolder 两部分。前者基于实体与语义关系寻找互补记录，并使用时间链聚合兼容证据；后者在合并后的组内生成更短的文本编码。验证环节尝试恢复重要事实，如果编码导致丢失就重新修订。论文还在两个多模态基准中测试方法，文本基准上 RecordFolder 将记录数减半，同时保留原本 99.0% 的表现。接下来应测量记忆被修改、删除或用于行动决策时，证据是否仍保持时间上的正确性。",
+      "findings": "记忆系统需要联合压缩记录数量与单条上下文，并检查事实可恢复性。",
+      "why_it_matters": "可扩展到 Personal Agent 的可更新长期记忆与行动状态一致性评估。",
+      "published": "2026-11-19",
+      "score": 94,
+      "topics": [
+        "memory",
+        "personal",
+        "continual-learning",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26427"
+        }
+      ]
+    },
+    {
+      "title": "G-MTP：共享 Draft Head 与 KV Cache 复用改善 Agent 推理效率",
+      "summary": "G-MTP 用共享 Drafting Head、目标模型激活注入和零拷贝 KV Cache 交叉注意力优化多 Token 投机解码。系统再利用聚类词表投影，降低生成候选 Token 的预测成本。Gemma 4 实验报告服务端最高 3.1 倍、H100 小模型最高 2.3 倍以及手机 GPU 最高 2.2 倍加速。",
+      "detail": "投机解码采用一个小型预测器提出多个未来 Token，再由目标模型并行验证。G-MTP 通过共享 Draft Head 减少预测器参数冗余，同时使用目标激活和 KV Cache 复用提高预测质量与运行效率。聚类词表投影进一步降低大词表生成的成本。论文在不同硬件上报告最高 3.1×、2.3× 和 2.2× 的推理速度提升，并通过参数高效微调应对分布偏移。对长程 Coding Agent 而言，可进一步使用工具调用轨迹训练特化的 Drafter，评估端到端任务时间节约。",
+      "findings": "模型预测器的结构和领域适配可显著影响长程 Agent 的 Token 推理效率。",
+      "why_it_matters": "有价值的研究是 Agent 专用投机解码以及工具调用前后分布变化的快速适配。",
+      "published": "2026-11-19",
+      "score": 91,
+      "topics": [
+        "deployment",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25813"
+        }
+      ]
+    },
+    {
+      "title": "Where the Tokens Go：重新定义 Coding Agent 的有效计算成本",
+      "summary": "Where the Tokens Go 使用热力学类比，把 Coding Agent 的 Token 成本区分为带来任务状态改变的工作和没有持久改变的计算。研究让 Agent 反复修改与撤销代码，以观察往返执行的成本和波动。在其实验定义下，约 80% 的成功任务 Token 被归为 Heat，估算有效工作成本占平均总成本的 14%—22%。",
+      "detail": "研究通过可重置仓库中的代码修改与回退循环收集 Coding Agent 的模型调用轨迹。作者使用测试结果与持久状态变化判断哪些 Token 带来可观察的工作，并用热力学类比描述剩余计算。实验中约 80% Token 被归为 Heat，估算有效工作成本为平均成功运行成本的 14%—22%。但阅读代码、运行测试或否决错误方案也可能提高成功率，因此没有直接改变文件并不必然代表浪费。进一步研究可以用因果贡献、错误恢复与最终任务质量构造更贴近实际价值的 Token 效率指标。",
+      "findings": "Agent 计算成本应与执行状态变化和最终任务价值关联，而非只比较输出 Token 数量。",
+      "why_it_matters": "可为 Agent 运行调度、步骤奖励与过度推理检测提供可测量的新指标。",
+      "published": "2026-11-17",
+      "score": 89,
+      "topics": [
+        "coding",
+        "evaluation",
+        "deployment",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.23375"
+        }
+      ]
+    }
+  ]
+}

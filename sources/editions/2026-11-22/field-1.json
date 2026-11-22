@@ -1,0 +1,203 @@
+{
+  "field": "field-1",
+  "date": "2026-11-22",
+  "items": [
+    {
+      "title": "Lean/Mathlib 核验 Claude 协助发现的黎曼猜想形式化证明",
+      "summary": "Lean 与 Mathlib 社区于 11 月 21 日正式确认 Levent Alpöge 与 Claude 协作完成的黎曼猜想形式化证明。约 1,700 万行 Lean 代码独立编译，并经多种检查器与 Mathlib 原有命题对照核验。突破在于 AI 辅助数学研究拥有了可交叉复核的机器证明，下一步是提炼数学家可以阅读的思路。",
+      "detail": "Alpöge 在 11 月 20 日公开包含约 175,187 个 Lean 模块的证明项目，11 月 21 日 Lean 与 Mathlib 社区公布联合核验声明。该社区对照 Mathlib 中经过专家审查的黎曼猜想命题，验证证明没有暗中使用不同的结论定义。多个独立团队重新编译大型项目，Lean 核心、con-leche 和其他检查器又核验导出的证明内容。MIT 数学家 Andrew Sutherland 公开记录了模块编译、依赖公理与独立检查器的结果。后续最有研究价值的是将超长形式化证明提炼为人类可以理解和迁移的数学策略。",
+      "findings": "AI 辅助的科学发现开始出现能够由独立形式化工具复核的重大成果。",
+      "why_it_matters": "值得研究证明结构自动解释、可验证推理轨迹与科学 Agent 发现过程的复用。",
+      "published": "2026-11-21",
+      "score": 100,
+      "topics": [
+        "science",
+        "evaluation",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "Lean/Mathlib 社区声明",
+          "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
+        },
+        {
+          "name": "MIT 核验记录",
+          "url": "https://math.mit.edu/~drew/grh/"
+        }
+      ]
+    },
+    {
+      "title": "Reflection Beam 技术报告：501B MoE 与亿级 Agent RL Rollout",
+      "summary": "Reflection 团队公开 Beam 技术报告，模型采用 501.3B 总参数、23.4B 激活参数的稀疏 MoE 架构。其预训练使用 23.8T Token，并通过两阶段训练实现 100 万 Token 上下文。在约 10,500 张 GB300 GPU 上进行四周异步强化学习、产生超过一亿次 Rollout，展示了 Agent RL 的新规模。",
+      "detail": "Beam 专为 Coding、推理与 Agent 任务设计，报告详细描述稀疏 MoE 训练、长上下文中期训练及推测解码。训练语料共 23.8T Token，长上下文能力依靠基于可验证数据的两阶段 Midtraining 建立。后训练过程在约 10,500 张 GB300 GPU 上进行超过一亿次 Rollout，全异步 RL 持续四周。作者报告在其比较条件下推理计算需求比部分同等级模型减少三至四倍，且增加 RL 计算仍带来提升。对 Agent 后训练而言，这份报告尤其适合研究数据筛选、Rollout 吞吐量与真实任务效果的成本关系。",
+      "findings": "可验证任务数据、上下文训练和异步 RL 基础设施正在共同决定 Agent 基础模型能力。",
+      "why_it_matters": "可针对长任务采样质量、奖励计算与后训练算力边际收益设计新的评估。",
+      "published": "2026-11-19",
+      "score": 99,
+      "topics": [
+        "training",
+        "data-synthesis",
+        "deployment",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv Beam 技术报告",
+          "url": "https://arxiv.org/abs/2611.26358"
+        }
+      ]
+    },
+    {
+      "title": "SkillPlumber：用指令级 Coverage 驱动 Agent Skill 自我改进",
+      "summary": "SkillPlumber 把 Skill 执行中的指令分成已遵循、未遵循和必要行为未覆盖三类，帮助区分规则错误与执行错误。系统用持续的根因分析 Agent 和经验维护 Agent 修订 Skill。在三个基准及三类执行器中，任务解决率达到 64.7%—70.5%，较原始 Skill 提升 25.6—30.4 个百分点。",
+      "detail": "现有 Skill 自进化常只观察整条轨迹成败，容易把指令写错与 Agent 没有照做混为一谈。SkillPlumber 针对每条规则增加 Follow、Not-follow 和 Not-covered 标记，再将具体标签交给根因分析 Agent。维护 Agent 进一步将跨任务的发现整理为可复用策略。论文报告相较最强基线高 8.7—14.0 个百分点，消除 Coverage 反馈会减少可恢复的失败案例。后续应将指令是否得到执行与真实工具状态和任务结局关联，避免 Skill 改进过拟合主观评判。",
+      "findings": "Skill 自我进化可以从对整条轨迹打分升级为针对单条规则的可定位修复。",
+      "why_it_matters": "适合研究 Instruction Coverage、可执行证据与留出任务回归共同驱动的 Skill 版本管理。",
+      "published": "2026-11-19",
+      "score": 98,
+      "topics": [
+        "skills",
+        "self-evolution",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25429"
+        }
+      ]
+    },
+    {
+      "title": "AutoRAGBench：完整 RAG 系统研发成为可执行 Agent Benchmark",
+      "summary": "AutoRAGBench 包含九项从零开发 RAG 系统的任务，Agent 必须自己分析数据、实现索引与检索流程并反复实验。每个任务提供一张 H800 GPU 和六小时预算，但不提供起始代码。论文报告 GPT-6.1 Sol 加 Codex CLI 平均获得 56.1 分，高于其定义的组合人类最佳基线 44.4 分。",
+      "detail": "该基准不再只要求 Agent 解答检索问答，而是要求它交付完整可运行的 RAG 系统。Agent 需要选择数据处理、向量模型、索引、召回与生成策略，并使用实验反馈继续优化。在九个任务中的最优配置报告平均得分 56.1，而组合式 Human-SOTA 参考基线为 44.4。研究还观察到同一 Agent 在七个已有系统任务上进一步优化，可平均提高 16.6 分。它为研究完整 ML Engineering 工作流的训练数据、预算分配和隐藏任务泛化提供了新工具。",
+      "findings": "系统级软件交付可以作为比孤立编码题更丰富的 Agent 能力评价。",
+      "why_it_matters": "实验日志和最终系统得分可组成用于训练工程决策 Agent 的可验证轨迹。",
+      "published": "2026-11-19",
+      "score": 97,
+      "topics": [
+        "work",
+        "coding",
+        "evaluation",
+        "environments",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25582"
+        }
+      ]
+    },
+    {
+      "title": "Self-Driving Lab：科研 Agent 在授权边界内选择并执行真实实验",
+      "summary": "新研究让科学 Agent 接入液相色谱—质谱实验，选择下一项测量并解释实验结果，同时保持操作可授权、可验证和可审计。Agent 能识别失败实验并据此调整氧化剂排序。在真实实验历史数据回放中，它平均第七次进样就找到最佳条件，随机顺序平均需要 14.5 次。",
+      "detail": "系统位于 Design–Make–Test–Analyze 循环的分析与设计接口，实验对象是有机染料合成的氧化剂筛选。Agent 依据质谱和二极管阵列检测数据选择新测量，并在预先定义的活动范围内提交仪器任务。实验结果排序与脚本式峰积分结果吻合，领域化学家确认了其光谱分析和失败判定。在存档数据回放中，平均约第七次进样找到最高产率条件，随机选择需要 14.5 次。该架构值得借鉴的是把行动决策和权限审批分离，以真实测量形成可追溯训练信号。",
+      "findings": "真实科学 Agent 的执行价值可以通过实验预算、信息增益与可验证结果共同衡量。",
+      "why_it_matters": "可以发展包含仪器状态、授权日志与实验结果的科研 Agent RL 环境。",
+      "published": "2026-11-18",
+      "score": 97,
+      "topics": [
+        "science",
+        "tool-use",
+        "environments",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25043"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 对抗蒸馏研究：自适应推理提取成功率降至不足 1%",
+      "summary": "OpenAI 11 月 20 日发表对抗蒸馏研究，将自动红队、模型训练、分类器和 API 限制结合到推理轨迹保护中。内部自适应黑盒测试中，提取先前请求推理的成功率从 54.0% 降至 0.2%，当前请求从 22.9% 降至 0.9%。研究还发现精确推理轨迹与摘要轨迹的蒸馏效果不同，直接影响后训练的能力迁移。",
+      "detail": "OpenAI 将防护分为单次请求与持续性提取活动两层，模型侧使用对抗训练，输入输出分类器识别可能泄露的内容。工具参数也会被检查，因为模型可能将内部推理泄露到工具调用。API 进一步限制受保护推理在跨会话、跨模型家族的复用。内部测试表明，GPT-6.2 Astra 的两种自适应黑盒提取成功率都已低于 1%，远低于作为比较对象的旧版模型。团队还比较学生模型从完整教师推理轨迹及摘要中学习的效果，发现轨迹粒度会改变某些网络安全任务上的能力迁移。",
+      "findings": "后训练能力的迁移不仅依赖任务答案，也受推理轨迹形式与信息密度影响。",
+      "why_it_matters": "适合研究不同监督粒度下的 Student 泛化、成本效率与训练数据价值。",
+      "published": "2026-11-20",
+      "score": 96,
+      "topics": [
+        "training",
+        "safety",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方研究",
+          "url": "https://openai.com/index/combatting-adversarial-distillation/"
+        }
+      ]
+    },
+    {
+      "title": "Arcfront：将专家决策修订过程转化为 RL 环境和评测数据",
+      "summary": "Arcfront 近期公开 Decision Arc Data 路线，重点记录专业人员从情境判断到证据修订、实际结果的完整工作过程。其目标是将真实软件工程、SRE、安全、医疗、法律与金融工作转成训练数据和可交互评测。公司披露已有 300 多家企业合作伙伴及 1,000 多个 RL 环境，值得跟踪其真实任务覆盖与泛化效果。",
+      "detail": "Arcfront 认为专业工作能力不能只靠静态正确答案学习，还要保留失败、修订判断和最终结果之间的关系。Decision Arc Data 以连续的工作状态和决策轨迹为单位，计划支持软件工程、SRE、网络安全和协作办公 RL 环境，以及医疗金融法律评测。公司在 11 月 20—21 日前后亮相，公开介绍了企业合作伙伴、RL 环境与前沿实验室合作情况。现阶段披露较多的是产业规模与产品定位，公开可重复的训练消融细节仍有限。最值得开展的研究是比较最终答案、成功轨迹与包含失败修订的专家完整决策记录对 Student 学习的价值。",
+      "findings": "专家在真实证据下不断修改决策的轨迹，为长程 Agent 训练提供了更丰富的数据结构。",
+      "why_it_matters": "值得关注现实业务任务如何形成可验证的状态、评分器和跨企业泛化能力。",
+      "published": "2026-11-21",
+      "score": 95,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "work",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "Arcfront 官网",
+          "url": "https://arcfront.ai/"
+        },
+        {
+          "name": "公开亮相报道",
+          "url": "https://nvdium.com/en/articles/637484822"
+        }
+      ]
+    },
+    {
+      "title": "G-MTP：共享 Draft Head 与 KV Cache 复用改善 Agent 推理效率",
+      "summary": "G-MTP 用共享 Drafting Head、目标模型激活注入和零拷贝 KV Cache 交叉注意力优化多 Token 投机解码。系统再利用聚类词表投影，降低生成候选 Token 的预测成本。Gemma 4 实验报告服务端最高 3.1 倍、H100 小模型最高 2.3 倍以及手机 GPU 最高 2.2 倍加速。",
+      "detail": "投机解码采用一个小型预测器提出多个未来 Token，再由目标模型并行验证。G-MTP 通过共享 Draft Head 减少预测器参数冗余，同时使用目标激活和 KV Cache 复用提高预测质量与运行效率。聚类词表投影进一步降低大词表生成的成本。论文在不同硬件上报告最高 3.1×、2.3× 和 2.2× 的推理速度提升，并通过参数高效微调应对分布偏移。对长程 Coding Agent 而言，可进一步使用工具调用轨迹训练特化的 Drafter，评估端到端任务时间节约。",
+      "findings": "模型预测器的结构和领域适配可显著影响长程 Agent 的 Token 推理效率。",
+      "why_it_matters": "有价值的研究是 Agent 专用投机解码以及工具调用前后分布变化的快速适配。",
+      "published": "2026-11-19",
+      "score": 91,
+      "topics": [
+        "deployment",
+        "training",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.25813"
+        }
+      ]
+    },
+    {
+      "title": "Where the Tokens Go：重新定义 Coding Agent 的有效计算成本",
+      "summary": "Where the Tokens Go 使用热力学类比，把 Coding Agent 的 Token 成本区分为带来任务状态改变的工作和没有持久改变的计算。研究让 Agent 反复修改与撤销代码，以观察往返执行的成本和波动。在其实验定义下，约 80% 的成功任务 Token 被归为 Heat，估算有效工作成本占平均总成本的 14%—22%。",
+      "detail": "研究通过可重置仓库中的代码修改与回退循环收集 Coding Agent 的模型调用轨迹。作者使用测试结果与持久状态变化判断哪些 Token 带来可观察的工作，并用热力学类比描述剩余计算。实验中约 80% Token 被归为 Heat，估算有效工作成本为平均成功运行成本的 14%—22%。但阅读代码、运行测试或否决错误方案也可能提高成功率，因此没有直接改变文件并不必然代表浪费。进一步研究可以用因果贡献、错误恢复与最终任务质量构造更贴近实际价值的 Token 效率指标。",
+      "findings": "Agent 计算成本应与执行状态变化和最终任务价值关联，而非只比较输出 Token 数量。",
+      "why_it_matters": "可为 Agent 运行调度、步骤奖励与过度推理检测提供可测量的新指标。",
+      "published": "2026-11-17",
+      "score": 89,
+      "topics": [
+        "coding",
+        "evaluation",
+        "deployment",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.23375"
+        }
+      ]
+    }
+  ]
+}
