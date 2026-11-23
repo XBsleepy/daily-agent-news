@@ -1,0 +1,1 @@
+11 月 23 日重点：OpenAI 首次公开预训练 Perplexity 纵向指标；BuggyMLE 从真实 ML 仓库合成可验证故障；NVIDIA Sigma 与 ResolveAI SRE-1 分别推进高效模型架构与专业领域 RL；PoolDPP、OpenAI 研发自动化报告和 SailSearch 关注多样性采样、AI4AI 评测与算法发现。

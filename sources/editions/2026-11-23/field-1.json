@@ -1,0 +1,126 @@
+{
+  "field": "field-1",
+  "date": "2026-11-23",
+  "items": [
+    {
+      "title": "OpenAI 首次披露预训练 Perplexity 曲线，提出跨实验室能力监测标准",
+      "summary": "OpenAI 首席科学家 Jakub Pachocki 于 11 月 22 日公开不同世代模型的预训练 Log-Perplexity 指标。GPT-3.5、GPT-4 与近期模型在内部代码留出集上约为 0.99、0.91 和 0.76，随着 Loss 下降，数学等领域出现重要能力进展。他建议把长期可比的预测损失与实际能力评测结合，作为追踪前沿模型进展的新尺度。",
+      "intro": "OpenAI 11 月 22 日发表《Perplexity and Intelligence》，首次公开其跨多年连续监测的预训练损失指标。",
+      "detail": "Log-Perplexity 是平均交叉熵 Loss，反映模型在未见数据上的预测表现。文章披露 GPT-3.5 约 0.99、GPT-4 约 0.91，近期实现重要数学研究进展的模型约 0.76，数据来自 OpenAI 内部代码库固定留出快照。作者认为 SFT、RL 和 Agent 工具在很大程度上挖掘预训练的潜在能力，并建议建立跨实验室共同监测标准。一个值得验证的方向，是为代码、数学、科学和专业工作分别建立固定留出集，检查预训练 Loss 是否提前预测实际 Agent 成功率。",
+      "findings": "长期固定的预测指标能够辅助识别基础模型能力变化，并与任务级测评相互补充。",
+      "why_it_matters": "重点研究不同数据配比、分领域预测损失、后训练策略与下游能力跃迁的关系。",
+      "published": "2026-11-22",
+      "score": 100,
+      "topics": [
+        "training",
+        "evaluation",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方研究",
+          "url": "https://openai.com/index/perplexity-and-intelligence/"
+        }
+      ]
+    },
+    {
+      "title": "BuggyMLE：从真实 ML 仓库合成难度可控、可执行验证的故障任务",
+      "summary": "BuggyMLE 从 222 个真实 ML 代码库生成超过 6,600 个多文件 Bug 实例，并用结构复杂度指标 CCI 调节任务难度。受测模型在最简单到最困难档的最高完整修复率由 95% 降至 9%。以这些任务训练 Qwen3.5-9B 后，SWE-bench Lite 修复率从 24% 提升到 33%，显示真实工程故障合成可以迁移到一般 Coding 能力。",
+      "intro": "11 月 18 日发表的 BuggyMLE 聚焦 Machine Learning Engineering 中真实、多文件且可运行的修复任务生产。",
+      "detail": "作者使用十项代码结构特征形成 CCI，报告它与八个公开编码基准解题率的拟合 R² 为 0.951。系统从真实 ML 仓库自动注入错误，要求错误造成可观察训练或评测损害、撤销错误可恢复原结果，形成可执行的训练样本。团队合成超过 6,600 个带 Bug 仓库变体、约 26 万行故障代码，并设置从单 Bug 到复杂多 Bug 的分层任务。基于不同难度课程训练 Qwen3.5-9B 后，SWE-bench Lite 从 24% 升至 33%，LiveCodeBench v6 Pass@1 从 69% 升至 71%。这也提示要分别检测指标恢复和实际错误修复，防止 Agent 通过改动评分流程获得虚假成功。",
+      "findings": "难度控制、真实仓库结构和可执行验证构成可扩展的 MLE Agent 任务生产方法。",
+      "why_it_matters": "适合用来训练 AI 研发 Agent、研究自适应课程，以及合成真实训练环境中的数据泄漏和配置错误。",
+      "published": "2026-11-18",
+      "score": 99,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "training",
+        "coding",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "BuggyMLE 论文",
+          "url": "https://arxiv.org/abs/2611.25088"
+        }
+      ]
+    },
+    {
+      "title": "NVIDIA Nemotron-Labs-Sigma：3B/8B 连续扩散语言模型与高吞吐解码",
+      "summary": "NVIDIA 发布 Nemotron-Labs-Sigma 开放检查点，将文本生成表示为 16 维连续 Token 嵌入上的分块去噪过程。模型结合自回归和扩散训练流，可做少步蒸馏、输出多样性控制及自身投机解码。在 GB200 上，8B 模型自投机解码平均吞吐是对应自回归解码的 3.46 倍，为长程 Agent 的推理成本优化提供了新路径。",
+      "intro": "NVIDIA 11 月 20 日公开 Sigma 3B/8B 模型家族，探索连续扩散语言建模和开放权重。",
+      "detail": "Sigma 共享基础模型主干，训练传统下一 Token 预测的自回归流，以及在 16 维连续表示上逐块去噪的扩散流。生成时用条件引导和温度调节连续轨迹，再映射回离散 Token。NVIDIA 报告经少步蒸馏后，数学任务可实现每次前向传播约 8 Token、代码任务约 4 Token，且维持可用的准确率。自投机解码使用扩散流起草、由自回归流验证，在 NVIDIA GB200 上 8B 模型平均吞吐加速 3.46 倍。下一步值得比较相同预算下扩散采样带来的训练数据多样性与后续 Student 收益。",
+      "findings": "连续扩散可同时支持分块生成、低步数采样和推测式验证。",
+      "why_it_matters": "与 Agent 合成任务的候选覆盖率、模型输出多样性和真实端到端时延直接相关。",
+      "published": "2026-11-20",
+      "score": 98,
+      "topics": [
+        "training",
+        "deployment",
+        "coding",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "NVIDIA 官方研究",
+          "url": "https://research.nvidia.com/labs/genair/sigma/"
+        },
+        {
+          "name": "原始论文",
+          "url": "https://arxiv.org/abs/2610.02665"
+        }
+      ]
+    },
+    {
+      "title": "ResolveAI SRE-1：27B 模型用冻结时点的生产事故环境做强化学习",
+      "summary": "ResolveAI 11 月 18 日推出专门调查生产故障的 27B 模型 SRE-1，以强化学习提升真实告警的根因定位能力。训练时结合在线事故、冻结时点回放、模拟服务以及授权外部环境，避免 Agent 读取事故发生后才出现的修复答案。官方披露单次事故调查通过率从训练前 6.9% 提升至 38.8%，展示了专业领域环境数据与 Agent RL 的结合价值。",
+      "intro": "ResolveAI 的 SRE-1 是面向线上服务告警根因分析的专用模型，其工作过程依赖实际监控和多工具调查。",
+      "detail": "生产事故数据的难点是日志快速过期、可用工具复杂、根因标签不完整，以及回放中极易出现未来信息泄漏。ResolveAI 使用真实线上事故、实时证据回放、Agent 合成服务、许可外部系统和离线事故证据等五种训练环境。每次调查把工具可见状态固定在事件发生时，让模型依据当时的日志、提交和遥测数据重建因果链。官方报告 27B 模型经过 RL 后，单次调查通过率从 6.9% 提高至 38.8%，成功判定依据根因链与参考结果的一致性。该时点锁定设计也适合迁移到金融、法律和医学等不能泄漏未来记录的专业任务。",
+      "findings": "高质量 Agent RL 数据不只是成功答案，更需要可还原的历史工具状态及证据边界。",
+      "why_it_matters": "适合研究时点锁定专业环境、调查行动奖励和真实企业工作流中的可验证结果。",
+      "published": "2026-11-18",
+      "score": 97,
+      "topics": [
+        "training",
+        "environments",
+        "work",
+        "coding",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "ResolveAI 官方研究",
+          "url": "https://resolve.ai/labs/sre-1"
+        },
+        {
+          "name": "官方发布公告",
+          "url": "https://resolve.ai/news/introduces-SRE-1-model-and-primary-on-call"
+        }
+      ]
+    },
+    {
+      "title": "PoolDPP：用质量与语义排斥联合选择多样化生成候选",
+      "summary": "PoolDPP 把语言模型的多答案生成建模为行列式点过程，优先挑选高质量又互不相似的结果。它先生成有限候选池，再用重要性加权与 K-DPP 采样完成选择，并证明与目标采样分布的 KL 误差随候选池规模按 O(1/N) 下降。论文在开放生成、模糊 Text-to-SQL 和 GSM8K 上改善解法覆盖，为合成数据和 Agent 并行搜索去重提供新思路。",
+      "intro": "11 月 18 日的《A Model of Diverse Sampling from Language Models》研究多个候选形成的整体集合质量，而不只是单次生成分数。",
+      "detail": "作者用 Determinantal Point Process 对完整字符串集合建模，核函数同时表示输出质量与不同答案之间的语义排斥。由于无限字符串空间无法直接精确采样，PoolDPP 先从可采样 Proposal 分布生成 N 个候选，重要性加权后在有限核上抽取 K 个输出，并提供贪心 MAP 变体。论文证明 KL 误差相对于目标 K-DPP 有 O(1/N) 的有限样本上界。开放式文本、Ambrosia 模糊 Text-to-SQL 和 GSM8K 实验展示质量与多样性的共同改进。对 Agent 训练，可将不同成功路径的覆盖率作为样本选择目标，而非只按奖励取 Top-K。",
+      "findings": "候选集合的质量和多样性是两个可联合优化的目标，有助于降低合成训练数据的语义重复。",
+      "why_it_matters": "可用于多路径代码修复、并行研究 Agent 实验选题与 Student 数据选择。",
+      "published": "2026-11-18",
+      "score": 96,
+      "topics": [
+        "data-synthesis",
+        "training",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "PoolDPP 论文",
+          "url": "https://arxiv.org/abs/2611.25003"
+        }
+      ]
+    }
+  ]
+}

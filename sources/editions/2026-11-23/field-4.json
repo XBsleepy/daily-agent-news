@@ -1,0 +1,97 @@
+{
+  "field": "field-4",
+  "date": "2026-11-23",
+  "items": [
+    {
+      "title": "OpenAI 首次披露预训练 Perplexity 曲线，提出跨实验室能力监测标准",
+      "summary": "OpenAI 首席科学家 Jakub Pachocki 于 11 月 22 日公开不同世代模型的预训练 Log-Perplexity 指标。GPT-3.5、GPT-4 与近期模型在内部代码留出集上约为 0.99、0.91 和 0.76，随着 Loss 下降，数学等领域出现重要能力进展。他建议把长期可比的预测损失与实际能力评测结合，作为追踪前沿模型进展的新尺度。",
+      "intro": "OpenAI 11 月 22 日发表《Perplexity and Intelligence》，首次公开其跨多年连续监测的预训练损失指标。",
+      "detail": "Log-Perplexity 是平均交叉熵 Loss，反映模型在未见数据上的预测表现。文章披露 GPT-3.5 约 0.99、GPT-4 约 0.91，近期实现重要数学研究进展的模型约 0.76，数据来自 OpenAI 内部代码库固定留出快照。作者认为 SFT、RL 和 Agent 工具在很大程度上挖掘预训练的潜在能力，并建议建立跨实验室共同监测标准。一个值得验证的方向，是为代码、数学、科学和专业工作分别建立固定留出集，检查预训练 Loss 是否提前预测实际 Agent 成功率。",
+      "findings": "长期固定的预测指标能够辅助识别基础模型能力变化，并与任务级测评相互补充。",
+      "why_it_matters": "重点研究不同数据配比、分领域预测损失、后训练策略与下游能力跃迁的关系。",
+      "published": "2026-11-22",
+      "score": 100,
+      "topics": [
+        "training",
+        "evaluation",
+        "self-evolution",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方研究",
+          "url": "https://openai.com/index/perplexity-and-intelligence/"
+        }
+      ]
+    },
+    {
+      "title": "BuggyMLE：从真实 ML 仓库合成难度可控、可执行验证的故障任务",
+      "summary": "BuggyMLE 从 222 个真实 ML 代码库生成超过 6,600 个多文件 Bug 实例，并用结构复杂度指标 CCI 调节任务难度。受测模型在最简单到最困难档的最高完整修复率由 95% 降至 9%。以这些任务训练 Qwen3.5-9B 后，SWE-bench Lite 修复率从 24% 提升到 33%，显示真实工程故障合成可以迁移到一般 Coding 能力。",
+      "intro": "11 月 18 日发表的 BuggyMLE 聚焦 Machine Learning Engineering 中真实、多文件且可运行的修复任务生产。",
+      "detail": "作者使用十项代码结构特征形成 CCI，报告它与八个公开编码基准解题率的拟合 R² 为 0.951。系统从真实 ML 仓库自动注入错误，要求错误造成可观察训练或评测损害、撤销错误可恢复原结果，形成可执行的训练样本。团队合成超过 6,600 个带 Bug 仓库变体、约 26 万行故障代码，并设置从单 Bug 到复杂多 Bug 的分层任务。基于不同难度课程训练 Qwen3.5-9B 后，SWE-bench Lite 从 24% 升至 33%，LiveCodeBench v6 Pass@1 从 69% 升至 71%。这也提示要分别检测指标恢复和实际错误修复，防止 Agent 通过改动评分流程获得虚假成功。",
+      "findings": "难度控制、真实仓库结构和可执行验证构成可扩展的 MLE Agent 任务生产方法。",
+      "why_it_matters": "适合用来训练 AI 研发 Agent、研究自适应课程，以及合成真实训练环境中的数据泄漏和配置错误。",
+      "published": "2026-11-18",
+      "score": 99,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "training",
+        "coding",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "BuggyMLE 论文",
+          "url": "https://arxiv.org/abs/2611.25088"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 研发加速测量：2—4 小时任务的自主完成率达到 46%",
+      "summary": "OpenAI 在 11 月 18 日的内部研发测量中报告，Agent 完成预估需人类 2—4 小时任务的比例从 3 月 23% 升至 10 月 46%。不同子任务差异突出：训练运行监控成功率为 79%，启动训练为 35%，编写推理服务代码为 25%。这表明 AI4AI 应按任务类型拆分成功率和人工接管点，不能仅用单一总体分数代表研发自动化。",
+      "intro": "OpenAI《Research acceleration: The jagged frontier》公开了 Coding Agent 对内部 AI 研发流程的影响和任务完成率。",
+      "detail": "报告比较了从 3 月到 10 月的 Agent 独立成功率：2—4 小时人类任务从 23% 到 46%，4—8 小时任务从 13% 到 35%。按实际活动拆分，训练监控达到 79%、启动训练 35%、推理与服务系统代码仅 25%，说明监控类工作和实施类工作之间存在较大能力差异。研究还观察了研究者使用 Agent 的强度、反馈和研发流程变化。对 AI4AI 的启发是分别测量实验监控、任务规划、启动训练、数据和环境构建、结果回归验证，而不是把它们合并成泛化的 Agent 成功率。",
+      "findings": "真实研发自动化呈现明显任务结构差异，观测任务较容易完成，复杂工程执行仍是重要瓶颈。",
+      "why_it_matters": "适合构建分工种的 AI 研发 Agent Benchmark、人机接管协议和自进化训练评价。",
+      "published": "2026-11-18",
+      "score": 95,
+      "topics": [
+        "self-evolution",
+        "evaluation",
+        "training",
+        "coding",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方研究",
+          "url": "https://openai.com/index/research-acceleration-jagged-frontier/"
+        }
+      ]
+    },
+    {
+      "title": "SailSearch：双 Agent 辅助算法发现，解决 18 个此前未解算例",
+      "summary": "SailSearch 让两名语言模型 Agent 与人类研究者共同设计组合优化算法，通过实验持续验证和调整方案。在 Market Split 研究中，团队报告首次仅靠 CPU 解决 33 个此前未解 QOBLIB 算例中的 18 个。它还为最大独立集构造了带可证明最优值的困难图实例，说明 AI 科学研究能够同时产出算法和验证环境。",
+      "intro": "IBM Research 等团队 11 月 18 日发布 SailSearch，研究双 Agent 在人类引导下完成组合优化算法设计。",
+      "detail": "流程中两个 Agent 分担算法提案、实验开发和结果分析，研究者在关键决策点调整搜索方向。Market Split 算法在多个格基上分配搜索预算，并结合持续基约简；10 个随机种子测试中，报告 33 个之前尚未解开的 QOBLIB 实例里首次有 18 个得到 CPU-only 解。另一方面，研究生成带已知最优解的 MIS 对抗图，在七张 1,752—3,996 顶点图上，所测求解器八小时内与最优值相差 5—15 个顶点。论文复盘 11 个关键研究片段，提供了实验失败、人工决策和算法修订之间的可追溯关系。",
+      "findings": "人类引导的双 Agent 科学发现不仅能改进算法，也能产出可执行、具有正确答案的困难 Benchmark。",
+      "why_it_matters": "适合用于训练 AI4AI 的算法实验策略、科学过程记忆及基于真实执行反馈的自我改进。",
+      "published": "2026-11-18",
+      "score": 93,
+      "topics": [
+        "self-evolution",
+        "science",
+        "environments",
+        "evaluation",
+        "framework"
+      ],
+      "sources": [
+        {
+          "name": "SailSearch 论文",
+          "url": "https://arxiv.org/abs/2611.25087"
+        }
+      ]
+    }
+  ]
+}

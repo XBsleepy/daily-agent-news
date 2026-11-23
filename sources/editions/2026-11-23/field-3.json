@@ -1,0 +1,79 @@
+{
+  "field": "field-3",
+  "date": "2026-11-23",
+  "items": [
+    {
+      "title": "BuggyMLE：从真实 ML 仓库合成难度可控、可执行验证的故障任务",
+      "summary": "BuggyMLE 从 222 个真实 ML 代码库生成超过 6,600 个多文件 Bug 实例，并用结构复杂度指标 CCI 调节任务难度。受测模型在最简单到最困难档的最高完整修复率由 95% 降至 9%。以这些任务训练 Qwen3.5-9B 后，SWE-bench Lite 修复率从 24% 提升到 33%，显示真实工程故障合成可以迁移到一般 Coding 能力。",
+      "intro": "11 月 18 日发表的 BuggyMLE 聚焦 Machine Learning Engineering 中真实、多文件且可运行的修复任务生产。",
+      "detail": "作者使用十项代码结构特征形成 CCI，报告它与八个公开编码基准解题率的拟合 R² 为 0.951。系统从真实 ML 仓库自动注入错误，要求错误造成可观察训练或评测损害、撤销错误可恢复原结果，形成可执行的训练样本。团队合成超过 6,600 个带 Bug 仓库变体、约 26 万行故障代码，并设置从单 Bug 到复杂多 Bug 的分层任务。基于不同难度课程训练 Qwen3.5-9B 后，SWE-bench Lite 从 24% 升至 33%，LiveCodeBench v6 Pass@1 从 69% 升至 71%。这也提示要分别检测指标恢复和实际错误修复，防止 Agent 通过改动评分流程获得虚假成功。",
+      "findings": "难度控制、真实仓库结构和可执行验证构成可扩展的 MLE Agent 任务生产方法。",
+      "why_it_matters": "适合用来训练 AI 研发 Agent、研究自适应课程，以及合成真实训练环境中的数据泄漏和配置错误。",
+      "published": "2026-11-18",
+      "score": 99,
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "training",
+        "coding",
+        "benchmark"
+      ],
+      "sources": [
+        {
+          "name": "BuggyMLE 论文",
+          "url": "https://arxiv.org/abs/2611.25088"
+        }
+      ]
+    },
+    {
+      "title": "ResolveAI SRE-1：27B 模型用冻结时点的生产事故环境做强化学习",
+      "summary": "ResolveAI 11 月 18 日推出专门调查生产故障的 27B 模型 SRE-1，以强化学习提升真实告警的根因定位能力。训练时结合在线事故、冻结时点回放、模拟服务以及授权外部环境，避免 Agent 读取事故发生后才出现的修复答案。官方披露单次事故调查通过率从训练前 6.9% 提升至 38.8%，展示了专业领域环境数据与 Agent RL 的结合价值。",
+      "intro": "ResolveAI 的 SRE-1 是面向线上服务告警根因分析的专用模型，其工作过程依赖实际监控和多工具调查。",
+      "detail": "生产事故数据的难点是日志快速过期、可用工具复杂、根因标签不完整，以及回放中极易出现未来信息泄漏。ResolveAI 使用真实线上事故、实时证据回放、Agent 合成服务、许可外部系统和离线事故证据等五种训练环境。每次调查把工具可见状态固定在事件发生时，让模型依据当时的日志、提交和遥测数据重建因果链。官方报告 27B 模型经过 RL 后，单次调查通过率从 6.9% 提高至 38.8%，成功判定依据根因链与参考结果的一致性。该时点锁定设计也适合迁移到金融、法律和医学等不能泄漏未来记录的专业任务。",
+      "findings": "高质量 Agent RL 数据不只是成功答案，更需要可还原的历史工具状态及证据边界。",
+      "why_it_matters": "适合研究时点锁定专业环境、调查行动奖励和真实企业工作流中的可验证结果。",
+      "published": "2026-11-18",
+      "score": 97,
+      "topics": [
+        "training",
+        "environments",
+        "work",
+        "coding",
+        "product"
+      ],
+      "sources": [
+        {
+          "name": "ResolveAI 官方研究",
+          "url": "https://resolve.ai/labs/sre-1"
+        },
+        {
+          "name": "官方发布公告",
+          "url": "https://resolve.ai/news/introduces-SRE-1-model-and-primary-on-call"
+        }
+      ]
+    },
+    {
+      "title": "OpenAI 研发加速测量：2—4 小时任务的自主完成率达到 46%",
+      "summary": "OpenAI 在 11 月 18 日的内部研发测量中报告，Agent 完成预估需人类 2—4 小时任务的比例从 3 月 23% 升至 10 月 46%。不同子任务差异突出：训练运行监控成功率为 79%，启动训练为 35%，编写推理服务代码为 25%。这表明 AI4AI 应按任务类型拆分成功率和人工接管点，不能仅用单一总体分数代表研发自动化。",
+      "intro": "OpenAI《Research acceleration: The jagged frontier》公开了 Coding Agent 对内部 AI 研发流程的影响和任务完成率。",
+      "detail": "报告比较了从 3 月到 10 月的 Agent 独立成功率：2—4 小时人类任务从 23% 到 46%，4—8 小时任务从 13% 到 35%。按实际活动拆分，训练监控达到 79%、启动训练 35%、推理与服务系统代码仅 25%，说明监控类工作和实施类工作之间存在较大能力差异。研究还观察了研究者使用 Agent 的强度、反馈和研发流程变化。对 AI4AI 的启发是分别测量实验监控、任务规划、启动训练、数据和环境构建、结果回归验证，而不是把它们合并成泛化的 Agent 成功率。",
+      "findings": "真实研发自动化呈现明显任务结构差异，观测任务较容易完成，复杂工程执行仍是重要瓶颈。",
+      "why_it_matters": "适合构建分工种的 AI 研发 Agent Benchmark、人机接管协议和自进化训练评价。",
+      "published": "2026-11-18",
+      "score": 95,
+      "topics": [
+        "self-evolution",
+        "evaluation",
+        "training",
+        "coding",
+        "work"
+      ],
+      "sources": [
+        {
+          "name": "OpenAI 官方研究",
+          "url": "https://openai.com/index/research-acceleration-jagged-frontier/"
+        }
+      ]
+    }
+  ]
+}
