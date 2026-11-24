@@ -1,0 +1,695 @@
+{
+  "schema_version": 1,
+  "demo": false,
+  "date": "2026-11-24",
+  "generated_at": "2026-11-24T08:29:00+08:00",
+  "fields": [
+    {
+      "id": "field-1",
+      "name": "模型训练与数据"
+    },
+    {
+      "id": "field-2",
+      "name": "Personal Agent"
+    },
+    {
+      "id": "field-3",
+      "name": "Code / Work / Life Agent"
+    },
+    {
+      "id": "field-4",
+      "name": "RSI / AI4AI / 自进化"
+    },
+    {
+      "id": "field-5",
+      "name": "Agent / 后训练"
+    }
+  ],
+  "topic_groups": [
+    {
+      "id": "research",
+      "name": "研究主题"
+    },
+    {
+      "id": "scenario",
+      "name": "应用场景"
+    },
+    {
+      "id": "format",
+      "name": "信息类型"
+    }
+  ],
+  "topics": [
+    {
+      "id": "memory",
+      "name": "长期记忆",
+      "group": "research"
+    },
+    {
+      "id": "skills",
+      "name": "技能学习",
+      "group": "research"
+    },
+    {
+      "id": "self-evolution",
+      "name": "自我进化",
+      "group": "research"
+    },
+    {
+      "id": "continual-learning",
+      "name": "持续学习",
+      "group": "research"
+    },
+    {
+      "id": "tool-use",
+      "name": "工具使用",
+      "group": "research"
+    },
+    {
+      "id": "training",
+      "name": "训练与蒸馏",
+      "group": "research"
+    },
+    {
+      "id": "data-synthesis",
+      "name": "数据合成",
+      "group": "research"
+    },
+    {
+      "id": "environments",
+      "name": "环境构建",
+      "group": "research"
+    },
+    {
+      "id": "evaluation",
+      "name": "评测与验证",
+      "group": "research"
+    },
+    {
+      "id": "safety",
+      "name": "安全与权限",
+      "group": "research"
+    },
+    {
+      "id": "deployment",
+      "name": "运行与部署",
+      "group": "research"
+    },
+    {
+      "id": "personal",
+      "name": "个人助手",
+      "group": "scenario"
+    },
+    {
+      "id": "work",
+      "name": "办公协作",
+      "group": "scenario"
+    },
+    {
+      "id": "coding",
+      "name": "软件工程",
+      "group": "scenario"
+    },
+    {
+      "id": "science",
+      "name": "科研发现",
+      "group": "scenario"
+    },
+    {
+      "id": "benchmark",
+      "name": "评测基准",
+      "group": "format"
+    },
+    {
+      "id": "framework",
+      "name": "方法与框架",
+      "group": "format"
+    },
+    {
+      "id": "product",
+      "name": "产品与产业",
+      "group": "format"
+    }
+  ],
+  "brief": "今日主线：Google DeepMind 公开 Gemini 4 与 Lean 协作发现量子算法的研究；RemoteEvolver 与经验选择研究分别推进外部 Harness 和后训练持续学习；OceanCoder、CAD 工程设计、ChatAtom 和 MSRyzen 则将专业验证器、真实执行和证据交付纳入科学 Agent 闭环。另关注个人助手的权限判断与行为隐私、专业评测的来源泄漏。",
+  "items": [
+    {
+      "id": "news-20261124-01",
+      "title": "Google DeepMind：Gemini 4 多 Agent 发现 Lean 可验证的高效量子算法",
+      "summary": "DeepMind 11 月 23 日公开 Gemini 4 多 Agent 优化量子算法的研究及开源验证框架。团队借助 Lean 验证候选程序的正确性与资源成本，报告聚变相关电路计算成本降低 11.8 倍、光化学降低 8 倍、酶模拟降低 2.5 倍。结果展示了多 Agent 搜索与形式化验证结合的科研发现路径。",
+      "intro": "论文 11 月 6 日首次提交，11 月 23 日发布官方研究解读与开源资源。",
+      "detail": "研究人员定义问题，独立 Agent 团队提出程序并证明其符合约束，再通过共享知识库和定期交流复用成果。聚变电路所需逻辑量子比特由 5650 降至 4338，反正弦计算的资源成本改善达 290 倍。这里的收益是数学验证的电路资源估计，并非真实量子硬件运行测量。",
+      "findings": "多团队并行探索、共享经过验证的中间结果、统一可计算成本，是可迁移的科研搜索模式。",
+      "why_it_matters": "适合研究 AI4AI 的可验证搜索、跨团队经验共享和科学任务的过程级奖励。",
+      "published": "2026-11-23",
+      "score": 100,
+      "fields": [
+        "field-4",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "Google DeepMind 官方研究",
+          "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/"
+        },
+        {
+          "name": "原始论文（11 月 6 日首次提交）",
+          "url": "https://arxiv.org/abs/2611.09822"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "science",
+        "tool-use"
+      ]
+    },
+    {
+      "id": "news-20261124-02",
+      "title": "RemoteEvolver：通过工具与技能进化实现遥感 Agent 持续学习",
+      "summary": "RemoteEvolver 固定基模权重，通过外部 Harness 扩展遥感工具与可复用技能。面对工具齐全和部分缺失的任务，两个基准上的平均准确率相对初始状态分别提高 8.18 和 23.86 个百分点。它把执行反馈转化为跨任务能力积累，而非仅仅重排固定工具。",
+      "intro": "论文研究可持续扩展能力的地球观测 Agent。",
+      "detail": "系统在发现能力缺口时获取所需专业工具，把验证成功的任务轨迹提炼为持久技能，再用于后续规划。在 Earth-Bench 与 OpenEarthAgent-Bench 的两种工具配置中，相对既有最强方法的平均收益分别为 6.77 和 17.10 个百分点。",
+      "findings": "工具缺失时，外部能力扩展和技能复用的价值更突出。",
+      "why_it_matters": "可作为 Harness 自进化、技能回归测试及长期运行 Agent 的参考。",
+      "published": "2026-11-20",
+      "score": 99,
+      "fields": [
+        "field-3",
+        "field-4",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27110"
+        }
+      ],
+      "topics": [
+        "continual-learning",
+        "framework",
+        "science",
+        "self-evolution",
+        "skills",
+        "tool-use"
+      ]
+    },
+    {
+      "id": "news-20261124-03",
+      "title": "From Acting to Learning：用优化器感知的经验选择训练持续学习 Agent",
+      "summary": "研究比较九种成功轨迹选择策略，训练 288 个 4B Student 并统一评测。梯度感知选择在两个经验池中达到 81.45% 和 73.19% 的成功率，比全局随机选择高 8.25 和 5.96 个百分点。结果说明成功经验的学习价值并不相同，样本选择本身是持续学习的重要变量。",
+      "intro": "研究将经验选择独立出来，考察不同初始化与采样随机种子下的稳定收益。",
+      "detail": "实验固定经验池与训练预算，比较九种选择器、八个初始化和两个采样种子。在相同数据自由度下，相对高 NLL 选择的增益为 4.10 与 4.05 个百分点；保留任务组上的独立复现实验中，相对随机及高 NLL 的收益分别为 7.03 和 5.03 个百分点。",
+      "findings": "训练价值取决于经验与 Student 优化过程的匹配，而不只是奖励或难度。",
+      "why_it_matters": "适合设计 Agent RL/SFT 数据选择、在线经验回放和自适应课程。",
+      "published": "2026-11-20",
+      "score": 98,
+      "fields": [
+        "field-1",
+        "field-4",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27159"
+        }
+      ],
+      "topics": [
+        "continual-learning",
+        "data-synthesis",
+        "evaluation",
+        "framework",
+        "training"
+      ]
+    },
+    {
+      "id": "news-20261124-04",
+      "title": "OceanCoder：三层工程验证驱动海洋仿真代码生成与 GRPO",
+      "summary": "OceanCoder 基于 Qwen3-8B 构建海洋工程仿真专用模型，并合成覆盖 12 类任务的 12000 条已验证 SFT 样本。三层验证器检查工程输入、分析任务完成情况及输出合理性，并为 GRPO 提供分级奖励。Pass@1 从基模的 0% 提升到 SFT 后的 46.77%，再经 GRPO 达到 51.43%。",
+      "intro": "研究解决代码能运行但不满足真实工程约束的问题。",
+      "detail": "数据构造流程先覆盖工程任务类型，再检查参数、约束、数值分析是否执行以及结果是否合理。基准还包含分布外任务和真实工程案例，形成专业领域训练与验证闭环。",
+      "findings": "代码执行成功不足以评价工程建模，专业规则可用于构造更有效的训练奖励。",
+      "why_it_matters": "可迁移至科学计算、有限元、EDA 等多阶段可执行任务合成。",
+      "published": "2026-11-19",
+      "score": 97,
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26333"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "coding",
+        "data-synthesis",
+        "evaluation",
+        "framework",
+        "science",
+        "training"
+      ]
+    },
+    {
+      "id": "news-20261124-05",
+      "title": "AI Agents Redesign Engineering Parts：GPT-6 Astra 在 1650 维 CAD 空间优化支架",
+      "summary": "GPT-6 Astra 在约 1650 个 CAD 设计参数中迭代修改镁合金支架，预算仅为 15 次非线性仿真。论文报告目标应变指标下降 32%，同预算下工业形状优化器约改善一成。更高保真度的独立仿真还验证了早期设计方案的减损效果，展示了高维工程设计中的 Agent 价值。",
+      "intro": "真实工程优化同时受高维参数、昂贵求解和结构级改动约束。",
+      "detail": "Agent 每次提案均经 CAD 构建、网格划分及包含接触和塑性的仿真，再依据完整结果调整方案。较早的方案在完整部署模拟中应变降低 14%，局部最严重损伤指标降低 63%。",
+      "findings": "利用模型的工程知识缩小搜索空间，可在有限仿真预算内找到有价值的结构级改动。",
+      "why_it_matters": "适合研究科学 Agent 的预算约束搜索与多保真度验证；该研究是仿真实验而非临床验证。",
+      "published": "2026-11-19",
+      "score": 97,
+      "fields": [
+        "field-3",
+        "field-4",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26003"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "science",
+        "tool-use"
+      ]
+    },
+    {
+      "id": "news-20261124-06",
+      "title": "ChatAtom：多 Agent 打通分子动力学模拟、执行与分析",
+      "summary": "ChatAtom 将自然语言请求转为完整分子动力学任务，覆盖实验规划、脚本生成、执行、可视化与解释。LAMMPS 和 OVITO 模块采用生成与审查分工，并通过 HPC 模块提交远程作业。论文用脚本基准、裂纹扩展案例及闭环研究检验该工作流，提供科学 Agent 端到端任务的设计样例。",
+      "intro": "传统分子动力学任务需要多个专业工具和人工脚本编写。",
+      "detail": "协调 Agent 负责研究规划，模拟与可视化模块独立审查脚本，执行模块处理远程算力，分析模块解释产物。浏览器可实时展示本地运行数据和画面，系统也支持通过加载技能扩展功能。",
+      "findings": "完整任务交付可以同时保留运行状态、可视化证据与脚本审查。",
+      "why_it_matters": "适合作为 Terminal-Bench-Science 类任务的流程及交付物设计参考。",
+      "published": "2026-11-19",
+      "score": 96,
+      "fields": [
+        "field-3",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26782"
+        }
+      ],
+      "topics": [
+        "coding",
+        "evaluation",
+        "framework",
+        "science",
+        "skills",
+        "tool-use"
+      ]
+    },
+    {
+      "id": "news-20261124-07",
+      "title": "Self-verifiable LLM-driven science：以 Lean 验证科学论证链",
+      "summary": "研究提出将科学推理拆为可审阅的前提和可由机器验证的演绎过程。Agent 给出候选假设，人类确认实验事实、理论及额外假设，再由 Lean 检查形式化论证。多个示例说明该机制可将科学结果的核查从重做整条推理转向审查关键前提。",
+      "intro": "论文把形式化数学的验证范式延伸到非数学科学研究。",
+      "detail": "Harness 允许 Agent 将实验结论、理论关系及假设写成明确前提，并生成证明交由 Lean 4 检查。代码和完整 Agent 轨迹可供进一步研究。形式证明保证的是从给定前提推出结论，而实验事实及假设仍需科学判断。",
+      "findings": "将假设审阅与逻辑验证分开，有助于形成可追溯的科学发现流程。",
+      "why_it_matters": "适合研究科学任务规格、证明奖励、人机协同与可复现证据。",
+      "published": "2026-11-19",
+      "score": 96,
+      "fields": [
+        "field-4",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26754"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "science",
+        "tool-use"
+      ]
+    },
+    {
+      "id": "news-20261124-08",
+      "title": "Correct Precedents：正确历史决策也会诱发端侧 Agent 权限错误",
+      "summary": "研究发现端侧 Agent 会把先前正确的授权决定错误迁移到仍受限制的新对象。13 个开放权重模型中观察到该现象，最受影响的模型一次正确先例即可使安全率约减半。配对决策蒸馏通过 LoRA 将弱受影响教师的判断传递给学生，实验中的安全率恢复到接近 100%。",
+      "intro": "云端模型与端侧 Agent 协作时，端侧判断常承担个人数据与执行权限的最后检查。",
+      "detail": "作者通过历史干预实验观察到，Agent 倾向复用先前决定而非检查当前对象的权限状态。配对蒸馏强化不同授权状态的区分，不需额外提示或额外推理调用。",
+      "findings": "历史上下文无错误并不意味着后续权限决策正确。",
+      "why_it_matters": "可用于 Personal Agent 的逐对象授权、跨会话权限评测和安全后训练。",
+      "published": "2026-11-20",
+      "score": 95,
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27216"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "personal",
+        "safety",
+        "training"
+      ]
+    },
+    {
+      "id": "news-20261124-09",
+      "title": "MSRyzen：可追溯谱图证据的蛋白质组学 Agent",
+      "summary": "MSRyzen 将自然语言转换为蛋白质组学分析 DAG，自动调用工具并调优参数。在四个公开 top-down 数据集上，固定 1% 错误发现率时，自动调参使蛋白质形态鉴定数比默认参数提高 3.6% 至 15.8%。平台同时提供谱峰、序列覆盖与鉴定指标的交互证据。",
+      "intro": "质谱蛋白质组学分析依赖复杂的软件组合与专业参数。",
+      "detail": "系统支持 bottom-up 和 top-down 流程，通过标准化可调用接口接入外部软件，并依据定量指标及用户目标调整参数。输出界面让研究者把整体鉴定质量追溯到具体谱图与序列证据。",
+      "findings": "科学 Agent 的优化结果应同时交付可检查的原始证据和评价指标。",
+      "why_it_matters": "可作为科学工作流技能、证据级评分和专业参数搜索的参考。",
+      "published": "2026-11-20",
+      "score": 95,
+      "fields": [
+        "field-3",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27246"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "science",
+        "tool-use"
+      ]
+    },
+    {
+      "id": "news-20261124-10",
+      "title": "Weight-space Programming：用机制解释与权重编辑修复粒子物理模型",
+      "summary": "粒子物理基础模型被发现对加入软中性粒子异常敏感，违反红外安全性要求。研究比较稀疏自编码器引导的编辑与 Agent 直接修改权重两种方案，后者仅使用 50 次模型查询且无需梯度。两种方法均消除了绝大部分缺陷，并尽量保留原模型的其他响应。",
+      "intro": "工作针对喷注分类基础模型中不符合物理规律的行为。",
+      "detail": "机制分析定位相关注意力头，并将缺陷与预训练数据的不同重建阈值联系起来。作者分别移除三个相关潜在方向、采用 Agent 进行权重编辑；修复效果还迁移至其他信号类别和下游任务。",
+      "findings": "针对明确缺陷的局部模型编辑有可能比全量微调更节省参数改动。",
+      "why_it_matters": "适合 AI4AI 模型诊断、可验证修复及编辑后能力回归研究。",
+      "published": "2026-11-20",
+      "score": 95,
+      "fields": [
+        "field-1",
+        "field-4",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27079"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "science",
+        "self-evolution",
+        "training"
+      ]
+    },
+    {
+      "id": "news-20261124-11",
+      "title": "BioEmu2：统一静态结构、平衡采样与分子动力学的生成模型",
+      "summary": "BioEmu2 用生成模型统一生物分子结构预测、平衡构象采样和时间演化。它支持蛋白质、核酸、配体等多组分系统，在测试体系中相对 MD 参考的自由能误差接近 1 kcal/mol。其高效采样能力可成为科学 Agent 执行分子模拟时的候选工具。",
+      "intro": "结构预测之后，分子运动与相互作用仍是理解功能的重要难题。",
+      "detail": "模型利用实验与合成结构及大量 MD 数据训练，支持大复合物预测、构象约束和用户定义的偏置势控制。论文报告采样比传统 MD 快多个数量级，并评估长时间尺度轨迹与结合动力学。",
+      "findings": "一个模型可同时支持结构、分布和时间演化预测。",
+      "why_it_matters": "有助于构建科学 Agent 的分子工具生态和模拟预算自适应任务。",
+      "published": "2026-11-20",
+      "score": 94,
+      "fields": [
+        "field-1",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27924"
+        }
+      ],
+      "topics": [
+        "framework",
+        "science",
+        "training"
+      ]
+    },
+    {
+      "id": "news-20261124-12",
+      "title": "Actions Speak Louder than Words：Web Agent 的行为隐私泄漏",
+      "summary": "研究发现即使 Web Agent 不显式发送私人文本，其浏览选择和行为模式也可能泄露用户上下文。实验中用户画像重建的平均 F1 达 0.80，而常见内容级防御改善有限。研究提出选择混淆式检索，将敏感选择留在本地，降低该类风险。",
+      "intro": "联网个人助手的行为本身可能暴露隐私，而非仅通过输出文本。",
+      "detail": "论文在多个 Agent 和模型、问答与多轮任务数据上评估这一风险，并提出在本地资源快照内进行选择的缓解思路。实验报告防御后泄漏重建 F1 降至 0.39，无需额外 LLM 推理。",
+      "findings": "浏览行为需要作为独立的隐私评测维度。",
+      "why_it_matters": "适合研究 Personal Agent 的隐私隔离、连接器设计和端到端信息流审计。",
+      "published": "2026-11-20",
+      "score": 94,
+      "fields": [
+        "field-2",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27046"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "personal",
+        "safety",
+        "tool-use"
+      ]
+    },
+    {
+      "id": "news-20261124-13",
+      "title": "Observed, Curated, Reused：临床评测中的时间与来源泄漏",
+      "summary": "研究追踪 6503 例临床案例与六个历史 HPO 版本，发现案例来源论文可能进入评测使用的知识库。主要诊断排序器的 MRR 在来源纳入前为 0.26，纳入后升至 0.84，移除相关证据后降至 0.05。结果强调专业 Agent 评测应同时隔离测试样本、证据来源与知识可用时间。",
+      "intro": "真实医学记录往往只反映医生当时观察或记录的部分信息。",
+      "detail": "研究利用 HPO 知识库中可识别的来源引入事件，比较引入前后及反事实移除相关证据的诊断排序表现。其他排序器也呈现相近趋势，说明部分评测高分可能来自知识库对同源证据的复用。",
+      "findings": "时间冻结与来源级去重比只检查文本重复更能揭示专业评测泄漏。",
+      "why_it_matters": "可迁移到医学、法律、SRE、科学研究任务的数据治理和环境回放。",
+      "published": "2026-11-20",
+      "score": 94,
+      "fields": [
+        "field-1",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27301"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "data-synthesis",
+        "evaluation",
+        "science"
+      ]
+    },
+    {
+      "id": "news-20261124-14",
+      "title": "Potential emergence：用统计物理描述 Agent 后训练的状态迁移",
+      "summary": "论文用 Agent 状态及其迁移概率刻画后训练怎样组织推理行为。作者构建 KL 正则化转移分布的统计物理表示，并跟踪势函数、平均奖励和状态熵。在 Qwen3.5-9B 的安全测试选择和物理推理审查任务中，实验观察到后训练强化了相应的势结构。",
+      "intro": "研究试图建立不同于单一任务成功率的后训练过程描述。",
+      "detail": "作者以配分函数表示理想状态转移，并结合奖励和熵的变化检查理论与实验是否一致。两项任务提供了初步的经验证据。",
+      "findings": "状态结构可作为后训练如何改变 Agent 行为的中间量。",
+      "why_it_matters": "可用于分析训练策略、行为迁移与探索多样性的关系。",
+      "published": "2026-11-20",
+      "score": 93,
+      "fields": [
+        "field-1",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27618"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "training"
+      ]
+    },
+    {
+      "id": "news-20261124-15",
+      "title": "Can Language Models See the Circuit：视觉布局理解与射频电路诊断",
+      "summary": "研究让前沿语言模型直接阅读像素化射频电路布局并预测电磁响应。预测总体跟随仿真曲线，但存在约 16% 的系统性频率偏差。在七个不达标设计上，Agent 使用有限仿真预算改善全部方案，并使五个达到规格。",
+      "intro": "逆向设计的像素化无源器件缺少直观拓扑，传统调试难度较高。",
+      "detail": "研究先关闭工具，评估模型从网格布局直接推断阻抗与损耗的能力，再提供少量电磁仿真用于修复测试。仿真与设计规格为闭环评价依据。",
+      "findings": "多模态模型能够提供对高维工程布局的解释和修改建议。",
+      "why_it_matters": "适合构建跨视觉、物理与工程验证的科学 Agent 基准。",
+      "published": "2026-11-20",
+      "score": 93,
+      "fields": [
+        "field-3",
+        "field-4",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27559"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "framework",
+        "science",
+        "tool-use"
+      ]
+    },
+    {
+      "id": "news-20261124-16",
+      "title": "TrojanMaxxing：直接权重编辑能力带来的模型完整性风险",
+      "summary": "研究展示 Agent 的直接权重编辑能力可能被滥用于破坏视觉语言模型完整性。论文报告，在若干视觉任务中，受影响模型的常规表现仍可基本维持，单看正常准确率不足以发现问题。该结果强调模型编辑权限、变更审计与安全回归测试的重要性。",
+      "intro": "权重空间编程拓展了自动模型修复能力，同时也扩大了模型完整性风险。",
+      "detail": "论文评估了模型遭未经授权编辑后的安全性，并对比正常任务表现。编辑工具的使用需要独立授权、变更记录及覆盖异常输入的验证。",
+      "findings": "正常评测不能替代模型完整性检查。",
+      "why_it_matters": "为 AI4AI 模型编辑工具的防护、版本追踪与部署前安全测试提供研究依据。",
+      "published": "2026-11-20",
+      "score": 92,
+      "fields": [
+        "field-1",
+        "field-4",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27425"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "safety",
+        "training"
+      ]
+    },
+    {
+      "id": "news-20261124-17",
+      "title": "Pharos：学习控制稀有分子事件并预测动力学速率",
+      "summary": "Pharos 通过随机最优控制联合学习稀有跃迁的概率与模拟引导策略。在生物分子基准中，论文报告收敛速度较既有算法实现数量级改善。系统同时测试跨离子体系迁移、长时间尺度结合事件与复杂分子相互作用。",
+      "intro": "传统动力学模拟往往很难观察低概率但重要的反应或构象变化。",
+      "detail": "方法将采样与学习连接成反馈循环，既改善观察稀有事件的效率，又估计真实动力学下的转变速率。作者考察了显式溶剂中的离子组装与主客体结合系统。",
+      "findings": "稀有事件的高效探索不必放弃定量动力学估计。",
+      "why_it_matters": "可作为科学 Agent 中稀有事件模拟及预算受限搜索的专业工具。",
+      "published": "2026-11-19",
+      "score": 91,
+      "fields": [
+        "field-1",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.26765"
+        }
+      ],
+      "topics": [
+        "framework",
+        "science",
+        "training"
+      ]
+    },
+    {
+      "id": "news-20261124-18",
+      "title": "AI-Ready Data：地球与环境科学数据的 25 项可用性准则",
+      "summary": "研究提出地球与环境数据面向 AI 的 25 项评估准则，覆盖数据准备、质量、文档、访问及监督目标。框架强调来源、缺失值、偏差、不确定性以及机器可操作元数据。其目标是判断数据是否适合具体训练或执行任务，而不是给所有数据设定统一质量等级。",
+      "intro": "FAIR 原则为科研数据管理奠定基础，但训练与部署还有额外需求。",
+      "detail": "研究通过文献综述、有限调查和跨学科专家讨论整理准则，并在代表性环境应用上考察各指标的重要性差异。",
+      "findings": "AI-ready 数据应同时保证可追溯性、可操作性与任务适配。",
+      "why_it_matters": "可用于构建科研 Agent 的数据连接器、数据质量检查和环境合成规范。",
+      "published": "2026-11-20",
+      "score": 90,
+      "fields": [
+        "field-1",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27313"
+        }
+      ],
+      "topics": [
+        "data-synthesis",
+        "evaluation",
+        "framework",
+        "science"
+      ]
+    },
+    {
+      "id": "news-20261124-19",
+      "title": "TWICE：生成式 ICU 事件模型与患者数字孪生探索",
+      "summary": "TWICE 使用 127332 名 ICU 患者、约 15.7 亿 Token 训练 7900 万参数的事件生成模型。基于 50 条未来轨迹预测 19 个结局时，平均 AUROC 达 0.836，与最强监督配置的 0.834 接近。反事实治疗实验也暴露了模型难以可靠识别治疗因果效应的问题。",
+      "intro": "研究以电子病历事件序列生成来探索患者数字孪生。",
+      "detail": "论文发现更多及更长的未来采样在固定数据下比单纯扩展模型更有效，生成轨迹能反映患者个体差异。但对用于纠正指标的治疗，模型可能将方向相反的干预预测成类似结果。",
+      "findings": "轨迹预测质量与干预因果推断能力是不同的评测目标。",
+      "why_it_matters": "为医疗模拟环境和世界模型任务设计提供参考，不应把预测直接当成治疗决策。",
+      "published": "2026-11-20",
+      "score": 88,
+      "fields": [
+        "field-1",
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27028"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "science",
+        "training"
+      ]
+    },
+    {
+      "id": "news-20261124-20",
+      "title": "Particle Picking：无需模板的冷冻电镜粒子识别",
+      "summary": "研究提出基于 Earth Mover 距离快速小波近似的冷冻电镜粒子识别方法。该方法无需模板和人工标注，主要依赖目标分子的大致尺寸。作者在三个公共数据集上报告了具有竞争力的重建结果，可作为自动化结构生物学流程的组件。",
+      "intro": "冷冻电镜的粒子识别需要从高噪声图像中寻找分子投影。",
+      "detail": "方法以半范数比较图像局部结构，使用小波近似提高距离计算效率，并以自监督方式进行粒子识别。论文在三组公开数据上检验重建质量。",
+      "findings": "无需预先提供分子模板即可完成粒子识别。",
+      "why_it_matters": "对科研 Agent 属于可集成的下游分析工具，而非独立 Agent 架构进展。",
+      "published": "2026-11-20",
+      "score": 86,
+      "fields": [
+        "field-5"
+      ],
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27096"
+        }
+      ],
+      "topics": [
+        "framework",
+        "science"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "field": "field-2",
+  "date": "2026-11-24",
+  "items": [
+    {
+      "title": "Correct Precedents：正确历史决策也会诱发端侧 Agent 权限错误",
+      "summary": "研究发现端侧 Agent 会把先前正确的授权决定错误迁移到仍受限制的新对象。13 个开放权重模型中观察到该现象，最受影响的模型一次正确先例即可使安全率约减半。配对决策蒸馏通过 LoRA 将弱受影响教师的判断传递给学生，实验中的安全率恢复到接近 100%。",
+      "intro": "云端模型与端侧 Agent 协作时，端侧判断常承担个人数据与执行权限的最后检查。",
+      "detail": "作者通过历史干预实验观察到，Agent 倾向复用先前决定而非检查当前对象的权限状态。配对蒸馏强化不同授权状态的区分，不需额外提示或额外推理调用。",
+      "findings": "历史上下文无错误并不意味着后续权限决策正确。",
+      "why_it_matters": "可用于 Personal Agent 的逐对象授权、跨会话权限评测和安全后训练。",
+      "published": "2026-11-20",
+      "score": 95,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27216"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "personal",
+        "safety",
+        "training"
+      ]
+    },
+    {
+      "title": "Actions Speak Louder than Words：Web Agent 的行为隐私泄漏",
+      "summary": "研究发现即使 Web Agent 不显式发送私人文本，其浏览选择和行为模式也可能泄露用户上下文。实验中用户画像重建的平均 F1 达 0.80，而常见内容级防御改善有限。研究提出选择混淆式检索，将敏感选择留在本地，降低该类风险。",
+      "intro": "联网个人助手的行为本身可能暴露隐私，而非仅通过输出文本。",
+      "detail": "论文在多个 Agent 和模型、问答与多轮任务数据上评估这一风险，并提出在本地资源快照内进行选择的缓解思路。实验报告防御后泄漏重建 F1 降至 0.39，无需额外 LLM 推理。",
+      "findings": "浏览行为需要作为独立的隐私评测维度。",
+      "why_it_matters": "适合研究 Personal Agent 的隐私隔离、连接器设计和端到端信息流审计。",
+      "published": "2026-11-20",
+      "score": 94,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.27046"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "personal",
+        "safety",
+        "tool-use"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+今日主线：Google DeepMind 公开 Gemini 4 与 Lean 协作发现量子算法的研究；RemoteEvolver 与经验选择研究分别推进外部 Harness 和后训练持续学习；OceanCoder、CAD 工程设计、ChatAtom 和 MSRyzen 则将专业验证器、真实执行和证据交付纳入科学 Agent 闭环。另关注个人助手的权限判断与行为隐私、专业评测的来源泄漏。
