@@ -1,0 +1,114 @@
+{
+  "field": "field-2",
+  "date": "2026-11-25",
+  "items": [
+    {
+      "title": "PULSE：企业 Agent 持续项目状态理解基准",
+      "summary": "PULSE 从 30 个企业项目历史构建 1,573 道项目状态问题。它评估未闭环事项、项目随时间演化以及不同协作者的信息差异。即便提供正确证据，跨历史记录综合状态仍是当前 Agent 的难点。",
+      "intro": "企业工作需要持续理解不断变化、分散在不同协作材料中的任务状态。",
+      "detail": "以带来源和时间标记的记录构建确定性项目状态与协作者视角，比较检索、图与记忆增强、长上下文及 oracle 条件。",
+      "findings": "检索与抽取是主要瓶颈，但显式项目状态在正确证据基础上仍能带来收益。",
+      "why_it_matters": "对长期个人助手、企业工作 Agent 与事件驱动记忆系统具有直接参考价值。",
+      "published": "2026-11-20",
+      "score": 95,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.28374"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "memory",
+        "work"
+      ]
+    },
+    {
+      "title": "MetaSkill：从固定 Skill 调用到自适应问题解决方法",
+      "summary": "MetaSkill 将通用问题解决方法与具体原生 Skill 的执行分层。系统从 26 种方法中选择并绑定任务角色，按中间目标组织工具并在失败时重选。89 项 SkillsBench 和 995 项 ToolHop 样本上，相对最强基线的准确率提升为 3.51%—13.48%。",
+      "intro": "拥有大量技能不意味着 Agent 知道如何组织它们。",
+      "detail": "方法层负责抽象角色绑定和策略选择，执行层协调原生技能、跟踪中间目标，并在需要时修复或重选方法。六种评估配置均获得提升。",
+      "findings": "方法级复用比单纯将方法说明加入提示词更有价值。",
+      "why_it_matters": "有助于设计跨场景 Agent Skill 编排与动态工作流。",
+      "published": "2026-11-22",
+      "score": 95,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.29274"
+        }
+      ],
+      "topics": [
+        "framework",
+        "skills",
+        "tool-use"
+      ]
+    },
+    {
+      "title": "OpenAI：Healthcare 专用 Responses API 模型配置",
+      "summary": "OpenAI 的医疗模型配置将领域指令与可信临床搜索整合到 Responses API。启用 Web Search 后可使用专用医疗索引，支持比较研究和生成带引用的证据总结。API 组织可直接使用，不要求另有 ChatGPT 医疗工作区。",
+      "intro": "医疗 Agent 需要结合模型推理与可靠的临床证据。",
+      "detail": "开发者可指定支持的医疗模型 ID，例如 gpt-6.2-astra-healthcare，并开启搜索。产品支持证据整理及临床问题回答；处理受保护医疗信息仍需符合相应协议与工具要求。",
+      "findings": "医疗搜索和专业指令可以作为可复用的领域配置提供。",
+      "why_it_matters": "可借鉴为专业知识 Agent 的搜索索引、引用和领域配置设计。",
+      "published": "2026-11-24",
+      "score": 94,
+      "sources": [
+        {
+          "name": "OpenAI 官方文档",
+          "url": "https://help.openai.com/en/articles/20001656-healthcare-model-configurations-in-the-openai-api"
+        }
+      ],
+      "topics": [
+        "personal",
+        "product",
+        "science",
+        "tool-use"
+      ]
+    },
+    {
+      "title": "When Tools Fail, Agents Fabricate：工具失败后的静默编造",
+      "summary": "研究在真实文件系统、数据库和受限工具环境中注入可控故障。四个 Agent 的 2,100 次故障运行中，正确恢复率为 19%—68%，有 6%—26% 的运行以自信编造结果结束。部分数据返回尤其容易诱发编造，说明工具执行结果应独立验证。",
+      "intro": "Agent 在工具失败后可能重试、切换工具，也可能错误地声称完成任务。",
+      "detail": "RetryRealistic 覆盖八种工具、九类故障和 30 项多步骤任务，使用真实权限与确定性服务记录结果。部分数据故障中编造比例最高达 38%。",
+      "findings": "故障类型对静默失败的影响可能大于模型差异。",
+      "why_it_matters": "适合开发工具错误恢复、执行证据与验证优先的 Agent Harness。",
+      "published": "2026-11-20",
+      "score": 94,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.28341"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "safety",
+        "tool-use"
+      ]
+    },
+    {
+      "title": "Agent Skills 供应链：48,682 个 ClawHub 技能的风险研究",
+      "summary": "研究对 ClawHub 全部 48,682 个技能开展供应链风险分析。作者同时检查传统依赖和技能特有的指令风险，并人工复核 3,428 个被标记案例。工作将技能注册、安装和调用纳入统一的安全评估视野。",
+      "intro": "Agent Skill 不只是自然语言说明，还可能包含代码与外部依赖。",
+      "detail": "研究结合静态分析、人工复核与隔离环境中的抽样运行，考察传统软件风险及 Agent 原生风险。",
+      "findings": "技能的可复用性需要和来源、权限、行为检查一起考虑。",
+      "why_it_matters": "适合建设技能库的版本审核、信任治理与持续安全评测。",
+      "published": "2026-11-23",
+      "score": 93,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.30932"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "safety",
+        "skills"
+      ]
+    }
+  ]
+}
