@@ -1,0 +1,244 @@
+{
+  "field": "field-4",
+  "date": "2026-11-26",
+  "items": [
+    {
+      "title": "Google DeepMind：Antigravity 发布 Mass Spec Skills",
+      "summary": "Google DeepMind 发布用于串联质谱分析的 Antigravity 技能插件，将原始谱图转换为候选分子结构与证据报告。Agent 可执行分子式推断、异构体排序和碎片验证，轻量模型搭配技能也能达到前沿检索水平。该插件展示了专业科学工具与 Agent 工作流的结合。",
+      "intro": "质谱信号的结构注释仍需要专业知识及工具协作。",
+      "detail": "技能串联谱图预处理、候选结构检索和模拟碎片等操作，输出供化学家复查的证据。官方同时宣布向符合条件的 10,000 名科学家提供为期六个月的最高使用层级。",
+      "findings": "专业技能与结构化证据能减少单纯依赖基模能力的需求。",
+      "why_it_matters": "值得跟踪可复用科学 Skill 与科研工作流产品化。",
+      "published": "2026-11-25",
+      "score": 99,
+      "sources": [
+        {
+          "name": "Google DeepMind 官方发布",
+          "url": "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity/"
+        }
+      ],
+      "topics": [
+        "product",
+        "science",
+        "skills",
+        "tool-use"
+      ]
+    },
+    {
+      "title": "RecurSciBench：独立评估科学 Agent 的递归自我改进",
+      "summary": "RecurSciBench 从原始数据集自动构造可执行科学任务并检查科学有效性。研究在四个领域比较四套 RSI 系统进化前后的独立任务表现，发现平均收益可与单任务退化并存。跨领域迁移甚至可能在源领域未观察到提升时发生。",
+      "intro": "自进化系统需要独立于训练经历的验证任务。",
+      "detail": "RecurSciPipe 自动构造科学建模与分析任务，并按同类型、跨类型、跨领域的方式测试迁移。",
+      "findings": "总体提升不足以反映所有任务的回归；迁移能力和源任务收益需要分别度量。",
+      "why_it_matters": "适合作为 RSI 的独立验证和回归评测框架。",
+      "published": "2026-11-24",
+      "score": 98,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.32508"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "data-synthesis",
+        "evaluation",
+        "science",
+        "self-evolution"
+      ]
+    },
+    {
+      "title": "AIChipBench：有状态 AI 加速器设计的 Coding Agent 基准",
+      "summary": "AIChipBench 要求 Agent 实现可综合的量化模型解码器 RTL，并检查每一步的输出与内部状态。9,136 次尝试显示，直接反馈首个状态偏差比仅反馈输出更有效，验收率提升 25.0 至 46.9 个百分点。新序列复测揭示部分通过开发测试的设计仍存在隐藏状态错误。",
+      "intro": "硬件解码器的状态错误可能在多个 token 之后才暴露。",
+      "detail": "任务包含 Qwen、Gemma 和 Llama 等解码器，冻结设计后使用隐藏序列、复位、存储停顿和综合测试进行验收，并设置性能优化赛道。",
+      "findings": "在新增测试条件下，69 个此前验收设计中有 45 个在原测试所要求的 32 步内失败。",
+      "why_it_matters": "为可执行硬件环境、状态级奖励和 AI4AI 工程评测提供参考。",
+      "published": "2026-11-24",
+      "score": 96,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.33093"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "coding",
+        "evaluation",
+        "science"
+      ]
+    },
+    {
+      "title": "CANON：独立验证器驱动的多环 Feynman 积分构造",
+      "summary": "CANON 让 Agent 在多个数学方法之间选择并调用工具，搜索多环 Feynman 积分的规范基底。独立程序负责验证候选结果，并在失败时要求 Agent 重试。研究在若干二环和三环积分族上展示了这一可审计工作流。",
+      "intro": "规范微分方程方法中的基底构造缺乏普遍适用的单一策略。",
+      "detail": "框架维护长期搜索状态，支持多个子 Agent 协同更新基底候选和微分方程系统；验证与生成职责分离。",
+      "findings": "专业工具、状态管理与确定性检查可以构成可复用的数学搜索闭环。",
+      "why_it_matters": "值得借鉴到其他可符号验证的科研任务。",
+      "published": "2026-11-24",
+      "score": 96,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.33100"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "science",
+        "tool-use"
+      ]
+    },
+    {
+      "title": "PhyEvo-Mic-RSI：显微镜分析中的可继承自进化工具",
+      "summary": "PhyEvo-Mic-RSI 将专家修正转化为经过测试、可继承的代码算子、参数和路由规则。在 10% 面积预算下，跨材料界面覆盖率从 5.13% 升至 72.11%。这一机制展示了科研专家经验如何沉淀为持续改进的工具能力。",
+      "intro": "原子缺陷和界面的图像判读常依赖研究人员经验。",
+      "detail": "结合物理先验与专家反馈，在固定预算内验证代码修改并按版本继承；在未见研究的图像上也尝试优化纳米颗粒分离。",
+      "findings": "系统可以把一次性的人工纠正转化为后续任务可复用的执行能力。",
+      "why_it_matters": "适合研究科研工具的版本化自进化和专家反馈积累。",
+      "published": "2026-11-24",
+      "score": 95,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.32325"
+        }
+      ],
+      "topics": [
+        "continual-learning",
+        "science",
+        "self-evolution",
+        "skills"
+      ]
+    },
+    {
+      "title": "Agent Evaluation Without Ground Truth：无完整真值的统计评测",
+      "summary": "研究以决策的加权正确性定义 Agent 质量，并用实验产生的 e-values 替代完整真值标签。框架支持轨迹内相关决策、动态假设和依赖数据的终止时刻。作者以开源 Python 包性能优化实验展示其统计置信区间方法。",
+      "intro": "科研与工程 Agent 的决策收益可能只能从带噪声的实验推断。",
+      "detail": "方法构造质量上下界和置信集合，允许在轨迹结束后定义质量度量。",
+      "findings": "评测可以从固定正确答案扩展到实验支持的决策质量。",
+      "why_it_matters": "为开放式科学发现和工程优化评测提供统计工具。",
+      "published": "2026-11-23",
+      "score": 94,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.31539"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "science"
+      ]
+    },
+    {
+      "title": "Multi-agent Meta-solvers：自动搜索 Pareto 最优 PDE 求解器",
+      "summary": "多 Agent 框架通过提出、批评、实现和执行评估进化混合线性求解器。它在六项指标上搜索 Pareto 前沿，而非只返回单一最优配置。两项三维问题中最佳方案的在线求解时间较基线分别改善 2.3 倍和 3.0 倍。",
+      "intro": "离散 PDE 的求解器设计涉及问题特定的数值方法组合。",
+      "detail": "系统组合 Krylov 方法、预条件器、分块分解和神经算子，并在小型开放权重模型上运行遗传搜索。",
+      "findings": "四类问题的实验显示多角色协同与可执行评估有助于搜索有效配置。",
+      "why_it_matters": "为 AI4AI 和自动算法发现的多目标反馈设计提供参考。",
+      "published": "2026-11-23",
+      "score": 94,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.31611"
+        }
+      ],
+      "topics": [
+        "framework",
+        "science",
+        "self-evolution",
+        "tool-use"
+      ]
+    },
+    {
+      "title": "Science Gateway Agent Skills：将前沿模型技能迁移至开放模型",
+      "summary": "研究将前沿模型编写的 Pegasus 科研工作流技能迁移至开放权重模型。在真实 science gateway 上评测 21 款模型和 17 项任务，通过反复测试反馈改进技能。表现较好的开放模型工作流构建得分为 0.76，Claude 为 0.82。",
+      "intro": "科学家需要低成本且可靠的工作流构建工具。",
+      "detail": "评测 Harness 以用户方式操作真实门户，对构建出的工作流评分，并将重复失败反馈给维护技能的前沿模型，促成五项技能修改。",
+      "findings": "真实系统评测还需要区分平台故障和模型失败，并控制实验权限。",
+      "why_it_matters": "适合科学 Skill 迁移与低成本专业 Agent 部署。",
+      "published": "2026-11-23",
+      "score": 92,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.31480"
+        }
+      ],
+      "topics": [
+        "deployment",
+        "evaluation",
+        "science",
+        "skills"
+      ]
+    },
+    {
+      "title": "Constructing Physical Mechanisms：基于科学方程构造物理机制",
+      "summary": "研究建立面向方程的系统，从约 250 万篇 arXiv 手稿中提取并组织科学机制。通过确定性计算组合跨领域机制的组成部分，得到新的候选物理解释。作者还给出若干可供实验验证的构造条件。",
+      "intro": "相似机制可能分散在不同领域的推导、约束和参数中。",
+      "detail": "系统支持拆分、迁移、展开和组合机制；若组成不兼容，则将缺失条件表达为方程。",
+      "findings": "方程级表示为跨领域机制发现提供了区别于纯文本检索的路线。",
+      "why_it_matters": "有助于科研 Agent 使用可计算知识开展假设生成。",
+      "published": "2026-11-23",
+      "score": 91,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.31653"
+        }
+      ],
+      "topics": [
+        "framework",
+        "science"
+      ]
+    },
+    {
+      "title": "PathGrad：以实验动力学观测优化机器学习力场",
+      "summary": "PathGrad 对 Langevin 路径概率而非混沌轨迹本身求导，从而稳定地优化分子力场。作者用实验扩散系数和结构约束微调熔融铜与水的势函数。水体系的黏度和转动弛豫等未直接优化的观测量也获得改善。",
+      "intro": "直接对混沌分子动力学轨迹求导容易导致梯度不稳定。",
+      "detail": "估计量利用热噪声和力的导数在线累积，并与有限差分进行对照验证。",
+      "findings": "实验反馈可以用于改善未直接纳入目标的物理量预测。",
+      "why_it_matters": "可作为 AI 科学模型训练的实验反馈优化组件。",
+      "published": "2026-11-24",
+      "score": 89,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.32851"
+        }
+      ],
+      "topics": [
+        "framework",
+        "science",
+        "training"
+      ]
+    },
+    {
+      "title": "PtychoFM：物理感知预训练支持实时衍射成像",
+      "summary": "PtychoFM 将物理感知预训练与实验特定微调结合，直接从衍射图案重建图像。它通过可微前向模型训练，无需物空间标签，并能迁移至其他样品及扫描方式。同步辐射实验现场单 GPU 推理速度最高达每秒 200 帧。",
+      "intro": "迭代相位恢复的计算成本限制了实时实验反馈。",
+      "detail": "模型利用衍射测量与物理成像关系完成训练，在束线环境中接收探测器数据流并输出实时可视化。",
+      "findings": "快速推理为成像反馈从事后分析走向实时运行提供条件。",
+      "why_it_matters": "是自主实验系统可利用的感知基础设施。",
+      "published": "2026-11-24",
+      "score": 88,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.32830"
+        }
+      ],
+      "topics": [
+        "deployment",
+        "science",
+        "training"
+      ]
+    }
+  ]
+}

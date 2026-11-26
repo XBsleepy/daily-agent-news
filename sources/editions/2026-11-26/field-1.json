@@ -1,0 +1,221 @@
+{
+  "field": "field-1",
+  "date": "2026-11-26",
+  "items": [
+    {
+      "title": "CoT-Proxy：无需隐藏思维链的长程 Agent 策略蒸馏",
+      "summary": "CoT-Proxy 仅使用教师可见动作及推理摘要蒸馏长程策略，无需读取隐藏思维链。蒸馏 GPT-5.6 Luna 后，Qwen3-4B 在 AppWorld 的成功率从 7% 升至 48%，在 SWE-bench Verified 从 3% 升至 28%。这为闭源教师驱动的 Agent 后训练提供了新方案。",
+      "intro": "闭源前沿模型往往无法导出完整推理轨迹。",
+      "detail": "训练阶段留空学生的推理块，并用学生自身生成的回放缓冲区计算 KL 约束以控制漂移；教师摘要可以作为额外训练信号。",
+      "findings": "学生在推理开启时可用自己的推理风格执行学到的动作策略。",
+      "why_it_matters": "可用于低成本长程策略蒸馏与轨迹数据设计。",
+      "published": "2026-11-24",
+      "score": 100,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.33148"
+        }
+      ],
+      "topics": [
+        "coding",
+        "evaluation",
+        "framework",
+        "training"
+      ]
+    },
+    {
+      "title": "RecurSciBench：独立评估科学 Agent 的递归自我改进",
+      "summary": "RecurSciBench 从原始数据集自动构造可执行科学任务并检查科学有效性。研究在四个领域比较四套 RSI 系统进化前后的独立任务表现，发现平均收益可与单任务退化并存。跨领域迁移甚至可能在源领域未观察到提升时发生。",
+      "intro": "自进化系统需要独立于训练经历的验证任务。",
+      "detail": "RecurSciPipe 自动构造科学建模与分析任务，并按同类型、跨类型、跨领域的方式测试迁移。",
+      "findings": "总体提升不足以反映所有任务的回归；迁移能力和源任务收益需要分别度量。",
+      "why_it_matters": "适合作为 RSI 的独立验证和回归评测框架。",
+      "published": "2026-11-24",
+      "score": 98,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.32508"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "data-synthesis",
+        "evaluation",
+        "science",
+        "self-evolution"
+      ]
+    },
+    {
+      "title": "ShellBench：真实日常任务中的模型与 Harness 对比",
+      "summary": "ShellBench 从逾千万条用户请求提炼出 100 项日常任务，覆盖杂乱文件与相互竞争的数据来源。研究组合 12 个模型、5 种 Harness 和 3 档推理强度，累计 53,100 次运行。结果显示在该基准上模型选择比 Harness 选择更影响成功率，领先三款模型差距仅 1.1 个百分点。",
+      "intro": "日常工作空间的任务比孤立编程题更贴近普通用户需求。",
+      "detail": "任务同时考察正确性与安全性；GPT-6 Astra 成功率 62.5%，GPT-6.1 Sol 为 61.4%，后者估算单次 token 成本约为前者六分之一。",
+      "findings": "所测 Harness 的平均 pass@1 处于 42.9% 至 45.2% 区间。",
+      "why_it_matters": "可用于个人 Agent 配置选择和成本效果权衡。",
+      "published": "2026-11-24",
+      "score": 96,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.32946"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "coding",
+        "evaluation",
+        "personal",
+        "safety"
+      ]
+    },
+    {
+      "title": "AIChipBench：有状态 AI 加速器设计的 Coding Agent 基准",
+      "summary": "AIChipBench 要求 Agent 实现可综合的量化模型解码器 RTL，并检查每一步的输出与内部状态。9,136 次尝试显示，直接反馈首个状态偏差比仅反馈输出更有效，验收率提升 25.0 至 46.9 个百分点。新序列复测揭示部分通过开发测试的设计仍存在隐藏状态错误。",
+      "intro": "硬件解码器的状态错误可能在多个 token 之后才暴露。",
+      "detail": "任务包含 Qwen、Gemma 和 Llama 等解码器，冻结设计后使用隐藏序列、复位、存储停顿和综合测试进行验收，并设置性能优化赛道。",
+      "findings": "在新增测试条件下，69 个此前验收设计中有 45 个在原测试所要求的 32 步内失败。",
+      "why_it_matters": "为可执行硬件环境、状态级奖励和 AI4AI 工程评测提供参考。",
+      "published": "2026-11-24",
+      "score": 96,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.33093"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "coding",
+        "evaluation",
+        "science"
+      ]
+    },
+    {
+      "title": "Within-task Hazards：重新审视 Agent 长任务失败风险",
+      "summary": "研究指出，仅凭任务时长与成功率的横截面曲线无法识别任务内部的失败风险变化。对相同任务重复运行，可以在特定统计假设下进一步识别风险趋势。结果提示不能把 time-horizon 曲线直接解释成 Agent 越执行越稳定。",
+      "intro": "不同任务难度的混合会掩盖任务内部的风险结构。",
+      "detail": "作者分析单次与两次均成功的曲线位移，讨论可识别性及潜在偏差，并使用 METR 公开运行级数据检验模型。",
+      "findings": "重复运行比仅增加横截面任务样本更直接地补充风险识别信息。",
+      "why_it_matters": "可用于长程 Agent 的可靠性度量与实验设计。",
+      "published": "2026-11-24",
+      "score": 95,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.32415"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation"
+      ]
+    },
+    {
+      "title": "Agent Evaluation Without Ground Truth：无完整真值的统计评测",
+      "summary": "研究以决策的加权正确性定义 Agent 质量，并用实验产生的 e-values 替代完整真值标签。框架支持轨迹内相关决策、动态假设和依赖数据的终止时刻。作者以开源 Python 包性能优化实验展示其统计置信区间方法。",
+      "intro": "科研与工程 Agent 的决策收益可能只能从带噪声的实验推断。",
+      "detail": "方法构造质量上下界和置信集合，允许在轨迹结束后定义质量度量。",
+      "findings": "评测可以从固定正确答案扩展到实验支持的决策质量。",
+      "why_it_matters": "为开放式科学发现和工程优化评测提供统计工具。",
+      "published": "2026-11-23",
+      "score": 94,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.31539"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "science"
+      ]
+    },
+    {
+      "title": "RecordRoute：定位关键错误记录后诊断 Agent 失败",
+      "summary": "RecordRoute 先对轨迹记录排序，定位决定性失败步骤，再使用局部文本与元数据判断错误类型。固定责任主体和步骤预测时，局部诊断联合准确率为 77.47%，高于整条轨迹诊断的 69.28%。该方案可用于训练后调试与失败轨迹分析。",
+      "intro": "长轨迹中无关事件容易干扰错误归因。",
+      "detail": "记录排序使用词语与字符特征，选中记录提供责任主体和步骤，局部信息用于模式分类；测试包含注入错误与自然失败。",
+      "findings": "将定位结果用于后续诊断可提升错误归因质量。",
+      "why_it_matters": "适合构建自动化失败分析和针对性后训练数据。",
+      "published": "2026-11-24",
+      "score": 93,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.33022"
+        }
+      ],
+      "topics": [
+        "coding",
+        "evaluation",
+        "framework"
+      ]
+    },
+    {
+      "title": "Clinical Agent Judge：临床动作评测需要真实证据",
+      "summary": "研究向经过验证的临床 Agent 轨迹注入八类错误，共形成 416 条故障轨迹。只给最终答案时，Judge 无法识别不改变答案的执行错误，并误报 56% 的正确轨迹。完整病历证据结合规则检查器可识别 97% 的注入故障。",
+      "intro": "临床任务的最终输出可能掩盖执行过程中的风险。",
+      "detail": "实验基于 MedAgentBench，比较六款开放权重 Judge 在不同证据输入下的辨别能力，并与规则检查器结合。",
+      "findings": "实际环境证据比仅展示 Agent 推理或最终文本更有助于错误判定。",
+      "why_it_matters": "对医疗工作 Agent 的过程审计、奖励与安全评测具有参考价值。",
+      "published": "2026-11-24",
+      "score": 93,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.33012"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "safety"
+      ]
+    },
+    {
+      "title": "PathGrad：以实验动力学观测优化机器学习力场",
+      "summary": "PathGrad 对 Langevin 路径概率而非混沌轨迹本身求导，从而稳定地优化分子力场。作者用实验扩散系数和结构约束微调熔融铜与水的势函数。水体系的黏度和转动弛豫等未直接优化的观测量也获得改善。",
+      "intro": "直接对混沌分子动力学轨迹求导容易导致梯度不稳定。",
+      "detail": "估计量利用热噪声和力的导数在线累积，并与有限差分进行对照验证。",
+      "findings": "实验反馈可以用于改善未直接纳入目标的物理量预测。",
+      "why_it_matters": "可作为 AI 科学模型训练的实验反馈优化组件。",
+      "published": "2026-11-24",
+      "score": 89,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.32851"
+        }
+      ],
+      "topics": [
+        "framework",
+        "science",
+        "training"
+      ]
+    },
+    {
+      "title": "PtychoFM：物理感知预训练支持实时衍射成像",
+      "summary": "PtychoFM 将物理感知预训练与实验特定微调结合，直接从衍射图案重建图像。它通过可微前向模型训练，无需物空间标签，并能迁移至其他样品及扫描方式。同步辐射实验现场单 GPU 推理速度最高达每秒 200 帧。",
+      "intro": "迭代相位恢复的计算成本限制了实时实验反馈。",
+      "detail": "模型利用衍射测量与物理成像关系完成训练，在束线环境中接收探测器数据流并输出实时可视化。",
+      "findings": "快速推理为成像反馈从事后分析走向实时运行提供条件。",
+      "why_it_matters": "是自主实验系统可利用的感知基础设施。",
+      "published": "2026-11-24",
+      "score": 88,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.32830"
+        }
+      ],
+      "topics": [
+        "deployment",
+        "science",
+        "training"
+      ]
+    }
+  ]
+}

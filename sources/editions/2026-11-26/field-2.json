@@ -1,0 +1,73 @@
+{
+  "field": "field-2",
+  "date": "2026-11-26",
+  "items": [
+    {
+      "title": "Leto：以实际回答效用驱动长期 Agent 记忆",
+      "summary": "Leto 将记忆目标从忠实复述历史转为提升未来回答质量，并通过结果反馈改善记忆选择。相较最强对照系统，PrefEval 准确率高 16.3 个百分点，PERMA 任务完成率高 3.1 个百分点。该研究为长期个人助手的记忆优化提供了可测量目标。",
+      "intro": "语义相关的历史片段不一定对当前任务有帮助。",
+      "detail": "系统保存可追溯的历史索引，在请求到来时重放相关背景，并根据最终回答的效用修正选择；研究比较六套记忆系统、五个基准。",
+      "findings": "MemoryArena 五个环境平均表现领先，且随任务链深度增长的收益更明显。",
+      "why_it_matters": "适合设计长期上下文、记忆反馈和个性化系统。",
+      "published": "2026-11-24",
+      "score": 97,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.33005"
+        }
+      ],
+      "topics": [
+        "continual-learning",
+        "evaluation",
+        "memory",
+        "personal"
+      ]
+    },
+    {
+      "title": "Delegent：前沿模型与本地小模型协作降低 Agent 成本",
+      "summary": "Delegent 让前沿模型负责总体任务，将代码调查、测试和检索等局部工作委派给本地小模型。27B 小模型参与时，长程 Coding 的前沿模型费用下降 67%，Agentic Search 费用下降 59%，任务表现未降低。该架构不需要额外训练路由器。",
+      "intro": "前沿模型每步重读上下文并处理简单子任务会提高执行成本。",
+      "detail": "基于 Claude Code 的 Harness 保留前沿模型主导权，局部代理处理集中且明确的工作；2B 小模型也可减少约 66% 的 Coding 前沿调用费用。",
+      "findings": "收益来自减少前沿模型重复执行的辅助工作，而不是将整项任务交给较弱模型。",
+      "why_it_matters": "可用于本地协作、成本优化与多 Agent 架构。",
+      "published": "2026-11-24",
+      "score": 97,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.33098"
+        }
+      ],
+      "topics": [
+        "coding",
+        "deployment",
+        "framework",
+        "tool-use"
+      ]
+    },
+    {
+      "title": "ShellBench：真实日常任务中的模型与 Harness 对比",
+      "summary": "ShellBench 从逾千万条用户请求提炼出 100 项日常任务，覆盖杂乱文件与相互竞争的数据来源。研究组合 12 个模型、5 种 Harness 和 3 档推理强度，累计 53,100 次运行。结果显示在该基准上模型选择比 Harness 选择更影响成功率，领先三款模型差距仅 1.1 个百分点。",
+      "intro": "日常工作空间的任务比孤立编程题更贴近普通用户需求。",
+      "detail": "任务同时考察正确性与安全性；GPT-6 Astra 成功率 62.5%，GPT-6.1 Sol 为 61.4%，后者估算单次 token 成本约为前者六分之一。",
+      "findings": "所测 Harness 的平均 pass@1 处于 42.9% 至 45.2% 区间。",
+      "why_it_matters": "可用于个人 Agent 配置选择和成本效果权衡。",
+      "published": "2026-11-24",
+      "score": 96,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.32946"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "coding",
+        "evaluation",
+        "personal",
+        "safety"
+      ]
+    }
+  ]
+}
