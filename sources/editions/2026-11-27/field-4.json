@@ -1,0 +1,119 @@
+{
+  "field": "field-4",
+  "date": "2026-11-27",
+  "items": [
+    {
+      "title": "EvoLink-Bench：相互依赖的长程任务流中的 Agent 自进化",
+      "summary": "EvoLink-Bench 在持久工作空间中串联办公、对话和自动科研任务，后续任务依赖此前产生的知识或成果。研究比较五套 Agent 框架、三类基模配置与三种持久化条件，覆盖 19,635 个计分任务位置。结果表明更新记忆或状态不必然带来后续能力提升。",
+      "intro": "孤立任务或独立任务串难以检验持续服务中的经验复用。",
+      "detail": "L1 评估语言可表达知识的获取与修订，L2 评估执行反馈形成的可复用程序能力；Reset、Frozen、Evolving 条件分别控制历史状态与更新。",
+      "findings": "没有框架同时在两类任务稳定领先；重试只能恢复一部分失败，知识增长和能力增长不等价。",
+      "why_it_matters": "适合研究长期 Personal Agent、AutoResearch 和自进化系统的独立验证与遗忘。",
+      "published": "2026-11-25",
+      "score": 99,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34400"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "continual-learning",
+        "evaluation",
+        "memory",
+        "science",
+        "self-evolution",
+        "work"
+      ]
+    },
+    {
+      "title": "Epochal Time Portal：时点冻结的预测 Agent 环境（补录）",
+      "summary": "Epochal 于 11 月 24 日推出 Time Portal，提供覆盖逾 30 年、超过一万亿网页的历史时点环境。Agent 可在指定时间点访问当时的网络信息，避免使用未来事件结果。该环境为预测任务的数据合成、训练奖励和回测提供新基础设施。",
+      "intro": "历史预测评测容易因后见信息污染而失真。",
+      "detail": "以时间戳控制历史网页访问，使决策时刻的信息可与后来实际结果配对；该发布在 11 月 26 日继续受到产业媒体报道。",
+      "findings": "重点是时间一致的可交互信息环境，而不只是历史文档检索。",
+      "why_it_matters": "值得研究以历史真实决策为种子的 RL 环境、可验证预测任务和时序泄漏检测。",
+      "published": "2026-11-24",
+      "score": 98,
+      "sources": [
+        {
+          "name": "Epochal 官方发布",
+          "url": "https://epochal.com/blog/introducing-time-portal"
+        }
+      ],
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "evaluation",
+        "product"
+      ]
+    },
+    {
+      "title": "MedSkill-E²：从执行反馈进化专业 Agent Skill",
+      "summary": "研究发现 Agent 即便已配备专业 Skill，也可能在执行时忽略关键规则。EBU-Bench 在 12 组任务中测得自主与显式引导的平均 Skill 使用准确率差距达 43.94 个百分点。EBU-Evolve 根据执行反馈更新 Skill，使自主使用准确率提高 33.33—55.17 个百分点。",
+      "intro": "可用技能与实际采用技能是不同问题。",
+      "detail": "比较自主使用与显式引导阅读同一技能的表现，将有效引导提炼成可复用指令。",
+      "findings": "同一模型在不同 Harness 的自主技能使用准确率可相差 38.96 个百分点；修订技能在同技能未见任务及多个模型和 Harness 上仍有增益。",
+      "why_it_matters": "适合研究 Skill 触发、执行反馈驱动的工具自进化及跨 Harness 迁移。",
+      "published": "2026-11-25",
+      "score": 97,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34250"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "framework",
+        "self-evolution",
+        "skills"
+      ]
+    },
+    {
+      "title": "OpenAI：GPT-6 的蛋白质设计能力实验（补录）",
+      "summary": "OpenAI 于 11 月 24 日公布 GPT-6 系列在蛋白质设计中的实验结果，实验室测试在五个目标上观察到结合证据。研究显示通用模型在部分专业科研子任务中具备实际能力，但整体流程仍借助专用模型进行筛选。该案例说明 AI Scientist 的评测应结合计算结果与真实实验反馈。",
+      "intro": "科学 Agent 的价值需要通过专业领域结果验证。",
+      "detail": "研究结合通用模型的推理能力、专用模型及实验室验证，比较不同科学设计环节的表现。",
+      "findings": "部分环节取得积极结果，完整蛋白质结构预测仍明显落后于专用模型。",
+      "why_it_matters": "值得追踪通用科研能力与专业工具协作、实验反馈及科学评测。",
+      "published": "2026-11-24",
+      "score": 95,
+      "sources": [
+        {
+          "name": "OpenAI 官方研究",
+          "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "product",
+        "science"
+      ]
+    },
+    {
+      "title": "IRTIQA：检验 Agent 自进化的跨语言迁移",
+      "summary": "IRTIQA 将 DROP、SNIPS、AppWorld 和 SkillsBench 对齐为英语、乌尔都语与混合语版本。三套自进化框架通常提高任务能力，却未自动消除语言差距。结果显示跨语言公平性需要显式纳入自进化目标，而不能仅依赖英语训练收益。",
+      "intro": "英语中心的经验积累可能无法自然迁移至其他语言。",
+      "detail": "用矩阵语言混合流程与人工核验构建对齐任务，比较 Tool-R0、AgentEvolver、Autogenesis 及其基模。",
+      "findings": "AgentEvolver 的 AppWorld 完成率提升至 20%—36%，但较长任务的语言差距尤其明显；部分 RL 更新对乌尔都语推理影响更不利。",
+      "why_it_matters": "适合研究多语言训练数据、跨语言回归与自进化能力迁移。",
+      "published": "2026-11-25",
+      "score": 91,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34303"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "self-evolution",
+        "training"
+      ]
+    }
+  ]
+}

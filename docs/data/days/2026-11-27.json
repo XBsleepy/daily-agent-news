@@ -1,0 +1,598 @@
+{
+  "schema_version": 1,
+  "demo": false,
+  "date": "2026-11-27",
+  "generated_at": "2026-11-27T08:29:14+08:00",
+  "fields": [
+    {
+      "id": "field-1",
+      "name": "模型训练与数据"
+    },
+    {
+      "id": "field-2",
+      "name": "Personal Agent"
+    },
+    {
+      "id": "field-3",
+      "name": "Code / Work / Life Agent"
+    },
+    {
+      "id": "field-4",
+      "name": "RSI / AI4AI / 自进化"
+    },
+    {
+      "id": "field-5",
+      "name": "Agent / 后训练"
+    }
+  ],
+  "topic_groups": [
+    {
+      "id": "research",
+      "name": "研究主题"
+    },
+    {
+      "id": "scenario",
+      "name": "应用场景"
+    },
+    {
+      "id": "format",
+      "name": "信息类型"
+    }
+  ],
+  "topics": [
+    {
+      "id": "memory",
+      "name": "长期记忆",
+      "group": "research"
+    },
+    {
+      "id": "skills",
+      "name": "技能学习",
+      "group": "research"
+    },
+    {
+      "id": "self-evolution",
+      "name": "自我进化",
+      "group": "research"
+    },
+    {
+      "id": "continual-learning",
+      "name": "持续学习",
+      "group": "research"
+    },
+    {
+      "id": "tool-use",
+      "name": "工具使用",
+      "group": "research"
+    },
+    {
+      "id": "training",
+      "name": "训练与蒸馏",
+      "group": "research"
+    },
+    {
+      "id": "data-synthesis",
+      "name": "数据合成",
+      "group": "research"
+    },
+    {
+      "id": "environments",
+      "name": "环境构建",
+      "group": "research"
+    },
+    {
+      "id": "evaluation",
+      "name": "评测与验证",
+      "group": "research"
+    },
+    {
+      "id": "safety",
+      "name": "安全与权限",
+      "group": "research"
+    },
+    {
+      "id": "deployment",
+      "name": "运行与部署",
+      "group": "research"
+    },
+    {
+      "id": "personal",
+      "name": "个人助手",
+      "group": "scenario"
+    },
+    {
+      "id": "work",
+      "name": "办公协作",
+      "group": "scenario"
+    },
+    {
+      "id": "coding",
+      "name": "软件工程",
+      "group": "scenario"
+    },
+    {
+      "id": "science",
+      "name": "科研发现",
+      "group": "scenario"
+    },
+    {
+      "id": "benchmark",
+      "name": "评测基准",
+      "group": "format"
+    },
+    {
+      "id": "framework",
+      "name": "方法与框架",
+      "group": "format"
+    },
+    {
+      "id": "product",
+      "name": "产品与产业",
+      "group": "format"
+    }
+  ],
+  "brief": "今日主线：从全失败轨迹构建局部 RL 奖励、在相互依赖的任务流中检验自进化，以及跨平台电脑操作和专业 Skill 的可验证改进。11 月 26 日公开的新论文集中覆盖长程执行与训练环境，并补录此前未入榜的四项重要产业发布。",
+  "items": [
+    {
+      "id": "news-20261127-01",
+      "title": "SPLICE：从全失败 Rollout 中构建局部 Agent RL 信号",
+      "summary": "长程任务的全部采样轨迹失败时，GRPO 往往缺少有效的相对奖励梯度。SPLICE 让强模型在学生失败轨迹中提出局部修正，再用学生自身的后续执行估计价值。四组实验均优于 GRPO，成功率提升 2.8—9.8 个百分点。",
+      "intro": "长程软件工程与深度检索任务常遇到全零奖励。",
+      "detail": "从当前策略产生的失败轨迹选取切入点，提出多个有限长度的候选动作段，以多次学生策略续跑估计回报，并用正回报加权构造局部训练目标。对比完整教师轨迹指导，减少长距离离策略历史。",
+      "findings": "在 SWE-bench Verified 和 BrowseComp-Plus 上比较两类策略，最初失败的 SWE 任务毕业率比 GRPO 提升 10.8 个百分点。",
+      "why_it_matters": "值得用于稀疏奖励下的在线轨迹合成、失败恢复和低成本教师指导。",
+      "published": "2026-11-25",
+      "score": 100,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34777"
+        }
+      ],
+      "topics": [
+        "coding",
+        "data-synthesis",
+        "framework",
+        "training"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-02",
+      "title": "EvoLink-Bench：相互依赖的长程任务流中的 Agent 自进化",
+      "summary": "EvoLink-Bench 在持久工作空间中串联办公、对话和自动科研任务，后续任务依赖此前产生的知识或成果。研究比较五套 Agent 框架、三类基模配置与三种持久化条件，覆盖 19,635 个计分任务位置。结果表明更新记忆或状态不必然带来后续能力提升。",
+      "intro": "孤立任务或独立任务串难以检验持续服务中的经验复用。",
+      "detail": "L1 评估语言可表达知识的获取与修订，L2 评估执行反馈形成的可复用程序能力；Reset、Frozen、Evolving 条件分别控制历史状态与更新。",
+      "findings": "没有框架同时在两类任务稳定领先；重试只能恢复一部分失败，知识增长和能力增长不等价。",
+      "why_it_matters": "适合研究长期 Personal Agent、AutoResearch 和自进化系统的独立验证与遗忘。",
+      "published": "2026-11-25",
+      "score": 99,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34400"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "continual-learning",
+        "evaluation",
+        "memory",
+        "science",
+        "self-evolution",
+        "work"
+      ],
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3",
+        "field-4",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-03",
+      "title": "OS-Omni：六平台长程 Computer-Use Agent 环境",
+      "summary": "OS-Omni 首批 300 项任务覆盖 Windows、Ubuntu、macOS、iOS、Android 和 Web，并包含跨平台流程。人工任务平均需要 67.54 步，最强受测 Agent 成功率 68.5%，低于人类的 77.3%。该基准将持久应用状态和可执行终态验证纳入统一环境。",
+      "intro": "单平台、短步骤基准不能充分测试真实跨设备工作。",
+      "detail": "每平台 48 项任务，另有 12 项桌面与 Android 协同流程；统一提供初始化、平台适配器、轨迹记录和可执行的最终状态检查，支持账号、购物车、日历、消息等服务状态。",
+      "findings": "模型在 Linux 上可超过人工参考，但在 iOS 和 macOS 上落后超过 25 个百分点。",
+      "why_it_matters": "适合 CUA 环境建设、长程 RL 和跨平台任务合成。",
+      "published": "2026-11-25",
+      "score": 98,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34232"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "environments",
+        "evaluation",
+        "personal",
+        "tool-use",
+        "work"
+      ],
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-04",
+      "title": "Epochal Time Portal：时点冻结的预测 Agent 环境（补录）",
+      "summary": "Epochal 于 11 月 24 日推出 Time Portal，提供覆盖逾 30 年、超过一万亿网页的历史时点环境。Agent 可在指定时间点访问当时的网络信息，避免使用未来事件结果。该环境为预测任务的数据合成、训练奖励和回测提供新基础设施。",
+      "intro": "历史预测评测容易因后见信息污染而失真。",
+      "detail": "以时间戳控制历史网页访问，使决策时刻的信息可与后来实际结果配对；该发布在 11 月 26 日继续受到产业媒体报道。",
+      "findings": "重点是时间一致的可交互信息环境，而不只是历史文档检索。",
+      "why_it_matters": "值得研究以历史真实决策为种子的 RL 环境、可验证预测任务和时序泄漏检测。",
+      "published": "2026-11-24",
+      "score": 98,
+      "sources": [
+        {
+          "name": "Epochal 官方发布",
+          "url": "https://epochal.com/blog/introducing-time-portal"
+        }
+      ],
+      "topics": [
+        "data-synthesis",
+        "environments",
+        "evaluation",
+        "product"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-05",
+      "title": "MedSkill-E²：从执行反馈进化专业 Agent Skill",
+      "summary": "研究发现 Agent 即便已配备专业 Skill，也可能在执行时忽略关键规则。EBU-Bench 在 12 组任务中测得自主与显式引导的平均 Skill 使用准确率差距达 43.94 个百分点。EBU-Evolve 根据执行反馈更新 Skill，使自主使用准确率提高 33.33—55.17 个百分点。",
+      "intro": "可用技能与实际采用技能是不同问题。",
+      "detail": "比较自主使用与显式引导阅读同一技能的表现，将有效引导提炼成可复用指令。",
+      "findings": "同一模型在不同 Harness 的自主技能使用准确率可相差 38.96 个百分点；修订技能在同技能未见任务及多个模型和 Harness 上仍有增益。",
+      "why_it_matters": "适合研究 Skill 触发、执行反馈驱动的工具自进化及跨 Harness 迁移。",
+      "published": "2026-11-25",
+      "score": 97,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34250"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "framework",
+        "self-evolution",
+        "skills"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-06",
+      "title": "Anthropic：Skills over MCP 与长程任务协议（补录）",
+      "summary": "Anthropic 于 11 月 24 日在 Claude 推出 Skills over MCP 公测，服务端可在工具之外分发工作流程技能。Tasks 与 Elicitation 正式开放，分别支持长时间运行任务及向用户请求必要输入。MCP 从工具连接进一步演变为可持续的 Agent 协作接口。",
+      "intro": "Agent 调用工具时还需要知道工作流程，并能处理耗时和交互需求。",
+      "detail": "服务端提供按需加载的 Skill、异步任务状态及交互式信息请求；文件上传仍为逐步推出功能。",
+      "findings": "技能分发、执行状态与用户输入可由协议统一衔接，11 月 26 日仍有媒体跟进。",
+      "why_it_matters": "适合 Agent Harness、技能生态与跨服务长程执行架构。",
+      "published": "2026-11-25",
+      "score": 97,
+      "sources": [
+        {
+          "name": "Anthropic 官方发布",
+          "url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more"
+        }
+      ],
+      "topics": [
+        "deployment",
+        "product",
+        "skills",
+        "tool-use",
+        "work"
+      ],
+      "fields": [
+        "field-2",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-07",
+      "title": "Claim-level GRPO：从不完全可靠的客服示范学习",
+      "summary": "人工客服回复中约四分之一的事实声明缺乏知识库或工具记录的完整支持。研究先验证声明，再以声明覆盖度与证据精确性构造 GRPO 奖励，使离线幻觉率由 SFT 的 13.6% 降至 8.6%。线上随机 A/B 测试中，无需人工介入即可结束的会话比例从 63.3% 升至 80.8%。",
+      "intro": "正确的人工回复未必是可直接模仿的训练目标。",
+      "detail": "将回复分解为可核验事实，未获支持的声明用于修订知识库与工具；已验证的声明作为覆盖目标，同时检查生成回答与实际检索证据是否一致。",
+      "findings": "线上对照是原有流程式机器人，离线对照是 SFT，二者不应混为同一基线。",
+      "why_it_matters": "为企业 Agent 数据治理、真实业务奖励和生产 A/B 验证提供案例。",
+      "published": "2026-11-25",
+      "score": 96,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34341"
+        }
+      ],
+      "topics": [
+        "data-synthesis",
+        "evaluation",
+        "framework",
+        "training",
+        "work"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-08",
+      "title": "Google Workspace MCP 与 CLI 正式开放（补录）",
+      "summary": "Google 于 11 月 24 日宣布 Workspace MCP 服务与官方 CLI 正式开放，覆盖 Gmail、Drive、Docs 等八项应用。新接口配备用户确认、审计和管理控制，Agent 的 MCP 接入要求将于 2027 年 2 月 1 日开始执行。该变化为企业 Work Agent 提供更标准化的工具和权限接口。",
+      "intro": "企业工作流需要统一的数据接入、鉴权和审计。",
+      "detail": "云端 Agent 使用托管 MCP 服务，终端 Agent 可使用 CLI；标准与扩展用量分层，Gmail、Drive、Calendar 的扩展用量收费计划于 2027 年 4 月 1 日开始。",
+      "findings": "官方发布后 11 月 26 日有行业媒体跟进，工具调用与企业治理同步标准化。",
+      "why_it_matters": "适合研究生产级工作环境、权限边界和办公 Agent 部署。",
+      "published": "2026-11-24",
+      "score": 96,
+      "sources": [
+        {
+          "name": "Google Workspace 官方发布",
+          "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html"
+        }
+      ],
+      "topics": [
+        "deployment",
+        "product",
+        "safety",
+        "tool-use",
+        "work"
+      ],
+      "fields": [
+        "field-2",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-09",
+      "title": "DRBench Pro：结构化知识覆盖的深度研究 Agent 基准",
+      "summary": "DRBench Pro 从维基百科构建局部知识树，采样子图生成研究问题及证据化评分规则。基准覆盖 24 个领域、144 项任务和 44,102 条评分规则，最强受测 Agent 的总体覆盖率为 57.04%。广度与深度分开测量，有助于识别报告遗漏的研究方向。",
+      "intro": "开放式研究报告的整体分数容易掩盖具体知识遗漏。",
+      "detail": "评分规则对应知识树中的关系，分别评估主要方向覆盖和知识链深入程度，并以几何平均形成总体指标；Agent 仅收到问题。",
+      "findings": "16 套深度研究 Agent 呈现不同广度和深度优势，评分与人工标注较一致。",
+      "why_it_matters": "适合自动研究任务合成、可解释评测与深度研究后训练。",
+      "published": "2026-11-25",
+      "score": 95,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34852"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "data-synthesis",
+        "evaluation",
+        "science",
+        "work"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-10",
+      "title": "μ-Bench：多人共享语音 Agent 的闭环任务评测",
+      "summary": "μ-Bench 在 20 个领域构建 100 种多人互动场景，共 800 项用例。模拟参与者拥有独立目标、知识与权限，并随 Agent 的语音及工具结果动态回应。13 套语音 Agent 中闭源系统最高联合成功率为 65.44%，开源模型低于 20%。",
+      "intro": "家庭和团队语音助手需要同时处理多个用户的请求与权限。",
+      "detail": "408 项工具增强与 392 项无工具用例；联合成功要求全部目标、隐私边界和终态同时成立，Pure JTS 进一步排除未授权工具调用。",
+      "findings": "多人归因、对话线程与协调是关键诊断维度；更大群体普遍降低成功率。",
+      "why_it_matters": "适合多用户 Personal Agent、权限评测和交互环境设计。",
+      "published": "2026-11-25",
+      "score": 95,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34920"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "personal",
+        "safety",
+        "tool-use"
+      ],
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-11",
+      "title": "OpenAI：GPT-6 的蛋白质设计能力实验（补录）",
+      "summary": "OpenAI 于 11 月 24 日公布 GPT-6 系列在蛋白质设计中的实验结果，实验室测试在五个目标上观察到结合证据。研究显示通用模型在部分专业科研子任务中具备实际能力，但整体流程仍借助专用模型进行筛选。该案例说明 AI Scientist 的评测应结合计算结果与真实实验反馈。",
+      "intro": "科学 Agent 的价值需要通过专业领域结果验证。",
+      "detail": "研究结合通用模型的推理能力、专用模型及实验室验证，比较不同科学设计环节的表现。",
+      "findings": "部分环节取得积极结果，完整蛋白质结构预测仍明显落后于专用模型。",
+      "why_it_matters": "值得追踪通用科研能力与专业工具协作、实验反馈及科学评测。",
+      "published": "2026-11-24",
+      "score": 95,
+      "sources": [
+        {
+          "name": "OpenAI 官方研究",
+          "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "product",
+        "science"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-12",
+      "title": "Coding Agent Over-Editing：逐块回滚定位冗余修改",
+      "summary": "研究通过逐块撤销最终补丁并重新运行测试，判断每项编辑是否为任务所需。分析 18 款模型的 7,660 条已解决 Coding Agent 轨迹后发现，Agent 代码修改平均并不比开发者更冗余。SWE-bench Verified 上仍有约 11% 的代码修改单元未被任务测试要求。",
+      "intro": "补丁变大并不等于过度修改。",
+      "detail": "DRA 将最终补丁单元追溯到写入步骤，逐个撤销并执行测试；比较 SWE-bench Verified 与 DeepSWE，以及同口径开发者补丁。",
+      "findings": "SWE-bench Verified 中额外修改多数是测试和文档；在 DeepSWE 中额外修改多数为代码，必要性与解决率并不一致。",
+      "why_it_matters": "为最小补丁奖励、编辑归因与代码评审 Agent 提供参考。",
+      "published": "2026-11-25",
+      "score": 94,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34875"
+        }
+      ],
+      "topics": [
+        "coding",
+        "evaluation",
+        "framework"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-13",
+      "title": "Solve Vision with Code：用程序替代视频生成完成视觉推理",
+      "summary": "研究在同一视觉推理基准上比较视频生成与 Coding Agent 编程渲染两条路线。500 项任务中 Codex、Claude Code 和 Gemini CLI 平均得分分别为 0.923、0.894 和 0.893，均比最强视频模型高逾 0.22。结果显示对于可符号化的视觉任务，程序生成可以成为强有力的替代方案。",
+      "intro": "原生视觉生成并不天然比符号程序更可靠。",
+      "detail": "两条路线获得相同首帧、提示和输出要求；Coding Agent 在每题一次尝试的条件下生成渲染视频程序，并由原有规则评估器评分。",
+      "findings": "实验覆盖五类认知任务，不代表开放视觉生成的一般能力排序。",
+      "why_it_matters": "适合研究可执行视觉推理、程序化数据生成与可验证奖励。",
+      "published": "2026-11-25",
+      "score": 93,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34813"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "coding",
+        "data-synthesis",
+        "evaluation"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-14",
+      "title": "LoopTitan：拆解循环 MoE 的真实收益",
+      "summary": "LoopTitan 通过匹配参数、计算量和 KV Cache 的控制实验，拆解重复访问层参数的收益。研究发现多数增益来自网络形状与残差缩放，而非重复访问本身。使用 Muon 时，不共享参数的更深 MoE 在匹配预算下实现额外循环收益的 90.2%。",
+      "intro": "循环 MoE 的收益容易与深度、专家数量及优化器设计混淆。",
+      "detail": "依次隔离网络形状、残差缩放与参数复用；对比 AdamW 和 Muon 的层级步长差异，并比较增加计算量时不同结构的表现。",
+      "findings": "残差缩放可在重复层上产生类似降低学习率的作用，优化器变化会改变其收益。",
+      "why_it_matters": "为基础模型训练架构的公平对比与计算预算分配提供参考。",
+      "published": "2026-11-25",
+      "score": 92,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34821"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "framework",
+        "training"
+      ],
+      "fields": [
+        "field-1"
+      ]
+    },
+    {
+      "id": "news-20261127-15",
+      "title": "IRTIQA：检验 Agent 自进化的跨语言迁移",
+      "summary": "IRTIQA 将 DROP、SNIPS、AppWorld 和 SkillsBench 对齐为英语、乌尔都语与混合语版本。三套自进化框架通常提高任务能力，却未自动消除语言差距。结果显示跨语言公平性需要显式纳入自进化目标，而不能仅依赖英语训练收益。",
+      "intro": "英语中心的经验积累可能无法自然迁移至其他语言。",
+      "detail": "用矩阵语言混合流程与人工核验构建对齐任务，比较 Tool-R0、AgentEvolver、Autogenesis 及其基模。",
+      "findings": "AgentEvolver 的 AppWorld 完成率提升至 20%—36%，但较长任务的语言差距尤其明显；部分 RL 更新对乌尔都语推理影响更不利。",
+      "why_it_matters": "适合研究多语言训练数据、跨语言回归与自进化能力迁移。",
+      "published": "2026-11-25",
+      "score": 91,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34303"
+        }
+      ],
+      "topics": [
+        "benchmark",
+        "evaluation",
+        "self-evolution",
+        "training"
+      ],
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-4",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261127-16",
+      "title": "RouteabilityBench：先审计可路由空间，再比较模型路由器",
+      "summary": "研究提出 RAP 审计协议，先判断模型组合在不同提示上是否存在足够的互补表现，再解释路由收益。对四个基准与 66 款模型的分析显示，多种通用路由增强方法并不能稳定超过最佳单模型。较清晰的正向收益主要集中在特定模型组合的 Omni-MATH 设置。",
+      "intro": "单模型已接近组合上限或大量并列时，路由器没有足够优化空间。",
+      "detail": "基于模型与任务评分矩阵做回顾性审计，报告并列最优情况、模型组合选择及多重比较校正。",
+      "findings": "GPQA、MMLU-Pro、IFEval 呈现不同的路由难度与预测器敏感性。",
+      "why_it_matters": "适用于多模型 Harness、路由成本效果研究及评测设计。",
+      "published": "2026-11-25",
+      "score": 90,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34825"
+        }
+      ],
+      "topics": [
+        "deployment",
+        "evaluation",
+        "framework"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-5"
+      ]
+    }
+  ]
+}
