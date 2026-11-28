@@ -1,0 +1,73 @@
+{
+  "field": "field-3",
+  "date": "2026-11-28",
+  "items": [
+    {
+      "title": "REE：科研 Agent 的开放式研究入学考试",
+      "summary": "REE 从五大科学领域、23 个方向选取 100 项经专家审核的开放式研究问题，要求 Agent 在 12 小时内迭代改进可运行的初始方案。Claude Opus 5.5 和 GPT-6.1 Sol 分别在 86% 和 81% 的任务上超过指定专家方案。两者平均在前两小时便超过基准，最佳方案主要来自对已有专业方法的调整或组合。",
+      "intro": "科研评测需要衡量从可运行基线到更好结果的真实迭代能力。",
+      "detail": "每题给出起始方案，将 Agent 的改进结果与可比条件下的既有专家方案映射到统一分数；研究同时分析执行过程。",
+      "findings": "四个前沿 Agent 参加评测；两款领先系统在五大领域均取得超过指定专家基线的结果。",
+      "why_it_matters": "适合构建以真实研究问题、可运行种子及客观结果为核心的 AutoResearch 环境，进一步研究原创方法发现与已有方法组合的区别。",
+      "published": "2026-11-25",
+      "score": 100,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34646"
+        }
+      ],
+      "topics": [
+        "science",
+        "benchmark",
+        "evaluation",
+        "environments"
+      ]
+    },
+    {
+      "title": "NVIDIA NOOA：让模型自主管理上下文",
+      "summary": "NVIDIA 在 NOOA Harness 中提供上下文 API，让模型自行决定何时及如何压缩历史，而不是由外层固定触发。32K 预算下 GPT-6.1 在 OfficeQA Pro v2 上从 21% 升至 56%，Kimi 在取得收益的同时最多减少 41% 输入 token。通过复用编辑后未改变后缀的 KV Cache，每次请求预填充计算量最多减少 15%。",
+      "intro": "长程 Agent 的上下文容量有限，压缩策略直接影响证据保留。",
+      "detail": "在文档研究和机器学习工程任务上，比较模型自主压缩与 Harness 自动压缩，预算从 8K 到 512K；进一步评估推理引擎的缓存编辑支持。",
+      "findings": "不同模型的 API 使用频次与压缩时机差异明显，提示词也会影响行为；缓存优化未带来可测的准确率变化。",
+      "why_it_matters": "值得将上下文操作加入 Agent RL 动作空间，并协同设计模型训练、Harness 和推理服务。",
+      "published": "2026-11-25",
+      "score": 99,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34147"
+        }
+      ],
+      "topics": [
+        "memory",
+        "tool-use",
+        "deployment",
+        "framework",
+        "work"
+      ]
+    },
+    {
+      "title": "Partial Routing：从历史轨迹学习子任务委派",
+      "summary": "Partial Routing 从强弱模型的既有执行轨迹提取反复出现的子任务，并估计各模型在这些子任务上的质量和成本。执行时由前沿模型动态决定是否委派，无需训练任一模型。在留出的 ViBench 任务上得分由 70.2 提至 78.5 且成本降低 19%，Terminal-Bench 4.0 通过率由 54% 提至 61%。",
+      "intro": "整任务路由忽略了复杂工作流中简单和困难步骤混合的现象。",
+      "detail": "通过过去运行提取任务分解和委派指导，以参数控制委派范围；主模型在执行期间保留决策权。",
+      "findings": "在只提供子任务分解而不使用辅助模型的实验中，两项基准成本也有下降，Terminal-Bench 通过率提高。",
+      "why_it_matters": "值得研究以实际轨迹为种子的委派策略、跨任务泛化和能力—成本联合优化。",
+      "published": "2026-11-24",
+      "score": 96,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.33402"
+        }
+      ],
+      "topics": [
+        "coding",
+        "tool-use",
+        "deployment",
+        "framework"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "demo": false,
+  "date": "2026-11-28",
+  "generated_at": "2026-11-28T08:30:00+08:00",
+  "fields": [
+    {
+      "id": "field-1",
+      "name": "模型训练与数据"
+    },
+    {
+      "id": "field-2",
+      "name": "Personal Agent"
+    },
+    {
+      "id": "field-3",
+      "name": "Code / Work / Life Agent"
+    },
+    {
+      "id": "field-4",
+      "name": "RSI / AI4AI / 自进化"
+    },
+    {
+      "id": "field-5",
+      "name": "Agent / 后训练"
+    }
+  ],
+  "topic_groups": [
+    {
+      "id": "research",
+      "name": "研究主题"
+    },
+    {
+      "id": "scenario",
+      "name": "应用场景"
+    },
+    {
+      "id": "format",
+      "name": "信息类型"
+    }
+  ],
+  "topics": [
+    {
+      "id": "memory",
+      "name": "长期记忆",
+      "group": "research"
+    },
+    {
+      "id": "skills",
+      "name": "技能学习",
+      "group": "research"
+    },
+    {
+      "id": "self-evolution",
+      "name": "自我进化",
+      "group": "research"
+    },
+    {
+      "id": "continual-learning",
+      "name": "持续学习",
+      "group": "research"
+    },
+    {
+      "id": "tool-use",
+      "name": "工具使用",
+      "group": "research"
+    },
+    {
+      "id": "training",
+      "name": "训练与蒸馏",
+      "group": "research"
+    },
+    {
+      "id": "data-synthesis",
+      "name": "数据合成",
+      "group": "research"
+    },
+    {
+      "id": "environments",
+      "name": "环境构建",
+      "group": "research"
+    },
+    {
+      "id": "evaluation",
+      "name": "评测与验证",
+      "group": "research"
+    },
+    {
+      "id": "safety",
+      "name": "安全与权限",
+      "group": "research"
+    },
+    {
+      "id": "deployment",
+      "name": "运行与部署",
+      "group": "research"
+    },
+    {
+      "id": "personal",
+      "name": "个人助手",
+      "group": "scenario"
+    },
+    {
+      "id": "work",
+      "name": "办公协作",
+      "group": "scenario"
+    },
+    {
+      "id": "coding",
+      "name": "软件工程",
+      "group": "scenario"
+    },
+    {
+      "id": "science",
+      "name": "科研发现",
+      "group": "scenario"
+    },
+    {
+      "id": "benchmark",
+      "name": "评测基准",
+      "group": "format"
+    },
+    {
+      "id": "framework",
+      "name": "方法与框架",
+      "group": "format"
+    },
+    {
+      "id": "product",
+      "name": "产品与产业",
+      "group": "format"
+    }
+  ],
+  "brief": "今日主线：科学 Agent 的真实迭代评测、模型自主上下文管理、记忆采用与权重编程的能力边界。周末精选 11 月 26 日公开批次中此前尚未入榜的七项研究，补充子任务委派及知识库自组织。",
+  "items": [
+    {
+      "id": "news-20261128-01",
+      "title": "REE：科研 Agent 的开放式研究入学考试",
+      "summary": "REE 从五大科学领域、23 个方向选取 100 项经专家审核的开放式研究问题，要求 Agent 在 12 小时内迭代改进可运行的初始方案。Claude Opus 5.5 和 GPT-6.1 Sol 分别在 86% 和 81% 的任务上超过指定专家方案。两者平均在前两小时便超过基准，最佳方案主要来自对已有专业方法的调整或组合。",
+      "intro": "科研评测需要衡量从可运行基线到更好结果的真实迭代能力。",
+      "detail": "每题给出起始方案，将 Agent 的改进结果与可比条件下的既有专家方案映射到统一分数；研究同时分析执行过程。",
+      "findings": "四个前沿 Agent 参加评测；两款领先系统在五大领域均取得超过指定专家基线的结果。",
+      "why_it_matters": "适合构建以真实研究问题、可运行种子及客观结果为核心的 AutoResearch 环境，进一步研究原创方法发现与已有方法组合的区别。",
+      "published": "2026-11-25",
+      "score": 100,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34646"
+        }
+      ],
+      "topics": [
+        "science",
+        "benchmark",
+        "evaluation",
+        "environments"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-4",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261128-02",
+      "title": "NVIDIA NOOA：让模型自主管理上下文",
+      "summary": "NVIDIA 在 NOOA Harness 中提供上下文 API，让模型自行决定何时及如何压缩历史，而不是由外层固定触发。32K 预算下 GPT-6.1 在 OfficeQA Pro v2 上从 21% 升至 56%，Kimi 在取得收益的同时最多减少 41% 输入 token。通过复用编辑后未改变后缀的 KV Cache，每次请求预填充计算量最多减少 15%。",
+      "intro": "长程 Agent 的上下文容量有限，压缩策略直接影响证据保留。",
+      "detail": "在文档研究和机器学习工程任务上，比较模型自主压缩与 Harness 自动压缩，预算从 8K 到 512K；进一步评估推理引擎的缓存编辑支持。",
+      "findings": "不同模型的 API 使用频次与压缩时机差异明显，提示词也会影响行为；缓存优化未带来可测的准确率变化。",
+      "why_it_matters": "值得将上下文操作加入 Agent RL 动作空间，并协同设计模型训练、Harness 和推理服务。",
+      "published": "2026-11-25",
+      "score": 99,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34147"
+        }
+      ],
+      "topics": [
+        "memory",
+        "tool-use",
+        "deployment",
+        "framework",
+        "work"
+      ],
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261128-03",
+      "title": "TASK Memory：结合文本记忆、激活引导和知识编辑",
+      "summary": "研究发现正确记忆即使已经检索进上下文，也可能被模型忽略、错误应用或与旧版本混淆。TASK 结合文本笔记、可移除知识编辑与激活引导来控制记忆的实际使用。十个模型—数据集组合中的记忆忽略率降至最高 1.5%，邻近事实误用率由 39.2% 降至 7.5%。",
+      "intro": "外部记忆系统不仅要找到正确事实，还要解决模型参数知识与最新记忆之间的冲突。",
+      "detail": "文本保存内容，知识编辑提供模型内寻址，激活向量按查询控制是否采用记忆；三者共享地址但引导向量本身不存储事实。",
+      "findings": "300 条记忆时比 BM25 RAG 高 16.4 个百分点，优势持续至 3000 条；MQuAKE 多跳准确率增加 7.5 个百分点。",
+      "why_it_matters": "适合研究长期 Personal Agent 的记忆采用、版本更新和可撤销知识机制，而非只优化检索准确率。",
+      "published": "2026-11-25",
+      "score": 98,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34762"
+        }
+      ],
+      "topics": [
+        "memory",
+        "personal",
+        "continual-learning",
+        "framework"
+      ],
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-4",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261128-04",
+      "title": "FWSP：确定性前向权重编程及其能力边界",
+      "summary": "FWSP 将此前由 LLM 执行的前向权重编程拆为确定性的探测、定位、算子选择和验证流程。自动算子路由成功率为 83.3%，同工具库的 27B LLM 为 33.3%。研究还展示了前向编辑受限于子空间纠缠及冻结表示范围的情形，为理解直接权重编辑的适用边界提供依据。",
+      "intro": "权重空间编程是否必须依赖 LLM 作为优化器，是判断其自进化价值的重要问题。",
+      "detail": "采用分层算子与配对验证；针对推理模型提出基于协方差白化的 Protected FisherGate，使编辑与常规推理状态正交，并研究结合 LoRA 的补充适配方式。",
+      "findings": "DeepSeek-R1-0528-8B 的单个数学校准补丁在 1K 预算下达到 84.2% HumanEval pass@1；研究跨五类模态、十三个模型检验算子边界。",
+      "why_it_matters": "与此前权重编程研究形成互补，提示 RSI 需要区分可代数化编辑、需要梯度的适配以及真正的自主算法发现。",
+      "published": "2026-11-25",
+      "score": 97,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34612"
+        }
+      ],
+      "topics": [
+        "self-evolution",
+        "training",
+        "framework"
+      ],
+      "fields": [
+        "field-1",
+        "field-4",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261128-05",
+      "title": "Partial Routing：从历史轨迹学习子任务委派",
+      "summary": "Partial Routing 从强弱模型的既有执行轨迹提取反复出现的子任务，并估计各模型在这些子任务上的质量和成本。执行时由前沿模型动态决定是否委派，无需训练任一模型。在留出的 ViBench 任务上得分由 70.2 提至 78.5 且成本降低 19%，Terminal-Bench 4.0 通过率由 54% 提至 61%。",
+      "intro": "整任务路由忽略了复杂工作流中简单和困难步骤混合的现象。",
+      "detail": "通过过去运行提取任务分解和委派指导，以参数控制委派范围；主模型在执行期间保留决策权。",
+      "findings": "在只提供子任务分解而不使用辅助模型的实验中，两项基准成本也有下降，Terminal-Bench 通过率提高。",
+      "why_it_matters": "值得研究以实际轨迹为种子的委派策略、跨任务泛化和能力—成本联合优化。",
+      "published": "2026-11-24",
+      "score": 96,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.33402"
+        }
+      ],
+      "topics": [
+        "coding",
+        "tool-use",
+        "deployment",
+        "framework"
+      ],
+      "fields": [
+        "field-1",
+        "field-3",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261128-06",
+      "title": "Knowledge-Base Gradient Descent：用问答反馈演化知识库结构",
+      "summary": "该方法以问题和期望答案为学习信号，根据回答错误生成知识库结构修改候选。每轮重建知识库并仅保留降低学习损失的编辑，使图 Schema 或关联文档随任务反馈演化。在研究论文集合上，更新后的结构提升留出合成问题的平均 Answer F1，而在人类问题上图 Schema 提升、知识卡片下降。",
+      "intro": "传统知识库结构通常由人工决定，未必适配实际查询分布。",
+      "detail": "用问答误差诊断结构问题，随机化候选编辑选择并将损失变化表达为选择概率的导数；联合编辑作为单独候选处理交互效应。",
+      "findings": "图 Schema 在每个实验文档上均提高留出合成问题表现，但不同表示在人类问题上的泛化方向不同。",
+      "why_it_matters": "适合研究持久知识库的反馈驱动自组织，以及合成查询分布与真实使用分布之间的差距。",
+      "published": "2026-11-25",
+      "score": 94,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34841"
+        }
+      ],
+      "topics": [
+        "memory",
+        "self-evolution",
+        "continual-learning",
+        "framework"
+      ],
+      "fields": [
+        "field-1",
+        "field-2",
+        "field-4",
+        "field-5"
+      ]
+    },
+    {
+      "id": "news-20261128-07",
+      "title": "Puzzling-Bench：带社区验证答案的 23,777 道谜题",
+      "summary": "Puzzling-Bench 从 2014—2026 年 Puzzling Stack Exchange 整理 23,777 道含社区确认答案的谜题，并保留提示、标签与创建日期。九款模型在共享 255 题上的最高准确率为 GPT-6.1 的 74.8%，其中 17 题无人解出。九模型理论最优组合可达 91%，而移除多模态试验中的图片使两款最佳模型分别下降 24 和 35 个百分点。",
+      "intro": "人类构造的谜题可补充标准推理题库，并支持不同解题能力的诊断。",
+      "detail": "采用标准化精确匹配与 LLM Judge 两级评分，三位来自两个模型家族的评判器一致率为 95%—97%；保留时间信息用于训练截止日期后的污染检查。",
+      "findings": "模型失败具有较强相关性，贪心组合中第二名只额外解出一题；254 道题晚于六款受测模型的训练截止日期。",
+      "why_it_matters": "可用于研究人类来源的推理训练数据、多模态推理、提示增益以及多模型协作上限。",
+      "published": "2026-11-25",
+      "score": 92,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34331"
+        }
+      ],
+      "topics": [
+        "evaluation",
+        "data-synthesis",
+        "benchmark"
+      ],
+      "fields": [
+        "field-1",
+        "field-5"
+      ]
+    }
+  ]
+}

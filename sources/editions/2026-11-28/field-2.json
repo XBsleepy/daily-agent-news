@@ -1,0 +1,73 @@
+{
+  "field": "field-2",
+  "date": "2026-11-28",
+  "items": [
+    {
+      "title": "NVIDIA NOOA：让模型自主管理上下文",
+      "summary": "NVIDIA 在 NOOA Harness 中提供上下文 API，让模型自行决定何时及如何压缩历史，而不是由外层固定触发。32K 预算下 GPT-6.1 在 OfficeQA Pro v2 上从 21% 升至 56%，Kimi 在取得收益的同时最多减少 41% 输入 token。通过复用编辑后未改变后缀的 KV Cache，每次请求预填充计算量最多减少 15%。",
+      "intro": "长程 Agent 的上下文容量有限，压缩策略直接影响证据保留。",
+      "detail": "在文档研究和机器学习工程任务上，比较模型自主压缩与 Harness 自动压缩，预算从 8K 到 512K；进一步评估推理引擎的缓存编辑支持。",
+      "findings": "不同模型的 API 使用频次与压缩时机差异明显，提示词也会影响行为；缓存优化未带来可测的准确率变化。",
+      "why_it_matters": "值得将上下文操作加入 Agent RL 动作空间，并协同设计模型训练、Harness 和推理服务。",
+      "published": "2026-11-25",
+      "score": 99,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34147"
+        }
+      ],
+      "topics": [
+        "memory",
+        "tool-use",
+        "deployment",
+        "framework",
+        "work"
+      ]
+    },
+    {
+      "title": "TASK Memory：结合文本记忆、激活引导和知识编辑",
+      "summary": "研究发现正确记忆即使已经检索进上下文，也可能被模型忽略、错误应用或与旧版本混淆。TASK 结合文本笔记、可移除知识编辑与激活引导来控制记忆的实际使用。十个模型—数据集组合中的记忆忽略率降至最高 1.5%，邻近事实误用率由 39.2% 降至 7.5%。",
+      "intro": "外部记忆系统不仅要找到正确事实，还要解决模型参数知识与最新记忆之间的冲突。",
+      "detail": "文本保存内容，知识编辑提供模型内寻址，激活向量按查询控制是否采用记忆；三者共享地址但引导向量本身不存储事实。",
+      "findings": "300 条记忆时比 BM25 RAG 高 16.4 个百分点，优势持续至 3000 条；MQuAKE 多跳准确率增加 7.5 个百分点。",
+      "why_it_matters": "适合研究长期 Personal Agent 的记忆采用、版本更新和可撤销知识机制，而非只优化检索准确率。",
+      "published": "2026-11-25",
+      "score": 98,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34762"
+        }
+      ],
+      "topics": [
+        "memory",
+        "personal",
+        "continual-learning",
+        "framework"
+      ]
+    },
+    {
+      "title": "Knowledge-Base Gradient Descent：用问答反馈演化知识库结构",
+      "summary": "该方法以问题和期望答案为学习信号，根据回答错误生成知识库结构修改候选。每轮重建知识库并仅保留降低学习损失的编辑，使图 Schema 或关联文档随任务反馈演化。在研究论文集合上，更新后的结构提升留出合成问题的平均 Answer F1，而在人类问题上图 Schema 提升、知识卡片下降。",
+      "intro": "传统知识库结构通常由人工决定，未必适配实际查询分布。",
+      "detail": "用问答误差诊断结构问题，随机化候选编辑选择并将损失变化表达为选择概率的导数；联合编辑作为单独候选处理交互效应。",
+      "findings": "图 Schema 在每个实验文档上均提高留出合成问题表现，但不同表示在人类问题上的泛化方向不同。",
+      "why_it_matters": "适合研究持久知识库的反馈驱动自组织，以及合成查询分布与真实使用分布之间的差距。",
+      "published": "2026-11-25",
+      "score": 94,
+      "sources": [
+        {
+          "name": "arXiv 原始论文",
+          "url": "https://arxiv.org/abs/2611.34841"
+        }
+      ],
+      "topics": [
+        "memory",
+        "self-evolution",
+        "continual-learning",
+        "framework"
+      ]
+    }
+  ]
+}
